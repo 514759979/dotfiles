@@ -1,0 +1,45 @@
+cd /opt/java/jre/lib/fonts
+mkdir fallback
+cd fallback/
+ln -s /usr/share/fonts/wenquanyi/wqy-zenhei/wqy-zenhei.ttc .
+mkfontdir
+mkfontscale
+
+mencoder提取
+mencoder -o out.mp3 -ovc frameno -oac mp3lame -lameopts cbr:br=128 -of rawaudio -ss 1:30 -endpos 2:45 test.rmvb
+在实际操作中，用户需要更改的就是那两个时间参数值了！该命令参数的详细说明如下：
+-o out.mp3 输出的目标文件名称
+-ovc frameno 不处理视频编码
+-oac mp3lame 输出的音频编码格式为mp3
+-lameopts cbr:br=128 音频附件选项，cbr(常量比特率)编码格式，音频码流为128bps(对于mp3来说，128已经足够了)
+-of rawaudio 输出文件为原始音频流
+-ss 1:30 音频截取的起始时间(表示从影片的第1分30秒开始截取)
+-endpos 2:45 预截取音频的长度(表示预截取的音频长度是2分45秒，那么可以计算出其结束时间是4:15)
+test.rmvb 输入源文件
+
+#反交错
+mplayer -vf pp=l5
+mplayer -vf yadif
+
+进制转换
+echo "ibase=A;obase=2;100" | bc
+
+无线：
+sudo iwlist wlan0 scan
+sudo iwconfig wlan0 essid "dlink" key "xxx" channel 1
+sudo dhcpcd wlan0
+
+openssl:
+　　enc表明你打算使用某个算法
+　　-des是具体使用的某个算法
+　　-e 表明要加密
+　　-a 同样是使用ASCII进行编码
+　　-in 要加密的文件名字
+　　-out 加密后的文件名字
+
+# 对所有用户开放USB设备的读写权限
+none /proc/bus/usb usbfs devmode=666 0 0
+x:5:once:/bin/su osily -l -c "/bin/bash --login -c xinit &>/dev/null"
+pcspkr 模块 响铃
+sudo mv 49-sansserif.conf 49-sansserif.conf.bak
+prd xorg-fonts-misc

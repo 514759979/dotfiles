@@ -1,0 +1,41 @@
+#!/bin/bash
+if [ $# == 0 ]; then
+    exit
+fi
+
+p=${1:(-3)}
+
+MSOPATH=/opt/msoffice
+if [ $p = doc ] || [ $p = ppt ] || [ $p = xls ]; then
+    export LC_ALL=zh_CN.UTF8
+fi
+a=$(echo -n $1|sed 's/\//\\/g')
+
+basen=$(basename "$a")
+if ! [ "$a" = "$basen" ]; then
+    a=Z:\\$a
+fi
+
+
+if ! [ $p ]; then
+    p=$1
+fi
+
+if [ $p = pdf ]; then
+    evince "$1" &>/dev/null &
+elif [ $p = txt ]; then
+    vim "$1"
+elif [ $p = chm ]; then
+    kchmviewer "$1" &
+elif [ $p = htm ] || [ $p = tml ] || [ $p = mht ]; then
+    firefox `pwd`/"$1" &
+elif [ $p = doc ] || [ $p = ppt ] || [ $p = xls ] || [ $p = ocx ] || [ $p = ptx ] || [ $p = psx ] || [ $p = lsx ]; then
+    libreoffice "$@" &>/dev/null &
+elif [ $p = nes ]; then
+    fceux "$1" &
+elif [ $p = jpg ] || [ $p = png ] || [ $p = JPG ] || [ $p = PNG ] || [ $p = gif ] || [ $p = GIF ]; then
+    geeqie $p &>/dev/null &
+else
+    vim "$1"
+fi
+

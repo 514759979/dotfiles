@@ -1,0 +1,6 @@
+#!/bin/zsh
+res=
+
+time=`date +%m.%d\ %w\ %H:%M`
+res+=$time
+echo -n $res

@@ -1,0 +1,9 @@
+#!/bin/bash
+#chall jpg aa: aa[1-x].jpg
+ext=`ls|sed -n '1p'|sed -e 's/^.*\.\([^.]*\)$/\1/g'`
+for i in *; do mv "$i" "$i.tmp"; done;
+if [ "$#" = "1" ] || [ "$#" = "2" ];then
+	ext=$1
+fi
+a=1
+for i in *; do mv "$i" $2$a.$ext;a=$(($a+1)); done;

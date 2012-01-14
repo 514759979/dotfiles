@@ -1,0 +1,13 @@
+#!/usr/bin/env python2
+# coding=utf8
+
+from os import *;
+import sys;
+a = listdir(getcwd());
+b = 97;
+for i in a:
+	chdir(i);
+	system("/home/osily/software/bin/chall jpg " + chr(b));
+	b = b+1;
+	chdir("..");
+

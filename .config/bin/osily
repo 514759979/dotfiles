@@ -1,0 +1,5 @@
+#!/bin/zsh
+cd
+#unset TMUX
+#tmux a >/dev/null || tmux
+screen -x || screen

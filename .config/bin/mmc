@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ $# -ne 3 ]; then
+    echo error
+    exit 1
+fi
+
+if [ $3 -eq 0 ];then
+    address=972238
+else
+    address=7739854
+fi
+
+dd if=$1 of=$2 seek=$address count=512 conv=notrunc
+dd if=$1 of=$2 seek=$((address+512+32)) count=16 conv=notrunc

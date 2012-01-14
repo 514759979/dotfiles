@@ -1,0 +1,4 @@
+#!/bin/bash
+echo '#Server = http://mirror.bjtu.edu.cn/archlinux/$repo/os/$arch'|sudo tee >/dev/null /etc/pacman.d/mirrorlist
+curl "http://www.archlinux.org/mirrorlist/?country=all&protocol=ftp&protocol=http&ip_version=6&use_mirror_status=on"|sed 's/^#//g'|sudo tee -a >/dev/null /etc/pacman.d/mirrorlist
+

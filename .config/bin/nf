@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ $# = 0 ]; then
+    ls ~/.config/templete
+    exit 0
+fi
+cp ~/.config/templete/$1* .

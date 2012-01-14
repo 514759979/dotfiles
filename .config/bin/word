@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ $# = 0 ]; then
+    word=`xclip -o`
+else
+    word="$*"
+fi
+
+w3m -dump -no-proxy "http://dict.baidu.com/s?wd=$word" \
+        | yad --text-info --center --width=600 --height=600 --title="$word"

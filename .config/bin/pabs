@@ -1,0 +1,20 @@
+#!/bin/bash
+if [ $# = 0 ]; then
+    echo usage: `basename $0` pkgname '[repo]'
+    exit 0
+fi
+unset http_proxy
+arch=i686
+url=http://mirrors.163.com/archlinux
+#url=http://ftp.jaist.ac.jp/pub/Linux/ArchLinux
+result=`pacman -Sl|grep "$1"|grep "$2"`
+echo -e $result '\n'
+repo=`echo $result|awk '{print $1}'`
+pkgname=`echo $result|awk '{print $2}'`
+echo get $repo/$pkgname
+[[ -e /tmp/Cache ]] || mkdir /tmp/Cache
+[[ -e /tmp/Cache/$repo.abs.tar.gz ]] ||
+    curl $url/$repo/os/$arch/$repo.abs.tar.gz -o /tmp/Cache/$repo.abs.tar.gz
+bsdtar -xvf /tmp/Cache/$repo.abs.tar.gz  -C /tmp/Cache/ $repo/$pkgname
+mv /tmp/Cache/$repo/$pkgname $pkgname
+
