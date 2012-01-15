@@ -1,9 +1,7 @@
 # Maintainer: osily <ly50247 at gmail dot com>
 
 pkgname=myvim
-_realname=vim
-_srcver=7.3
-pkgver=${_srcver}
+pkgver=7.3.401
 pkgrel=1
 pkgdesc="Vim for me."
 arch=(i686 x86_64)
@@ -11,34 +9,23 @@ license=('custom:vim')
 url="http://www.vim.org"
 depends=('libxt' 'vim-runtime')
 makedepends=('wget' 'sed' 'grep' 'python2' 'perl' 'gzip')
-provides=(${_realname})
+provides=(vim)
 conflicts=(gvim vim)
-source=(ftp://ftp.vim.org/pub/vim/unix/vim-${_srcver}.tar.bz2)
-md5sums=('5b9510a17074e2b37d8bb38ae09edbf2')
+source=(http://mirrors.sohu.com/archlinux/other/vim/vim-${pkgver}.tar.xz)
+md5sums=('a07e535bd02c6dfa412068b9f390bc98')
 
 build() {
-cd ../patches
-curl ftp://ftp.vim.org/pub/vim/patches/7.3/README|awk '{print $2}'|grep ${_srcver} > README
-for i in `cat README`; do
-    if ! [ -e $i ]; then
-        curl -O ftp://ftp.vim.org/pub/vim/patches/7.3/$i
-    fi
-    pkgver=$i
-done
-cd ${srcdir}/vim$(echo ${_srcver} | sed "s/\.//")
-for x in `ls ../../patches/*.*`; do patch -p0 -i $x; done
-
-cd src
+cd ${srcdir}/vim-${pkgver}/src
 # define the place for the global (g)vimrc file (set to /etc/vimrc)
 sed -i 's|^.*\(#define SYS_.*VIMRC_FILE.*"\) .*$|\1|' feature.h
 sed -i 's|^.*\(#define VIMRC_FILE.*"\) .*$|\1|' feature.h
 
 #python2
 sed -i -e 's|vi_cv_path_python, python|vi_cv_path_python, python2|' configure.in
-autoconf
-cd -
 
-  ./configure --prefix=/usr --localstatedir=/var/lib/vim \
+autoconf
+cd ..
+./configure --prefix=/usr --localstatedir=/var/lib/vim \
     --mandir=/usr/share/man --with-compiledby=ArchLinux \
     --with-features=big --disable-gpm --disable-acl --with-x=auto \
     --disable-gui --enable-multibyte --enable-cscope \
@@ -47,11 +34,11 @@ cd -
 
 make || return 1
 
-make  VIMRCLOC=/etc DESTDIR=${pkgdir} install
+make VIMRCLOC=/etc DESTDIR=${pkgdir} install
 
 rm -rf ${pkgdir}/usr/share/vim
 rm -rf ${pkgdir}/usr/share/man/[^m]*
 
-install -Dm644 ${srcdir}/vim$(echo ${_srcver} | sed "s/\.//")/runtime/doc/uganda.txt\
-    ${pkgdir}/usr/share/licenses/${_realname}/license.txt
+install -Dm644 ${srcdir}/vim-${pkgver}/runtime/doc/uganda.txt\
+    ${pkgdir}/usr/share/licenses/vim/license.txt
 }
