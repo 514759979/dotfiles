@@ -1,6 +1,7 @@
 #!/bin/zsh
-cat /proc/acpi/battery/BAT1/state
-rate=$(cat /proc/acpi/battery/BAT1/state|grep '[0-9]* mA$'|awk '{print $3}')
-capacity=$(cat /proc/acpi/battery/BAT1/state|grep '[0-9]* mAh$'|awk '{print $3}')
+cat /sys/class/power_supply/BAT1/uevent
+full=`cat /sys/class/power_supply/BAT1/charge_full`
+now=`cat /sys/class/power_supply/BAT1/charge_now`
 echo 
-echo time: "    " $((capacity * 60.0 / rate)) min
+echo $[now * 1.0 / full]
+#echo time: "    " $((capacity * 60.0 / rate)) min
