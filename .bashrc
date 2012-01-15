@@ -149,7 +149,7 @@ alias pcl='sudo rm -rf /tmp/binpkg/*'
 alias h=history
 alias l='ls -F --color=auto'
 alias lsd='l -d *(-/DN)'
-alias ll='l -l'
+alias ll='l -l --time-style=long-iso'
 alias la='l -A'
 alias grep='grep --color=auto'
 alias rd='rmdir'
