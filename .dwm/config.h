@@ -61,7 +61,7 @@ static const Layout layouts[] = {
 static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_e,      spawn,          CMD("xterm") },
-    { MODKEY,                       XK_s,      spawn,          SHCMD("notify `show`") },
+//    { MODKEY,                       XK_s,      spawn,          SHCMD("notify `show`") },
     { MODKEY,                       XK_f,      spawn,          CMD("chromium") },
     { MODKEY,                       XK_r,      spawn,          {.v = (const char*[]){"xterm", "-e", "osily", NULL}} },
     { MODKEY,                       XK_t,      spawn,          {.v = (const char*[]){"xterm", "-e", "top", NULL}} },

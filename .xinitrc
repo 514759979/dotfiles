@@ -9,4 +9,6 @@ synclient HorizEdgeScroll=1
 
 yong -d
 
+/home/osily/.config/bin/show
+
 exec dwm

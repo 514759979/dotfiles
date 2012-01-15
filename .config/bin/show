@@ -1,6 +1,2 @@
-#!/bin/zsh
-res=
-
-time=`date +%m.%d\ %w\ %H:%M`
-res+=$time
-echo -n $res
+#!/bin/bash
+DISPLAY=:0 xsetroot -name "`date +%m.%d\ %w\ %H:%M`"
