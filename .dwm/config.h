@@ -8,13 +8,13 @@ void my_restart(const Arg *arg)
 }
 
 /* appearance */
-static const char font[]            = "fixed";
-static const char normbordercolor[] = "#cccccc";
-static const char normbgcolor[]     = "#000000";
-static const char normfgcolor[]     = "#cccccc";
-static const char selbordercolor[]  = "#0066ff";
-static const char selbgcolor[]      = "#000000";
-static const char selfgcolor[]      = "#000000";
+static const char font[]            = "YaHei Consolas Hybrid 11";
+static const char normbordercolor[] = "#444444";
+static const char normbgcolor[]     = "#222222";
+static const char normfgcolor[]     = "#bbbbbb";
+static const char selbordercolor[]  = "#005577";
+static const char selbgcolor[]      = "#005577";
+static const char selfgcolor[]      = "#eeeeee";
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 10;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
