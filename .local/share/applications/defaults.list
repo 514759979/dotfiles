@@ -1,0 +1,6 @@
+[Default Applications]
+application/x-shellscript=vim.desktop;
+application/zip=als.desktop;
+application/x-rar=als.desktop;
+inode/directory=xxx.desktop;
+application/vnd.ms-htmlhelp=kchmviewer.desktop;
