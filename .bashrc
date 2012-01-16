@@ -1,9 +1,8 @@
+. /etc/profile
 #export http_proxy=http://127.0.0.1:8000
 #export https_proxy=http://127.0.0.1:8000
-. /etc/profile
 export EDITOR=vim
 export BROWSER=chromium
-export COLOR=YES
 #PATH=$PATH:
 export PAGER="less -isrf"
 eval `dircolors ~/.config/dir_colors`
@@ -63,12 +62,6 @@ zback () {
 c134 () {
     sudo ifconfig wlan0 up
     sudo iwconfig wlan0 essid "TP-LINK" key "5556616200"
-    sleep 1
-    sudo dhcpcd wlan0
-}
-chome () {
-    sudo ifconfig wlan0 up
-    sudo iwconfig wlan0 essid "dlink"
     sleep 1
     sudo dhcpcd wlan0
 }
@@ -144,7 +137,7 @@ alias pqm='pq -m'
 alias prd='sudo pacman -Rdd'
 alias pae='sudo pacman -D --asexplicit'
 alias pad='sudo pacman -D --asdeps'
-alias pcl='sudo rm -rf /tmp/binpkg/*'
+alias pcl='sudo pacman -Scc'
 
 alias h=history
 alias l='ls -F --color=auto'
@@ -175,12 +168,12 @@ alias gcat='iconv -f utf-8 -t gbk -c'
 alias dub='du -sbh'
 alias llh='ll -h'
 alias psg='ps aux|grep'
-alias voff='ossmix jack.int-speaker.mute ON'
-alias von='ossmix jack.int-speaker.mute OFF'
+#alias voff='ossmix jack.int-speaker.mute ON'
+#alias von='ossmix jack.int-speaker.mute OFF'
 alias pst='pstree'
 alias gmbox='http_proxy="" python2 /usr/bin/gmbox'
 alias kigp='kill $(pgrep -f proxy.py)'
-alias wvd='sudo wvdial -C ~/.wvdialrc &'
+#alias wvd='sudo wvdial -C ~/.wvdialrc &'
 alias mt='top -u osily'
 alias ctime='time cat'
 alias ck='sudo ckermit ~/.kermrc -c'
