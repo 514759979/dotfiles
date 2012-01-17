@@ -64,7 +64,7 @@ static Key keys[] = {
 //    { MODKEY,                       XK_s,      spawn,          SHCMD("notify `show`") },
     { MODKEY,                       XK_f,      spawn,          CMD("chromium") },
     { MODKEY,                       XK_r,      spawn,          {.v = (const char*[]){"xterm", "-e", "osily", NULL}} },
-    { MODKEY,                       XK_t,      spawn,          {.v = (const char*[]){"xterm", "-e", "top", NULL}} },
+    { MODKEY,                       XK_t,      spawn,          {.v = (const char*[]){"thunderbird", NULL}} },
     { ControlMask,                  XK_comma,  spawn,          {.v = (const char*[]){"m_con", "p", NULL}} },
     { ControlMask,                  XK_period, spawn,          {.v = (const char*[]){"m_con", "pt_step", "1", NULL}} },
     { ControlMask,                  XK_slash,  spawn,          {.v = (const char*[]){"m_con", "pt_step", "-1", NULL}} },
