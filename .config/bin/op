@@ -26,9 +26,9 @@ if [ $p = pdf ]; then
 elif [ $p = txt ]; then
     vim "$1"
 elif [ $p = chm ]; then
-    kchmviewer "$1" &
+    kchmviewer "$1" &>/dev/null &
 elif [ $p = htm ] || [ $p = tml ] || [ $p = mht ]; then
-    chromium `pwd`/"$1" &
+    chromium `pwd`/"$1" &>/dev/null &
 elif [ $p = doc ] || [ $p = ppt ] || [ $p = xls ] || [ $p = ocx ] || [ $p = ptx ] || [ $p = psx ] || [ $p = lsx ]; then
     libreoffice "$@" &>/dev/null &
 elif [ $p = nes ]; then

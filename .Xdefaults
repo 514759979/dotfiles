@@ -32,11 +32,10 @@ xterm.utf8:     true
 xterm*utf8Title: true
 xterm*fontMenu*fontdefault*Label: Default
 !xterm*faceName:FreeMono:style=Bold:pixelsize=16:antialias=True:charwidth=9
-!xterm*faceName:DejaVu Serif:style=Bold:pixelsize=16:antialias=True:charwidth=9
 xterm*faceName:WenQuanYi Zen Hei Mono:pixelsize=16:antialias=True:charwidth=8
 !xterm*faceName:YaHei Consolas Hybrid:pixelsize=16:antialias=True:charwidth=9
-xterm*boldFont:WenQuanYi Zen Hei:style=Bold:antialias=True:pixelsize=16
-!xterm*faceNameDoublesize:YaHei Consolas Hybrid:pixelsize=16:antialias=True
+!xterm*boldFont:WenQuanYi Zen Hei:style=Bold:antialias=True:pixelsize=16
+xterm*faceNameDoublesize:YaHei Consolas Hybrid:pixelsize=16:antialias=True
 xterm*xftAntialias: true
 xterm*cjkWidth:false
  
