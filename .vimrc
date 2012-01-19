@@ -94,6 +94,16 @@ let NERDTreeShowLineNumbers=1
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=0
 
+"Tlist
+let Tlist_File_Fold_Auto_Close=1
+ca tl Tlist
+
+"git-vim
+ca gpull GitPull
+ca git Git
+
+
 ca qb Tbbd
 ca qq q!
 ca w!! w !sudo tee >/dev/null "%"
+ca sk call ToggleSketch()
