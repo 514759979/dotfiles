@@ -119,6 +119,12 @@ x () {
 
 #end atool
 
+mcat () {
+    markdown $1 > /tmp/.html
+    w3m /tmp/.html
+}
+
+
 alias p='pacman'
 alias y='packer'
 alias pi='packer -S'
