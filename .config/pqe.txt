@@ -28,6 +28,7 @@ dhcpcd
 dia
 diffutils
 discount
+dnsutils
 e2fsprogs
 evince2-light
 expect
