@@ -1,0 +1,2 @@
+set ftp:charset "GBK"
+set file:charset "UTF-8"
