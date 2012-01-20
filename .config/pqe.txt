@@ -17,6 +17,7 @@ cabal-install
 ccal
 chromium
 ckermit
+cmake
 convmv
 coreutils
 cpufrequtils
@@ -43,9 +44,7 @@ gcc
 gdb
 geeqie
 gettext
-ghc
 git
-git-vim
 glibc
 gnome-icon-theme
 gnu-netcat
@@ -55,7 +54,6 @@ grub2-bios
 gtk-engines
 gvim
 gzip
-haskell-pandoc
 hostapd
 iftop
 inetutils
@@ -77,6 +75,7 @@ libtool
 licenses
 linux
 lrzsz
+lsof
 lua
 lvm2
 lxappearance
@@ -92,11 +91,14 @@ net-tools
 ngrep
 openssh
 p7zip
+pacgem
 packer
 pacman
 patch
 pciutils
 perl
+php
+php-pear
 pkg-config
 pkgtools
 ppp
@@ -112,6 +114,8 @@ qbittorrent
 qt
 reaver
 ruby
+ruby-jekyll
+ruby-rdiscount
 scrot
 sed
 shadow
