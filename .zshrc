@@ -144,11 +144,10 @@ zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
 compdef pkill=killall
-compdef packer=pacman
 compdef yaourt=pacman
 compdef zcd=ls
 compdef st=sudo
-compdef ftpfs=sftp
+compdef lftp=sftp
 compdef aftp=sftp
 
 zstyle ':completion:*:*:kill:*' menu yes select
@@ -167,12 +166,6 @@ zstyle ':completion:*:corrections' format $'\e[01;32m -- %d (errors: %e) --\e[0m
 
 # cd ~ 补全顺序
 zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
-#}}}
-
-# Ctrl+@ 设置标记，标记和光标点之间为 region
-#zle_highlight=(region:bg=magenta #选中区域
-#               special:bold      #特殊字符
-#               isearch:underline)#搜索时使用的关键字
 #}}}
 
 ##空行(光标在行首)补全 "cd " {{{
@@ -207,12 +200,9 @@ user-complete(){
             ;;
     esac
 }
+
 zle -N user-complete
 bindkey "\t" user-complete
-
-#显示 path-directories ，避免候选项唯一时直接选中
-#cdpath="/home"
-#}}}
 
 ##在命令前插入 sudo {{{
 #定义功能
@@ -222,8 +212,6 @@ sudo-command-line() {
     zle end-of-line                 #光标移动到行末
 }
 zle -N sudo-command-line
-#定义快捷键为： [Esc] [Esc]
-bindkey "\e\e" sudo-command-line
 bindkey -M viins '^k' sudo-command-line
 
 autoload edit-command-line
@@ -234,14 +222,15 @@ bindkey -M viins '^u' edit-command-line
 #命令别名 {{{
 
 #[Esc][h] man 当前命令时，显示简短说明
-alias run-help >&/dev/null && unalias run-help
-autoload run-help
+#alias run-help >&/dev/null && unalias run-help
+#autoload run-help
 
 #}}}
 
 #路径别名 {{{
 #进入相应的路径时只要 cd ~xxx
 hash -d tmp='/home/osily/tmp/'
+hash -d data='/home/osily/data/'
 hash -d picture='/home/osily/picture/'
 hash -d music='/home/osily/music/'
 hash -d book='/home/osily/book/'
@@ -253,27 +242,14 @@ hash -d book='/home/osily/book/'
 zstyle ':completion:*:ping:*' hosts g.cn facebook.com 
 #补全 ssh scp sftp 等
 my_accounts=(
-#{osily,root}@localhost
 osily::1
-:ftp.neu.edu.cn
-:ftp.neu6.edu.cn
-:ftp.ipv6.heanet.ie
+:mirrors.163.com
 :mirrors.sohu.com
+:ftp.heanet.ie
 :ftp.jaist.ac.jp
 )
 zstyle ':completion:*:my-accounts' users-hosts $my_accounts
 #}}}
 
 
-###{{{
-#function command_not_found_handler() {
-#	echo command not found,searching...
-#	pacman -Si $1 2>/dev/null
-#	#pacfile "/"$1"$"
-#	return 0
-#}
-###}}}
-
-
-source /home/osily/.bashrc
-
+source ~/.bashrc
