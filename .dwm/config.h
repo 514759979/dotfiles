@@ -74,13 +74,13 @@ static Key keys[] = {
     { MODKEY,                       XK_c,      spawn,          SHCMD("tmux show-buffer|xclip -selection clipboard") },
     { 0,                            XK_Print,  spawn,          SHCMD("gm import -window root $(date +%Y-%m-%d-%H_%M_%S).png") },
     { Mod1Mask,                     XK_Print,  spawn,          SHCMD("sleep 0.15;gm import $(date +%Y-%m-%d-%H_%M_%S).png") },
-//    { 0,            XF86XK_AudioMute,          spawn,          SHCMD("if ossmix misc.speaker-mute|grep OFF;"
-//                                                        "then ossmix misc.speaker-mute on;else ossmix misc.speaker-mute off;fi;") },
-//    { 0,            XF86XK_AudioRaiseVolume,   spawn,          {.v = (const char*[]){"ossmix", "vmix0-outvol", "+2", NULL}} },
-//    { 0,            XF86XK_AudioLowerVolume,   spawn,          {.v = (const char*[]){"ossmix", "vmix0-outvol", "--", "-2", NULL}} },
-    { 0,            XF86XK_AudioMute,          spawn,          {.v = (const char*[]){"amixer", "sset", "Master", "toggle", NULL}} },
-    { 0,            XF86XK_AudioRaiseVolume,   spawn,          {.v = (const char*[]){"amixer", "sset", "Master", "1+", NULL}} },
-    { 0,            XF86XK_AudioLowerVolume,   spawn,          {.v = (const char*[]){"amixer", "sset", "Master", "1-", NULL}} },
+    { 0,            XF86XK_AudioMute,          spawn,          SHCMD("if ossmix misc.speaker-mute|grep OFF;"
+                                                        "then ossmix misc.speaker-mute on;else ossmix misc.speaker-mute off;fi;") },
+    { 0,            XF86XK_AudioRaiseVolume,   spawn,          {.v = (const char*[]){"ossmix", "vmix0-outvol", "+1", NULL}} },
+    { 0,            XF86XK_AudioLowerVolume,   spawn,          {.v = (const char*[]){"ossmix", "vmix0-outvol", "--", "-1", NULL}} },
+//    { 0,            XF86XK_AudioMute,          spawn,          {.v = (const char*[]){"amixer", "sset", "Master", "toggle", NULL}} },
+//    { 0,            XF86XK_AudioRaiseVolume,   spawn,          {.v = (const char*[]){"amixer", "sset", "Master", "1+", NULL}} },
+//    { 0,            XF86XK_AudioLowerVolume,   spawn,          {.v = (const char*[]){"amixer", "sset", "Master", "1-", NULL}} },
 
     { MODKEY|ShiftMask,             XK_r,      my_restart,     {0} },
     //{ MODKEY,                       XK_semicolon,      view,   {.ui=0} },
