@@ -1,15 +1,16 @@
 [user]
-        name = osily 
-        email = ly50247@gmail.com
+	name = osily 
+	email = ly50247@gmail.com
 [color]
-        diff = auto
-        status = auto
-        branch = auto
+	diff = auto
+	status = auto
+	branch = auto
 [alias]
 	st = status
 	rb = svn rebase
 	ci = commit -a
 	co = checkout
 	sd = svn dcommit
+	rmc = rm --cached
 [merge]
 	tool = vimdiff
