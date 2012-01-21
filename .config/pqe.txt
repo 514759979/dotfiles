@@ -1,170 +1,170 @@
-community/aircrack-ng 1.1-7
-local/android-sdk r16-1
-local/android-sdk-platform-tools r10-1
-local/android-udev 0.8-2
-community/antiword 0.37-3
-community/atool 0.38.0-1
-core/autoconf 2.68-2 (base-devel)
-core/automake 1.11.2-1 (base-devel)
-extra/avfs 0.9.9-1
-community/bpython2 0.10.1-4
-testing/btrfs-progs 0.19.20120110-2
-local/bvi 1.3.2-1
-core/bzip2 1.0.6-3 (base)
-extra/cabal-install 0.10.2-1
-local/ccal 2.5.2-4
-extra/chromium 16.0.912.75-1
-local/ckermit 9.0.301-1
-extra/cmake 2.8.7-2
-extra/convmv 1.15-1
-core/coreutils 8.15-1 (base)
-extra/cpufrequtils 008-1
-core/cronie 1.4.8-1 (base)
-core/cryptsetup 1.4.1-1 (base)
-extra/cscope 15.7a-3
-extra/devtools 20120119-1
-core/dhcpcd 5.2.12-4 (base)
-community/dia 0.97.2-1
-core/diffutils 3.2-1 (base)
-local/discount 2.1.2-1
-core/dnsutils 9.8.1-2
-testing/e2fsprogs 1.42-1 (base)
-local/evince2-light 2.32.0-2
-extra/expect 5.45-1
-core/fakeroot 1.18.2-1 (base-devel)
-extra/ffmpeg 20120111-1
-core/file 5.10-1 (base)
-core/filesystem 2011.12-2 (base)
-core/findutils 4.4.2-4 (base)
-extra/flashplugin 11.1.102.55-1
-core/gawk 4.0.0-2 (base)
-core/gcc 4.6.2-5 (base-devel)
-extra/gdb 7.3.1-1
-extra/geeqie 1.0-6
-core/gettext 0.18.1.1-4 (base)
-extra/git 1.7.8.4-1
-core/glibc 2.15-3 (base)
-extra/gnome-icon-theme 3.2.1.2-1 (gnome)
-extra/gnu-netcat 0.7.1-4
-extra/graphicsmagick 1.3.13-1
-core/grep 2.10-1 (base)
-extra/grub2-bios 1:1.99-6
-extra/gtk-engines 2.20.2-1
-extra/gvim 7.3.401-1
-core/gzip 1.4-4 (base)
-community/hostapd 0.7.3-5
-community/iftop 0.17-9
-core/inetutils 1.9.1-1 (base)
-testing/initscripts 2012.01.3-1 (base)
-community/iotop 0.4.4-1
-core/iputils 20101006-2 (base)
-extra/jdk7-openjdk 7.b147_2.0-5
-core/jfsutils 1.1.15-3 (base)
-extra/jre7-openjdk 7.b147_2.0-5
-community/jshon 20111222-1
-local/kchmviewer-qt 6.0-2
-core/less 444-2 (base)
-extra/lftp 4.3.4-1
-extra/libreoffice-calc 3.4.5-1 (libreoffice)
-extra/libreoffice-common 3.4.5-1 (libreoffice)
-extra/libreoffice-impress 3.4.5-1 (libreoffice)
-extra/libreoffice-writer 3.4.5-1 (libreoffice)
-core/libtool 2.4.2-2 (base-devel)
-core/licenses 2.9-1 (base)
-core/linux 3.2.1-1 (base)
-community/lrzsz 0.12.20-3
-extra/lsof 4.85-1
-extra/lua 5.1.4-9
-core/lvm2 2.02.88-1 (base)
-community/lxappearance 0.5.1-3 (lxde)
-extra/lzop 1.03-1
-core/make 3.82-4 (base-devel)
-core/man-db 2.6.0.2-3 (base)
-core/man-pages 3.35-1 (base)
-core/mdadm 3.2.2-4 (base)
-extra/mercurial 2.0.2-1
-extra/mplayer 34426-1
-extra/mysql 5.5.20-1
-core/net-tools 1.60.20110819cvs-3
-community/ngrep 1.45-7
-core/openssh 5.9p1-5
-community/oss 4.2_2005-2
-extra/p7zip 9.20.1-6
-local/pacgem 0.9.4-1
-core/pacman 4.0.1-4 (base)
-core/patch 2.6.1-3 (base-devel)
-core/pciutils 3.1.8-1 (base)
-core/perl 5.14.2-7 (base)
-extra/php 5.3.9-1
-extra/php-pear 5.3.9-1
-core/pkg-config 0.26-2 (base-devel)
-community/pkgtools 23-3
-core/ppp 2.4.5-3 (base)
-core/procps 3.2.8-4 (base)
-extra/proftpd 1:1.3.4a-2
-core/psmisc 22.14-1 (base)
-extra/pygtk 2.24.0-2
-extra/python 3.2.2-2
-community/python-pexpect 2.3-5
-extra/python2-numpy 1.6.1-1
-extra/python2-pyopenssl 0.13-1
-community/qbittorrent 2.9.3-1
-extra/qt 4.8.0-2
-local/reaver 1.3-2
-extra/ruby 1.9.3_p0-3
-local/ruby-jekyll 0.11.2-1 (pacgem)
-local/ruby-rdiscount 1.6.8-1 (pacgem)
-extra/scrot 0.8-5
-core/sed 4.2.1-4 (base)
-core/shadow 4.1.4.3-5 (base)
-community/slock 0.9-6
-community/sqlitebrowser 2.0b1-1
-extra/subversion 1.7.2-2
-core/sudo 1.8.3.p1-1
-core/sysfsutils 2.1.0-7 (base)
-core/syslog-ng 3.3.3-1 (base)
-core/sysvinit 2.88-3 (base)
-core/tar 1.26-2 (base)
-core/texinfo 4.13a-7 (base)
-extra/thunderbird 9.0.1-1
-extra/tk 8.5.11-1
-local/tmux-git 20120118-1
-local/ttf-ms-fonts-zh_cn 1.1-2
-testing/udev 177-3 (base)
-extra/unzip 6.0-5
-core/usbutils 004-1 (base)
-core/util-linux 2.20.1-2 (base)
-community/vim-a 2.18-5 (vim-plugins)
-local/vim-autocomplpop 2.14.1-1 (vim-plugins)
-community/vim-bufexplorer 7.2.8-4 (vim-plugins)
-local/vim-fencview 4.7-4 (vim-plugins)
-local/vim-markdown 9-3
-community/vim-minibufexpl 6.4.2-1 (vim-plugins)
-community/vim-nerdcommenter 2.3.0-1 (vim-plugins)
-local/vim-nerdtree 4.2.0-2 (vim-plugins)
-community/vim-omnicppcomplete 0.4.1-5 (vim-plugins)
-local/vim-pathogen 2.0-1 (vim-plugins)
-community/vim-snipmate 0.83-7 (vim-plugins)
-community/vim-supertab 1.6-1
-community/vim-taglist 45-4 (vim-plugins)
-community/virtualbox 4.1.8-1
-community/virtualbox-archlinux-additions 4.1.8-1
-extra/w3m 0.5.3-1
-core/wget 1.13.4-1 (base)
-core/which 2.20-5 (base)
-core/wireless_tools 29-5
-local/wkhtmltopdf-static 0.9.9-1
-core/wpa_supplicant 0.7.3-4 (base)
-extra/xclip 0.12-2
-community/xcursor-premium 0.3-6
-extra/xf86-input-synaptics 1.5.0-1 (xorg-drivers xorg)
-extra/xf86-video-ati 6.14.3-1 (xorg-drivers xorg)
-core/xfsprogs 3.1.7-1 (base)
-extra/xorg-server 1.11.3-1 (xorg)
-extra/xorg-xinit 1.3.1-2
-extra/xorg-xsetroot 1.1.0-2 (xorg-apps xorg)
-extra/xterm 276-1
-local/yad-svn 493-1
-local/yaourt 1.0.1-1
-local/yong 20120112-1
-extra/zsh 4.3.15-2
+aircrack-ng
+android-sdk
+android-sdk-platform-tools
+android-udev
+antiword
+atool
+autoconf
+automake
+avfs
+bpython2
+btrfs-progs
+bvi
+bzip2
+cabal-install
+ccal
+chromium
+ckermit
+cmake
+convmv
+coreutils
+cpufrequtils
+cronie
+cryptsetup
+cscope
+devtools
+dhcpcd
+dia
+diffutils
+discount
+dnsutils
+e2fsprogs
+evince2-light
+expect
+fakeroot
+ffmpeg
+file
+filesystem
+findutils
+flashplugin
+gawk
+gcc
+gdb
+geeqie
+gettext
+git
+glibc
+gnome-icon-theme
+gnu-netcat
+graphicsmagick
+grep
+grub2-bios
+gtk-engines
+gvim
+gzip
+hostapd
+iftop
+inetutils
+initscripts
+iotop
+iputils
+jdk7-openjdk
+jfsutils
+jre7-openjdk
+jshon
+kchmviewer-qt
+less
+lftp
+libreoffice-calc
+libreoffice-common
+libreoffice-impress
+libreoffice-writer
+libtool
+licenses
+linux
+lrzsz
+lsof
+lua
+lvm2
+lxappearance
+lzop
+make
+man-db
+man-pages
+mdadm
+mercurial
+mplayer
+mysql
+net-tools
+ngrep
+openssh
+oss
+p7zip
+pacgem
+pacman
+patch
+pciutils
+perl
+php
+php-pear
+pkg-config
+pkgtools
+ppp
+procps
+proftpd
+psmisc
+pygtk
+python
+python-pexpect
+python2-numpy
+python2-pyopenssl
+qbittorrent
+qt
+reaver
+ruby
+ruby-jekyll
+ruby-rdiscount
+scrot
+sed
+shadow
+slock
+sqlitebrowser
+subversion
+sudo
+sysfsutils
+syslog-ng
+sysvinit
+tar
+texinfo
+thunderbird
+tk
+tmux-git
+ttf-ms-fonts-zh_cn
+udev
+unzip
+usbutils
+util-linux
+vim-a
+vim-autocomplpop
+vim-bufexplorer
+vim-fencview
+vim-markdown
+vim-minibufexpl
+vim-nerdcommenter
+vim-nerdtree
+vim-omnicppcomplete
+vim-pathogen
+vim-snipmate
+vim-supertab
+vim-taglist
+virtualbox
+virtualbox-archlinux-additions
+w3m
+wget
+which
+wireless_tools
+wkhtmltopdf-static
+wpa_supplicant
+xclip
+xcursor-premium
+xf86-input-synaptics
+xf86-video-ati
+xfsprogs
+xorg-server
+xorg-xinit
+xorg-xsetroot
+xterm
+yad-svn
+yaourt
+yong
+zsh
