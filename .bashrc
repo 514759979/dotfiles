@@ -133,7 +133,6 @@ alias pcl='y -Scc'
 
 #alias opsqlite='cd ~/.mozilla/firefox && for s in `find -name "*.sqlite"`; { sqlite3 $s vacuum; }; cd -'
 #alias cam='mencoder -oac faac -faacopts br=32 -ovc x264'
-#alias cl='xclip -se cl -i'
 #alias ncc='nc db-oped-dev64.db01 8001'
 #alias wvd='sudo wvdial -C ~/.wvdialrc &'
 
@@ -183,3 +182,4 @@ alias cpui='cpufreq-info'
 alias voff='ossmix jack.int-speaker.mute ON'
 alias von='ossmix jack.int-speaker.mute OFF'
 alias gmbox='python2 /usr/share/gmbox-gtk/gmbox-gtk.py'
+alias cl='xclip -se cl -i'
