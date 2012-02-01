@@ -18,18 +18,13 @@ set smartindent
 set expandtab "用空格
 set shiftwidth=4
 set softtabstop=4
-set tabstop=8
-"vim: set ts=8 sts=4
+set tabstop=8 "vim: set ts=8 sts=4
 syntax on
-"map <S-Insert> "+gp
-"map <S-Delete> "+x
-"map <C-Insert> "+y
 autocmd FileType c set makeprg=gcc\ -Wall\ %\ -o\ %:t:r
 autocmd FileType cpp set makeprg=g++\ -Wall\ %\ -o\ %:t:r
 nnoremap <F9> :w<cr>:make<cr>:cw<cr>
 nnoremap <F10> :!./%:t:r<cr>
 nnoremap <F5> :!./%<cr>
-"map <F2> :!xclip -se c<cr>u
 nnoremap <C-a> ggVG
 
 " I like highlighting strings inside C comments
@@ -46,6 +41,8 @@ set autochdir
 set grepprg=grep\ -nH\ $*
 set nobackup
 set ru
+set pastetoggle=<F3>
+
 " TagList
 let Tlist_Auto_Open = 1
 let Tlist_Show_One = 1
@@ -53,9 +50,7 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_Ctags_Cmd="ctags"
 map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 "set tags+=~/.tags/c++.tags
-"set tags+=~/.tags/qt.tags
 "Paste toggle – when pasting something in, don’t indent.
-set pastetoggle=<F3>
 
 " OmniCppComplete
 let OmniCpp_NamespaceSearch = 1
@@ -68,33 +63,47 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 set completeopt=menu
 
 ""fcitx4vim
-let g:input_toggle = 0
-function Fcitx2en() 
-	let s:input_status = system("fcitx-remote")
-	if s:input_status == 2
-		let g:input_toggle = 1
-		let l:a = system("fcitx-remote -c")
-	endif
-endfunction
+"let g:input_toggle = 0
+"function Fcitx2en() 
+"	let s:input_status = system("fcitx-remote")
+"	if s:input_status == 2
+"		let g:input_toggle = 1
+"		let l:a = system("fcitx-remote -c")
+"	endif
+"endfunction
 ""
-function Fcitx2zh() 
-	let s:input_status = system("fcitx-remote")
-	if s:input_status != 2 && g:input_toggle == 1
-		let l:a = system("fcitx-remote -o")
-		let g:input_toggle = 0
-	endif
-endfunction
+"function Fcitx2zh() 
+"	let s:input_status = system("fcitx-remote")
+"	if s:input_status != 2 && g:input_toggle == 1
+"		let l:a = system("fcitx-remote -o")
+"		let g:input_toggle = 0
+"	endif
+"endfunction
 
-set timeoutlen=150
-autocmd! InsertLeave * call Fcitx2en()
-autocmd! InsertEnter * call Fcitx2zh()
-
+"set timeoutlen=150
+"autocmd! InsertLeave * call Fcitx2en()
+"autocmd! InsertEnter * call Fcitx2zh()
 
 call pathogen#runtime_append_all_bundles() 
 
-"command! Qq Tbbd
+set clipboard=unnamedplus
+
+"NERDTree
+ca nt NERDTreeToggle
+let NERDTreeShowLineNumbers=1
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=0
+
+"Tlist
+let Tlist_File_Fold_Auto_Close=1
+ca tl Tlist
+
+"git-vim
+ca gpull GitPull
+ca git Git
+
+
 ca qb Tbbd
 ca qq q!
 ca w!! w !sudo tee >/dev/null "%"
-
-set clipboard=unnamedplus
+ca sk call ToggleSketch()

@@ -1,6 +1,6 @@
 #!/bin/bash
-gcc -std=c99 -pedantic -Wall -Ofast -lX11  dwm.c -o dwm -DVERSION=\"6.0\" `pkg-config --cflags xft pango pangoxft` \
-    `pkg-config --libs xft pango pangoxft`
+gcc -std=c99 -pedantic -Wall -Ofast -lX11 -lXinerama dwm.c -o dwm -DXINERAMA -DVERSION=\"6.0\" \
+`pkg-config --cflags xft pango pangoxft` `pkg-config --libs xft pango pangoxft`
 
 strip dwm
 ls -lh dwm

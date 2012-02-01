@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ~/music/
+cd ~/media/
 while true; do
     lsfile=$(yad --list --center --no-headers --text=music_list --separator= --column=0 `ls -A` --width 300 --height 250);
     if [ -z "$lsfile" ]; then
