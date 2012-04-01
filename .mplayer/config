@@ -4,7 +4,7 @@
 
 vo=xv
 vf=eq2
-ao=oss
+ao=alsa
 #cache=256
 msglevel=all=5
 subcp="cp936"
