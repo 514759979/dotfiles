@@ -2,7 +2,7 @@ set nocompatible
 set ch=2        " Make command line two lines high
 "set cursorline
 " 设置多编码文本
-set fileencodings=gbk,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1,ucs-bom,ucs
+set fileencodings=utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1,ucs-bom,ucs
 set fencs=utf-8,cp936,big5,gb18030,gb2312,ucs-bom
 set enc=utf-8
 "当设置下面一行时无论所打开文件是否为utf-8编码，保存时都会强制保存为utf-8格式

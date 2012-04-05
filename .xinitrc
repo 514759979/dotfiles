@@ -7,6 +7,7 @@ export GTK2_RC_FILES="/home/osily/.gtkrc-2.0"
 synclient TapButton1=1
 synclient HorizEdgeScroll=1
 
+wmname LG3D
 yong -d
 
 /home/osily/.config/bin/show
