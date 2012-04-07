@@ -41,5 +41,7 @@ openssl:
 none /proc/bus/usb usbfs devmode=666 0 0
 x:5:once:/bin/su osily -l -c "/bin/bash --login -c xinit &>/dev/null"
 pcspkr 模块 响铃
+$ cat /etc/modprobe.d/modprobe.conf
+blacklist pcspkr
 sudo mv 49-sansserif.conf 49-sansserif.conf.bak
 prd xorg-fonts-misc

@@ -1,0 +1,10 @@
+#!/bin/bash
+exec 4<&0 0</etc/Yozosoft/Yozo_Office/installinfo.cfg
+read line1
+exec 0<&4
+
+CFG="-Xmx384m -Xverify:none -Dsun.java2d.ddlock=true -Dsun.awt.noerasebackground=true -Xms16m -XX:PermSize=8m -XX:NewSize=4m -XX:MaxNewSize=16m -XX:NewRatio=3 -XX:SurvivorRatio=6 -XX:MinHeapFreeRatio=10 -XX:MaxHeapFreeRatio=40 -Dyozo.run.mode=2"
+#SPLASH="-splash:$line1/System/startpg.jpg"
+
+#"$line1/Yozo_Writer.bin" ${@:+"$@"} 2>/dev/null &
+$line1/Jre/bin/java -client  -Duser.home=$HOME/.config/Yozo/ $CFG $SPLASH -cp $line1/Yozo_Office.jar emo.system.ControlSystem ${@:+"$@"} 2>/dev/null &
