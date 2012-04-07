@@ -30,7 +30,7 @@ elif [ $p = chm ]; then
 elif [ $p = htm ] || [ $p = tml ] || [ $p = mht ]; then
     chromium `pwd`/"$1" &>/dev/null &
 elif [ $p = doc ] || [ $p = ppt ] || [ $p = xls ] || [ $p = ocx ] || [ $p = ptx ] || [ $p = psx ] || [ $p = lsx ]; then
-    libreoffice "$@" &>/dev/null &
+    yozo "$@" &>/dev/null &
 elif [ $p = nes ]; then
     fceux "$1" &
 elif [ $p = jpg ] || [ $p = png ] || [ $p = JPG ] || [ $p = PNG ] || [ $p = gif ] || [ $p = GIF ]; then
