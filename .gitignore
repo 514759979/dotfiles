@@ -26,3 +26,8 @@
 .viminfo
 .zcompdump
 .zhistory
+.VirtualBox/
+.config/bin/sshl
+.config/bin/sshl2
+.config/bin/sshl3
+.juniper_networks
