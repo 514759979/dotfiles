@@ -31,3 +31,8 @@
 .config/bin/sshl2
 .config/bin/sshl3
 .juniper_networks
+.config/yad.conf
+.yong/user.txt
+.yong/user.txt.bak
+media/
+photo/
