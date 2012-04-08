@@ -3,14 +3,19 @@ export QT_IM_MODULE=xim
 export XMODIFIERS="@im=yong"
 export DESKTOP_ENV="DWM"
 export GTK2_RC_FILES="/home/osily/.gtkrc-2.0"
+wmname LG3D
+
+/home/osily/.config/bin/show
+
+if [ -e $HOME/.jpg ]; then
+    habak $HOME/.jpg
+fi
 
 if [ -e /usr/bin/synclient ]; then
     synclient TapButton1=1
     synclient HorizEdgeScroll=1
     synclient VertEdgeScroll=1
 fi
-
-/home/osily/.config/bin/show
 
 if [ -e /usr/bin/xinput ]; then
     # for thinkpad trackpoint, middle key scroll screen
@@ -19,7 +24,6 @@ if [ -e /usr/bin/xinput ]; then
     xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
 fi
 
-wmname LG3D
 yong -d
 
 exec dwm
