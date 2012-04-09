@@ -80,3 +80,5 @@ tmp
 .w3m/
 data/
 doc/
+.config/libfm/
+.config/pcmanfm/
