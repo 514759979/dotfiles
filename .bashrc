@@ -111,6 +111,9 @@ mcat () {
     w3m /tmp/.html
 }
 
+wpa () {
+    sudo wpa_supplicant -B -Dwext -i wlan0 -c /etc/wpa_supplicant.conf$i
+}
 
 alias y='yaourt'
 alias pi='y -S'
@@ -174,7 +177,6 @@ alias ua='umountavfs'
 alias lg='luit -encoding gbk'
 alias wi='which'
 alias rmpwd='rm -r `pwd`;cd ..'
-alias wpa='sudo wpa_supplicant -B -Dwext -i wlan0 -c /etc/wpa_supplicant.conf;sudo dhcpcd wlan0'
 alias bd='nohup ~/.config/bnac/bnac.py &>/dev/null &'
 alias gcl='git clone'
 alias gpu='time git push'
