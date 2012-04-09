@@ -3,13 +3,14 @@ export QT_IM_MODULE=xim
 export XMODIFIERS="@im=yong"
 export DESKTOP_ENV="DWM"
 export GTK2_RC_FILES="/home/osily/.gtkrc-2.0"
-wmname LG3D
-
-/home/osily/.config/bin/show
 
 if [ -e $HOME/.jpg ]; then
     habak $HOME/.jpg
 fi
+
+/home/osily/.config/bin/show
+
+wmname LG3D
 
 if [ -e /usr/bin/synclient ]; then
     synclient TapButton1=1

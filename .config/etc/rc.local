@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# /etc/rc.local: Local multi-user startup script.
+#
+
+echo 40 > /sys/devices/platform/smapi/BAT0/start_charge_thresh
+echo 90 > /sys/devices/platform/smapi/BAT0/stop_charge_thresh
+echo 17 > /sys/devices/platform/smapi/BAT0/inhibit_charge_minutes
+wpa_supplicant -B -Dwext -i wlan0 -c /etc/wpa_supplicant.conf
