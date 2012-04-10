@@ -37,4 +37,4 @@ NETWORK_PERSIST="yes"
 # DAEMONS
 # -------
 #
-DAEMONS=(@syslog-ng @network @crond @thinkfan)
+DAEMONS=(@syslog-ng @network @crond @thinkfan @trackpoint)
