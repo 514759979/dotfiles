@@ -46,3 +46,4 @@ blacklist pcspkr
 sudo mv 49-sansserif.conf 49-sansserif.conf.bak
 prd xorg-fonts-misc
 certutil -d sql:$HOME/.pki/nssdb -A -t TC -n "goagent" -i .proxy/goagent/local/CA.crt
+sudo grub-install --directory=/usr/lib/grub/i386-pc --target=i386-pc --boot-directory=/boot --recheck --debug /dev/sda
