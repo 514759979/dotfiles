@@ -82,3 +82,4 @@ data/
 doc/
 .config/libfm/
 .config/pcmanfm/
+.swapfile
