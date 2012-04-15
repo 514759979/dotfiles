@@ -27,4 +27,5 @@ fi
 
 yong -d
 easystroke &
+/home/osily/.config/bin/gp &
 exec dwm
