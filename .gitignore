@@ -84,3 +84,6 @@ doc
 .config/pcmanfm
 .swapfile
 .yong/yong.ini.old
+.dosbox/
+.wireshark/
+.yong/history.txt
