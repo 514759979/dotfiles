@@ -87,3 +87,5 @@ doc
 .dosbox/
 .wireshark/
 .yong/history.txt
+.config/htop/
+.work/
