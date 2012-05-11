@@ -7,4 +7,4 @@ CFG="-Xmx384m -Xverify:none -Dsun.java2d.ddlock=true -Dsun.awt.noerasebackground
 #SPLASH="-splash:$line1/System/startpg.jpg"
 
 #"$line1/Yozo_Writer.bin" ${@:+"$@"} 2>/dev/null &
-$line1/Jre/bin/java -client  -Duser.home=$HOME/.config/Yozo/ $CFG $SPLASH -cp $line1/Yozo_Office.jar emo.system.ControlSystem ${@:+"$@"} 2>/dev/null &
+java -client  -Duser.home=$HOME/.config/Yozo $CFG $SPLASH -cp $line1/Yozo_Office.jar emo.system.ControlSystem ${@:+"$@"} 2>/dev/null &
