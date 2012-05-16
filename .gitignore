@@ -92,3 +92,5 @@ doc
 .gimp-2.8/
 .qmmp/
 .wine/
+.gstreamer-0.10/
+.linphonerc
