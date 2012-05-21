@@ -1,6 +1,4 @@
-#define XF86XK_AudioMute 0x1008ff12
-#define XF86XK_AudioLowerVolume 0x1008ff11
-#define XF86XK_AudioRaiseVolume 0x1008ff13
+//#include <X11/XF86keysym.h>
 
 void my_restart(const Arg *arg)
 {
@@ -25,7 +23,6 @@ static const char *tags[] = { "1", "2", "3", "4"};
 
 static const Rule rules[] = {
     /* class      instance    title       tags mask     isfloating   monitor */
-//    { "Gimp",      NULL,       NULL,       0,           True,           -1 },
     { "Yad",       NULL,       NULL,       0,           True,           -1 },
     { "Qmmp",       NULL,       NULL,       0,           True,           -1 },
     { "MPlayer",   NULL,       NULL,       0,           True,           -1 },
@@ -80,9 +77,9 @@ static Key keys[] = {
    { 0,            XF86XK_AudioRaiseVolume,   spawn,          {.v = (const char*[]){"ossmix", "vmix0-outvol", "+1", NULL}} },
     { 0,            XF86XK_AudioLowerVolume,   spawn,          {.v = (const char*[]){"ossmix", "vmix0-outvol", "--", "-1", NULL}} },
 */
-    { 0,            XF86XK_AudioMute,          spawn,          {.v = (const char*[]){"amixer", "sset", "Master", "toggle", NULL}} },
-    { 0,            XF86XK_AudioRaiseVolume,   spawn,          {.v = (const char*[]){"amixer", "sset", "Master", "1+", NULL}} },
-    { 0,            XF86XK_AudioLowerVolume,   spawn,          {.v = (const char*[]){"amixer", "sset", "Master", "1-", NULL}} },
+//    { 0,            XF86XK_AudioMute,          spawn,          {.v = (const char*[]){"amixer", "sset", "Master", "toggle", NULL}} },
+    { MODKEY,            XK_Right,   spawn,          {.v = (const char*[]){"amixer", "sset", "Master", "1+", NULL}} },
+    { MODKEY,            XK_Left,    spawn,          {.v = (const char*[]){"amixer", "sset", "Master", "1-", NULL}} },
     { MODKEY|ShiftMask,             XK_r,      my_restart,     {0} },
     //{ MODKEY,                       XK_semicolon,      view,   {.ui=0} },
     { MODKEY,                       XK_b,      togglebar,      {0} },
