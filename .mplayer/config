@@ -8,8 +8,8 @@ ao=alsa
 #cache=256
 msglevel=all=5
 subcp="cp936"
-font="/usr/share/fonts/wenquanyi/wqy-zenhei/wqy-zenhei.ttc"
-subfont="/usr/share/fonts/wenquanyi/wqy-zenhei/wqy-zenhei.ttc"
+fontconfig = yes
+font="YaHei Consolas Hybrid"
 monitoraspect=1280:800
 sub-fuzziness=1 #设定字幕自动加载的识别，播放时可以通过j键切换
 overlapsub=1
