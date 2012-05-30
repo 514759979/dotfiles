@@ -1,3 +1,4 @@
+#/usr/lib/udev/rules.d/51-android.rules
 #      Acer
 SUBSYSTEM=="usb", ATTR{idVendor}=="0502", MODE="0666", GROUP="adbusers"
 #      Iconia Tab A500

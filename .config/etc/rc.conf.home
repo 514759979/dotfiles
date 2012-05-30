@@ -17,7 +17,7 @@ USECOLOR="yes"
 
 # HARDWARE
 # --------
-MODULES=(acpi-cpufreq tp_smapi)
+MODULES=(acpi-cpufreq tp_smapi vboxdrv)
 USEDMRAID="no"
 USEBTRFS="no"
 USELVM="no"
@@ -26,7 +26,7 @@ USELVM="no"
 # ----------
 HOSTNAME=ly50247
 
-interface=wlan0
+interface=eth0
 address=
 netmask=
 broadcast=
@@ -37,4 +37,4 @@ NETWORK_PERSIST="yes"
 # DAEMONS
 # -------
 #
-DAEMONS=(@syslog-ng @network @crond @hdapsd @thinkfan)
+DAEMONS=(@syslog-ng @network @crond @hdapsd @thinkfan @alsa @goagent)
