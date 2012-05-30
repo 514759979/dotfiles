@@ -1,3 +1,0 @@
-#!/bin/bash
-nohup python2 /home/osily/.proxy/goagent/local/proxy.py &>/dev/null &
-
