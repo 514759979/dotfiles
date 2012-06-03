@@ -1,9 +1,9 @@
 . /etc/profile
-#export http_proxy=http://127.0.0.1:8000
-#export https_proxy=http://127.0.0.1:8000
+export http_proxy=http://127.0.0.1:8000
+export https_proxy=http://127.0.0.1:8000
 export EDITOR=vim
 export BROWSER=chromium
-#PATH=$PATH:
+export PAGER='less -isrf'
 eval `dircolors ~/.config/dir_colors`
 
 #man color
@@ -14,7 +14,6 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
-export PAGER="less -isrf"
 
 gq () {
     geeqie $* 2>/dev/null &
@@ -138,7 +137,7 @@ alias pcl='y -Scc'
 #alias opsqlite='cd ~/.mozilla/firefox && for s in `find -name "*.sqlite"`; { sqlite3 $s vacuum; }; cd -'
 #alias voff='ossmix jack.int-speaker.mute ON'
 #alias von='ossmix jack.int-speaker.mute OFF'
-alias h=history
+alias h='history'
 alias l='ls -F --color=auto'
 alias lsd='l -d *(-/DN)'
 alias ll='l -l --time-style=long-iso'
@@ -175,7 +174,7 @@ alias ma='mountavfs'
 alias ua='umountavfs'
 alias lg='luit -encoding gbk'
 alias wi='which'
-alias rmpwd='rm -r `pwd`;cd ..'
+alias rmpwd='rm -r "`pwd`";cd ..'
 alias bd='nohup ~/.config/bnac/bnac.py &>/dev/null &'
 alias gcl='git clone'
 alias gpu='time git push'
@@ -186,3 +185,4 @@ alias gi='LANG=zh_CN.UTF-8 gimp &>/dev/null &'
 alias ledon='sudo sh -c "echo 255 > /sys/class/leds/tpacpi::thinklight/brightness"'
 alias ledoff='sudo sh -c "echo 0 > /sys/class/leds/tpacpi::thinklight/brightness"'
 alias lid_close='xset dpms force off'
+alias wvd='sudo wvdial -C ~/.wvdial'
