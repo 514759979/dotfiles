@@ -108,3 +108,7 @@ tmp
 .android
 .avfs
 .p7zip
+.config/spacefm/
+.config/uGet/
+.dotcloud/
+.vimperator/

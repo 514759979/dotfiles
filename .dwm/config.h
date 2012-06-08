@@ -28,6 +28,7 @@ static const Rule rules[] = {
     { "MPlayer",   NULL,       NULL,       0,           True,           -1 },
     { "Thunderbird",  NULL,       NULL,       2,           False,           -1 },
     { "Chromium",  NULL,       NULL,       1,           False,           -1 },
+    { "Firefox",  NULL,       NULL,       1,           False,           -1 },
     { "VirtualBox",  NULL,       NULL,       4,           False,           -1 },
     { "XTerm",    NULL,       NULL,       1,           False,           -1 },
 };
@@ -59,7 +60,7 @@ static const Layout layouts[] = {
 static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_e,      spawn,          CMD("xterm") },
-    { MODKEY,                       XK_f,      spawn,          CMD("chromium") },
+    { MODKEY,                       XK_f,      spawn,          CMD("firefox") },
     { MODKEY,                       XK_r,      spawn,          {.v = (const char*[]){"xterm", "-e", "osily", NULL}} },
     { MODKEY,                       XK_t,      spawn,          {.v = (const char*[]){"thunderbird", NULL}} },
     { ControlMask,                  XK_comma,  spawn,          {.v = (const char*[]){"m_con", "p", NULL}} },
