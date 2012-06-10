@@ -1,6 +1,9 @@
 .adobe
+.android
 .appcfg_cookies
+.appcfg_nag
 .aria2
+.avfs
 .bash_history
 .blog
 book
@@ -27,8 +30,10 @@ book
 .config/oxygen-gtk
 .config/pcmanfm
 .config/smplayer
+.config/spacefm
 .config/transmission
 .config/Trolltech.conf
+.config/uGet
 .config/Ulduzsoft
 .config/yad.conf
 .config/Yozo
@@ -37,6 +42,7 @@ data
 .dia
 doc
 .dosbox
+.dotcloud
 .dwm/dwm
 .esd_auth
 .fontconfig
@@ -67,6 +73,7 @@ doc
 media
 .mozilla
 .mysql_history
+.p7zip
 photo
 .pki
 .pulse
@@ -84,8 +91,12 @@ photo
 .thumbnails
 .thunderbird
 tmp
+.vifm/colors
+.vifm/vifm-help.txt
+.vifm/vifminfo
 .viminfo
 .vim/.netrwhist
+.vimperator
 .virtualbox
 .VirtualBox
 .w3m
@@ -101,14 +112,6 @@ tmp
 .yong/user.txt
 .yong/user.txt.bak
 .yong/yong.ini.old
+.Yozo_Office
 .zcompdump
 .zhistory
-.Yozo_Office
-.appcfg_nag
-.android
-.avfs
-.p7zip
-.config/spacefm/
-.config/uGet/
-.dotcloud/
-.vimperator/
