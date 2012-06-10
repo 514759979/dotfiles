@@ -31,10 +31,6 @@ cry () {
     fi
 }
 
-service () {
-    sudo /etc/rc.d/$1 $2
-}
-
 st () {
     nohup $* &>/dev/null &
 }
@@ -186,3 +182,4 @@ alias ledon='sudo sh -c "echo 255 > /sys/class/leds/tpacpi::thinklight/brightnes
 alias ledoff='sudo sh -c "echo 0 > /sys/class/leds/tpacpi::thinklight/brightness"'
 alias lid_close='xset dpms force off'
 alias wvd='sudo wvdial -C ~/.wvdialrc'
+alias src='sudo rc.d'
