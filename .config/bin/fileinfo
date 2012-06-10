@@ -1,35 +1,34 @@
 #!/bin/bash
 
-function f() {
-    $1 "$2" &>/dev/null &
-}
-
 if [ $# == 0 ]; then
     exit
 fi
 
 declare -l p=${1/*./}
 
+ls "$1"
+file "$1"
+echo
+
 case $p in
-    pdf|djvu|ps)
-        f evince "$1"
-        ;;
-    chm)
-        f kchmviewer "$1"
+    pdf)
+        pdftotext "$1" -
         ;;
     html|htm|mht|mhtml)
-        f firefox "$1"
+        w3m -dump "$1"
         ;;
-    doc|docx|ppt|pptx|xls|xlsx)
-        f yozo "$1"
+    doc|docx)
+        antiword "$1"
         ;;
     jpg|png|gif)
-        f geeqie "$1"
+        gm identify "$1"
         ;;
     avi|mp4|mp3|aac|ogg|ogv|mts|mkv|asf|wmv|flv|f4v|dat|vob|iso|ts|rm|rmvb)
-        mplayer "$1"
+        ;;
+    zip|rar|7z|xz|tgz|tbz2|tar|txz)
+        als "$1"
         ;;
     *)
-        vim "$1"
+        cat "$1"
         ;;
 esac
