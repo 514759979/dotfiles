@@ -14,7 +14,6 @@ set nu
 set cindent
 set backspace=indent,eol,start
 set smartindent
-"tab size
 set expandtab "用空格
 set shiftwidth=4
 set softtabstop=4
@@ -26,6 +25,7 @@ nnoremap <F9> :w<cr>:make<cr>:cw<cr>
 nnoremap <F10> :!./%:t:r<cr>
 nnoremap <F5> :!./%<cr>
 nnoremap <C-a> ggVG
+au BufRead,BufNewFile *.txt setlocal ft=txt
 
 " I like highlighting strings inside C comments
 let c_comment_strings=1
@@ -44,13 +44,14 @@ set ru
 set pastetoggle=<F3>
 
 " TagList
+ca tl Tlist
+let Tlist_File_Fold_Auto_Close=1
 let Tlist_Auto_Open = 1
 let Tlist_Show_One = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Ctags_Cmd="ctags"
 map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 "set tags+=~/.tags/c++.tags
-"Paste toggle – when pasting something in, don’t indent.
 
 " OmniCppComplete
 let OmniCpp_NamespaceSearch = 1
@@ -62,28 +63,6 @@ let OmniCpp_MayCompleteScope = 1
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 set completeopt=menu
 
-""fcitx4vim
-"let g:input_toggle = 0
-"function Fcitx2en() 
-"	let s:input_status = system("fcitx-remote")
-"	if s:input_status == 2
-"		let g:input_toggle = 1
-"		let l:a = system("fcitx-remote -c")
-"	endif
-"endfunction
-""
-"function Fcitx2zh() 
-"	let s:input_status = system("fcitx-remote")
-"	if s:input_status != 2 && g:input_toggle == 1
-"		let l:a = system("fcitx-remote -o")
-"		let g:input_toggle = 0
-"	endif
-"endfunction
-
-"set timeoutlen=150
-"autocmd! InsertLeave * call Fcitx2en()
-"autocmd! InsertEnter * call Fcitx2zh()
-
 call pathogen#runtime_append_all_bundles() 
 
 set clipboard=unnamedplus
@@ -94,16 +73,8 @@ let NERDTreeShowLineNumbers=1
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=0
 
-"Tlist
-let Tlist_File_Fold_Auto_Close=1
-ca tl Tlist
-
-"git-vim
-ca gpull GitPull
-ca git Git
-
-
-ca qb Tbbd
 ca qq q!
 ca w!! w !sudo tee >/dev/null "%"
-ca sk call ToggleSketch()
+
+"autocmd InsertLeave * !xdotool key ctrl
+"autocmd InsertEnter * !xdotool key ctrl
