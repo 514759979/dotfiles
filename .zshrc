@@ -148,6 +148,7 @@ compdef yaourt=pacman
 compdef src=rc.d
 compdef zcd=ls
 compdef st=sudo
+compdef findx=sudo
 compdef lftp=sftp
 compdef aftp=sftp
 

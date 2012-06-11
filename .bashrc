@@ -110,6 +110,10 @@ wpa () {
     sudo wpa_supplicant -B -Dwext -i wlan0 -c /etc/wpa_supplicant.conf$1
 }
 
+findx () {
+    find -print0|xargs -0 $@
+}
+
 alias y='yaourt'
 alias pi='y -S'
 alias pli='y -U'
@@ -183,3 +187,8 @@ alias ledoff='sudo sh -c "echo 0 > /sys/class/leds/tpacpi::thinklight/brightness
 alias lid_close='xset dpms force off'
 alias wvd='sudo wvdial -C ~/.wvdialrc'
 alias src='sudo rc.d'
+alias vm='vifm'
+alias find0='find -print0'
+alias xargs0='xargs -0'
+alias findg='find|grep -P'
+
