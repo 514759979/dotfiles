@@ -1,5 +1,6 @@
 #!/usr/bin/env python2
 
+# coding:utf-8
 """Simple HTTP Server With Upload.
 
 This module builds on BaseHTTPServer by implementing the standard GET
@@ -100,6 +101,11 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         fn = os.path.join(path, fn[0])
         while os.path.exists(fn):
             fn += "_"
+        try:
+            fn = fn.decode('gbk')
+        except UnicodeDecodeError:
+            pass
+        print('Uploading file %s' % fn)
         line = self.rfile.readline()
         remainbytes -= len(line)
         line = self.rfile.readline()
@@ -120,7 +126,7 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
                     preline = preline[0:-1]
                 out.write(preline)
                 out.close()
-                return (True, "File '%s' upload success!" % fn)
+                return (True, "File upload success!")
             else:
                 out.write(preline)
                 preline = line
