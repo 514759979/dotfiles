@@ -69,7 +69,7 @@ static Key keys[] = {
     { ControlMask,              XK_semicolon,  spawn,          {.v = (const char*[]){"m_con", "stop", NULL}} },
     { MODKEY,                       XK_w,      spawn,          CMD("word") },
     { MODKEY,                       XK_m,      spawn,          SHCMD("slock") },
-    { MODKEY,                       XK_c,      spawn,          SHCMD("tmux show-buffer|xclip -selection clipboard") },
+    { MODKEY,                       XK_c,      spawn,          SHCMD("tmux save-buffer -|xclip -selection clipboard") },
     { 0,                            XK_Print,  spawn,          SHCMD("gm import -window root $(date +%Y-%m-%d-%H_%M_%S).png") },
     { Mod1Mask,                     XK_Print,  spawn,          SHCMD("sleep 0.15;gm import $(date +%Y-%m-%d-%H_%M_%S).png") },
 /*
