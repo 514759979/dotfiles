@@ -108,7 +108,7 @@ mcat () {
 
 wpa () {
     sudo ifconfig wlan0 up
-    sudo wpa_supplicant -B -Dwext -i wlan0 -c /etc/wpa_supplicant.conf$1
+    sudo wpa_supplicant -B -Dwext -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf$1
 }
 
 findx () {
