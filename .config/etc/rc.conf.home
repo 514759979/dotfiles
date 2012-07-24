@@ -1,40 +1,26 @@
 #
 # /etc/rc.conf - Main Configuration for Arch Linux
 #
-# See 'man 5 rc.conf' for more details
+# Most of rc.conf has been replaced by hostname(5),
+# vconsole.conf(5), locale.conf(5) and
+# modules-load.d(5).
+#
+# For more details see rc.conf(5).
 #
 
-# LOCALIZATION
-# ------------
+DAEMONS=(@rsyslogd @network @crond @hdapsd @thinkfan @alsa @goagent)
+
+# Storage
+#
+# USEDMRAID="no"
+# USEBTRFS="no"
+# USELVM="no"
+
+# Network
+#
+interface=wlan0
+# address=
+# netmask=
+# gateway=
+
 HARDWARECLOCK="localtime"
-TIMEZONE="Asia/Shanghai"
-KEYMAP="us"
-CONSOLEFONT=
-CONSOLEMAP=
-LOCALE=en_US.UTF-8
-DAEMON_LOCALE="yes"
-USECOLOR="yes"
-
-# HARDWARE
-# --------
-MODULES=(acpi-cpufreq tp_smapi vboxdrv)
-USEDMRAID="no"
-USEBTRFS="no"
-USELVM="no"
-
-# NETWORKING
-# ----------
-HOSTNAME=ly50247
-
-interface=eth0
-address=
-netmask=
-broadcast=
-gateway=
-
-NETWORK_PERSIST="yes"
-
-# DAEMONS
-# -------
-#
-DAEMONS=(@syslog-ng @network @crond @hdapsd @thinkfan @alsa @goagent)
