@@ -150,6 +150,7 @@ perl
 perl-rename
 php
 pkg-config
+pm-utils
 ppp
 procps-ng
 progsreiserfs
