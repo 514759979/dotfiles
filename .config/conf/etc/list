@@ -1,0 +1,12 @@
+/usr/lib/udev/rules.d/51-android.rules
+/etc/udev/rules.d/11-auto-mount.rules
+/etc/rc.conf
+/etc/rc.local
+/etc/modprobe.d/modprobe.conf
+/etc/modprobe.d/thinkpad_acpi.conf
+/etc/modules-load.d/mine.conf
+/etc/sysctl.conf
+/etc/thinkfan.conf
+/etc/hostname
+/etc/locale.conf
+/etc/hosts

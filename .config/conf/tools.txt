@@ -43,3 +43,11 @@ prd xorg-fonts-misc
 certutil -d sql:$HOME/.pki/nssdb -A -t TC -n "goagent" -i .proxy/goagent/local/CA.crt
 sudo grub-install --directory=/usr/lib/grub/i386-pc --target=i386-pc --boot-directory=/boot --recheck --debug /dev/sda
 m-5gk9g-mnhx4-49v6v-93uzw-q8vey
+
+
+毕业证和学位证原件，身份证原件，户口本首页和个人页复印件，两张一寸照片(白底)
+
+010999137489
+91801100
+00-16-41-E6-14-71
+test2 liuyugao
