@@ -36,9 +36,7 @@ nnoremap <F10> :!./%:t:r<cr>
 nnoremap <F5> :!./%<cr>
 nnoremap <C-a> ggVG
 
-"filetype plugin on
 filetype plugin indent on
-"filetype indent on
 
 " TagList
 ca tl Tlist
