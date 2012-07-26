@@ -115,6 +115,13 @@ findx () {
     find -print0|xargs -0 $@
 }
 
+pqe () {
+    pacman -Qg base base-devel|sed 's/.* //g'|sort -u > /tmp/.base.list
+    pacman -Qqe|sort -u > /tmp/.all.list
+    comm -13 /tmp/.base.list /tmp/.all.list
+    rm /tmp/.base.list /tmp/.all.list
+}
+
 alias y='yaourt'
 alias pi='y -S'
 alias pli='y -U'
@@ -128,7 +135,6 @@ alias pqi='y -Qi'
 alias pql='y -Ql'
 alias pqo='y -Qo'
 alias pqd='y -Qdt'
-alias pqe='y -Qqe'
 alias pqm='y -Qqm'
 alias prd='y -Rdd'
 alias pae='y -D --asexplicit'

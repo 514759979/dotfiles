@@ -1,10 +1,3 @@
-cd /opt/java/jre/lib/fonts
-mkdir fallback
-cd fallback/
-ln -s /usr/share/fonts/wenquanyi/wqy-zenhei/wqy-zenhei.ttc .
-mkfontdir
-mkfontscale
-
 mencoder提取
 mencoder -o out.mp3 -ovc frameno -oac mp3lame -lameopts cbr:br=128 -of rawaudio -ss 1:30 -endpos 2:45 test.rmvb
 在实际操作中，用户需要更改的就是那两个时间参数值了！该命令参数的详细说明如下：
@@ -25,8 +18,8 @@ mplayer -vf yadif
 echo "ibase=A;obase=2;100" | bc
 
 openssl:
-　　enc表明你打算使用某个算法
-　　-des是具体使用的某个算法
+　　enc 表明你打算使用某个算法
+　　-des 是具体使用的某个算法
 　　-e 表明要加密
 　　-a 同样是使用ASCII进行编码
 　　-in 要加密的文件名字
@@ -38,10 +31,9 @@ x:5:once:/bin/su osily -l -c "/bin/bash --login -c xinit &>/dev/null"
 pcspkr 模块 响铃
 $ cat /etc/modprobe.d/modprobe.conf
 blacklist pcspkr
-sudo mv 49-sansserif.conf 49-sansserif.conf.bak
 prd xorg-fonts-misc
 certutil -d sql:$HOME/.pki/nssdb -A -t TC -n "goagent" -i .proxy/goagent/local/CA.crt
-sudo grub-install --directory=/usr/lib/grub/i386-pc --target=i386-pc --boot-directory=/boot --recheck --debug /dev/sda
+sudo grub-install /dev/sda
 m-5gk9g-mnhx4-49v6v-93uzw-q8vey
 
 
