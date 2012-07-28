@@ -1,5 +1,5 @@
-export GTK_IM_MODULE=xim
-export QT_IM_MODULE=xim
+export GTK_IM_MODULE=yong
+export QT_IM_MODULE=yong
 export XMODIFIERS="@im=yong"
 export DESKTOP_ENV="DWM"
 export GTK2_RC_FILES="/home/osily/.gtkrc-2.0"
