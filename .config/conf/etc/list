@@ -11,3 +11,5 @@
 /etc/timezone
 /etc/conf.d/netcfg
 /etc/systemd/system/multi-user.target.wants/login.service
+/etc/network.d/baidu
+/etc/network.d/test2

@@ -14,7 +14,6 @@ bpython2
 busybox
 bviplus
 ccal
-chromium
 ckermit
 cmake
 colordiff
@@ -102,8 +101,8 @@ pm-utils
 progsreiserfs
 rdesktop
 redis
+rp-pppoe
 rsync
-rsyslog
 scrot
 slock
 smartmontools
@@ -116,6 +115,9 @@ strace
 subversion
 sudo
 sysstat
+systemd
+systemd-arch-units
+systemd-sysvcompat
 systemd-tools
 tcpdump
 thinkfan
