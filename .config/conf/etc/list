@@ -1,4 +1,3 @@
-/usr/lib/udev/rules.d/51-android.rules
 /etc/udev/rules.d/11-auto-mount.rules
 /etc/modprobe.d/modprobe.conf
 /etc/modprobe.d/thinkpad_acpi.conf
