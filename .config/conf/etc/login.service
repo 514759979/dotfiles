@@ -1,0 +1,9 @@
+[Unit]
+Description=Direct login to X
+After=systemd-user-sessions.service
+
+[Service]
+ExecStart=/bin/su osily -l -c "/bin/bash --login -c xinit"
+
+[Install]
+WantedBy=graphical.target

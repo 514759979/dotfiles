@@ -1,7 +1,5 @@
 /usr/lib/udev/rules.d/51-android.rules
 /etc/udev/rules.d/11-auto-mount.rules
-/etc/rc.conf
-/etc/rc.local
 /etc/modprobe.d/modprobe.conf
 /etc/modprobe.d/thinkpad_acpi.conf
 /etc/modules-load.d/mine.conf
@@ -10,3 +8,6 @@
 /etc/hostname
 /etc/locale.conf
 /etc/hosts
+/etc/timezone
+/etc/conf.d/netcfg
+/etc/systemd/system/multi-user.target.wants/login.service

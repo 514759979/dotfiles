@@ -145,9 +145,9 @@ zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
 compdef pkill=killall
 compdef yaourt=pacman
-compdef src=rc.d
 compdef zcd=ls
 compdef st=sudo
+compdef service=systemctl
 compdef findx=sudo
 compdef lftp=sftp
 compdef aftp=sftp

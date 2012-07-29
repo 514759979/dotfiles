@@ -7,7 +7,7 @@
 
 #<ip-address>	<hostname.domain.org>	<hostname>
 127.0.0.1	localhost.localdomain	localhost ly50247
-::1		localhost.localdomain	localhost
+::1		localhost.localdomain	localhost ly50247
 
 0.0.0.0 stat.youku.com 
 0.0.0.0 static.lstat.youku.com 
