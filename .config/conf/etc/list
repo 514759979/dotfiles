@@ -12,3 +12,5 @@
 /etc/systemd/system/multi-user.target.wants/login.service
 /etc/network.d/baidu
 /etc/network.d/test2
+/etc/rc.conf
+/etc/rc.local
