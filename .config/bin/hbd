@@ -1,3 +1,2 @@
 #!/bin/bash
-nohup ncsvc -h yidong.baidu.com -u liugao01 -p 8674$1 -r "RSA token 认证" -f ~/.proxy/crt &>/dev/null &
-
+nohup ncsvc -h yidong.baidu.com -u $1 -p $2 -r "RSA token 认证" -f ~/.config/.crt &>/dev/null &
