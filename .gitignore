@@ -62,7 +62,6 @@ doc
 .lftp/cwd_history
 .lftp/rl_history
 .lftp/transfer_log
-.linphonerc
 .local
 .macromedia
 media
@@ -74,7 +73,6 @@ photo
 .pulse
 .pulse-cookie
 .pythonhist
-.qmmp
 .recently-used
 .rediscli_history
 .sqlite_history
@@ -99,7 +97,7 @@ tmp
 .wine-thunder
 .wireshark
 .wizcfg
-.work
+.mine
 .Xauthority
 .yong/history.txt
 .yong/pinyin.usr
@@ -110,4 +108,3 @@ tmp
 .Yozo_Office
 .zcompdump
 .zhistory
-.arch

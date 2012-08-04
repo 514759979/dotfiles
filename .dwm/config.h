@@ -72,7 +72,7 @@ static Key keys[] = {
     { MODKEY,                       XK_c,      spawn,          SHCMD("tmux save-buffer -|xclip -selection clipboard") },
     { 0,                            XK_Print,  spawn,          SHCMD("gm import -window root $(date +%Y-%m-%d-%H_%M_%S).png") },
     { Mod1Mask,                     XK_Print,  spawn,          SHCMD("sleep 0.15;gm import $(date +%Y-%m-%d-%H_%M_%S).png") },
-//    { 0,            XF86XK_AudioMute,          spawn,          {.v = (const char*[]){"amixer", "sset", "Master", "toggle", NULL}} },
+    { 0,            XF86XK_AudioMute,          spawn,          {.v = (const char*[]){"amixer", "sset", "Master", "toggle", NULL}} },
     { 0,            XF86XK_AudioRaiseVolume,   spawn,          {.v = (const char*[]){"amixer", "sset", "Master", "1+", NULL}} },
     { 0,            XF86XK_AudioLowerVolume,   spawn,          {.v = (const char*[]){"amixer", "sset", "Master", "1-", NULL}} },
     { MODKEY|ShiftMask,             XK_r,      my_restart,     {0} },

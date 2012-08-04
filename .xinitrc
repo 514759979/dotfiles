@@ -27,6 +27,5 @@ if [ -e /usr/bin/xinput ]; then
 fi &
 
 yong -d
-easystroke &
 xmodmap $HOME/.xmodmaprc
 exec dwm
