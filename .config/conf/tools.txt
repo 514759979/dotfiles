@@ -25,28 +25,17 @@ openssl:
 　　-in 要加密的文件名字
 　　-out 加密后的文件名字
 
-# 对所有用户开放USB设备的读写权限
-none /proc/bus/usb usbfs devmode=666 0 0
 x:5:once:/bin/su osily -l -c "/bin/bash --login -c xinit &>/dev/null"
 pcspkr 模块 响铃
-$ cat /etc/modprobe.d/modprobe.conf
-blacklist pcspkr
-prd xorg-fonts-misc
 certutil -d sql:$HOME/.pki/nssdb -A -t TC -n "goagent" -i .proxy/goagent/local/CA.crt
 sudo grub-install /dev/sda
 m-5gk9g-mnhx4-49v6v-93uzw-q8vey
 
 
-毕业证和学位证原件，身份证原件，户口本首页和个人页复印件，两张一寸照片(白底)
-
-010999137489
-91801100
-00-16-41-E6-14-71
+0109991374899180110000-16-41-E6-14-71
 test2 liuyugao
-
 
 { 0,            XF86XK_AudioMute,          spawn,          SHCMD("if ossmix misc.speaker-mute|grep OFF;"
                                                                    "then ossmix misc.speaker-mute on;else ossmix misc.speaker-mute off;fi;") },
 { 0,            XF86XK_AudioRaiseVolume,   spawn,          {.v = (const char*[]){"ossmix", "vmix0-outvol", "+1", NULL}} },
 { 0,            XF86XK_AudioLowerVolume,   spawn,          {.v = (const char*[]){"ossmix", "vmix0-outvol", "--", "-1", NULL}} },
-
