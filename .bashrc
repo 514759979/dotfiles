@@ -2,7 +2,7 @@
 #export http_proxy=http://127.0.0.1:8000
 #export https_proxy=http://127.0.0.1:8000
 export EDITOR=vim
-export BROWSER=chromium
+export BROWSER=firefox
 export PAGER='less -isrf'
 eval `dircolors ~/.config/dir_colors`
 
@@ -141,8 +141,6 @@ alias pae='y -D --asexplicit'
 alias pad='y -D --asdeps'
 alias pcl='y -Scc'
 
-#alias voff='ossmix jack.int-speaker.mute ON'
-#alias von='ossmix jack.int-speaker.mute OFF'
 alias opsqlite='cd ~/.mozilla/firefox && for s in `find -name "*.sqlite"`; { sqlite3 $s vacuum; }; cd -'
 alias h='history'
 alias l='ls -F --color=auto'
@@ -171,16 +169,14 @@ alias gcat='iconv -f utf-8 -t gbk -c'
 alias dub='du -sbh'
 alias psg='ps aux|grep'
 alias pst='pstree'
-alias kigp='kill $(pgrep -f proxy.py)'
 alias mt='top -u osily'
 alias ctime='time cat'
 alias ck='sudo ckermit ~/.kermrc -c'
-alias fumnt='fu /mnt/fuse/'
 alias ma='mountavfs'
 alias ua='umountavfs'
 alias lg='luit -encoding gbk'
 alias wi='which'
-alias rmpwd='rm -r "`pwd`";cd ..'
+alias rpd='rm -r "`pwd`";cd ..'
 alias bd='nohup ~/.config/bnac/bnac.py &>/dev/null &'
 alias gcl='git clone'
 alias gpu='time git push'
@@ -192,9 +188,6 @@ alias ledon='sudo sh -c "echo 255 > /sys/class/leds/tpacpi::thinklight/brightnes
 alias ledoff='sudo sh -c "echo 0 > /sys/class/leds/tpacpi::thinklight/brightness"'
 alias lid_close='xset dpms force off'
 alias wvd='sudo wvdial -C ~/.wvdialrc'
-alias vm='vifm'
 alias find0='find -print0'
 alias xargs0='xargs -0'
 alias findg='find|grep -P'
-alias service='sudo systemctl'
-
