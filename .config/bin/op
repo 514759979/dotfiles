@@ -18,7 +18,7 @@ case $p in
         f kchmviewer "$1"
         ;;
     html|htm|mht|mhtml)
-        f firefox "$1"
+        f chromium "$1"
         ;;
     doc|docx|ppt|pptx|xls|xlsx)
         f yozo "$1"

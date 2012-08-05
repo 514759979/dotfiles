@@ -2,7 +2,7 @@
 #export http_proxy=http://127.0.0.1:8000
 #export https_proxy=http://127.0.0.1:8000
 export EDITOR=vim
-export BROWSER=firefox
+export BROWSER=chromium
 export PAGER='less -isrf'
 eval `dircolors ~/.config/dir_colors`
 
