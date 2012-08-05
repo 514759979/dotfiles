@@ -1,4 +1,0 @@
-#!/bin/sh
-w3m -dump -cols 40 -no-proxy 'http://ipgw.neu.edu.cn/ipgw/ipgw.ipgw?uid=stu_20083261&password=87805000&operation=disconnectall&range=3&timeout=1' 2>/dev/null
-w3m -dump -cols 40 -no-proxy 'http://ipgw.neu.edu.cn/ipgw/ipgw.ipgw?uid=stu_20083261&password=87805000&operation=connect&range=2&timeout=1' 2>/dev/null
-
