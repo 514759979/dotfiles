@@ -19,16 +19,15 @@ static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4"};
+static const char *tags[] = { "1", "2", "3", "4", "5", "6"};
 
 static const Rule rules[] = {
     /* class      instance    title       tags mask     isfloating   monitor */
     { "Yad",       NULL,       NULL,       0,           True,           -1 },
-    { "Qmmp",       NULL,       NULL,       0,           True,           -1 },
+    { "Dia",       NULL,       NULL,       8,           True,           -1 },
     { "MPlayer",   NULL,       NULL,       0,           True,           -1 },
     { "Thunderbird",  NULL,       NULL,       2,           False,           -1 },
     { "Chromium",  NULL,       NULL,       1,           False,           -1 },
-    { "Firefox",  NULL,       NULL,       1,           False,           -1 },
     { "VirtualBox",  NULL,       NULL,       4,           False,           -1 },
     { "XTerm",    NULL,       NULL,       1,           False,           -1 },
 };
