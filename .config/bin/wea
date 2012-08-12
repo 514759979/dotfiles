@@ -1,29 +1,11 @@
 #!/bin/bash
-url="http://qq.ip138.com/weather/liaoning/ShenYang.htm"
-w3m -dump  "$url" > /tmp/ipp
 
-url="http://qq.ip138.com/weather/neimenggu/TongLiao.htm"
-w3m -dump  "$url" > /tmp/ipp2
-
-#url="http://qq.ip138.com/weather/hebei/BaoDing.htm"
-#w3m -dump  "$url" > /tmp/ipp3
-
-url="http://qq.ip138.com/weather/beijing/HaiDian.htm"
-w3m -dump  "$url" > /tmp/ipp3
-
-echo 沈阳天气：
-n1=`sed -n '/日期/=' /tmp/ipp`
-n2=`sed -n '/风向 /=' /tmp/ipp`
-sed -n $((n1-1)),$((n2+2))p /tmp/ipp
-
-echo 通辽天气：
-n1=`sed -n '/日期/=' /tmp/ipp2`
-n2=`sed -n '/风向/=' /tmp/ipp2`
-sed -n $((n1-1)),$((n2+2))p /tmp/ipp2
+url="http://qq.ip138.com/weather/beijing/ChangPing.htm"
+w3m -dump "$url" > /tmp/ipp
 
 echo 北京天气：
-n1=`sed -n '/日期/=' /tmp/ipp3|head -n 1`
-n2=`sed -n '/风向/=' /tmp/ipp3|head -n 1`
-sed -n $((n1-1)),$((n2+3))p /tmp/ipp3
+n1=`sed -n '/日期/=' /tmp/ipp|head -n 1`
+n2=`sed -n '/风向/=' /tmp/ipp|head -n 1`
+sed -n $((n1-1)),$((n2+1))p /tmp/ipp
 
 rm /tmp/ipp*

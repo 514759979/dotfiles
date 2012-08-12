@@ -1,7 +1,6 @@
 #!/bin/zsh
-cat /sys/class/power_supply/BAT1/uevent
-full=`cat /sys/class/power_supply/BAT1/charge_full`
-now=`cat /sys/class/power_supply/BAT1/charge_now`
-echo 
-echo $[now * 1.0 / full]
-#echo time: "    " $((capacity * 60.0 / rate)) min
+
+echo -n 'remaining_percent: '
+cat /sys/devices/platform/smapi/BAT0/remaining_percent
+echo -n 'remaining_running_time: '
+cat /sys/devices/platform/smapi/BAT0/remaining_running_time
