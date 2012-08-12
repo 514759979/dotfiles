@@ -1,2 +1,2 @@
 #!/bin/bash
-DISPLAY=:0 xsetroot -name "`date +%m.%d\ %w\ %H:%M`"
+DISPLAY=:0 xsetroot -name "`cat /sys/devices/platform/smapi/BAT0/remaining_percent`% `date +%m.%d\ %w\ %H:%M`"
