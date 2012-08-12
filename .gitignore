@@ -37,7 +37,6 @@ doc
 .fontconfig
 .fonts
 .gconf
-.gem
 .gimp-2.8
 .gitk
 .gnome2
@@ -58,7 +57,6 @@ doc
 .local
 .macromedia
 media
-.mozilla
 .mysql_history
 .p7zip
 photo
@@ -82,13 +80,11 @@ tmp
 .vifm/vifminfo
 .viminfo
 .vim/.netrwhist
-.vimperator
 .virtualbox
 .VirtualBox
 .w3m
 .wine
 .wine-thunder
-.mine
 .Xauthority
 .yong/history.txt
 .yong/pinyin.usr
@@ -100,6 +96,5 @@ tmp
 .zcompdump
 .zhistory
 .dia
-.arch
 .config/Kingsoft
 .config/Software
