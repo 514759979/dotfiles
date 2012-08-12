@@ -6,5 +6,5 @@ else
     word="$*"
 fi
 
-w3m -dump -no-proxy "http://dict.baidu.com/s?wd=$word" \
+w3m -dump -no-proxy "http://m.baidu.com/s?word=$word&ct_mark3=%E8%AF%8D%E5%85%B8%E6%9F%A5%E8%AF%A2" \
         | yad --text-info --center --width=600 --height=600 --title="$word"

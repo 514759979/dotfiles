@@ -100,3 +100,6 @@ tmp
 .zcompdump
 .zhistory
 .dia
+.arch
+.config/Kingsoft
+.config/Software
