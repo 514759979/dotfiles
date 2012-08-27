@@ -4,6 +4,7 @@
 export EDITOR=vim
 export BROWSER=chromium
 export PAGER='less -isrf'
+export UNZIP='-O CP936'
 eval `dircolors ~/.config/dir_colors`
 
 #man color
@@ -65,7 +66,7 @@ vmvfs () {
 }
 
 #atool
-file_7z='\.apk\b|\.zip\b|\.rar\b|\.jar\b|\.deb\b|\.iso\b'
+file_7z='\.apk\b|\.rar\b|\.jar\b|\.deb\b|\.iso\b'
 
 al () {
     if echo $* |grep -Pi $file_7z >/dev/null; then
