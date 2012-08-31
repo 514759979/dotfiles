@@ -123,6 +123,10 @@ pqe () {
     rm /tmp/.base.list /tmp/.all.list
 }
 
+calc () {
+    echo $[$*]
+}
+
 alias y='yaourt'
 alias pi='y -S'
 alias pli='y -U'

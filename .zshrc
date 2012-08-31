@@ -1,4 +1,5 @@
 function sctitle() { print -Pn "\ek$1\e\\"}
+
 #命令提示符 {{{
 precmd () {
 RPROMPT=$(echo "%(?..$RED%?$FINISH)")
@@ -31,10 +32,14 @@ FINISH="%{$terminfo[sgr0]%}"
 #标题栏、任务栏样式{{{
 case $TERM in
 	(*screen*)
-	preexec() { sctitle "%30>..>$1%< <" }
+	preexec() {
+            sctitle '%30>..>$1%< <';
+        }
 	;;
-	(*xterm*|*rxvt*|(dt|k|E)term)
-	preexec() { print -Pn "\e]0;%~$ ${1//\\/\\\\}\a" }
+	(*xterm*|*rxvt*)
+	preexec() {
+            print -Pn "\e]0;%~$ ${1//\\/\\\\}\a"
+        }
 	;;
 esac
 #}}}
@@ -253,5 +258,4 @@ osily::1
 zstyle ':completion:*:my-accounts' users-hosts $my_accounts
 #}}}
 
-
-source ~/.bashrc
+source $HOME/.bashrc
