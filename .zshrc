@@ -1,6 +1,8 @@
-function sctitle() { print -Pn "\ek$1\e\\"}
-
 #命令提示符 {{{
+sctitle() {
+    print -Pn "\ek$1\e\\"
+}
+
 precmd () {
 RPROMPT=$(echo "%(?..$RED%?$FINISH)")
 
@@ -33,7 +35,7 @@ FINISH="%{$terminfo[sgr0]%}"
 case $TERM in
 	(*screen*)
 	preexec() {
-            sctitle '%30>..>$1%< <';
+            sctitle "%30>..>$1%< <";
         }
 	;;
 	(*xterm*|*rxvt*)
