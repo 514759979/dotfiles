@@ -21,7 +21,6 @@ book
 .config/gtk-3.0
 .config/htop
 .config/Kitware
-.config/libreoffice
 .config/oxygen-gtk
 .config/smplayer
 .config/Trolltech.conf
@@ -44,7 +43,6 @@ doc
 .grun_history
 .gstreamer-0.10
 .gtkrc-2.0
-.icedtea
 .icons
 .java
 .jpg
@@ -92,9 +90,6 @@ tmp
 .yong/user.txt
 .yong/user.txt.bak
 .yong/yong.ini.old
-.Yozo_Office
 .zcompdump
 .zhistory
 .dia
-.config/Kingsoft
-.config/Software
