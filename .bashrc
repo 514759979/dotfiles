@@ -66,7 +66,7 @@ vmvfs () {
 }
 
 #atool
-file_7z='\.apk\b|\.rar\b|\.jar\b|\.deb\b|\.iso\b'
+file_7z='\.rar\b|\.deb\b|\.iso\b'
 
 al () {
     if echo $* |grep -Pi $file_7z >/dev/null; then
@@ -196,3 +196,4 @@ alias wvd='sudo wvdial -C ~/.wvdialrc'
 alias find0='find -print0'
 alias xargs0='xargs -0'
 alias findg='find|grep -P'
+alias service='sudo rc.d'
