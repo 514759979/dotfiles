@@ -101,7 +101,7 @@ x () {
 #end atool
 
 mcat () {
-    markdown_py2 $1 > /tmp/.html
+    markdown_py2 $1 -f /tmp/.html
     w3m /tmp/.html
 }
 
