@@ -1,6 +1,6 @@
 . /etc/profile
-#export http_proxy=http://127.0.0.1:8000
-#export https_proxy=http://127.0.0.1:8000
+#export http_proxy=http://127.0.0.1:8087
+#export https_proxy=http://127.0.0.1:8087
 export EDITOR=vim
 export BROWSER=chromium
 export PAGER='less -isrf'
