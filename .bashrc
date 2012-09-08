@@ -129,6 +129,10 @@ gr () {
     grep --color "$*" -r .
 }
 
+b () {
+    cd ..
+}
+
 alias y='yaourt'
 alias pi='y -S'
 alias pli='y -U'
@@ -201,3 +205,17 @@ alias findg='find|grep -P'
 alias service='sudo rc.d'
 alias ehttp='export http_proxy=http://127.0.0.1:8087'
 alias ehttps='export https_proxy=http://127.0.0.1:8087'
+alias e='echo'
+alias f='file'
+alias t='cat'
+alias d='date'
+alias i='git'
+alias ic='ifconfig'
+alias k='kill'
+alias pk='pkill'
+alias ka='killall'
+alias k9='kill'
+alias pk9='pkill'
+alias ka9='killall'
+alias m='man'
+alias mp='mplayer'
