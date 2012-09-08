@@ -133,6 +133,16 @@ b () {
     cd ..
 }
 
+opsqlite () {
+    cd $HOME/.config/chromium
+    find -print0|xargs -0 file|grep SQLite|sed 's/:.*$//g' > .opsqlite
+    while read i; do
+        sqlite3 $i vacuum
+    done < .opsqlite
+    rm .opsqlite
+    cd -
+}
+
 alias y='yaourt'
 alias pi='y -S'
 alias pli='y -U'
@@ -151,8 +161,6 @@ alias prd='y -Rdd'
 alias pae='y -D --asexplicit'
 alias pad='y -D --asdeps'
 alias pcl='y -Scc'
-
-#alias opsqlite='cd ~/.mozilla/firefox && for s in `find -name "*.sqlite"`; { sqlite3 $s vacuum; }; cd -'
 alias h='history'
 alias l='ls -F --color'
 alias lsd='l -d *(-/DN)'

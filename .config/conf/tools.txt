@@ -32,7 +32,6 @@ certutil -d sql:$HOME/.pki/nssdb -A -t TC -n "goagent" -i /opt/goagent/local/CA.
 #certutil -d $HOME/.pki/nssdb -A -t TC -n "goagent" -i /opt/goagent/local/CA.crt
 sudo grub-install /dev/sda
 
-
 0109991374899180110000-16-41-E6-14-71
 test2 liuyugao
 
@@ -40,3 +39,7 @@ test2 liuyugao
                                                                    "then ossmix misc.speaker-mute on;else ossmix misc.speaker-mute off;fi;") },
 { 0,            XF86XK_AudioRaiseVolume,   spawn,          {.v = (const char*[]){"ossmix", "vmix0-outvol", "+1", NULL}} },
 { 0,            XF86XK_AudioLowerVolume,   spawn,          {.v = (const char*[]){"ossmix", "vmix0-outvol", "--", "-1", NULL}} },
+
+LANG=C
+7z x
+convmv -f gbk -t utf8 --notest -r .
