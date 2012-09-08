@@ -27,6 +27,7 @@ openssl:
 
 x:5:once:/bin/su osily -l -c "/bin/bash --login -c xinit &>/dev/null"
 pcspkr 模块 响铃
+modutil -changepw "NSS Certificate DB" -dbdir .
 certutil -d sql:$HOME/.pki/nssdb -A -t TC -n "goagent" -i /opt/goagent/local/CA.crt
 sudo grub-install /dev/sda
 m-5gk9g-mnhx4-49v6v-93uzw-q8vey
