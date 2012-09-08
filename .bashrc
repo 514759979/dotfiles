@@ -1,6 +1,4 @@
 . /etc/profile
-#export http_proxy=http://127.0.0.1:8087
-#export https_proxy=http://127.0.0.1:8087
 export EDITOR=vim
 export BROWSER=chromium
 export PAGER='less -isrf'
@@ -38,7 +36,7 @@ st () {
 
 c () {
     cd $1
-    ls --color=auto
+    ls --color
 }
 
 cpu () {
@@ -103,7 +101,7 @@ x () {
 #end atool
 
 mcat () {
-    markdown $1 > /tmp/.html
+    markdown_py2 $1 > /tmp/.html
     w3m /tmp/.html
 }
 
@@ -127,6 +125,10 @@ calc () {
     echo $[$*]
 }
 
+gr () {
+    grep --color "$*" -r .
+}
+
 alias y='yaourt'
 alias pi='y -S'
 alias pli='y -U'
@@ -146,15 +148,15 @@ alias pae='y -D --asexplicit'
 alias pad='y -D --asdeps'
 alias pcl='y -Scc'
 
-alias opsqlite='cd ~/.mozilla/firefox && for s in `find -name "*.sqlite"`; { sqlite3 $s vacuum; }; cd -'
+#alias opsqlite='cd ~/.mozilla/firefox && for s in `find -name "*.sqlite"`; { sqlite3 $s vacuum; }; cd -'
 alias h='history'
-alias l='ls -F --color=auto'
+alias l='ls -F --color'
 alias lsd='l -d *(-/DN)'
 alias ll='l -l --time-style=long-iso'
 alias la='l -A'
 alias lla='ll -A'
 alias llh='ll -h'
-alias grep='grep --color=auto'
+alias g='grep --color'
 alias rd='rmdir'
 alias md='mkdir'
 alias v='vim'
@@ -168,7 +170,7 @@ alias sm='sudo mount'
 alias u='sudo umount'
 alias fu='fusermount -u'
 alias dh='df -hT'
-alias pyweb='SimpleHTTPServerWithUpload.py 9999'
+alias pyweb='SimpleHTTPServerWithUpload.py 8888'
 alias ucat='iconv -f gbk -t utf-8 -c'
 alias gcat='iconv -f utf-8 -t gbk -c'
 alias dub='du -sbh'
@@ -197,3 +199,5 @@ alias find0='find -print0'
 alias xargs0='xargs -0'
 alias findg='find|grep -P'
 alias service='sudo rc.d'
+alias ehttp='export http_proxy=http://127.0.0.1:8087'
+alias ehttps='export https_proxy=http://127.0.0.1:8087'
