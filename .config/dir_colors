@@ -140,6 +140,9 @@ EXEC 01;32
 .cpio 00;31
 .7z  00;31
 .rz  00;31
+.img 00;31
+.apk 00;31
+.iso 00;31
 
 # image formats
 .jpg 00;35
@@ -238,5 +241,6 @@ EXEC 01;32
 .sh  00;33
 .py 00;33
 .h 00;33
-#Makefile 00;33
-
+.php 00;33
+.pl 00;33
+.tcl 00;33
