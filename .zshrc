@@ -151,7 +151,7 @@ zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
 compdef pkill=killall
-compdef yaourt=pacman
+[ -e /usr/bin/pacman ] && compdef yaourt=pacman
 compdef zcd=ls
 compdef st=sudo
 compdef service=systemctl
