@@ -59,7 +59,7 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 set completeopt=menu
 
 " pathogen
-call pathogen#runtime_append_all_bundles() 
+" call pathogen#runtime_append_all_bundles() 
 
 "NERDTree
 ca nt NERDTreeToggle
