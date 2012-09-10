@@ -2,7 +2,6 @@
 /etc/modprobe.d/modprobe.conf
 /etc/modprobe.d/thinkpad_acpi.conf
 /etc/modules-load.d/mine.conf
-/etc/sysctl.conf
 /etc/thinkfan.conf
 /etc/locale.conf
 /etc/hosts
