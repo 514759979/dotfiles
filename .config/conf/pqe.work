@@ -15,6 +15,7 @@ avfs
 bc
 bpython2
 btrfs-progs
+burp
 busybox
 bviplus
 ccal
@@ -133,7 +134,6 @@ vim-minibufexpl
 vim-nerdcommenter
 vim-nerdtree
 vim-omnicppcomplete
-vim-pathogen
 vim-supertab
 vim-taglist
 vim-txtbrowser
