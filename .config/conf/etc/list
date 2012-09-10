@@ -4,14 +4,7 @@
 /etc/modules-load.d/mine.conf
 /etc/sysctl.conf
 /etc/thinkfan.conf
-/etc/hostname
 /etc/locale.conf
 /etc/hosts
-/etc/timezone
 /etc/conf.d/netcfg
 /etc/systemd/system/multi-user.target.wants/login.service
-/etc/network.d/baidu
-/etc/network.d/test2
-/etc/rc.conf
-/etc/rc.local
-/etc/inittab

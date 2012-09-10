@@ -1,8 +1,0 @@
-#!/bin/bash
-#
-# /etc/rc.local: Local multi-user start-up script.
-#
-
-echo 60 > /sys/devices/platform/smapi/BAT0/start_charge_thresh
-echo 99 > /sys/devices/platform/smapi/BAT0/stop_charge_thresh
-echo 17 >/sys/devices/platform/smapi/BAT0/inhibit_charge_minutes
