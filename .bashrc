@@ -143,6 +143,14 @@ opsqlite () {
     cd -
 }
 
+gentoo () {
+    if pgrep arch-chroot &>/dev/null; then
+        sudo chroot $HOME/data/gentoo
+    else
+        sudo arch-chroot $HOME/data/gentoo
+    fi
+}
+
 if [ -e /usr/bin/yaourt ]; then
     alias y='yaourt'
     alias pi='y -S'
