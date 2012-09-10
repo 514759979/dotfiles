@@ -16,14 +16,8 @@ if [ -e /usr/bin/synclient ]; then
     synclient TapButton1=1
     synclient HorizEdgeScroll=1
     synclient VertEdgeScroll=1
-fi &
-
-# for thinkpad trackpoint, middle key scroll screen
-if [ -e /usr/bin/xinput ]; then
-    sleep 2
-    xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 8 2
-    xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 8 1
-    xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
+    synclient ClickPad=0
+    synclient RBCornerButton=3
 fi &
 
 yong -d
