@@ -20,6 +20,7 @@ busybox
 bviplus
 ccal
 chromium
+chromium-pepper-flash
 ckermit
 cleanlooks-phenix-gtk-theme-git
 cmake
@@ -41,7 +42,6 @@ exfat-utils
 expect
 fbgrab
 ffmpeg
-flashplugin
 fuse-convmvfs
 fuse-exfat
 gdb
@@ -97,6 +97,7 @@ pacman-color
 perl-rename
 php
 pkgfile
+pkgstats
 progsreiserfs
 rdesktop
 redis
@@ -145,7 +146,6 @@ virtualbox-archlinux-additions
 w3m
 wget
 wine
-wine_gecko
 wine-thunder
 winetricks
 wireless_tools
