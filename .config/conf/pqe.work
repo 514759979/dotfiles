@@ -94,6 +94,7 @@ openssh
 os-prober
 p7zip
 pacman-color
+pdf2htmlex-git
 perl-rename
 php
 pkgfile
@@ -104,6 +105,7 @@ redis
 rp-pppoe
 rsync
 scrot
+shc
 slock
 smplayer
 sqlitebrowser
