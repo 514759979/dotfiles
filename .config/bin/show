@@ -1,2 +1,3 @@
 #!/bin/bash
-DISPLAY=:0 xsetroot -name "`cat /sys/devices/platform/smapi/BAT0/remaining_percent`% `date +%m.%d\ %w\ %H:%M`"
+export LANG=zh_CN.UTF-8
+DISPLAY=:0 xsetroot -name "`date +%m-%d\|%a\|%H:%M`|`cat /sys/devices/platform/smapi/BAT0/remaining_percent`%"
