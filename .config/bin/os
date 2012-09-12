@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ $# = 0 ]; then
-    str='systemctl halt'
+    str='systemctl poweroff'
 elif [ $1 = 1 ]; then
     str='systemctl reboot'
 elif [ $1 = 2 ]; then
