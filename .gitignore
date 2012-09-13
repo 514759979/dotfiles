@@ -95,3 +95,11 @@ tmp
 .dia
 .audacity-data
 .FontForge
+.snownews/browser
+.snownews/cache
+.snownews/colors
+.snownews/error.log
+.snownews/html_entities
+.snownews/keybindings
+.snownews/updatecheck
+.snownews/urls.bak
