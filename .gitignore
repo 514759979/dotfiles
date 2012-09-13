@@ -77,7 +77,7 @@ tmp
 .vifm/vifm-help.txt
 .vifm/vifminfo
 .viminfo
-.vim/.netrwhist
+.vim
 .virtualbox
 .VirtualBox
 .w3m
@@ -103,3 +103,5 @@ tmp
 .snownews/keybindings
 .snownews/updatecheck
 .snownews/urls.bak
+.asoundrc
+.asoundrc.asoundconf
