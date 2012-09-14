@@ -1,9 +1,7 @@
 #!/bin/bash
 if [ $# = 0 ]; then
-    str='systemctl poweroff'
+    str='systemctl poweroff --force'
 elif [ $1 = 1 ]; then
-    str='systemctl reboot'
-elif [ $1 = 2 ]; then
-    str="kexec /boot/vmlinuz-linux --append='root=/dev/sda2 ro' --initrd=/boot/initramfs-linux.img"
+    str='systemctl reboot --force'
 fi
 sudo $str
