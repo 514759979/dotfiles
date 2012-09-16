@@ -197,6 +197,7 @@ EXEC 01;32
 .anx 00;35
 .ogv 00;35
 .ogx 00;35
+.3gp 00;35
 
 # Document files
 .pdf 00;32
