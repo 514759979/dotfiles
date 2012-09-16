@@ -1,7 +1,13 @@
 #!/bin/bash
+
 if [ $# = 0 ]; then
-    str='systemctl poweroff --force'
+    str='systemctl poweroff'
 elif [ $1 = 1 ]; then
+    str='systemctl reboot'
+elif [ $1 = r ]; then
+    str='systemctl poweroff --force'
+elif [ $1 = 1r ]; then
     str='systemctl reboot --force'
 fi
+
 sudo $str
