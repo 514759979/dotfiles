@@ -8,7 +8,7 @@ if [ -e $HOME/.jpg ]; then
     habak $HOME/.jpg
 fi
 
-/home/osily/.config/bin/show
+/home/osily/.bin/show
 
 wmname LG3D
 
