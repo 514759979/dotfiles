@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ $# = 0 ]; then
-    ls ~/.config/templete
+    ls ~/.templete
     exit 0
 fi
-cp ~/.config/templete/$1* .
+cp ~/.templete/$1* .
