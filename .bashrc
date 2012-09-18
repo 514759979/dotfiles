@@ -3,7 +3,7 @@ export EDITOR=vim
 export BROWSER=chromium
 export PAGER='less -isrf'
 export UNZIP='-O CP936'
-eval `dircolors ~/.config/dir_colors`
+eval `dircolors ~/.conf_bak/dir_colors`
 
 #man color
 export LESS_TERMCAP_mb=$'\E[01;31m'
