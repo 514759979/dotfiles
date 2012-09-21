@@ -4,10 +4,8 @@ sctitle() {
 }
 
 precmd () {
-#RPROMPT=$(echo "%(?..$RED%?$FINISH)")
-
-PROMPT=$(echo "$CYAN%n@$GREEN%M:$WHITE%~
-$RED%(?..[%?])$WHITE\$$FINISH ")
+PROMPT=$(echo "$CYAN%n@$GREEN%M:$RED%(?..[%?]:)$WHITE%~
+$WHITE\$$FINISH ")
 
 case $TERM in
 	(*screen*)
