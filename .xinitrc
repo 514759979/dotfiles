@@ -2,7 +2,7 @@ export GTK_IM_MODULE=yong
 export QT_IM_MODULE=yong
 export XMODIFIERS="@im=yong"
 export DESKTOP_ENV="DWM"
-export GTK2_RC_FILES="/home/osily/.gtkrc-2.0"
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 if [ -e $HOME/.jpg ]; then
     habak $HOME/.jpg
