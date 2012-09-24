@@ -1,5 +1,8 @@
 #!/bin/zsh
-cd
-#unset TMUX
-tmux a >/dev/null || tmux
-#screen -x || screen
+
+SOCK_NAME=default
+if [ $# != 0 ]; then
+    SOCK_NAME=work
+fi
+
+tmux -L $SOCK_NAME a >/dev/null || tmux -L $SOCK_NAME
