@@ -151,6 +151,14 @@ gentoo () {
     fi
 }
 
+sl () {
+    if pgrep ckermit &>/dev/null; then
+        sll1 $1
+    else
+        sll2 $1
+    fi
+}
+
 if [ -e /usr/bin/yaourt ]; then
     alias y='yaourt'
     alias pi='y -S'
