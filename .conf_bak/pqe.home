@@ -28,7 +28,7 @@ cmake
 colordiff
 convmv
 cpuburn
-cpufrequtils
+cpupower
 cscope
 davfs2
 dhcp
@@ -100,6 +100,7 @@ pianobooster
 pkgfile
 pkgstats
 progsreiserfs
+python2-dbus
 python2-gevent
 rdesktop
 redis

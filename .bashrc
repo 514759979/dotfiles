@@ -40,8 +40,7 @@ c () {
 }
 
 cpu () {
-    sudo cpufreq-set -f $1
-    sudo cpufreq-set -c 1 -f $1
+    sudo cpupower frequency-set -f $1
 }
 
 zcd () {
@@ -236,7 +235,7 @@ alias rpd='rm -r "`pwd`";cd ..'
 alias bd='nohup ~/.bnac/bnac.py &>/dev/null &'
 alias gcl='git clone'
 alias gpu='time git push'
-alias cpui='cpufreq-info'
+alias cpui='cpupower frequency-info'
 alias cl='xclip -se cl -i'
 alias gi='LANG=zh_CN.UTF-8 gimp &>/dev/null &'
 alias ledon='sudo sh -c "echo 255 > /sys/class/leds/tpacpi::thinklight/brightness"'
