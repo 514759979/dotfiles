@@ -3,7 +3,4 @@
 /etc/modprobe.d/thinkpad_acpi.conf
 /etc/modules-load.d/mine.conf
 /etc/thinkfan.conf
-/etc/locale.conf
-/etc/hosts
-/etc/conf.d/netcfg
 /etc/systemd/system/multi-user.target.wants/login.service

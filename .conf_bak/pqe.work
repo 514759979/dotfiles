@@ -61,6 +61,7 @@ hdapsd
 hdaps-gl
 hddtemp
 htop
+icu
 id3v2
 imagemagick
 indent
@@ -97,9 +98,11 @@ pacman-color
 pdf2htmlex-git
 perl-rename
 php
+pianobooster
 pkgfile
 pkgstats
 progsreiserfs
+python2-gevent
 rdesktop
 redis
 rp-pppoe
@@ -108,6 +111,7 @@ scrot
 shc
 slock
 smplayer
+snownews
 sqlitebrowser
 squashfs-tools
 sshfs
@@ -118,6 +122,8 @@ tcpdump
 thinkfan
 thunderbird
 tightvnc
+timidity++
+timidity-freepats
 tk
 tmux
 tp_smapi
@@ -143,8 +149,7 @@ vim-txtbrowser
 vim-ultisnips
 vim-voom
 virtualbox
-virtualbox-additions
-virtualbox-archlinux-additions
+virtualbox-guest-iso
 w3m
 wget
 wine
@@ -171,3 +176,4 @@ yong
 yozooffice
 zip
 zsh
+zssh
