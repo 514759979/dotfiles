@@ -158,6 +158,10 @@ sl () {
     fi
 }
 
+j () {
+    sudo mount /dev/$1 /mnt
+}
+
 if [ -e /usr/bin/yaourt ]; then
     alias y='yaourt'
     alias pi='y -S'
@@ -267,6 +271,5 @@ alias p='ps aux'
 alias o='top'
 alias vd='vimdiff'
 alias n='netstat'
-alias j='java'
 alias z='zsh'
 alias wl='wc -l'
