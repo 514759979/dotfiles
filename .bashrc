@@ -14,15 +14,15 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-gq () {
+gq() {
     geeqie $* 2>/dev/null &
 }
 
-imgresize () {
+imgresize() {
     gm mogrify -resize $1x$2 $3
 }
 
-cry () {
+cry() {
     if [ "t$1" = "t-d" ]; then
         openssl enc -aes-256-cbc -d -in $2 -out $3
     else
@@ -30,32 +30,32 @@ cry () {
     fi
 }
 
-st () {
+st() {
     nohup $* &>/dev/null &
 }
 
-c () {
+c() {
     cd $1
     ls -F --color
 }
 
-cpu () {
+cpu() {
     sudo cpupower frequency-set -f $1
 }
 
-zcd () {
+zcd() {
     cd ~/.avfs`pwd`/$@#
 }
 
-zback () {
+zback() {
     cd $(pwd|sed -e 's|^.*\.avfs||g' -e 's|/[^/]*#$||g')
 }
 
-aftp () {
+aftp() {
     cd /home/osily/.avfs/#ftp:$1
 }
 
-vmvfs () {
+vmvfs() {
     uri=`pwd`
     echo $uri | grep '.avfs' &>/dev/null && cd
     convmvfs /mnt/fuse -o srcdir=$uri,icharset=gbk
@@ -65,7 +65,7 @@ vmvfs () {
 #atool
 file_7z='\.rar\b|\.deb\b|\.iso\b'
 
-al () {
+al() {
     if echo $* |grep -Pi $file_7z >/dev/null; then
         als $* -F 7z
     else
@@ -73,7 +73,7 @@ al () {
     fi
 }
 
-a () {
+a() {
     if echo $* |grep -Pi $file_7z >/dev/null; then
         apack $* -F 7z
     else
@@ -81,7 +81,7 @@ a () {
     fi
 }
 
-au () {
+au() {
     if echo $* |grep -Pi $file_7z >/dev/null; then
         arepack $* -F 7z
     else
@@ -89,7 +89,7 @@ au () {
     fi
 }
 
-x () {
+x() {
     if echo $* |grep -Pi $file_7z >/dev/null; then
         aunpack $* -F 7z
     else
@@ -99,41 +99,41 @@ x () {
 
 #end atool
 
-mcat () {
+mcat() {
     markdown_py2 $1 -f /tmp/.html
     w3m /tmp/.html
 }
 
-wpa () {
+wpa() {
     sudo ifconfig wlan0 up
     sudo wpa_supplicant -B -Dwext -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf$1
 }
 
-findx () {
+findx() {
     find -print0|xargs -0 $@
 }
 
-pqe () {
+pqe() {
     pacman -Qg base base-devel|sed 's/.* //g'|sort -u > /tmp/.base.list
     pacman -Qqe|sort -u > /tmp/.all.list
     comm -13 /tmp/.base.list /tmp/.all.list
     rm /tmp/.base.list /tmp/.all.list
 }
 
-calc () {
+calc() {
     echo $[$*]
 }
 
-gr () {
+gr() {
     grep --color "$*" -r .
 }
 
-b () {
+b() {
     cd ..
     ls -F --color
 }
 
-opsqlite () {
+opsqlite() {
     cd $HOME/.config/chromium
     find -print0|xargs -0 file|grep SQLite|sed 's/:.*$//g' > .opsqlite
     while read i; do
@@ -143,7 +143,7 @@ opsqlite () {
     cd -
 }
 
-gentoo () {
+gentoo() {
     if pgrep arch-chroot &>/dev/null; then
         sudo chroot $HOME/data/gentoo
     else
@@ -151,7 +151,7 @@ gentoo () {
     fi
 }
 
-sl () {
+sl() {
     if pgrep ckermit &>/dev/null; then
         sll1 $1
     else
@@ -159,8 +159,12 @@ sl () {
     fi
 }
 
-j () {
+j() {
     sudo mount /dev/$1 /mnt
+}
+
+cwi() {
+    cat `which $1`
 }
 
 if [ -e /usr/bin/yaourt ]; then

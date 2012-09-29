@@ -55,21 +55,19 @@ export HISTFILE=~/.zhistory
 #以附加的方式写入历史纪录
 setopt INC_APPEND_HISTORY
 #如果连续输入的命令相同，历史纪录中只保留一个
-setopt HIST_IGNORE_DUPS     
-#为历史纪录中的命令添加时间戳     
-setopt EXTENDED_HISTORY     
-
+setopt HIST_IGNORE_DUPS
+#为历史纪录中的命令添加时间戳
+setopt EXTENDED_HISTORY
 #启用 cd 命令的历史纪录，cd -[TAB]进入历史路径
 setopt AUTO_PUSHD
 #相同的历史路径只保留一个
 setopt PUSHD_IGNORE_DUPS
-
 #在命令前添加空格，不将此命令添加到纪录文件中
-setopt HIST_IGNORE_SPACE     
+setopt HIST_IGNORE_SPACE
 #}}}
 
 #杂项 {{{
-     
+
 #扩展路径
 #/v/c/p/p => /var/cache/pacman/pkg
 setopt complete_in_word
@@ -78,28 +76,24 @@ setopt complete_in_word
 #limit coredumpsize 0
 
 #Emacs风格 键绑定
-#bindkey -e
-bindkey -v
+bindkey -e
 bindkey "\e[1~"   beginning-of-line
 bindkey "\e[2~"   insert-last-word
 bindkey "\e[3~"   delete-char
 bindkey "\e[4~"   end-of-line
 bindkey "\e[5~"   backward-word
 bindkey "\e[6~"   forward-word
+bindkey "\e[7~"   beginning-of-line
+bindkey "\e[8~"   end-of-line
 bindkey "\e[A"    up-line-or-search
 bindkey "\e[B"    down-line-or-search
 bindkey "\e[C"    forward-char
 bindkey "\e[D"    backward-char
-bindkey "\e[8~"   end-of-line
-bindkey "\e[7~"   beginning-of-line
 bindkey "\eOH"    beginning-of-line
 bindkey "\eOF"    end-of-line
 bindkey "\e[H"    beginning-of-line
 bindkey "\e[F"    end-of-line
-bindkey -M viins '^a' beginning-of-line
-bindkey -M viins '^e' end-of-line
-# completion in the middle of a line
-bindkey '^i' expand-or-complete-prefix
+
 #以下字符视为单词的一部分
 WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 #}}}
@@ -135,7 +129,7 @@ zstyle ':completion:*' squeeze-slashes 'yes'
 zstyle ':completion::complete:*' '\\'
 
 #彩色补全菜单
-eval $(dircolors -b)
+eval $(dircolors ~/.conf_bak/dir_colors)
 export ZLSCOLORS="${LS_COLORS}"
 zmodload zsh/complist
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -143,13 +137,14 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 
 #修正大小写
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
-#错误校正     
+#错误校正
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
 compdef pkill=killall
 [ -e /usr/bin/pacman ] && compdef yaourt=pacman
+compdef cwi=sudo
 compdef zcd=ls
 compdef st=sudo
 compdef service=systemctl
@@ -176,29 +171,16 @@ zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directori
 #}}}
 
 ##空行(光标在行首)补全 "cd " {{{
-user-complete(){
+user-complete() {
     case $BUFFER in
-        "" )                       # 空行填入 "cd "
+        "" )                      
+            # 空行填入 "cd "
             BUFFER="cd "
-            zle end-of-line
-            zle expand-or-complete
-            ;;
-        "cd  " )                   # TAB + 空格 替换为 "cd ~"
-            BUFFER="cd ~"
             zle end-of-line
             zle expand-or-complete
             ;;
         " " )
             BUFFER="!?"
-            zle end-of-line
-            ;;
-        "cd --" )                  # "cd --" 替换为 "cd +"
-            BUFFER="cd +"
-            zle end-of-line
-            zle expand-or-complete
-            ;;
-        "cd +-" )                  # "cd +-" 替换为 "cd -"
-            BUFFER="cd -"
             zle end-of-line
             zle expand-or-complete
             ;;
@@ -212,48 +194,37 @@ zle -N user-complete
 bindkey "\t" user-complete
 
 ##在命令前插入 sudo {{{
-#定义功能
 sudo-command-line() {
     [[ -z $BUFFER ]] && zle up-history
     [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
-    zle end-of-line                 #光标移动到行末
+    #光标移动到行末
+    zle end-of-line
 }
+
 zle -N sudo-command-line
-bindkey -M viins '^k' sudo-command-line
+bindkey '^k' sudo-command-line
 
 autoload edit-command-line
 zle -N edit-command-line
-bindkey -M viins '^u' edit-command-line
-#}}}
- 
-#命令别名 {{{
-
-#[Esc][h] man 当前命令时，显示简短说明
-#alias run-help >&/dev/null && unalias run-help
-#autoload run-help
-
+bindkey '^u' edit-command-line
 #}}}
 
 #路径别名 {{{
 #进入相应的路径时只要 cd ~xxx
 hash -d tmp='/home/osily/tmp/'
 hash -d data='/home/osily/data/'
-hash -d picture='/home/osily/picture/'
-hash -d music='/home/osily/music/'
+hash -d photo='/home/osily/photo/'
+hash -d media='/home/osily/media/'
 hash -d book='/home/osily/book/'
 #}}}
-   
+
 #{{{自定义补全
 #补全 ping
 
-zstyle ':completion:*:ping:*' hosts g.cn facebook.com 
+zstyle ':completion:*:ping:*' hosts www.baidu.com g.cn
 #补全 ssh scp sftp 等
 my_accounts=(
 osily::1
-:mirrors.163.com
-:mirrors.sohu.com
-:ftp.heanet.ie
-:ftp.jaist.ac.jp
 )
 zstyle ':completion:*:my-accounts' users-hosts $my_accounts
 #}}}
