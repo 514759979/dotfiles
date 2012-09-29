@@ -36,7 +36,7 @@ st () {
 
 c () {
     cd $1
-    ls --color
+    ls -F --color
 }
 
 cpu () {
@@ -130,6 +130,7 @@ gr () {
 
 b () {
     cd ..
+    ls -F --color
 }
 
 opsqlite () {
