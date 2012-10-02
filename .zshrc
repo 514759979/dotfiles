@@ -129,7 +129,7 @@ zstyle ':completion:*' squeeze-slashes 'yes'
 zstyle ':completion::complete:*' '\\'
 
 #彩色补全菜单
-eval $(dircolors ~/.conf_bak/dir_colors)
+eval $(dircolors ~/.dir_colors)
 export ZLSCOLORS="${LS_COLORS}"
 zmodload zsh/complist
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}

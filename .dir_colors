@@ -216,6 +216,7 @@ EXEC 01;32
 .xls 00;32
 .ppt 00;32
 .pptx 00;32
+.djvu 00;32
 
 # audio formats
 .aac 00;36
