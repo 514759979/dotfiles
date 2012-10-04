@@ -22,14 +22,14 @@ static const Bool topbar            = True;     /* False means bottom bar */
 static const char *tags[] = { "1", "2", "3", "4", "5"};
 
 static const Rule rules[] = {
-    /* class      instance    title       tags mask     isfloating   monitor */
-    { "Yad",       NULL,       NULL,       0,           True,           -1 },
-    { "Dia",       NULL,       NULL,       8,           True,           -1 },
-    { "MPlayer",   NULL,       NULL,       0,           True,           -1 },
-    { "Thunderbird",  NULL,       NULL,       2,           False,           -1 },
-    { "Chromium",  NULL,       NULL,       1,           False,           -1 },
-    { "VirtualBox",  NULL,       NULL,       4,           False,           -1 },
-    { "XTerm",    NULL,       NULL,       1,           False,           -1 },
+    /* class          instance    title       tags mask    isfloating   monitor */
+    { "Yad",          NULL,       NULL,       0,           True,        -1 },
+    { "Dia",          NULL,       NULL,       8,           True,        -1 },
+    { "MPlayer",      NULL,       NULL,       0,           True,        -1 },
+    { "Thunderbird",  NULL,       NULL,       2,           False,       -1 },
+    { "Chromium",     NULL,       NULL,       1,           False,       -1 },
+    { "VirtualBox",   NULL,       NULL,       4,           False,       -1 },
+    { "XTerm",        NULL,       NULL,       1,           False,       -1 },
 };
 
 /* layout(s) */
@@ -52,29 +52,29 @@ static const Layout layouts[] = {
     { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
     { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
-/* helper for spawning shell commands in the pre dwm-5.0 fashion */
-#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
-#define CMD(cmd) { .v = (const char*[]){ cmd , NULL}} 
+#define SHCMD(cmd) {.v = (const char*[]) {"/bin/sh", "-c", cmd, NULL} }
+#define CMD(cmd) {.v = (const char*[]) {cmd, NULL} }
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_e,      spawn,          CMD("xterm") },
     { MODKEY,                       XK_f,      spawn,          CMD("chromium") },
-    { MODKEY,                       XK_r,      spawn,          {.v = (const char*[]){"xterm", "-e", "osily", NULL}} },
-    { MODKEY,                       XK_q,      spawn,          {.v = (const char*[]){"xterm", "-e", "osily", "1", NULL}} },
-    { MODKEY,                       XK_t,      spawn,          {.v = (const char*[]){"thunderbird", NULL}} },
-    { ControlMask,                  XK_comma,  spawn,          {.v = (const char*[]){"m_con", "p", NULL}} },
-    { ControlMask,                  XK_period, spawn,          {.v = (const char*[]){"m_con", "pt_step", "1", NULL}} },
-    { ControlMask,                  XK_slash,  spawn,          {.v = (const char*[]){"m_con", "pt_step", "-1", NULL}} },
-    { ControlMask,              XK_semicolon,  spawn,          {.v = (const char*[]){"m_con", "stop", NULL}} },
+    { MODKEY,                       XK_r,      spawn,          SHCMD("xterm -e osily") },
+    { MODKEY,                       XK_q,      spawn,          SHCMD("xterm -e osily 1") },
+    { MODKEY,                       XK_t,      spawn,          CMD("thunderbird") },
+    { ControlMask,                  XK_comma,  spawn,          SHCMD("m_con p") },
+    { ControlMask,                  XK_period, spawn,          SHCMD("m_con pt_step 1") },
+    { ControlMask,                  XK_slash,  spawn,          SHCMD("m_con pt_step -1") },
+    { ControlMask,              XK_semicolon,  spawn,          SHCMD("m_con stop") },
     { MODKEY,                       XK_w,      spawn,          CMD("word") },
     { MODKEY,                       XK_m,      spawn,          SHCMD("xset dpms force off;slock") },
+    { MODKEY,                       XK_n,      spawn,          SHCMD("xset dpms force off") },
     { MODKEY,                       XK_c,      spawn,          SHCMD("tmux save-buffer -|xclip -selection clipboard") },
     { 0,                            XK_Print,  spawn,          SHCMD("gm import -window root $(date +%Y-%m-%d-%H_%M_%S).png") },
     { Mod1Mask,                     XK_Print,  spawn,          SHCMD("sleep 0.15;gm import $(date +%Y-%m-%d-%H_%M_%S).png") },
-    { 0,            XF86XK_AudioMute,          spawn,          {.v = (const char*[]){"amixer", "sset", "Master", "toggle", NULL}} },
-    { 0,            XF86XK_AudioRaiseVolume,   spawn,          {.v = (const char*[]){"amixer", "sset", "Master", "1+", NULL}} },
-    { 0,            XF86XK_AudioLowerVolume,   spawn,          {.v = (const char*[]){"amixer", "sset", "Master", "1-", NULL}} },
+    { 0,            XF86XK_AudioMute,          spawn,          SHCMD("amixer sset Master toggle") },
+    { 0,            XF86XK_AudioRaiseVolume,   spawn,          SHCMD("amixer sset Master 1+") },
+    { 0,            XF86XK_AudioLowerVolume,   spawn,          SHCMD("amixer sset Master 1-") },
     { MODKEY|ShiftMask,             XK_r,      my_restart,     {0} },
     //{ MODKEY,                       XK_semicolon,      view,   {.ui=0} },
     { MODKEY,                       XK_b,      togglebar,      {0} },
