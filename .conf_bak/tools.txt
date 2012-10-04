@@ -43,3 +43,5 @@ test2 liuyugao
 LANG=C
 7z x
 convmv -f gbk -t utf8 --notest -r .
+
+ffmpeg -f x11grab -s wxga -r 25 -i :0.0 -sameq out.mpg

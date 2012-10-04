@@ -44,7 +44,7 @@ cpu() {
 }
 
 zcd() {
-    cd ~/.avfs`pwd`/$@#
+    cd ~/.avfs$PWD/$@#
 }
 
 zback() {
@@ -56,9 +56,8 @@ aftp() {
 }
 
 vmvfs() {
-    uri=`pwd`
-    echo $uri | grep '.avfs' &>/dev/null && cd
-    convmvfs /mnt/fuse -o srcdir=$uri,icharset=gbk
+    echo $PWD | grep '.avfs' &>/dev/null && cd
+    convmvfs /mnt/fuse -o srcdir=$PWD,icharset=gbk
     cd /mnt/fuse/
 }
 
@@ -231,6 +230,7 @@ alias pyweb='SimpleHTTPServerWithUpload.py 8888'
 alias ucat='iconv -f gbk -t utf-8 -c'
 alias gcat='iconv -f utf-8 -t gbk -c'
 alias dub='du -sbh'
+alias dud='du -d 1 -bh '
 alias psg='ps aux|grep --color'
 alias pst='pstree'
 alias mt='top -u osily'
@@ -240,7 +240,8 @@ alias ma='mountavfs'
 alias ua='umountavfs'
 alias lg='luit -encoding gbk'
 alias wi='which'
-alias rpd='rm -r "`pwd`";cd ..'
+alias rpd='rm -r $PWD;cd ..'
+alias rpdf='rm -rf $PWD;cd ..'
 alias bd='nohup ~/.bnac/bnac.py &>/dev/null &'
 alias cpui='cat /proc/cpuinfo|grep MHz'
 alias cl='xclip -se cl -i'
