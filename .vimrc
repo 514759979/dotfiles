@@ -4,7 +4,7 @@ set fileencodings=utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1,ucs-bom,ucs
 set fencs=utf-8,cp936,big5,gb18030,gb2312,ucs-bom
 set enc=utf-8
 set display=lastline " 不显示@
-set mousehide       
+set mousehide
 set nu
 set cindent
 set backspace=indent,eol,start
@@ -59,7 +59,7 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 set completeopt=menu
 
 " pathogen
-" call pathogen#runtime_append_all_bundles() 
+" call pathogen#runtime_append_all_bundles()
 
 "NERDTree
 ca nt NERDTreeToggle
@@ -69,3 +69,14 @@ let NERDTreeDirArrows=0
 
 ca qq q!
 ca w!! w !sudo tee >/dev/null "%"
+
+function Im2en()
+       let a = system("yong-vim 1")
+endfunction
+function Im2zh()
+       let a = system("yong-vim 0")
+endfunction
+
+set timeoutlen=100
+autocmd! InsertLeave * call Im2en()
+autocmd! InsertEnter * call Im2zh()
