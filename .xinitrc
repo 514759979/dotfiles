@@ -17,7 +17,6 @@ if [ -e /usr/bin/synclient ]; then
     synclient HorizEdgeScroll=1
     synclient VertEdgeScroll=1
     synclient ClickPad=0
-    synclient RBCornerButton=3
 fi &
 
 yong -d
