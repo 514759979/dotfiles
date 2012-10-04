@@ -1,5 +1,5 @@
 /etc/modprobe.d/modprobe.conf
 /etc/modprobe.d/thinkpad_acpi.conf
-/etc/modules-load.d/mine.conf
+/etc/modules-load.d/modules-load.conf
 /etc/thinkfan.conf
 /etc/systemd/system/multi-user.target.wants/login.service
