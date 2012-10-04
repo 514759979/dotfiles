@@ -16,16 +16,16 @@ mplayer -vf yadif
 
 进制转换
 echo "ibase=A;obase=2;100" | bc
+echo $[n#number] n进制转10进制
 
 openssl:
-　　enc 表明你打算使用某个算法
-　　-des 是具体使用的某个算法
-　　-e 表明要加密
-　　-a 同样是使用ASCII进行编码
-　　-in 要加密的文件名字
-　　-out 加密后的文件名字
+    enc 表明你打算使用某个算法
+    -des 是具体使用的某个算法
+    -e 表明要加密
+    -a 同样是使用ASCII进行编码
+    -in 要加密的文件名字
+    -out 加密后的文件名字
 
-x:5:once:/bin/su osily -l -c "/bin/bash --login -c xinit &>/dev/null"
 pcspkr 模块 响铃
 modutil -changepw "NSS Certificate DB" -dbdir $HOME/.pki/nssdb
 certutil -d sql:$HOME/.pki/nssdb -A -t TC -n "goagent" -i /opt/goagent/local/CA.crt
@@ -33,7 +33,6 @@ certutil -d sql:$HOME/.pki/nssdb -A -t TC -n "goagent" -i /opt/goagent/local/CA.
 sudo grub-install /dev/sda
 
 0109991374899180110000-16-41-E6-14-71
-test2 liuyugao
 
 { 0,            XF86XK_AudioMute,          spawn,          SHCMD("if ossmix misc.speaker-mute|grep OFF;"
                                                                    "then ossmix misc.speaker-mute on;else ossmix misc.speaker-mute off;fi;") },
