@@ -142,15 +142,10 @@ zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
-compdef pkill=killall
 [ -e /usr/bin/pacman ] && compdef yaourt=pacman
 compdef cwi=sudo
-compdef zcd=ls
 compdef st=sudo
-compdef service=systemctl
 compdef findx=sudo
-compdef lftp=sftp
-compdef aftp=sftp
 
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:*:*:*:processes' force-list always
