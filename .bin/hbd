@@ -1,5 +1,5 @@
 #!/bin/bash
-nohup ncsvc -h ct-vpn.baidu.com -u $1 -p $2 -r "RSA token 认证" -f ~/.conf_bak/vpn.crt &>/dev/null &
+nohup ncsvc -h ct-vpn.baidu.com -u $1 -p $2 -r "RSA token 认证" -f ~/.myconf/vpn.crt &>/dev/null &
 # ct-vpn.baidu.com 电信
 # cnc-vpn.baidu.com 联通
 # yidong.baidu.com
