@@ -87,6 +87,7 @@ net-tools
 nfs-utils
 ngrep
 nmap
+nmon
 ntfs-3g
 ntfsprogs
 ntp
@@ -94,6 +95,7 @@ openssh
 os-prober
 p7zip
 pacman-color
+parted
 perl-rename
 php
 pianobooster
@@ -119,6 +121,7 @@ subversion
 sudo
 tcpdump
 thinkfan
+thunderbird
 tightvnc
 timidity++
 timidity-freepats
