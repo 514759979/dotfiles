@@ -98,7 +98,6 @@ pacman-color
 parted
 perl-rename
 php
-pianobooster
 pkgfile
 pkgstats
 progsreiserfs
@@ -109,7 +108,6 @@ redis
 rp-pppoe
 rsync
 scrot
-shc
 slock
 smplayer
 snownews
@@ -123,8 +121,6 @@ tcpdump
 thinkfan
 thunderbird
 tightvnc
-timidity++
-timidity-freepats
 tk
 tmux
 tp_smapi
