@@ -31,8 +31,8 @@ xterm.utf8: true
 xterm*utf8Title: true
 xterm*fontMenu*fontdefault*Label: Default
 xterm*faceName:YaHei Consolas Hybrid:pixelsize=16:antialias=True:charwidth=8
-xterm*boldFont:YaHei Consolas Hybrid:style=Bold:antialias=True:pixelsize=16
-xterm*faceNameDoublesize:YaHei Consolas Hybrid:pixelsize=15:antialias=True
+!xterm*boldFont:YaHei Consolas Hybrid:style=Bold:antialias=True:pixelsize=16
+!xterm*faceNameDoublesize:YaHei Consolas Hybrid:pixelsize=15:antialias=True
 xterm*xftAntialias:true
 xterm*cjkWidth:false
 
