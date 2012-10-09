@@ -44,3 +44,20 @@ LANG=C
 convmv -f gbk -t utf8 --notest -r .
 
 ffmpeg -f x11grab -s wxga -r 25 -i :0.0 -sameq out.mpg
+
+ifconfig wlan0 down
+iwconfig wlan0 mode Ad-hoc
+iwconfig wlan0 essid ly50247
+ifconfig wlan0 up
+ifconfig wlan0 192.168.0.1 netmask 255.255.255.0
+iptables -A INPUT -i wlan0 -j ACCEPT
+iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o eth0 -j MASQUERADE
+echo "1" > /proc/sys/net/ipv4/ip_forward
+/etc/rc.d/dhcp4 restart
+
+subnet 192.168.0.0 netmask 255.255.255.0
+{
+     range 192.168.0.2 192.168.0.10;
+     option routers 192.168.0.1;
+     option domain-name-servers 202.118.1.29;
+}

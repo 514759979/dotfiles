@@ -1,3 +1,2 @@
 #!/bin/bash
-yad --text "$*"  --center --timeout 1 --no-buttons --width 1
-
+yad --text "$*" --center --timeout 1
