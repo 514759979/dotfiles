@@ -71,6 +71,7 @@ kchmviewer-qt
 kexec-tools
 landslide
 lftp
+lib32-libsm
 lm_sensors
 lrzsz
 lsof
@@ -110,7 +111,6 @@ rsync
 scrot
 slock
 smplayer
-snownews
 sqlitebrowser
 squashfs-tools
 sshfs
@@ -135,7 +135,6 @@ vim-a
 vim-ack
 vim-autocomplpop
 vim-bufexplorer
-vim-fencview
 vim-markdown
 vim-minibufexpl
 vim-nerdcommenter
