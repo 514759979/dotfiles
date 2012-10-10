@@ -21,6 +21,7 @@ busybox
 bviplus
 ccal
 chromium
+chromium-libpdf
 chromium-pepper-flash
 ckermit
 cleanlooks-phenix-gtk-theme-git
@@ -96,6 +97,7 @@ openssh
 os-prober
 p7zip
 pacman-color
+pacman-contrib
 parted
 perl-rename
 php
