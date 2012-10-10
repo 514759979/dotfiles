@@ -71,6 +71,7 @@ kchmviewer-qt
 kexec-tools
 landslide
 lftp
+lib32-libsm
 lm_sensors
 lrzsz
 lsof
@@ -98,7 +99,6 @@ pacman-color
 parted
 perl-rename
 php
-pianobooster
 pkgfile
 pkgstats
 progsreiserfs
@@ -109,10 +109,8 @@ redis
 rp-pppoe
 rsync
 scrot
-shc
 slock
 smplayer
-snownews
 sqlitebrowser
 squashfs-tools
 sshfs
@@ -123,11 +121,10 @@ tcpdump
 thinkfan
 thunderbird
 tightvnc
-timidity++
-timidity-freepats
 tk
 tmux
 tp_smapi
+transmission-gtk
 tree
 ttf-ms-fonts-zh_cn
 unzip-beta
@@ -138,7 +135,6 @@ vim-a
 vim-ack
 vim-autocomplpop
 vim-bufexplorer
-vim-fencview
 vim-markdown
 vim-minibufexpl
 vim-nerdcommenter
@@ -177,3 +173,4 @@ yong
 yozooffice
 zip
 zsh
+zsh-completions
