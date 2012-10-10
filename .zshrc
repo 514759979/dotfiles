@@ -142,11 +142,6 @@ zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
-compdef cwi=sudo
-compdef vwi=sudo
-compdef st=sudo
-compdef findx=sudo
-
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:*:*:*:processes' force-list always
 zstyle ':completion:*:processes' command 'ps -au$USER'
@@ -226,4 +221,4 @@ zstyle ':completion:*:my-accounts' users-hosts $my_accounts
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.bashrc
+source $HOME/.myshrc

@@ -1,0 +1,293 @@
+#!/bin/bash
+
+export EDITOR=vim
+export BROWSER=chromium
+export PAGER='less -isrf'
+export UNZIP='-O CP936'
+eval `dircolors ~/.dir_colors`
+
+#man color
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+gq() {
+    geeqie $* 2>/dev/null &
+}
+
+imgresize() {
+    gm mogrify -resize $1x$2 $3
+}
+
+cry() {
+    if [ "t$1" = "t-d" ]; then
+        openssl enc -aes-256-cbc -d -in $2 -out $3
+    else
+        openssl enc -aes-256-cbc -e -in $1 -out $2
+    fi
+}
+
+st() {
+    nohup $* &>/dev/null &
+}
+
+c() {
+    cd $1
+    ls -F --color
+}
+
+cpu() {
+    sudo cpupower frequency-set -f $1
+}
+
+zcd() {
+    cd ~/.avfs$PWD/$@#
+}
+
+zback() {
+    cd $(pwd|sed -e 's|^.*\.avfs||g' -e 's|/[^/]*#$||g')
+}
+
+aftp() {
+    cd /home/osily/.avfs/#ftp:$1
+}
+
+vmvfs() {
+    echo $PWD | grep '.avfs' &>/dev/null && cd
+    convmvfs /mnt/fuse -o srcdir=$PWD,icharset=gbk
+    cd /mnt/fuse/
+}
+
+#atool
+file_7z='\.rar\b|\.deb\b|\.iso\b'
+
+al() {
+    if echo $* |grep -Pi $file_7z >/dev/null; then
+        als $* -F 7z
+    else
+        als $*
+    fi
+}
+
+a() {
+    if echo $* |grep -Pi $file_7z >/dev/null; then
+        apack $* -F 7z
+    else
+        apack $*
+    fi
+}
+
+au() {
+    if echo $* |grep -Pi $file_7z >/dev/null; then
+        arepack $* -F 7z
+    else
+        arepack $*
+    fi
+}
+
+x() {
+    if echo $* |grep -Pi $file_7z >/dev/null; then
+        aunpack $* -F 7z
+    else
+        aunpack $*
+    fi
+}
+
+#end atool
+
+mcat() {
+    markdown_py2 $1 -f /tmp/.html
+    w3m /tmp/.html
+}
+
+wpa() {
+    sudo ifconfig wlan0 up
+    sudo wpa_supplicant -B -Dwext -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf$1
+}
+
+findx() {
+    find -print0|xargs -0 $@
+}
+
+pqe() {
+    pacman -Qg base base-devel|sed 's/.* //g'|sort -u > /tmp/.base.list
+    pacman -Qqe|sort -u > /tmp/.all.list
+    comm -13 /tmp/.base.list /tmp/.all.list
+    rm /tmp/.base.list /tmp/.all.list
+}
+
+calc() {
+    echo $[$*]
+}
+
+gr() {
+    grep --color "$*" -r .
+}
+
+b() {
+    cd ..
+    ls -F --color
+}
+
+opsqlite() {
+    cd $HOME/.config/chromium
+    find -print0|xargs -0 file|grep SQLite|sed 's/:.*$//g' > .opsqlite
+    while read i; do
+        sqlite3 $i vacuum
+    done < .opsqlite
+    rm .opsqlite
+    cd -
+}
+
+gentoo() {
+    if pgrep arch-chroot &>/dev/null; then
+        sudo chroot $HOME/data/gentoo
+    else
+        sudo arch-chroot $HOME/data/gentoo
+    fi
+}
+
+sl() {
+    if pgrep ckermit &>/dev/null; then
+        sll1 $1
+    else
+        sll2 $1
+    fi
+}
+
+j() {
+    sudo mount /dev/$1 /mnt
+}
+
+cwi() {
+    cat `which $1`
+}
+
+vwi() {
+    vim `which $1`
+}
+
+if type compdef &>/dev/null; then
+    compdef cwi=sudo
+    compdef vwi=sudo
+    compdef st=sudo
+    compdef findx=sudo
+fi
+
+if [ -e /usr/bin/yaourt ]; then
+    alias y='yaourt'
+    alias pi='y -S'
+    alias pia='y -S --noconfirm'
+    alias pli='y -U'
+    alias pud='y -Syu --aur'
+    alias psu='y -Su --aur'
+    alias pd='y -Sw'
+    alias pp='y -Rcsn'
+    alias psi='y -Si'
+    alias pq='y -Q'
+    alias pqi='y -Qi'
+    alias psl='pkgfile -l'
+    alias pql='y -Ql'
+    alias pso='pkgfile -v'
+    alias pqo='y -Qo'
+    alias pqd='y -Qdt'
+    alias pqm='y -Qqm'
+    alias prd='y -Rdd'
+    alias pae='y -D --asexplicit'
+    alias pad='y -D --asdeps'
+    alias pcl='y -Scc'
+elif [ -e /usr/bin/emerge ]; then
+    alias y='eix'
+    alias pi='sudo emerge -uDN'
+    alias psu='sudo emerge -uDN world'
+    alias pp='sudo emerge -c'
+    alias prd='sudo emerge -C'
+    alias pud='sudo emerge --sync'
+    alias pd='sudo emerge -f'
+    alias pql='equery f'
+    alias pqo='equery b'
+    alias pq='equery l'
+    alias psi='emerge -pv'
+    alias pli='sudo emerge -k'
+elif [ -e /usr/bin/rpm ]; then
+    alias y='rpm'
+fi
+
+alias h='history'
+alias l='ls -F --color'
+alias lsd='l -d *(-/DN)'
+alias ll='l -l --time-style=long-iso'
+alias la='l -A'
+alias lla='ll -A'
+alias llh='ll -h'
+alias g='grep --color'
+alias rd='rmdir'
+alias md='mkdir'
+alias v='vim'
+alias sv='sudo vim'
+alias py='python2'
+alias info='info --vi-keys'
+alias s='sudo'
+alias hd='hexdump -C'
+alias le="$PAGER"
+alias sm='sudo mount'
+alias u='sudo umount'
+alias fu='fusermount -u'
+alias dh='df -hT'
+alias pyweb='SimpleHTTPServerWithUpload.py 8888'
+alias ucat='iconv -f gbk -t utf-8 -c'
+alias gcat='iconv -f utf-8 -t gbk -c'
+alias dub='du -sbh'
+alias dud='du -d 1 -bh '
+alias psg='ps aux|grep --color'
+alias pst='pstree'
+alias mt='top -u osily'
+alias ctime='time cat'
+alias ck='sudo ckermit ~/.kermrc -c'
+alias ma='mountavfs'
+alias ua='umountavfs'
+alias lg='luit -encoding gbk'
+alias wi='which'
+alias rpd='rm -r $PWD;cd ..'
+alias rpdf='rm -rf $PWD;cd ..'
+alias bd='nohup ~/.bnac/bnac.py &>/dev/null &'
+alias cpui='cat /proc/cpuinfo|grep MHz'
+alias cl='xclip -se cl -i'
+alias gi='LANG=zh_CN.UTF-8 gimp &>/dev/null &'
+alias ledon='sudo sh -c "echo 255 > /sys/class/leds/tpacpi::thinklight/brightness"'
+alias ledoff='sudo sh -c "echo 0 > /sys/class/leds/tpacpi::thinklight/brightness"'
+alias lid_close='xset dpms force off'
+alias wvd='sudo wvdial -C ~/.wvdialrc'
+alias find0='find -print0'
+alias xargs0='xargs -0'
+alias findg='find|grep --color -P'
+alias se='sudo systemctl'
+alias ehttp='export http_proxy=http://127.0.0.1:8087'
+alias ehttps='export https_proxy=http://127.0.0.1:8087'
+alias e='echo'
+alias f='file'
+alias t='cat'
+alias d='date'
+alias i='git'
+alias ic='ifconfig'
+alias sic='sudo ifconfig'
+alias k='kill'
+alias pk='pkill'
+alias ka='killall'
+alias k9='kill'
+alias pk9='pkill'
+alias ka9='killall'
+alias m='man'
+alias mp='mplayer'
+alias q='exit'
+alias p='ps aux'
+alias o='top'
+alias vd='vimdiff'
+alias n='netstat'
+alias z='zsh'
+alias wl='wc -l'
+alias sen='sensors'
