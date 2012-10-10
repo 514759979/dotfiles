@@ -224,4 +224,6 @@ osily::1
 zstyle ':completion:*:my-accounts' users-hosts $my_accounts
 #}}}
 
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.bashrc
