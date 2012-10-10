@@ -166,6 +166,10 @@ cwi() {
     cat `which $1`
 }
 
+cwi() {
+    vim `which $1`
+}
+
 if [ -e /usr/bin/yaourt ]; then
     alias y='yaourt'
     alias pi='y -S'

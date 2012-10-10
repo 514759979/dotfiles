@@ -142,8 +142,8 @@ zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
-[ -e /usr/bin/pacman ] && compdef yaourt=pacman
 compdef cwi=sudo
+compdef vwi=sudo
 compdef st=sudo
 compdef findx=sudo
 
