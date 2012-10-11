@@ -94,6 +94,9 @@ bindkey "\eOF"    end-of-line
 bindkey "\e[H"    beginning-of-line
 bindkey "\e[F"    end-of-line
 
+bindkey "^p"      up-line-or-search
+bindkey "^n"      down-line-or-search
+
 #以下字符视为单词的一部分
 WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 #}}}
