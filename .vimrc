@@ -1,9 +1,11 @@
 set nocompatible
-set ch=2 " Make command line two lines high
+"Make command line two lines high
+set ch=2 "
 set fileencodings=utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1,ucs-bom,ucs
 set fencs=utf-8,cp936,big5,gb18030,gb2312,ucs-bom
 set enc=utf-8
-set display=lastline " 不显示@
+
+set display=lastline" 不显示@
 set mousehide
 set nu
 set cindent
@@ -21,7 +23,7 @@ set grepprg=grep\ -nH\ $*
 set nobackup
 set ru
 set pastetoggle=<F3>
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 syntax on
 syntax enable
 filetype plugin indent on
@@ -64,6 +66,7 @@ set completeopt=menu
 "{{{ yong
 ca qq q!
 ca w!! w !sudo tee >/dev/null "%"
+ca nt WMT
 
 function Im2en()
    let a = system("yong-vim 1")
