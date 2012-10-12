@@ -138,15 +138,13 @@ vim-ack
 vim-autocomplpop
 vim-bufexplorer
 vim-markdown
-vim-minibufexpl
-vim-nerdcommenter
-vim-nerdtree
 vim-omnicppcomplete
 vim-supertab
 vim-taglist
 vim-txtbrowser
 vim-ultisnips
 vim-voom
+vim-winmanager
 virtualbox
 virtualbox-guest-iso
 w3m
