@@ -195,11 +195,11 @@ sudo-command-line() {
 }
 
 zle -N sudo-command-line
-bindkey '^k' sudo-command-line
+bindkey '^j' sudo-command-line
 
 autoload edit-command-line
 zle -N edit-command-line
-bindkey '^u' edit-command-line
+bindkey '^g' edit-command-line
 #}}}
 
 #路径别名 {{{
