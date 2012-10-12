@@ -4,7 +4,7 @@ set ch=2 "
 set fileencodings=utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1,ucs-bom,ucs
 set fencs=utf-8,cp936,big5,gb18030,gb2312,ucs-bom
 set enc=utf-8
-
+set ambiwidth=double
 set display=lastline" 不显示@
 set mousehide
 set nu
@@ -83,3 +83,4 @@ autocmd! InsertEnter * call Im2zh()
 "{{{ winmanager
 let g:winManagerWindowLayout = "BufExplorer|FileExplorer"
 "}}}
+
