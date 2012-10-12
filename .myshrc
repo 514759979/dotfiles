@@ -113,13 +113,6 @@ findx() {
     find -print0|xargs -0 $@
 }
 
-pqe() {
-    pacman -Qg base base-devel|sed 's/.* //g'|sort -u > /tmp/.base.list
-    pacman -Qqe|sort -u > /tmp/.all.list
-    comm -13 /tmp/.base.list /tmp/.all.list
-    rm /tmp/.base.list /tmp/.all.list
-}
-
 calc() {
     echo $[$*]
 }
@@ -190,6 +183,7 @@ if [ -e /usr/bin/yaourt ]; then
     alias psi='y -Si'
     alias pq='y -Q'
     alias pqi='y -Qi'
+    alias pqe='y -Qeq'
     alias psl='pkgfile -l'
     alias pql='y -Ql'
     alias pso='pkgfile -v'
