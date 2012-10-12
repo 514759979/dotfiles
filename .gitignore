@@ -78,3 +78,4 @@ tmp
 .config/gtk-3.0
 .config/htop
 .config/yad.conf
+.config/smplayer
