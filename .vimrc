@@ -24,6 +24,7 @@ set pastetoggle=<F3>
 set clipboard=unnamedplus
 syntax on
 syntax enable
+filetype plugin indent on
 
 hi Comment ctermfg=6
 
@@ -36,19 +37,20 @@ nnoremap <F10> :!./%:t:r<cr>
 nnoremap <F5> :!./%<cr>
 nnoremap <C-a> ggVG
 
-filetype plugin indent on
-
-" TagList
+"{{{ taglist
 ca tl Tlist
 let Tlist_File_Fold_Auto_Close=1
 let Tlist_Auto_Open = 1
 let Tlist_Show_One = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Ctags_Cmd="ctags"
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_Use_Right_Window = 1
 map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 "set tags+=~/.tags/c++.tags
+"}}}
 
-" OmniCppComplete
+"{{{ omnicppcomplete
 let OmniCpp_NamespaceSearch = 1
 let OmniCpp_GlobalScopeSearch = 1
 let OmniCpp_ShowAccess = 1
@@ -57,26 +59,24 @@ let OmniCpp_MayCompleteArrow = 1
 let OmniCpp_MayCompleteScope = 1
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 set completeopt=menu
+"}}}
 
-" pathogen
-" call pathogen#runtime_append_all_bundles()
-
-"NERDTree
-ca nt NERDTreeToggle
-let NERDTreeShowLineNumbers=1
-let NERDTreeMinimalUI=1
-let NERDTreeDirArrows=0
-
+"{{{ yong
 ca qq q!
 ca w!! w !sudo tee >/dev/null "%"
 
 function Im2en()
-       let a = system("yong-vim 1")
+   let a = system("yong-vim 1")
 endfunction
 function Im2zh()
-       let a = system("yong-vim 0")
+   let a = system("yong-vim 0")
 endfunction
 
 set timeoutlen=100
 autocmd! InsertLeave * call Im2en()
 autocmd! InsertEnter * call Im2zh()
+"}}}
+
+"{{{ winmanager
+let g:winManagerWindowLayout = "BufExplorer|FileExplorer"
+"}}}
