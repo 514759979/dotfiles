@@ -1,6 +1,6 @@
 set nocompatible
 "Make command line two lines high
-set ch=2 "
+set ch=2
 set fileencodings=utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1,ucs-bom,ucs
 set fencs=utf-8,cp936,big5,gb18030,gb2312,ucs-bom
 set enc=utf-8
@@ -29,8 +29,8 @@ syntax enable
 filetype plugin indent on
 
 hi Comment ctermfg=6
-
-let c_comment_strings=1 " I like highlighting strings inside C comments
+" I like highlighting strings inside C comments
+let c_comment_strings=1
 autocmd FileType c set makeprg=gcc\ -Wall\ %\ -o\ %:t:r
 autocmd FileType cpp set makeprg=g++\ -Wall\ %\ -o\ %:t:r
 au BufRead,BufNewFile *.txt setlocal ft=txt
@@ -38,6 +38,8 @@ nnoremap <F9> :w<cr>:make<cr>:cw<cr>
 nnoremap <F10> :!./%:t:r<cr>
 nnoremap <F5> :!./%<cr>
 nnoremap <C-a> ggVG
+ca qq q!
+ca w!! w !sudo tee >/dev/null "%"
 
 "{{{ taglist
 ca tl Tlist
@@ -64,10 +66,6 @@ set completeopt=menu
 "}}}
 
 "{{{ yong
-ca qq q!
-ca w!! w !sudo tee >/dev/null "%"
-ca nt WMT
-
 function Im2en()
    let a = system("yong-vim 1")
 endfunction
@@ -82,5 +80,5 @@ autocmd! InsertEnter * call Im2zh()
 
 "{{{ winmanager
 let g:winManagerWindowLayout = "BufExplorer|FileExplorer"
+ca nt WMT
 "}}}
-
