@@ -75,7 +75,6 @@ setopt complete_in_word
 #禁用 core dumps
 #limit coredumpsize 0
 
-#Emacs风格 键绑定
 bindkey -v
 bindkey "\e[1~"   beginning-of-line
 bindkey "\e[2~"   insert-last-word
@@ -99,6 +98,13 @@ bindkey "^n"      down-line-or-search
 bindkey "^r"      history-incremental-search-backward
 bindkey "^a"      beginning-of-line
 bindkey "^e"      end-of-line
+bindkey "^f"      forward-char
+bindkey "^b"      backward-char
+bindkey "^[f"     forward-word
+bindkey "^[b"     backward-word
+bindkey "^x^x"    exchange-point-and-mark
+bindkey "^k"      kill-line
+bindkey "^o"      accept-line-and-down-history
 
 #以下字符视为单词的一部分
 WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
