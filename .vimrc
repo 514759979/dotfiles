@@ -1,11 +1,10 @@
 set nocompatible
-"Make command line two lines high
 set ch=2
 set fileencodings=utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1,ucs-bom,ucs
 set fencs=utf-8,cp936,big5,gb18030,gb2312,ucs-bom
 set enc=utf-8
 set ambiwidth=double
-set display=lastline" 不显示@
+set display=lastline " 不显示@
 set mousehide
 set nu
 set cindent
@@ -19,27 +18,13 @@ set hlsearch
 set mouse=a
 set nocp
 set autochdir
-set grepprg=grep\ -nH\ $*
 set nobackup
 set ru
 set pastetoggle=<F3>
-set clipboard+=unnamedplus
+set clipboard=unnamedplus
 syntax on
 syntax enable
 filetype plugin indent on
-
-hi Comment ctermfg=6
-" I like highlighting strings inside C comments
-let c_comment_strings=1
-autocmd FileType c set makeprg=gcc\ -Wall\ %\ -o\ %:t:r
-autocmd FileType cpp set makeprg=g++\ -Wall\ %\ -o\ %:t:r
-au BufRead,BufNewFile *.txt setlocal ft=txt
-nnoremap <F9> :w<cr>:make<cr>:cw<cr>
-nnoremap <F10> :!./%:t:r<cr>
-nnoremap <F5> :!./%<cr>
-nnoremap <C-a> ggVG
-ca qq q!
-ca w!! w !sudo tee >/dev/null "%"
 
 "{{{ taglist
 ca tl Tlist
@@ -82,3 +67,17 @@ autocmd! InsertEnter * call Im2zh()
 let g:winManagerWindowLayout = "BufExplorer|FileExplorer"
 ca nt WMT
 "}}}
+
+hi Comment ctermfg=6
+" I like highlighting strings inside C comments
+let c_comment_strings=1
+autocmd FileType c set makeprg=gcc\ -Wall\ %\ -o\ %:t:r
+autocmd FileType cpp set makeprg=g++\ -Wall\ %\ -o\ %:t:r
+au BufRead,BufNewFile *.txt setlocal ft=txt
+nnoremap <F9> :w<cr>:make<cr>:cw<cr>
+nnoremap <F10> :!./%:t:r<cr>
+nnoremap <F5> :!./%<cr>
+nnoremap <C-a> ggVG
+ca qq q!
+ca w!! w !sudo tee >/dev/null "%"
+set t_ti= t_te=
