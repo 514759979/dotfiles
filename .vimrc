@@ -65,6 +65,11 @@ autocmd! InsertEnter * call Im2zh()
 "{{{ winmanager
 let g:winManagerWindowLayout = "BufExplorer|FileExplorer"
 ca nt WMT
+ca NT WMT
+"}}}
+"
+"{{{ bufexplorer
+let g:bufExplorerSortBy='name'
 "}}}
 
 set pastetoggle=<F3>
@@ -97,3 +102,5 @@ set laststatus=2
 ca tt tabe
 map <C-j> :tabprevious<cr>
 map <C-k> :tabnext<cr>
+map <esc>j :next<cr>
+map <esc>k :previous<cr>
