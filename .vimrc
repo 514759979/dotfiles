@@ -20,7 +20,7 @@ set nocp
 set autochdir
 set nobackup
 set ru
-set clipboard=unnamedplus,autoselect,exclude:cons\|linux
+"set clipboard=unnamedplus
 syntax on
 syntax enable
 filetype plugin indent on
@@ -81,5 +81,7 @@ nnoremap <C-a> ggVG
 ca qq q!
 ca w!! w !sudo tee >/dev/null "%"
 "set t_ti= t_te=
-map <F2> :set mouse=<cr>
-map <F4> :set mouse=a<cr>
+nnoremap <F2> :set mouse=<cr>
+nnoremap <F4> :set mouse=a<cr>
+map <C-c> "+y
+
