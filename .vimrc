@@ -94,3 +94,6 @@ vmap k gk
 vmap j gj
 set statusline=%F%m%r%h%w\ [%Y:%{&fenc!=''?&fenc:&enc}]\ [%l/%L,%p%%,%v]
 set laststatus=2
+ca tt tabe
+map <C-j> :tabprevious<cr>
+map <C-k> :tabnext<cr>
