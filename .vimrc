@@ -1,7 +1,7 @@
 set nocompatible
 set ch=2
-set fileencodings=utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1,ucs-bom,ucs
-set fencs=utf-8,cp936,big5,gb18030,gb2312,ucs-bom
+set fileencodings=utf-8,gb18030
+set fencs=utf-8,gb18030
 set enc=utf-8
 set ambiwidth=double
 set display=lastline " 不显示@
@@ -20,8 +20,7 @@ set nocp
 set autochdir
 set nobackup
 set ru
-set pastetoggle=<F3>
-set clipboard=unnamedplus
+set clipboard=unnamedplus,autoselect,exclude:cons\|linux
 syntax on
 syntax enable
 filetype plugin indent on
@@ -68,6 +67,7 @@ let g:winManagerWindowLayout = "BufExplorer|FileExplorer"
 ca nt WMT
 "}}}
 
+set pastetoggle=<F3>
 hi Comment ctermfg=6
 " I like highlighting strings inside C comments
 let c_comment_strings=1
@@ -80,4 +80,6 @@ nnoremap <F5> :!./%<cr>
 nnoremap <C-a> ggVG
 ca qq q!
 ca w!! w !sudo tee >/dev/null "%"
-set t_ti= t_te=
+"set t_ti= t_te=
+map <F2> :set mouse=<cr>
+map <F4> :set mouse=a<cr>

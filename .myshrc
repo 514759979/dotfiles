@@ -58,7 +58,7 @@ aftp() {
 
 vmvfs() {
     echo $PWD | grep '.avfs' &>/dev/null && cd
-    convmvfs /mnt/fuse -o srcdir=$PWD,icharset=gbk
+    convmvfs /mnt/fuse -o srcdir=$PWD,icharset=gb18030
     cd /mnt/fuse/
 }
 
@@ -233,8 +233,8 @@ alias u='sudo umount'
 alias fu='fusermount -u'
 alias dh='df -hT'
 alias pyweb='SimpleHTTPServerWithUpload.py 8888'
-alias ucat='iconv -f gbk -t utf-8 -c'
-alias gcat='iconv -f utf-8 -t gbk -c'
+alias ucat='iconv -f gb18030 -t utf-8 -c'
+alias gcat='iconv -f utf-8 -t gb18030 -c'
 alias dub='du -sbh'
 alias dud='du -d 1 -bh '
 alias psg='ps aux|grep --color'
@@ -244,7 +244,7 @@ alias ctime='time cat'
 alias ck='sudo ckermit ~/.kermrc -c'
 alias ma='mountavfs'
 alias ua='umountavfs'
-alias lg='luit -encoding gbk'
+alias lg='luit -encoding gb18030'
 alias wi='which'
 alias rpd='rm -r $PWD;cd ..'
 alias rpdf='rm -rf $PWD;cd ..'
