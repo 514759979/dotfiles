@@ -84,4 +84,11 @@ ca w!! w !sudo tee >/dev/null "%"
 nnoremap <F2> :set mouse=<cr>
 nnoremap <F4> :set mouse=a<cr>
 map <C-c> "+y
-
+nmap k gk
+nmap j gj
+nmap 0 g0
+nmap $ g$
+vmap $ g$
+vmap 0 g0
+vmap k gk
+vmap j gj
