@@ -13,7 +13,7 @@ while true; do
         find . -type f -not -name ".*" > .tmplist
     fi
 
-    file=$(yad --list --center --no-headers --text=music --separator= --column=0 `cat .tmplist` --width 800 --height 400);
+    file=$(yad --list --center --no-headers --text=music --separator= --column=0 `cat .tmplist|sort` --width 800 --height 400);
 
     if [ -z "$file" ]; then
         cd ..
