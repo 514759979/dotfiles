@@ -34,6 +34,7 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_Ctags_Cmd="ctags"
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window = 1
+"let Tlist_WinWidth=30
 map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 "set tags+=~/.tags/c++.tags
 "}}}
