@@ -1,5 +1,5 @@
 set nocompatible
-set ch=2
+"set ch=2
 set fileencodings=utf-8,gb18030
 set fencs=utf-8,gb18030
 set enc=utf-8
@@ -92,3 +92,5 @@ vmap $ g$
 vmap 0 g0
 vmap k gk
 vmap j gj
+set statusline=%F%m%r%h%w\ [%Y:%{&fenc!=''?&fenc:&enc}]\ [%l/%L,%p%%,%v]
+set laststatus=2

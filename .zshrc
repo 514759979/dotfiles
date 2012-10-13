@@ -76,7 +76,7 @@ setopt complete_in_word
 #limit coredumpsize 0
 
 #Emacs风格 键绑定
-bindkey -e
+bindkey -v
 bindkey "\e[1~"   beginning-of-line
 bindkey "\e[2~"   insert-last-word
 bindkey "\e[3~"   delete-char
@@ -96,6 +96,9 @@ bindkey "\e[F"    end-of-line
 
 bindkey "^p"      up-line-or-search
 bindkey "^n"      down-line-or-search
+bindkey "^r"      history-incremental-search-backward
+bindkey "^a"      beginning-of-line
+bindkey "^e"      end-of-line
 
 #以下字符视为单词的一部分
 WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
