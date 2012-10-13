@@ -194,6 +194,7 @@ if [ -e /usr/bin/yaourt ]; then
     alias pae='y -D --asexplicit'
     alias pad='y -D --asdeps'
     alias pcl='y -Scc'
+    alias pbs='y -G'
 elif [ -e /usr/bin/emerge ]; then
     alias y='eix'
     alias pi='sudo emerge -uDN'
