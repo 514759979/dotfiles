@@ -1,6 +1,6 @@
 source $HOME/.myshrc
 
-#命令提示符 {{{
+#{{{ 命令提示符
 sctitle() {
     print -Pn "\ek$1\e\\"
 }
@@ -17,7 +17,7 @@ esac
 }
 #}}}
 
-#color{{{
+#{{{ color
 autoload colors zsh/terminfo
 if [[ "$terminfo[colors]" -ge 8 ]]; then
 colors
@@ -31,7 +31,7 @@ done
 FINISH="%{$terminfo[sgr0]%}"
 #}}}
 
-#标题栏、任务栏样式{{{
+#{{{ 标题栏、任务栏样式
 case $TERM in
 	(*screen*)
 	preexec() {
@@ -46,8 +46,7 @@ case $TERM in
 esac
 #}}}
 
-
-#关于历史纪录的配置 {{{
+#{{{ 关于历史纪录的配置
 #历史纪录条目数量
 export HISTSIZE=100000000
 #注销后保存的历史纪录条目数量
@@ -68,10 +67,10 @@ setopt PUSHD_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 #}}}
 
-#杂项 {{{
+#{{{ 杂项
 
-#扩展路径
-#/v/c/p/p => /var/cache/pacman/pkg
+# 扩展路径
+# /v/c/p/p => /var/cache/pacman/pkg
 setopt complete_in_word
 
 #禁用 core dumps
@@ -112,11 +111,11 @@ bindkey "^o"      accept-line-and-down-history
 WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 #}}}
 
-#自动补全功能 {{{
+#{{{ 自动补全功能
 setopt AUTO_LIST
 setopt AUTO_MENU
-#开启此选项，补全时会直接选中菜单项
-#setopt MENU_COMPLETE
+# 开启此选项，补全时会直接选中菜单项
+# setopt MENU_COMPLETE
 autoload -U compinit
 compinit
 
@@ -126,7 +125,7 @@ _force_rehash() {
 }
 zstyle ':completion:::::' completer _force_rehash _complete _approximate
 
-#自动补全选项
+# 自动补全选项
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' menu select
 zstyle ':completion:*:*:default' force-list always
@@ -137,25 +136,25 @@ zstyle ':completion:predict:*' completer _complete
 zstyle ':completion:incremental:*' completer _complete _correct
 zstyle ':completion:*' completer _complete _prefix _correct _prefix _match _approximate
 
-#路径补全
+# 路径补全
 zstyle ':completion:*' expand 'yes'
 zstyle ':completion:*' squeeze-slashes 'yes'
 zstyle ':completion::complete:*' '\\'
 
-#彩色补全菜单
+# 彩色补全菜单
 export ZLSCOLORS="${LS_COLORS}"
 zmodload zsh/complist
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-#修正大小写
+# 修正大小写
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 
-#错误校正
+# 错误校正
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
-#补全类型提示分组
+# 补全类型提示分组
 zstyle ':completion:*:matches' group 'yes'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*:options' description 'yes'
@@ -165,7 +164,7 @@ zstyle ':completion:*:messages' format $'\e[01;35m -- %d --\e[0m'
 zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
 zstyle ':completion:*:corrections' format $'\e[01;32m -- %d (errors: %e) --\e[0m'
 
-#kill 补全
+# kill 补全
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:*:*:*:processes' force-list always
@@ -173,9 +172,8 @@ zstyle ':completion:*:processes' command 'ps -au$USER'
 
 # cd ~ 补全顺序
 zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
-#}}}
 
-##空行(光标在行首)补全 "cd " {{{
+# 空行(光标在行首)补全 "cd "
 user-complete() {
     case $BUFFER in
         "" )                      
@@ -215,8 +213,8 @@ zle -N edit-command-line
 bindkey '^g' edit-command-line
 #}}}
 
-#路径别名 {{{
-#进入相应的路径时只要 cd ~xxx
+#{{{ 路径别名
+# 进入相应的路径时只要 cd ~xxx
 hash -d tmp='/home/osily/tmp/'
 hash -d data='/home/osily/data/'
 hash -d photo='/home/osily/photo/'
@@ -224,16 +222,23 @@ hash -d media='/home/osily/media/'
 hash -d book='/home/osily/book/'
 #}}}
 
-#{{{自定义补全
-#补全 ping
+#{{{ 自定义补全
+# 补全 ping
 zstyle ':completion:*:ping:*' hosts www.baidu.com g.cn
 
-#补全 ssh scp sftp 等
+#{{{ 补全 ssh scp sftp 等
 my_accounts=(
 osily::1
 )
 zstyle ':completion:*:my-accounts' users-hosts $my_accounts
 #}}}
 
+#{{{ other
+compdef cwi=sudo
+compdef vwi=sudo
+compdef st=sudo
+compdef findx=sudo
+
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#}}}

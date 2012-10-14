@@ -174,13 +174,6 @@ vwi() {
     vim `which $1`
 }
 
-if type compdef &>/dev/null; then
-    compdef cwi=sudo
-    compdef vwi=sudo
-    compdef st=sudo
-    compdef findx=sudo
-fi
-
 if [ -e /usr/bin/yaourt ]; then
     alias y='yaourt'
     alias pi='y -S'
