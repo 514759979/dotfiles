@@ -1,3 +1,5 @@
+source $HOME/.myshrc
+
 #命令提示符 {{{
 sctitle() {
     print -Pn "\ek$1\e\\"
@@ -141,7 +143,6 @@ zstyle ':completion:*' squeeze-slashes 'yes'
 zstyle ':completion::complete:*' '\\'
 
 #彩色补全菜单
-eval $(dircolors ~/.dir_colors)
 export ZLSCOLORS="${LS_COLORS}"
 zmodload zsh/complist
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -233,4 +234,3 @@ zstyle ':completion:*:my-accounts' users-hosts $my_accounts
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.myshrc
