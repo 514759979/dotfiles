@@ -7,11 +7,15 @@
     branch = auto
 [alias]
     st = status
-    rb = svn rebase
+    s = status
     ci = commit -a
+    c = commit -a
     co = checkout
-    sd = svn dcommit
     rmc = rm --cached
-    df = diff
+    d = diff
+    pl = pull
+    pu = push
+    l = log
+
 [merge]
     tool = vimdiff

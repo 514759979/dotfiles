@@ -114,6 +114,7 @@ findx() {
 }
 
 calc() {
+    zmodload zsh/mathfunc 2>/dev/null
     echo $[$*]
 }
 
@@ -287,3 +288,4 @@ alias z='zsh'
 alias wl='wc -l'
 alias sen='sensors'
 alias cdf='colordiff'
+alias les='/usr/share/vim/vim73/macros/less.sh'
