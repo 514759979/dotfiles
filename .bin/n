@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ $# = 0 ]; then
-    ls ~/.templete
+    ls ~/.templete --color
     exit 0
 fi
 cp ~/.templete/$1* .
