@@ -146,18 +146,14 @@ zstyle ':completion::complete:*' '\\'
 export ZLSCOLORS="${LS_COLORS}"
 zmodload zsh/complist
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 
 #修正大小写
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+
 #错误校正
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
-
-zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:*:*:*:processes' force-list always
-zstyle ':completion:*:processes' command 'ps -au$USER'
 
 #补全类型提示分组
 zstyle ':completion:*:matches' group 'yes'
@@ -168,6 +164,12 @@ zstyle ':completion:*:descriptions' format $'\e[01;33m -- %d --\e[0m'
 zstyle ':completion:*:messages' format $'\e[01;35m -- %d --\e[0m'
 zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
 zstyle ':completion:*:corrections' format $'\e[01;32m -- %d (errors: %e) --\e[0m'
+
+#kill 补全
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:*:*:*:processes' force-list always
+zstyle ':completion:*:processes' command 'ps -au$USER'
 
 # cd ~ 补全顺序
 zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
@@ -195,6 +197,7 @@ user-complete() {
 
 zle -N user-complete
 bindkey "\t" user-complete
+##}}}
 
 ##在命令前插入 sudo {{{
 sudo-command-line() {
@@ -223,8 +226,8 @@ hash -d book='/home/osily/book/'
 
 #{{{自定义补全
 #补全 ping
-
 zstyle ':completion:*:ping:*' hosts www.baidu.com g.cn
+
 #补全 ssh scp sftp 等
 my_accounts=(
 osily::1
