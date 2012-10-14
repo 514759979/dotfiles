@@ -53,8 +53,8 @@ export HISTSIZE=100000000
 export SAVEHIST=100000000
 #历史纪录文件
 export HISTFILE=~/.zhistory
-#以附加的方式写入历史纪录
-setopt INC_APPEND_HISTORY
+#分享历史纪录
+setopt SHARE_HISTORY
 #如果连续输入的命令相同，历史纪录中只保留一个
 setopt HIST_IGNORE_DUPS
 #为历史纪录中的命令添加时间戳
@@ -65,6 +65,8 @@ setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 #在命令前添加空格，不将此命令添加到纪录文件中
 setopt HIST_IGNORE_SPACE
+#remove beep
+unsetopt beep
 #}}}
 
 #{{{ 杂项
