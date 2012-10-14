@@ -152,6 +152,7 @@ progsreiserfs
 psmisc
 python2-dbus
 python2-gevent
+ranger
 rdesktop
 redis
 reiserfsprogs
@@ -186,7 +187,6 @@ usb_modeswitch
 usbutils
 util-linux
 valgrind
-vifm
 vim-a
 vim-ack
 vim-autocomplpop

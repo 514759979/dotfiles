@@ -49,7 +49,6 @@ photo
 .subversion
 .thumbnails
 tmp
-.vifm
 .viminfo
 .vim
 .VirtualBox
@@ -78,3 +77,4 @@ tmp
 .config/htop
 .config/yad.conf
 .config/smplayer
+.config/ranger
