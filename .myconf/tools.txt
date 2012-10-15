@@ -59,3 +59,9 @@ subnet 192.168.0.0 netmask 255.255.255.0
      option routers 192.168.0.1;
      option domain-name-servers 202.118.1.29;
 }
+
+
+
+vim
+cw 打开quickfix
+cl 列出quickfix
