@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ $# -gt 0 ]; then
+    echo PWD=$PWD > ~/.cg
+    grep -PHn $* | nl -s: | sed 's/^ *//g' >> ~/.cg
+fi
+
+cat ~/.cg
