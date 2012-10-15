@@ -7,9 +7,11 @@ if [ $# -gt 0 ]; then
         flag1='-r'
         flag2='.'
     fi
-    grep -PHn $* $flag1 $flag2 | nl -s: | sed 's/^ *//g' >> ~/.cg
+    grep -PHn $* $flag1 $flag2 \
+        --exclude-dir='.svn' --exclude-dir='.git'\
+        | nl -s: | sed 's/^ *//g' >> ~/.cg
 fi
 
 head -n 1 ~/.cg
-cat ~/.cg | grep -P --color "$(sed -n 2p ~/.cg)"
+cat ~/.cg | sed 1d | grep -P --color "$(sed -n 2p ~/.cg)"
 #cat ~/.cg | grep 'Binary file'
