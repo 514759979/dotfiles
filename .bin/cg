@@ -1,8 +1,15 @@
 #!/bin/bash
 
 if [ $# -gt 0 ]; then
-    echo PWD=$PWD > ~/.cg
-    grep -PHn $* | nl -s: | sed 's/^ *//g' >> ~/.cg
+    echo $PWD > ~/.cg
+    echo $1 >> ~/.cg
+    if [ $# = 1 ]; then
+        flag1='-r'
+        flag2='.'
+    fi
+    grep -PHn $* $flag1 $flag2 | nl -s: | sed 's/^ *//g' >> ~/.cg
 fi
 
-cat ~/.cg
+head -n 1 ~/.cg
+cat ~/.cg | grep -P --color "$(sed -n 2p ~/.cg)"
+#cat ~/.cg | grep 'Binary file'
