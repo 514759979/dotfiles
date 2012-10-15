@@ -1,5 +1,6 @@
 #!/bin/bash
-cd $(head -n 1 /tmp/.cg|sed 's/^PWD=//g')
+
+cd $(head -n 1 /tmp/.cg)
 file=$(sed -n $[$1+2]p /tmp/.cg)
 filename=$(echo $file|awk -F: '{print $2}')
 line=$(echo $file|awk -F: '{print $3}')
