@@ -1,5 +1,3 @@
-ack
-acpi
 aliedit
 alsa-utils
 android-sdk-platform-tools
@@ -26,7 +24,6 @@ busybox
 bviplus
 bzip2
 ccal
-cgvg
 chromium
 chromium-libpdf-stable
 chromium-pepper-flash
@@ -189,7 +186,6 @@ usbutils
 util-linux
 valgrind
 vim-a
-vim-ack
 vim-autocomplpop
 vim-bufexplorer
 vim-markdown
