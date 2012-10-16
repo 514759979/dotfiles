@@ -65,3 +65,6 @@ subnet 192.168.0.0 netmask 255.255.255.0
 vim
 cw 打开quickfix
 cl 列出quickfix
+jump c-]
+jump back c-T/c-O
+[p ]p 贴代码自动缩进
