@@ -8,6 +8,16 @@ if [ $# == 0 ]; then
     exit
 fi
 
+if [ "${1/:*/}" = 'http' ] || [ ${1/:*/} = 'https' ]; then
+    f chromium "$1"
+    exit
+fi
+
+if [ "${1/:*/}" = 'ftp' ]; then
+    lftp "$1"
+    exit
+fi
+
 declare -l p=${1/*./}
 
 case $p in
