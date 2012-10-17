@@ -12,7 +12,7 @@ if [ $# -gt 0 ]; then
     fi
     grep -PHn $* $flag1 $flag2 \
         --exclude-dir='.svn' --exclude-dir='.git'\
-        | nl -s: | sed 's/^ *//g' >> $cg
+        | nl -s: -n ln >> $cg
 fi
 
 head -n 1 $cg
