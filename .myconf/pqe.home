@@ -148,7 +148,6 @@ procps-ng
 progsreiserfs
 psmisc
 python2-dbus
-python2-gevent
 python2-sh
 ranger
 rdesktop
