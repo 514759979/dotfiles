@@ -8,6 +8,7 @@ arandr
 arch-install-scripts
 aria2
 asoundconf
+astyle
 atool
 audacity
 autoconf
@@ -85,7 +86,6 @@ hddtemp
 htop
 icu
 id3v2
-indent
 inetutils
 iotop
 iptables
