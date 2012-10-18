@@ -71,7 +71,6 @@ gimp
 gimp-ufraw
 git
 glibc
-gnu-netcat
 goagent
 google-appengine-python
 graphicsmagick
@@ -160,6 +159,7 @@ sed
 shadow
 slock
 smplayer
+socat
 sqlitebrowser
 squashfs-tools
 sshfs
