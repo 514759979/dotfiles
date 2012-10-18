@@ -68,3 +68,9 @@ cl 列出quickfix
 jump c-]
 jump back c-T/c-O
 [p ]p 贴代码自动缩进
+
+export CFLAGS="$CFLAGS -I$JUMBO_ROOT/include"
+export CPPFLAGS="$CPPFLAGS $CFLAGS"
+export CXXFLAGS="$CXXFLAGS $CFLAGS"
+export LDFLAGS="$LDFLAGS -Wl,-rpath=$JUMBO_ROOT/lib -L$JUMBO_ROOT/lib"
+export PKG_CONFIG_PATH="$JUMBO_ROOT/lib/pkgconfig:$PKG_CONFIG_PATH"

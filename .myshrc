@@ -174,7 +174,7 @@ vwi() {
     vim `which $1`
 }
 
-if [ -e /usr/bin/yaourt ]; then
+if which yaourt &>/dev/null; then
     alias y='yaourt'
     alias pi='y -S'
     alias pia='y -S --noconfirm'
@@ -198,7 +198,7 @@ if [ -e /usr/bin/yaourt ]; then
     alias pad='y -D --asdeps'
     alias pcl='y -Scc'
     alias pbs='y -G'
-elif [ -e /usr/bin/emerge ]; then
+elif which emerge &>/dev/null; then
     alias y='eix'
     alias pi='sudo emerge -uDN'
     alias psu='sudo emerge -uDN world'
@@ -211,8 +211,14 @@ elif [ -e /usr/bin/emerge ]; then
     alias pq='equery l'
     alias psi='emerge -pv'
     alias pli='sudo emerge -k'
-elif [ -e /usr/bin/rpm ]; then
-    alias y='rpm'
+elif which jumbo &>/dev/null; then
+    alias y='jumbo search'
+    alias pi='jumbo install'
+    alias pp='jumbo remove'
+    alias pql='jumbo list-files'
+    alias pli='jumbo local-install'
+    alias pud='jumbo update'
+    alias pqd='jumbo check-unused'
 fi
 
 alias h='history'
