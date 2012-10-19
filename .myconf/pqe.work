@@ -8,6 +8,7 @@ arandr
 arch-install-scripts
 aria2
 asoundconf
+astyle
 atool
 audacity
 autoconf
@@ -31,7 +32,6 @@ ckermit
 cleanlooks-phenix-gtk-theme-git
 cmake
 colordiff
-convmv
 coreutils
 cpuburn
 cpupower
@@ -86,7 +86,6 @@ hddtemp
 htop
 icu
 id3v2
-indent
 inetutils
 iotop
 iptables
@@ -161,6 +160,7 @@ sed
 shadow
 slock
 smplayer
+socat
 sqlitebrowser
 squashfs-tools
 sshfs
