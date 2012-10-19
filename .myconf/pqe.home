@@ -71,6 +71,7 @@ gimp
 gimp-ufraw
 git
 glibc
+gnu-netcat
 goagent
 google-appengine-python
 graphicsmagick
@@ -172,8 +173,8 @@ tcpdump
 texinfo
 thinkfan
 thunderbird
+tig
 tightvnc
-tk
 tmux
 tp_smapi
 transmission-gtk
