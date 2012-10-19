@@ -5,11 +5,23 @@ touch $cg
 
 if [ $# -gt 0 ]; then
     echo $PWD > $cg
-    echo $1 >> $cg
+    name=$1
+
+    if [ $(expr substr $1 1 1) = '-' ]; then
+        name=$2
+        if [ $# = 2 ]; then
+            flag1='-r'
+            flag2='.'
+        fi
+    fi
+
+    echo $name >> $cg
+
     if [ $# = 1 ]; then
         flag1='-r'
         flag2='.'
     fi
+
     grep -PHn $* $flag1 $flag2 \
         --exclude-dir='.svn' --exclude-dir='.git'\
         | nl -s: -n ln >> $cg
