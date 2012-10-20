@@ -69,7 +69,7 @@ static Key keys[] = {
     { MODKEY,                       XK_w,      spawn,          CMD("word") },
     { MODKEY,                       XK_m,      spawn,          SHCMD("xset dpms force off;slock") },
     { MODKEY,                       XK_n,      spawn,          SHCMD("xset dpms force off") },
-    { MODKEY,                       XK_c,      spawn,          SHCMD("tmux save-buffer -|xclip -selection clipboard") },
+    { MODKEY,                       XK_c,      spawn,          SHCMD("tmux save-buffer -|xclip -selection clipboard;tmux save-buffer -|xclip -selection primary") },
     { 0,                            XK_Print,  spawn,          SHCMD("gm import -window root $(date +%Y-%m-%d-%H_%M_%S).png") },
     { Mod1Mask,                     XK_Print,  spawn,          SHCMD("sleep 0.15;gm import $(date +%Y-%m-%d-%H_%M_%S).png") },
     { 0,            XF86XK_AudioMute,          spawn,          SHCMD("amixer sset Master toggle") },

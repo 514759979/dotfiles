@@ -6,5 +6,4 @@ else
     word="$*"
 fi
 
-w3m -dump -no-proxy "http://m.baidu.com/s?word=$word&ct_mark3=x" \
-    | yad --text-info --center --width=600 --height=600 --title="$word"
+chromium "http://dict.youdao.com/search?q=$word"
