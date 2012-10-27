@@ -13,7 +13,7 @@ set smartindent
 set expandtab
 set shiftwidth=4
 set softtabstop=4
-set tabstop=8 "vim: set ts=8 sts=4
+set tabstop=4 "vim: set ts=8 sts=4
 set hlsearch
 set mouse=a
 set nocp
