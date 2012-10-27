@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for i in $(pacman -Qeq); do
+    if ! pacman -Qi $i | grep 'Required By.*None' &>/dev/null; then
+        sudo pacman -D --asdeps $i
+    fi
+done
