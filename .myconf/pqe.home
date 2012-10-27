@@ -29,7 +29,6 @@ chromium
 chromium-libpdf-stable
 chromium-pepper-flash
 ckermit
-cleanlooks-phenix-gtk-theme-git
 cmake
 colordiff
 coreutils
@@ -71,6 +70,7 @@ gimp
 gimp-ufraw
 git
 glibc
+gnome-themes-standard
 gnu-netcat
 goagent
 google-appengine-python
