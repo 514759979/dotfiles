@@ -186,7 +186,7 @@ if which yaourt &>/dev/null; then
     alias psi='y -Si'
     alias pq='y -Q'
     alias pqi='y -Qi'
-    alias pqe='y -Qeq'
+    alias pqe='pacman -Qeq'
     alias psl='pkgfile -l'
     alias pql='y -Ql'
     alias pso='pkgfile -v'
