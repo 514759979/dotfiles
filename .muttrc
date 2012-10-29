@@ -1,0 +1,17 @@
+set sendmail="/usr/bin/msmtp"
+set use_from=yes
+set realname="osily"
+set from=lg50247@126.com
+set envelope_from=yes
+set folder="~/.mail"
+set mbox="~/.mail/inbox"
+set record="~/.mail/sent"
+set spoolfile="~/.mail/inbox"
+set postponed="~/.mail/postponed"
+set header=yes
+set quit=yes
+set include
+set indent_str="> "
+set charset="utf-8"
+set send_charset="utf-8"
+#mailboxes "=inbox"
