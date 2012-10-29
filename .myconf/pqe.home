@@ -89,6 +89,8 @@ memcached
 mencoder
 mercurial
 mlocate
+msmtp
+mutt
 mysql
 netcfg
 nfs-utils
@@ -166,7 +168,6 @@ wpa_supplicant
 wvdial
 x11vnc
 xclip
-xcursor-premium
 xdotool
 xf86-input-synaptics
 xf86-video-intel

@@ -78,3 +78,5 @@ tmp
 .config/smplayer
 .config/ranger
 .config/menus
+.mail
+.msmtprc

@@ -74,3 +74,13 @@ export CPPFLAGS="$CPPFLAGS $CFLAGS"
 export CXXFLAGS="$CXXFLAGS $CFLAGS"
 export LDFLAGS="$LDFLAGS -Wl,-rpath=$JUMBO_ROOT/lib -L$JUMBO_ROOT/lib"
 export PKG_CONFIG_PATH="$JUMBO_ROOT/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+
+
+$ cat .msmtprc
+account default
+host smtp.126.com
+from lg50247@126.com
+auth plain
+user lg50247
+password xxx
