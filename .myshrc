@@ -32,7 +32,7 @@ cry() {
 }
 
 st() {
-    nohup $* &>/dev/null &
+    setsid $* &>/dev/null
 }
 
 c() {
@@ -258,7 +258,7 @@ alias lg='luit -encoding gb18030'
 alias wi='which'
 alias rpd='rm -r $PWD;cd ..'
 alias rpdf='rm -rf $PWD;cd ..'
-alias bd='nohup ~/.bnac/bnac.py &>/dev/null &'
+alias bd='setsid ~/.bnac/bnac.py &>/dev/null'
 alias cpui='cat /proc/cpuinfo|grep MHz'
 alias cl='xclip -se cl -i'
 alias gi='LANG=zh_CN.UTF-8 gimp &>/dev/null &'
