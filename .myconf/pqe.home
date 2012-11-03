@@ -17,7 +17,6 @@ avfs
 bc
 bison
 bpython2
-btrfs-progs
 burp
 busybox
 bviplus
@@ -79,6 +78,7 @@ lm_sensors
 logrotate
 lrzsz
 lsof
+ltrace
 lxappearance
 lzop
 make
