@@ -89,6 +89,8 @@ memcached
 mencoder
 mercurial
 mlocate
+msmtp
+mutt
 mysql
 netcfg
 nfs-utils
