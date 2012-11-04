@@ -5,9 +5,9 @@ touch $cg
 
 if [ $# -gt 0 ]; then
     echo $PWD > $cg
-    name=$1
+    name="$1"
 
-    if [ $(expr substr $1 1 1) = '-' ]; then
+    if [ $(expr substr "$1" 1 1) = '-' ]; then
         name=$2
         if [ $# = 2 ]; then
             flag1='-r'
@@ -22,11 +22,10 @@ if [ $# -gt 0 ]; then
         flag2='.'
     fi
 
-    grep -PHn $* $flag1 $flag2 \
+    grep -PHn "$@" $flag1 $flag2 \
         --exclude-dir='.svn' --exclude-dir='.git'\
         | nl -s: -n ln >> $cg
 fi
 
 head -n 1 $cg
 cat $cg | sed 1d | grep -P --color "$(sed -n 2p $cg)"
-#cat $cg | grep 'Binary file'
