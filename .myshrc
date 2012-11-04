@@ -163,7 +163,7 @@ sl() {
 }
 
 j() {
-    sudo mount /dev/$1 /mnt
+    sudo mount /dev/sd$1 /mnt
 }
 
 cwi() {
@@ -301,3 +301,4 @@ alias z=''
 alias gmc='gm convert'
 alias pre='perl-rename'
 alias mtu='sudo ifconfig wlan0 mtu 1480'
+alias jl='ll /dev/sd*'
