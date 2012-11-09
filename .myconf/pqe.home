@@ -40,6 +40,7 @@ doxygen
 ethtool
 evince
 exfat-utils
+exim
 expect
 fakeroot
 fbgrab
@@ -60,6 +61,7 @@ habak
 hdaps-gl
 hdapsd
 hddtemp
+heirloom-mailx
 htop
 id3v2
 iotop
@@ -89,7 +91,6 @@ memcached
 mencoder
 mercurial
 mlocate
-msmtp
 mutt
 mysql
 netcfg

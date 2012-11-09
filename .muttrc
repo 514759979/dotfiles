@@ -1,7 +1,6 @@
-set sendmail="/usr/bin/msmtp"
 set use_from=yes
 set realname="osily"
-set from=lg50247@126.com
+set from=osily
 set envelope_from=yes
 set folder="~/.mail"
 set mbox="~/.mail/inbox"
