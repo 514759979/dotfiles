@@ -200,7 +200,7 @@ if which yaourt &>/dev/null; then
     alias prd='y -Rdd'
     alias pae='y -D --asexplicit'
     alias pad='y -D --asdeps'
-    alias pcl='y -Scc'
+    alias pcl='echo y"\n"y | y -Scc'
     alias pbs='y -G'
 elif which emerge &>/dev/null; then
     alias y='eix'
