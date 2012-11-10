@@ -39,6 +39,9 @@ case $p in
     avi|mp4|mp3|aac|ogg|ogv|mts|mkv|asf|wmv|flv|f4v|dat|vob|iso|ts|rm|rmvb|m4v|3gp|mpg)
         mplayer "$1"
         ;;
+    sqlite)
+        f sqlitebrowser "$1"
+        ;;
     *)
         vim "$1"
         ;;
