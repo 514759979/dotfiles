@@ -38,7 +38,7 @@ dosbox
 dosfstools
 doxygen
 ethtool
-evince
+evince2-light
 exfat-utils
 exim
 expect
@@ -51,12 +51,12 @@ gdb
 geeqie
 gimp
 gimp-ufraw
-gnome-themes-standard
 gnu-netcat
 goagent
 google-appengine-python
 graphicsmagick
 grub-bios
+gtk-engines
 habak
 hdaps-gl
 hdapsd
@@ -170,6 +170,7 @@ wpa_supplicant
 wvdial
 x11vnc
 xclip
+xcursor-premium
 xdotool
 xf86-input-synaptics
 xf86-video-intel
