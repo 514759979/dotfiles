@@ -179,7 +179,7 @@ mm() {
 }
 
 ba() {
-    chromium "http://www.baidu.com/s?wd=$*"
+    o "http://www.baidu.com/s?wd=$*"
 }
 
 if which yaourt &>/dev/null; then
