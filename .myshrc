@@ -178,6 +178,10 @@ mm() {
     echo "$2" | mutt ly50247@126.com -s "$1" $3 $4
 }
 
+ba() {
+    chromium "http://www.baidu.com/s?wd=$*"
+}
+
 if which yaourt &>/dev/null; then
     alias y='yaourt'
     alias pi='y -S'
