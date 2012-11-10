@@ -64,6 +64,7 @@ hddtemp
 heirloom-mailx
 htop
 id3v2
+inxi
 iotop
 iputils
 iw
@@ -175,6 +176,7 @@ xf86-video-intel
 xfsprogs
 xorg-server
 xorg-xinit
+xorg-xkill
 xorg-xmodmap
 xorg-xsetroot
 xterm
