@@ -14,3 +14,4 @@ set indent_str="> "
 set charset="utf-8"
 set send_charset="utf-8"
 #mailboxes "=inbox"
+charset-hook !utf-8 gb18030
