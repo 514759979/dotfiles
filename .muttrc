@@ -1,6 +1,6 @@
 set use_from=yes
 set realname="osily"
-set from=osily
+set from=ly50247@gmail.com
 set envelope_from=yes
 set folder="~/.mail"
 set mbox="~/.mail/inbox"
