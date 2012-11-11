@@ -75,6 +75,9 @@ kexec-tools
 landslide
 less
 lftp
+libreoffice-calc
+libreoffice-impress
+libreoffice-writer
 libtool
 licenses
 lm_sensors
@@ -143,6 +146,7 @@ tmux
 tp_smapi
 tree
 ttf-ms-fonts-zh_cn
+unzip-beta
 usb_modeswitch
 usbutils
 valgrind
@@ -162,7 +166,6 @@ w3m
 wget
 which
 wine-thunder
-winetricks
 wireless_tools
 wkhtmltopdf-static1
 wmname
@@ -185,7 +188,6 @@ xterm
 yad
 yaourt
 yong
-yozooffice
 zip
 zsh-completions
 zsh-syntax-highlighting

@@ -31,7 +31,7 @@ case $p in
         f chromium "$1"
         ;;
     doc|docx|ppt|pptx|xls|xlsx)
-        f yozo "$1"
+        f libreoffice "$1"
         ;;
     jpg|png|gif)
         f geeqie "$1"

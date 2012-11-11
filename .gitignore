@@ -67,7 +67,6 @@ tmp
 .thunderbird
 .config/Trolltech.conf
 .config/Ulduzsoft
-.config/Yozo
 .config/chromium
 .config/evince
 .config/geeqie
@@ -81,3 +80,4 @@ tmp
 .config/dconf
 .mail
 .xmind
+.config/libreoffice
