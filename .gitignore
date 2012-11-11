@@ -61,17 +61,14 @@ tmp
 .zhistory
 .dia
 .audacity-data
-.FontForge
 .asoundrc
 .asoundrc.asoundconf
 .thunderbird
 .config/Trolltech.conf
 .config/Ulduzsoft
 .config/chromium
-.config/evince
 .config/geeqie
 .config/gtk-2.0
-.config/gtk-3.0
 .config/htop
 .config/yad.conf
 .config/smplayer
@@ -81,3 +78,4 @@ tmp
 .mail
 .xmind
 .config/libreoffice
+.config/qpdfview

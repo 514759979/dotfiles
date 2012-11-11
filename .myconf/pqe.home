@@ -38,7 +38,6 @@ dosbox
 dosfstools
 doxygen
 ethtool
-evince2-light
 exfat-utils
 exim
 expect
@@ -120,6 +119,7 @@ procps-ng
 progsreiserfs
 python2-dbus
 python2-sh
+qpdfview
 ranger
 rdesktop
 redis
