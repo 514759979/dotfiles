@@ -21,8 +21,8 @@ fi
 declare -l p=${1/*./}
 
 case $p in
-    pdf|djvu|ps)
-        f evince "$1"
+    pdf)
+        f qpdfview "$1"
         ;;
     chm)
         f kchmviewer "$1"
