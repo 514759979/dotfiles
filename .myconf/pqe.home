@@ -36,7 +36,6 @@ dnsutils
 dosbox
 dosfstools
 doxygen
-eix
 ethtool
 exfat-utils
 exim
@@ -116,7 +115,6 @@ php
 pkg-config
 pkgfile
 pkgstats
-portage-git
 procps-ng
 progsreiserfs
 python2-dbus
