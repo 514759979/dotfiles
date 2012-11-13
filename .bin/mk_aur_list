@@ -6,4 +6,9 @@ for i in $(seq 0 250 $num); do
         sed 's/<td/<h1/g;s/td>/h1>/g' | w3m -dump -T text/html | tr '\n' ' ' | sed 's/--/\n/g' | \
         sed 's/^  //g' | sed 'a\' >> /tmp/.aurlist
 done
-mv /tmp/.aurlist ~/.myconf/aurlist
+
+if [ $(cat /tmp/.aurlist | wc -l) -ge $num ]; then
+    mv /tmp/.aurlist ~/.myconf/aurlist
+else
+    rm /tmp/.aurlist
+fi
