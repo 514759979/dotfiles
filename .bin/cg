@@ -23,7 +23,8 @@ if [ $# -gt 0 ]; then
     fi
 
     grep -PHn "$@" $flag1 $flag2 \
-        --exclude-dir='.svn' --exclude-dir='.git'\
+        --exclude-dir='.svn' --exclude-dir='.git' --exclude-dir='.libs' \
+        --exclude=tags \
         | nl -s: -n ln >> $cg
 fi
 
