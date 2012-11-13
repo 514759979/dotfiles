@@ -6,6 +6,7 @@ export PAGER='less -isrf'
 export UNZIP='-O CP936'
 eval `dircolors $HOME/.dir_colors`
 export GREP_OPTIONS='--color=auto'
+export GREP_COLOR='40;33;01'
 
 # man color
 export LESS_TERMCAP_mb=$'\E[01;31m'
