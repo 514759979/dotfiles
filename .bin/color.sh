@@ -21,205 +21,131 @@ Example: ${0} \"hello\" Green Brown Blink
 ${0} \"hello\" 3 4 3"
 
 # 判断参数个数
-
 if [ $# -eq 0 ]; then
-
-echo -e "${usage}"
-
-exit 0
-
+    echo -e "${usage}"
+    exit 0
 fi
 
 # 处理第一个参数
-
 case "${1}" in
-
--h | --help)
-
-echo -e "${usage}"
-
-exit 0
-
-;;
-
+    -h | --help)
+    echo -e "${usage}"
+    exit 0
+    ;;
 esac
 
 # 处理第二个参数
-
 case ${2} in
+    1 | Black)
+    fStr="30"
+    ;;
 
-1 | Black)
+    2 | Red)
+    fStr="31"
+    ;;
 
-fStr="30"
+    3 | Green)
+    fStr="32"
+    ;;
 
-;;
+    4 | Brown)
+    fStr="33"
+    ;;
 
-2 | Red)
+    5 | Blue)
+    fStr="34"
+    ;;
 
-fStr="31"
+    6 | Purple)
+    fStr="35"
+    ;;
 
-;;
+    7 | Cyan)
+    fStr="36"
+    ;;
 
-3 | Green)
+    8 | White)
+    fStr="37"
+    ;;
 
-fStr="32"
-
-;;
-
-4 | Brown)
-
-fStr="33"
-
-;;
-
-5 | Blue)
-
-fStr="34"
-
-;;
-
-6 | Purple)
-
-fStr="35"
-
-;;
-
-7 | Cyan)
-
-fStr="36"
-
-;;
-
-8 | White)
-
-fStr="37"
-
-;;
-
-*)
-
-fStr="0"
-
-;;
-
+    *)
+    fStr="0"
+    ;;
 esac
-
-
 
 # 处理第三个参数
 
 case ${3} in
+    1 | Black)
+    bStr="40"
+    ;;
 
-1 | Black)
+    2 | Red)
+    bStr="41"
+    ;;
 
-bStr="40"
+    3 | Green)
+    bStr="42"
+    ;;
 
-;;
+    4 | Brown)
+    bStr="43"
+    ;;
 
-2 | Red)
+    5 | Blue)
+    bStr="44"
+    ;;
 
-bStr="41"
+    6 | Purple)
+    bStr="45"
+    ;;
 
-;;
+    7 | Cyan)
+    bStr="46"
+    ;;
 
-3 | Green)
+    8 | White)
+    bStr="47"
+    ;;
 
-bStr="42"
-
-;;
-
-4 | Brown)
-
-bStr="43"
-
-;;
-
-5 | Blue)
-
-bStr="44"
-
-;;
-
-6 | Purple)
-
-bStr="45"
-
-;;
-
-7 | Cyan)
-
-bStr="46"
-
-;;
-
-8 | White)
-
-bStr="47"
-
-;;
-
-*)
-
-bStr="0"
-
-;;
-
+    *)
+    bStr="0"
+    ;;
 esac
 
 # 处理第四个参数
 
 case ${4} in
+    1 | Bold)
+    sStr="1"
+    ;;
 
-1 | Bold)
+    2 | Underline)
+    sStr="4"
+    ;;
 
-sStr="1"
+    3 | Blink)
+    sStr="5"
+    ;;
 
-;;
+    4 | Inverse)
+    sStr="7"
+    ;;
 
-2 | Underline)
-
-sStr="4"
-
-;;
-
-3 | Blink)
-
-sStr="5"
-
-;;
-
-4 | Inverse)
-
-sStr="5"
-
-;;
-
-*)
-
-sStr="0"
-
-;;
-
+    *)
+    sStr="0"
+    ;;
 esac
 
 # 拼接字符串
-
 if [ ${bStr} -eq 0 ] && [ ${sStr} -eq 0 ]; then
-
-rtnString="\e[${fStr}m"
-
+    rtnString="\e[${fStr}m"
 elif [ ${bStr} -eq 0 ]; then
-
-rtnString="\e[${fStr};${sStr}m"
-
+    rtnString="\e[${fStr};${sStr}m"
 elif [ ${sStr} -eq 0 ]; then
-
-rtnString="\e[${fStr};${bStr}m"
-
+    rtnString="\e[${fStr};${bStr}m"
 else
-
-rtnString="\e[${fStr};${bStr};${sStr}m"
-
+    rtnString="\e[${fStr};${bStr};${sStr}m"
 fi
 
 printf "${rtnString}${1}\e[m"
