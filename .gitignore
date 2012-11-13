@@ -80,3 +80,4 @@ tmp
 .config/libreoffice
 .config/qpdfview
 .config/gtk-3.0
+.myconf/aurlist
