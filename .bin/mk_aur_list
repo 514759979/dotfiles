@@ -2,7 +2,7 @@
 num=$(curl -s https://aur.archlinux.org/ | grep '>Packages<\/td' -A 1|sed -n 2p|sed 's/<td>//g;s/<\/td>//g;s/^\t*//g')
 echo -n > /tmp/.aurlist
 for i in $(seq 0 250 $num); do
-    curl -s "https://aur.archlinux.org/packages/?O=$i&PP=250&SB=n" | grep '/packages/[0-9a-z]' -A 3 | \
+    curl -s "https://aur.archlinux.org/packages/?O=$i&PP=250&SB=n" | grep '/packages/[0-9a-z]' -A 3 -B 1 | \
         sed 's/<td/<h1/g;s/td>/h1>/g' | w3m -dump -T text/html | tr '\n' ' ' | sed 's/--/\n/g' | \
         sed 's/^  //g' | sed 'a\' >> /tmp/.aurlist
 done
