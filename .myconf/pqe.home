@@ -188,7 +188,7 @@ yad
 yaourt
 yong
 zathura
-zathura-pdf-poppler
+zathura-pdf-mupdf
 zip
 zsh-completions
 zsh-syntax-highlighting
