@@ -81,3 +81,4 @@ tmp
 .config/qpdfview
 .config/gtk-3.0
 .myconf/aurlist
+.myconf/source_list
