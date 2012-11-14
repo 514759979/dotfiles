@@ -22,7 +22,7 @@ declare -l p=${1/*./}
 
 case $p in
     pdf)
-        f qpdfview "$1"
+        f zathura "$1"
         ;;
     chm)
         f kchmviewer "$1"

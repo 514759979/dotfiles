@@ -119,7 +119,6 @@ procps-ng
 progsreiserfs
 python2-dbus
 python2-sh
-qpdfview
 ranger
 rdesktop
 redis
@@ -188,6 +187,8 @@ xterm
 yad
 yaourt
 yong
+zathura
+zathura-pdf-poppler
 zip
 zsh-completions
 zsh-syntax-highlighting
