@@ -189,7 +189,7 @@ y() {
     cat ~/.myconf/aurlist | grep -P --color=always "$*" | awk -F'  ' '{print "aur/"$2" "$3" ["$1"] ("$4")\n    "$5}'
 }
 
-get_source() {
+pbg() {
     wget http://mirrors.ustc.edu.cn/gentoo/distfiles/$1
 }
 
@@ -322,4 +322,4 @@ alias pre='perl-rename'
 alias mtu='sudo ifconfig wlan0 mtu 1480'
 alias jl='ll /dev/sd*'
 alias tf='tailf'
-alias yg='cat ~/.myconf/source_list | grep'
+alias pb='cat ~/.myconf/source_list | grep'
