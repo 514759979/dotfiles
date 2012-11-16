@@ -18,7 +18,7 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 gq() {
-    geeqie $* 2>/dev/null &
+    setsid geeqie $* 2>/dev/null &
 }
 
 imgresize() {
@@ -146,14 +146,6 @@ opsqlite() {
     done < .opsqlite
     rm .opsqlite
     cd -
-}
-
-gentoo() {
-    if pgrep arch-chroot &>/dev/null; then
-        sudo chroot $HOME/data/gentoo
-    else
-        sudo arch-chroot $HOME/data/gentoo
-    fi
 }
 
 sl() {
