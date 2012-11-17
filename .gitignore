@@ -2,7 +2,6 @@
 .android
 .appcfg_cookies
 .appcfg_nag
-.aria2
 .avfs
 .bash_history
 book
@@ -21,7 +20,6 @@ doc
 .gconf
 .gimp-2.8
 .gitk
-.gnome2
 .gnupg
 .gstreamer-0.10
 .gtkrc-2.0
@@ -78,7 +76,7 @@ tmp
 .mail
 .xmind
 .config/libreoffice
-.config/qpdfview
 .config/gtk-3.0
 .myconf/aurlist
 .myconf/source_list
+.config/codef00.com
