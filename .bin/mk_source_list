@@ -1,3 +1,4 @@
 #!/bin/bash
 curl -s http://mirrors.ustc.edu.cn/gentoo/distfiles/ |
-    sed 's/^.*ref="//g;s/">.*$//g;/^[<.].*/d' > ~/.myconf/source_list
+    sed 's/^.*ref="//g;s/">.*$//g;/^[<.].*/d' > /tmp/.source_list
+mv /tmp/.source_list ~/.myconf/source_list
