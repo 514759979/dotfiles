@@ -25,7 +25,6 @@ ckermit
 cmake
 colordiff
 cpuburn
-cpupower
 cscope
 davfs2
 dhcp
@@ -164,7 +163,6 @@ virtualbox-guest-iso
 w3m
 wget
 which
-wine-thunder
 wireless_tools
 wkhtmltopdf-static1
 wmname
