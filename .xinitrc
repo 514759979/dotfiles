@@ -17,4 +17,6 @@ $HOME/.bin/show
 habak $HOME/.jpg &>/dev/null
 xmodmap $HOME/.xmodmaprc
 
+mkdir /tmp/.t
+
 exec dwm
