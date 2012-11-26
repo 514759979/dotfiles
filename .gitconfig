@@ -10,6 +10,7 @@
     s = status
     ci = commit -a
     c = commit -a
+    cm = commit -am
     co = checkout
     rmc = rm --cached
     d = diff
@@ -17,8 +18,7 @@
     pl = pull
     pu = push
     l = log
-
 [merge]
     tool = vimdiff
 [push]
-	default = matching
+    default = matching

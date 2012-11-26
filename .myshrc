@@ -42,10 +42,6 @@ c() {
     ls -F --color
 }
 
-cpu() {
-    sudo cpupower frequency-set -f $1
-}
-
 zcd() {
     cd ~/.avfs$PWD/$@#
 }
@@ -315,3 +311,4 @@ alias mtu='sudo ifconfig wlan0 mtu 1480'
 alias jl='ll /dev/sd*'
 alias tf='tailf'
 alias pb='cat ~/.myconf/source_list | grep'
+alias bv='bviplus'

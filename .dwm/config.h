@@ -6,7 +6,7 @@ void my_restart(const Arg *arg)
 }
 
 /* appearance */
-static const char font[]            = "YaHei Consolas Hybrid 11";
+static const char font[]            = "YaHei Consolas Hybrid:pixelsize=14";
 static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#222222";
 static const char normfgcolor[]     = "#bbbbbb";

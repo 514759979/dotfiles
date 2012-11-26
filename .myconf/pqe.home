@@ -25,7 +25,6 @@ ckermit
 cmake
 colordiff
 cpuburn
-cpupower
 cscope
 davfs2
 dhcp
@@ -35,7 +34,6 @@ dnsutils
 dosbox
 dosfstools
 doxygen
-edb-debugger
 ethtool
 exfat-utils
 exim
@@ -164,7 +162,6 @@ virtualbox-guest-iso
 w3m
 wget
 which
-wine-thunder
 wireless_tools
 wkhtmltopdf-static1
 wmname
