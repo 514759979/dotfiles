@@ -206,7 +206,7 @@ if which yaourt &>/dev/null; then
     alias pcl='echo y"\n"y | yy -Scc'
     alias pbs='yy -G'
 elif which emerge &>/dev/null; then
-    alias y='eix'
+    alias yy='eix'
     alias pi='sudo emerge -uDN'
     alias psu='sudo emerge -uDN world'
     alias pp='sudo emerge -c'
@@ -219,7 +219,7 @@ elif which emerge &>/dev/null; then
     alias psi='emerge -pv'
     alias pli='sudo emerge -k'
 elif which jumbo &>/dev/null; then
-    alias y='jumbo search'
+    alias yy='jumbo search'
     alias pi='jumbo install'
     alias pp='jumbo remove'
     alias pql='jumbo list-files'
