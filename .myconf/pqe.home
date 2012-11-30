@@ -131,6 +131,7 @@ socat
 sqlitebrowser
 squashfs-tools
 sshfs
+sshpass
 strace
 subversion
 sudo
