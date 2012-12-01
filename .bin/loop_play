@@ -1,6 +1,6 @@
 #!/bin/bash
 
-kill $(ps aux|grep 'mplayer -playlist .tmplist'|grep -v grep|awk '{print $2}')
+kill $(ps aux | awk '/[^]] mplayer -playlist /{print $2}')
 ls > .tmplist
 n=$(sed -n /${1/*\//}/= .tmplist)
 line=`cat .tmplist | wc -l`
