@@ -4,4 +4,4 @@
 
 ucurl "http://babel.baidu.com/web/search?filter=site_address&word=$1" | \
     w3m -T text/html -dump | sed -n '/过去一年/,/ FAQ/p' | \
-    sed '1,3d;$d;s/ 寻他//g;s/显示名称//g' | sed '$d'
+    sed '1,2d;$d;s/寻他//g;s/寻她//g;s/显示名称//g' | sed '$d'
