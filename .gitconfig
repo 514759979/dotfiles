@@ -18,6 +18,7 @@
     pl = pull
     pu = push
     l = log
+    ls = ls-files
 [merge]
     tool = vimdiff
 [push]
