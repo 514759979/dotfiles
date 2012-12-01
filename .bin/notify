@@ -1,2 +1,4 @@
 #!/bin/bash
-yad --text "$*" --center --timeout 1
+xsetroot -name "-----  $*  -----"
+sleep 2
+show
