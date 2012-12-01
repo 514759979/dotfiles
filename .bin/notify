@@ -1,4 +1,3 @@
 #!/bin/bash
 xsetroot -name "-----  $*  -----"
-sleep 2
-show
+(sleep 2 && show) &

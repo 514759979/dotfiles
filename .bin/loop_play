@@ -1,5 +1,6 @@
 #!/bin/bash
 
+kill $(ps aux|grep 'mplayer -playlist .tmplist'|grep -v grep|awk '{print $2}')
 ls > .tmplist
 n=$(sed -n /${1/*\//}/= .tmplist)
 line=`cat .tmplist | wc -l`
@@ -7,5 +8,4 @@ tail -n $((line-n+1)) .tmplist > /tmp/.tmplist
 head -n $((n-1)) .tmplist >> /tmp/.tmplist
 mv /tmp/.tmplist .tmplist
 
-mplayer -playlist .tmplist -quiet -loop 0
-rm .tmplist
+(mplayer -playlist .tmplist -quiet -loop 0 && sleep 1 && rm .tmplist) &
