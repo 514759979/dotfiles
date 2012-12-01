@@ -150,7 +150,7 @@ class CustomApplications(Applications):
 		if f.video or f.audio:
 			if f.video:
 				c.flags += 'd'
-			return self.either(c, 'mplayer', 'gmplayer', 'mplayer2',
+			return self.either(c, 'loop_play', 'mplayer', 'gmplayer', 'mplayer2',
 					'smplayer', 'vlc', 'totem')
 
 		if f.image:
