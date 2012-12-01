@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ~/.uuaprc
+
 export EDITOR=vim
 export BROWSER=chromium
 export PAGER='less -isrf'

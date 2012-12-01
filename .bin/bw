@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+. ~/.myshrc
+
+ucurl "http://noah.baidu.com/olive/index.php?r=Site/Index0&name=$1" | \
+    w3m -T text/html -dump | sed -n '/=\{10\}/,$p'

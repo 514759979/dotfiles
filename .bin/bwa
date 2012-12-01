@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+. ~/.myshrc
+
+ucurl "http://noah.baidu.com/olive/index.php?r=Site/Index0&name=$1" | \
+    sed -n '/($/,/)$/p' | sed '1d;$d'
