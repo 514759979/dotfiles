@@ -30,6 +30,7 @@ static const Rule rules[] = {
     { "Chromium",     NULL,       NULL,       1,           False,       -1 },
     { "VirtualBox",   NULL,       NULL,       4,           False,       -1 },
     { "XTerm",        NULL,       NULL,       1,           False,       -1 },
+    { "Qmmp",         NULL,       NULL,       1,           True,        -1 },
 };
 
 /* layout(s) */
