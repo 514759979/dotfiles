@@ -1,3 +1,0 @@
-#!/bin/bash
-
-chromium "http://noah.baidu.com/olive/index.php?r=Site/Index0&name=$1"
