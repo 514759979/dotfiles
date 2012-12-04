@@ -5,7 +5,6 @@ android-udev
 antiword
 arandr
 arch-install-scripts
-aria2
 asoundconf
 astyle
 atool
@@ -20,13 +19,13 @@ burp
 busybox
 bviplus
 ccal
-chromium-libpdf-stable
+chromium
 chromium-pepper-flash
 ckermit
 cmake
 colordiff
+colorgcc
 cpuburn
-cpupower
 cscope
 davfs2
 dhcp
@@ -55,7 +54,6 @@ goagent
 google-appengine-python
 graphicsmagick
 grub-bios
-gtk-engines
 habak
 hdaps-gl
 hdapsd
@@ -118,7 +116,6 @@ pkgstats
 procps-ng
 progsreiserfs
 python2-dbus
-python2-sh
 ranger
 rdesktop
 redis
@@ -132,6 +129,7 @@ socat
 sqlitebrowser
 squashfs-tools
 sshfs
+sshpass
 strace
 subversion
 sudo
@@ -164,7 +162,6 @@ virtualbox-guest-iso
 w3m
 wget
 which
-wine-thunder
 wireless_tools
 wkhtmltopdf-static1
 wmname
@@ -184,10 +181,8 @@ xorg-xkill
 xorg-xmodmap
 xorg-xsetroot
 xterm
-yad
 yaourt
 yong
-zathura
 zathura-pdf-mupdf
 zip
 zsh-completions
