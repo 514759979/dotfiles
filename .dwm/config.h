@@ -23,14 +23,14 @@ static const char *tags[] = { "1", "2", "3", "4", "5"};
 
 static const Rule rules[] = {
     /* class          instance    title       tags mask    isfloating   monitor */
-    { "Yad",          NULL,       NULL,       0,           True,        -1 },
+    { "Chromium",     NULL,       NULL,       1,           False,       -1 },
     { "Dia",          NULL,       NULL,       8,           True,        -1 },
     { "MPlayer",      NULL,       NULL,       0,           True,        -1 },
+    { "Qmmp",         NULL,       NULL,       8,           True,        -1 },
     { "Thunderbird",  NULL,       NULL,       2,           False,       -1 },
-    { "Chromium",     NULL,       NULL,       1,           False,       -1 },
     { "VirtualBox",   NULL,       NULL,       4,           False,       -1 },
     { "XTerm",        NULL,       NULL,       1,           False,       -1 },
-    { "Qmmp",         NULL,       NULL,       8,          True,        -1 },
+    { "Yad",          NULL,       NULL,       0,           True,        -1 },
 };
 
 /* layout(s) */
@@ -54,7 +54,7 @@ static const Layout layouts[] = {
     { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 #define SHCMD(cmd) {.v = (const char*[]) {"/bin/sh", "-c", cmd, NULL} }
-#define CMD(cmd) {.v = (const char*[]) {cmd, NULL} }
+#define CMD(cmd)   {.v = (const char*[]) {cmd, NULL} }
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
@@ -63,6 +63,7 @@ static Key keys[] = {
     { MODKEY,                       XK_r,      spawn,          SHCMD("xterm -e osily") },
     { MODKEY,                       XK_q,      spawn,          SHCMD("xterm -e osily 1") },
     { MODKEY,                       XK_t,      spawn,          CMD("thunderbird") },
+/*
     { ControlMask,                  XK_comma,  spawn,          SHCMD("m_con p") },
     { ControlMask,                  XK_period, spawn,          SHCMD("m_con pt_step 1") },
     { ControlMask,                  XK_slash,  spawn,          SHCMD("m_con pt_step -1") },
@@ -71,6 +72,14 @@ static Key keys[] = {
     { ControlMask,                  XK_Up,     spawn,          SHCMD("m_con seek +60") },
     { ControlMask,                  XK_Down,   spawn,          SHCMD("m_con seek -60") },
     { ControlMask,              XK_semicolon,  spawn,          SHCMD("m_con stop") },
+*/
+    { ControlMask,                  XK_comma,  spawn,          SHCMD("qmmp -t") },
+    { ControlMask,                  XK_period, spawn,          SHCMD("qmmp --next") },
+    { ControlMask,                  XK_slash,  spawn,          SHCMD("qmmp --previous") },
+    { ControlMask,                  XK_Left,   spawn,          SHCMD("qmmp --seek-bwd 10") },
+    { ControlMask,                  XK_Right,  spawn,          SHCMD("qmmp --seek-fwd 10") },
+    { ControlMask,                  XK_Up,     spawn,          SHCMD("qmmp --seek-fwd 60") },
+    { ControlMask,                  XK_Down,   spawn,          SHCMD("qmmp --seek-bwd 60") },
     { MODKEY,                       XK_w,      spawn,          CMD("word") },
     { MODKEY,                       XK_m,      spawn,          SHCMD("xset dpms force off;slock") },
     { MODKEY,                       XK_n,      spawn,          SHCMD("xset dpms force off") },
@@ -81,9 +90,10 @@ static Key keys[] = {
     { 0,            XF86XK_AudioRaiseVolume,   spawn,          SHCMD("amixer sset Master 1+") },
     { 0,            XF86XK_AudioLowerVolume,   spawn,          SHCMD("amixer sset Master 1-") },
     { MODKEY|ShiftMask,             XK_r,      my_restart,     {0} },
-    //{ MODKEY,                       XK_semicolon,      view,   {.ui=0} },
+    { MODKEY,                       XK_semicolon,      view,   {.ui = 0} },
     { MODKEY,                       XK_b,      togglebar,      {0} },
     { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+    { Mod1Mask,                     XK_Tab,    focusstack,     {.i = +1 } },
     { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
     { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
     { MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
