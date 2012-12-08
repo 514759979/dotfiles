@@ -140,8 +140,9 @@ class CustomApplications(Applications):
             return self.either(c, 'aunpack')
 
         if f.video or f.audio:
-            c.flags += 'd'
-            return self.either(c, 'loop_play', 'mplayer', 'mplayer2',
+            if f.video:
+                c.flags += 'd'
+            return self.either(c, 'mplayer', 'mplayer2',
                     'smplayer', 'vlc')
 
         if f.image:
