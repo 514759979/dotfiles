@@ -1,0 +1,8 @@
+[Text]
+Normal=#342819
+Current=#006814
+NormalBG=E2BD83
+SelectedBG=#B8C07C
+Font=Monotype Corsiva
+mbFG=#2A3536
+mbBG=#BCD9DB
