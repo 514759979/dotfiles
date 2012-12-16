@@ -1,0 +1,2 @@
+#!/bin/bash
+java -jar ~/.signapk/signapk.jar ~/.signapk/testkey.x509.pem ~/.signapk/testkey.pk8 $1 $2
