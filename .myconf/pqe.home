@@ -47,6 +47,7 @@ flex
 fuse-exfat
 gdb
 geeqie
+getmail
 gimp
 gimp-ufraw
 gnome-themes-extras
@@ -93,6 +94,7 @@ memcached
 mencoder
 mercurial
 mlocate
+msmtp
 mutt
 mysql
 netcfg
