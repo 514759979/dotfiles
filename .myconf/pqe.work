@@ -18,6 +18,7 @@ bpython2
 burp
 busybox
 bviplus
+catdoc
 ccal
 chromium
 chromium-pepper-flash
@@ -25,6 +26,7 @@ ckermit
 cmake
 colordiff
 colorgcc
+convmv
 cpuburn
 cscope
 davfs2
@@ -46,6 +48,7 @@ flex
 fuse-exfat
 gdb
 geeqie
+getmail
 gimp
 gimp-ufraw
 gnome-themes-extras
@@ -92,6 +95,7 @@ memcached
 mencoder
 mercurial
 mlocate
+msmtp
 mutt
 mysql
 netcfg
