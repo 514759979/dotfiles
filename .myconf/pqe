@@ -3,6 +3,7 @@ alsa-utils
 android-sdk-platform-tools
 android-udev
 antiword
+apache
 arandr
 arch-install-scripts
 asoundconf
@@ -114,6 +115,8 @@ patch
 pcmciautils
 perl-rename
 php
+pidgin
+pidgin-lwqq
 pkg-config
 pkgfile
 pkgstats
