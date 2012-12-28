@@ -29,6 +29,7 @@ colordiff
 colorgcc
 convmv
 cpuburn
+cpupower
 cscope
 davfs2
 dhcp
@@ -44,6 +45,7 @@ exim
 expect
 fakeroot
 fbgrab
+fceux
 ffmpeg
 flex
 fuse-exfat

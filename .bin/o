@@ -42,6 +42,9 @@ case $p in
     sqlite)
         f sqlitebrowser "$1"
         ;;
+    nes)
+        f fceux "$1"
+        ;;
     *)
         vim "$1"
         ;;
