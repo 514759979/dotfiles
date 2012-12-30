@@ -21,7 +21,6 @@ busybox
 bviplus
 catdoc
 ccal
-chromium
 ckermit
 cmake
 colordiff
@@ -144,9 +143,9 @@ sshpass
 strace
 subversion
 sudo
+supertux
 tcpdump
 thinkfan
-thunderbird
 tig
 tightvnc
 tk

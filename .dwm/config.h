@@ -63,7 +63,6 @@ static Key keys[] = {
     { MODKEY,                       XK_f,      spawn,          CMD("firefox") },
     { MODKEY,                       XK_r,      spawn,          SHCMD("xterm -e osily") },
     { MODKEY,                       XK_q,      spawn,          SHCMD("xterm -e osily 1") },
-    { MODKEY,                       XK_t,      spawn,          CMD("thunderbird") },
 /*
     { ControlMask,                  XK_comma,  spawn,          SHCMD("m_con p") },
     { ControlMask,                  XK_period, spawn,          SHCMD("m_con pt_step 1") },

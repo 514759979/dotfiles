@@ -68,7 +68,6 @@ photo
 .ssh
 .subversion
 .thumbnails
-.thunderbird
 tmp
 .tmp
 .uuap_cookie
@@ -78,7 +77,6 @@ tmp
 .VirtualBox
 .w3m
 .wine
-.wine-thunder
 .Xauthority
 .xmind
 .yong
@@ -87,3 +85,4 @@ tmp
 .fceux
 .mozilla
 .vimperator
+.supertux2
