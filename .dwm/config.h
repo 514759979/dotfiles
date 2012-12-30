@@ -24,6 +24,7 @@ static const char *tags[] = { "1", "2", "3", "4", "5"};
 static const Rule rules[] = {
     /* class          instance    title       tags mask    isfloating   monitor */
     { "Chromium",     NULL,       NULL,       1,           False,       -1 },
+    { "Firefox",      NULL,       NULL,       1,           False,       -1 },
     { "Dia",          NULL,       NULL,       8,           True,        -1 },
     { "MPlayer",      NULL,       NULL,       0,           True,        -1 },
     { "Qmmp",         NULL,       NULL,       8,           True,        -1 },
@@ -59,7 +60,7 @@ static const Layout layouts[] = {
 static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_e,      spawn,          CMD("xterm") },
-    { MODKEY,                       XK_f,      spawn,          CMD("chromium") },
+    { MODKEY,                       XK_f,      spawn,          CMD("firefox") },
     { MODKEY,                       XK_r,      spawn,          SHCMD("xterm -e osily") },
     { MODKEY,                       XK_q,      spawn,          SHCMD("xterm -e osily 1") },
     { MODKEY,                       XK_t,      spawn,          CMD("thunderbird") },

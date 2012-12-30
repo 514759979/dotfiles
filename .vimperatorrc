@@ -1,0 +1,7 @@
+set hintchars=hjklasdf
+set nextpattern=下一,下页,后一,\bnext,(>|›|>>|››|»)$,更多,\bmore\b
+set previouspattern=上一,上页,前一,\b(prev|previous)\b,^(<|‹|<<|‹‹|«)
+
+map J gT
+map K gt
+map . d

@@ -22,7 +22,6 @@ bviplus
 catdoc
 ccal
 chromium
-chromium-pepper-flash
 ckermit
 cmake
 colordiff
@@ -47,6 +46,8 @@ fakeroot
 fbgrab
 fceux
 ffmpeg
+firefox
+flashplugin
 flex
 fuse-exfat
 gdb
