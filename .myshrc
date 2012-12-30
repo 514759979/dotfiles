@@ -3,7 +3,7 @@
 source ~/.uuaprc
 
 export EDITOR=vim
-export BROWSER=chromium
+export BROWSER=firefox
 export PAGER='less -isrf'
 export UNZIP='-O CP936'
 eval `dircolors $HOME/.dir_colors`

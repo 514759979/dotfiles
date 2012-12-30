@@ -6,4 +6,4 @@ else
     word="$*"
 fi
 
-chromium "http://dict.youdao.com/search?q=$word"
+firefox "http://dict.youdao.com/search?q=$word"
