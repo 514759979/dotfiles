@@ -75,3 +75,4 @@ export CXXFLAGS="$CXXFLAGS $CFLAGS"
 export LDFLAGS="$LDFLAGS -Wl,-rpath=$JUMBO_ROOT/lib -L$JUMBO_ROOT/lib"
 export PKG_CONFIG_PATH="$JUMBO_ROOT/lib/pkgconfig:$PKG_CONFIG_PATH"
 mount -o subvol=rootfs,compress=lzo,space_cache,autodefrag /dev/sda2 /mnt
+rootflags=subvol=rootfs
