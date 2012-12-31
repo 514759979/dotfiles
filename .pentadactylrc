@@ -1,7 +1,15 @@
-set hintchars=hjklasdf
+set guioptions+=T
+"set hintchars=hjklasdf
+set hintkeys=hjklasdf
 set nextpattern=下一,下页,后一,\bnext,(>|›|>>|››|»)$,更多,\bmore\b
 set previouspattern=上一,上页,前一,\b(prev|previous)\b,^(<|‹|<<|‹‹|«)
 
 map J gT
 map K gt
 map . d
+
+map -m n,i,c <C-a> <Pass>
+map -m n,i,c <C-c> <Pass>
+map -m i,c <C-v> <Pass>
+map -m i,c <C-x> <Pass>
+map -m i,c <C-z> <Pass>
