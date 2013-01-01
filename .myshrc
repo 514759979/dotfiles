@@ -339,3 +339,4 @@ alias pb='cat ~/.myconf/source_list | grep'
 alias bv='bviplus'
 alias makerom='rm -f META-INF/{CERT.RSA,CERT.SF}; a tmp.zip .; signapk tmp.zip update.zip; rm tmp.zip'
 alias pywebc="ifconfig | awk '/inet.*broadcast/ {print \$2 \":8888\"}' | cl"
+alias cpu='sudo cpupower frequency-set -f '
