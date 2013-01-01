@@ -146,6 +146,7 @@ strace
 subversion
 sudo
 supertux
+systemd-sysvcompat
 tcpdump
 thinkfan
 tig
