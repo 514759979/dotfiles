@@ -195,6 +195,10 @@ ac() {
     fi
 }
 
+smb() {
+    sudo mount -o relatime,nobarrier,compress=lzo,ssd_spread,space_cache,autodefrag,inode_cache,subvol=$1 $2 /mnt
+}
+
 y() {
     pacman-color -Ss $*
     cat ~/.myconf/aurlist | grep -Pi --color=always "$*" | awk -F'  ' '{print "aur/"$2" "$3" ["$1"] ("$4")\n    "$5}'
