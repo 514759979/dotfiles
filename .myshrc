@@ -136,13 +136,21 @@ b() {
     ls -F --color
 }
 
-opsqlite() {
+opsqlite_chromium() {
     cd $HOME/.config/chromium
     find -print0|xargs -0 file|grep SQLite|sed 's/:.*$//g' > .opsqlite
     while read i; do
         sqlite3 $i vacuum
     done < .opsqlite
     rm .opsqlite
+    cd -
+}
+
+opsqlite_firefox() {
+    cd ~/.mozilla/firefox/
+    for i in `find -name '*.sqlite'`; do
+        sqlite3 $i vacuum
+    done
     cd -
 }
 
