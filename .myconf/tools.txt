@@ -84,3 +84,4 @@ cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/eo.mo
 2、gtk-query-immodules-2.0 > /etc/gtk.immodules
 3、rm -r /usr/share/fonts/misc/
 4、crontab: * * * * * /home/osily/.bin/show
+5、timedatectl set-local-rtc false
