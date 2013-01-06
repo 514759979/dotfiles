@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ $TERM = linux && -z $FBTERM && -e /usr/bin/fbterm ]]; then
+    export FBTERM=fbterm
+    exec fbterm
+fi
+
 source ~/.uuaprc
 
 export EDITOR=vim
@@ -359,3 +364,4 @@ alias makerom='rm -f META-INF/{CERT.RSA,CERT.SF}; a tmp.zip .; signapk tmp.zip u
 alias pywebc="ifconfig | awk '/inet.*broadcast/ {print \$2 \":8888\"}' | cl"
 alias cpu='sudo cpupower frequency-set -f '
 alias vbox='st VirtualBox --comment win --startvm win --no-startvm-errormsgbox'
+alias fb='fbterm'
