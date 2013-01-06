@@ -43,7 +43,7 @@ exfat-utils
 exim
 expect
 fakeroot
-fbgrab
+fbdump
 fceux
 ffmpeg
 firefox
