@@ -126,7 +126,7 @@ pkgfile
 pkgstats
 procps-ng
 progsreiserfs
-python2-dbus
+python2-gobject
 qjoypad
 qmmp
 ranger
