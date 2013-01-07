@@ -5,8 +5,7 @@ if [[ $TERM = linux && -z $FBTERM && -e /usr/bin/fbterm ]]; then
     exec fbterm
 fi
 
-source ~/.uuaprc
-
+export PATH=$PATH:$HOME/.screenlayout
 export EDITOR=vim
 export BROWSER=firefox
 export PAGER='less -isrf'
