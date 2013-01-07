@@ -1,20 +1,34 @@
 source $HOME/.myshrc
 
-#{{{ 命令提示符
+#{{{ 命令提示符、标题栏、任务栏样式
 sctitle() {
-    print -Pn "\ek$1\e\\"
+    value="\ek$1\e\\"
+    print -Pn ${value/\\\033*\[?m/}
 }
 
 precmd () {
-PROMPT=$(echo "$CYAN%n@$GREEN%M:$RED%(?..[%?]:)$WHITE%~
-$WHITE\$$FINISH ")
+    PROMPT=$(echo "$CYAN%n@$GREEN%M:$RED%(?..[%?]:)$WHITE%~\n$WHITE\$$FINISH ")
+
+    case $TERM in
+        (*screen*)
+        sctitle "%30< ..<%~%<<"
+        ;;
+    esac
+}
 
 case $TERM in
 	(*screen*)
-	sctitle "%30< ..<%~%<<"
+	preexec() {
+        sctitle "%30>..>$1%< <";
+    }
+	;;
+
+	(*xterm*|*rxvt*)
+	preexec() {
+        print -Pn "\e]0;%~$ ${1//\\/\\\\}\a"
+    }
 	;;
 esac
-}
 #}}}
 
 #{{{ color
@@ -29,21 +43,6 @@ eval $color='%{$fg[${(L)color}]%}'
 (( count = $count + 1 ))
 done
 FINISH="%{$terminfo[sgr0]%}"
-#}}}
-
-#{{{ 标题栏、任务栏样式
-case $TERM in
-	(*screen*)
-	preexec() {
-            sctitle "%30>..>$1%< <";
-        }
-	;;
-	(*xterm*|*rxvt*)
-	preexec() {
-            print -Pn "\e]0;%~$ ${1//\\/\\\\}\a"
-        }
-	;;
-esac
 #}}}
 
 #{{{ 关于历史纪录的配置
@@ -184,11 +183,13 @@ user-complete() {
             zle end-of-line
             zle expand-or-complete
             ;;
+
         " " )
             BUFFER="!?"
             zle end-of-line
             zle expand-or-complete
             ;;
+
         * )
             zle expand-or-complete
             ;;
