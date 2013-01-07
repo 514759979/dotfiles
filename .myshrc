@@ -216,7 +216,7 @@ y() {
     cat ~/.myconf/aurlist | grep -Pi --color=none "$*" | awk -F'  ' '{
         system("color.sh aur/ Purple Normal Bold")
         system("color.sh " $2 " Cyan Normal Bold")
-        a=" "$3" ["$1"] ("$4")\n"
+        a=" "$3" ["$1"] ("$4") {"$6"}\n"
         system("color.sh \"" a "\" Green Normal Bold")
         print "    "$5
     }'
