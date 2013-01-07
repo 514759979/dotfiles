@@ -167,11 +167,11 @@ sl() {
 }
 
 j() {
-    sudo mount -o iocharset=utf8,uid=1000,gid=1000 /dev/sd$1 /mnt
+    sudo mount -o iocharset=utf8,uid=1000,gid=1000 /dev/$1 /mnt
 }
 
 jj() {
-    sudo mount /dev/sd$1 /mnt
+    sudo mount /dev/$1 /mnt
     sudo chown osily:osily /mnt
 }
 
@@ -214,10 +214,8 @@ smb() {
 y() {
     pacman-color -Ss $*
     cat ~/.myconf/aurlist | grep -Pi --color=none "$*" | awk -F'  ' '{
-        system("color.sh aur/ Purple Normal Bold")
-        system("color.sh " $2 " Cyan Normal Bold")
-        a=" "$3" ["$1"] ("$4") {"$6"}\n"
-        system("color.sh \"" a "\" Green Normal Bold")
+        a=" "$3" ["$1"] ("$4") {"$6"}"
+        print "\033[35;1maur/\033[36;1m" $2 "\033[32;1m" a "\033[0m"
         print "    "$5
     }'
 }
@@ -227,31 +225,31 @@ pbg() {
 }
 
 if which yaourt &>/dev/null; then
-    alias yy='yaourt'
-    alias pi='yy -S'
-    alias pia='yy -S --noconfirm'
-    alias pli='yy -U'
-    alias pud='yy -Syu --aur'
-    alias psu='yy -Su --aur'
-    alias pd='yy -Sw'
-    alias pp='yy -Rcsn'
-    alias psi='yy -Si'
-    alias pq='yy -Q'
-    alias pqi='yy -Qi'
+    alias p='yaourt'
+    alias pi='p -S'
+    alias pia='p -S --noconfirm'
+    alias pli='p -U'
+    alias pud='p -Syu --aur'
+    alias psu='p -Su --aur'
+    alias pd='p -Sw'
+    alias pp='p -Rcsn'
+    alias psi='p -Si'
+    alias pq='p -Q'
+    alias pqi='p -Qi'
     alias pqe='pacman -Qeq'
     alias psl='pkgfile -l'
-    alias pql='yy -Ql'
+    alias pql='p -Ql'
     alias pso='pkgfile -v'
-    alias pqo='yy -Qo'
-    alias pqd='yy -Qdt'
-    alias pqm='yy -Qqm'
-    alias prd='yy -Rdd'
-    alias pae='yy -D --asexplicit'
-    alias pad='yy -D --asdeps'
-    alias pcl='echo y"\n"y | yy -Scc'
-    alias pbs='yy -G'
+    alias pqo='p -Qo'
+    alias pqd='p -Qdt'
+    alias pqm='p -Qqm'
+    alias prd='p -Rdd'
+    alias pae='p -D --asexplicit'
+    alias pad='p -D --asdeps'
+    alias pcl='echo y"\n"y | p -Scc'
+    alias pbs='p -G'
 elif which emerge &>/dev/null; then
-    alias yy='eix'
+    alias p='eix'
     alias pi='sudo emerge -uDN'
     alias psu='sudo emerge -uDN world'
     alias pp='sudo emerge -c'
@@ -264,7 +262,7 @@ elif which emerge &>/dev/null; then
     alias psi='emerge -pv'
     alias pli='sudo emerge -k'
 elif which jumbo &>/dev/null; then
-    alias yy='jumbo search'
+    alias p='jumbo search'
     alias pi='jumbo install'
     alias pp='jumbo remove'
     alias pql='jumbo list-files'
@@ -350,7 +348,6 @@ alias les='/usr/share/vim/vim73/macros/less.sh'
 alias frm='free -m'
 alias fm='ranger'
 alias d='tree'
-alias p='top'
 alias z='xargs'
 alias gmc='gm convert'
 alias pre='perl-rename'
