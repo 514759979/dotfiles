@@ -1,10 +1,5 @@
 #!/bin/bash
 
-if [[ $TERM = linux && -z $FBTERM && -e /usr/bin/fbterm ]]; then
-    export FBTERM=fbterm
-    exec fbterm
-fi
-
 export PATH=$PATH:$HOME/.screenlayout
 export EDITOR=vim
 export BROWSER=firefox
