@@ -4,3 +4,4 @@ set prompt "lftp \S\? \u\@\h:\w\n> "
 alias ll ls -F
 alias vi edit
 alias vim edit
+set ssl:verify-certificate no

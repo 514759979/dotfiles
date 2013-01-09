@@ -354,5 +354,6 @@ alias bv='bviplus'
 alias makerom='rm -f META-INF/{CERT.RSA,CERT.SF}; a tmp.zip .; signapk tmp.zip update.zip; rm tmp.zip'
 alias pywebc="ifconfig | awk '/inet.*broadcast/ {print \$2 \":8888\"}' | cl"
 alias cpu='sudo cpupower frequency-set -f '
+alias cpug'=sudo cpupower frequency-set -g ondemand'
 alias vbox='st VirtualBox --comment win --startvm win --no-startvm-errormsgbox'
 alias fb='fbterm'
