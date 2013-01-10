@@ -22,6 +22,7 @@ busybox
 bviplus
 catdoc
 ccal
+cdrkit
 ckermit
 cmake
 colordiff
@@ -173,7 +174,7 @@ vim-txtbrowser
 vim-ultisnips
 vim-voom
 vim-winmanager
-virtualbox
+virtualbox-ext-oracle
 virtualbox-guest-iso
 w3m
 wget
