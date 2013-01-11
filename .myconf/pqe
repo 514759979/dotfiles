@@ -6,6 +6,7 @@ antiword
 apache
 arandr
 arch-install-scripts
+aria2
 asoundconf
 astyle
 atool
@@ -80,9 +81,7 @@ kexec-tools
 landslide
 less
 lftp
-libreoffice-calc
-libreoffice-impress
-libreoffice-writer
+lib32-glu
 libtool
 licenses
 lm_sensors
@@ -159,6 +158,7 @@ tmux
 tp_smapi
 trayer
 tree
+ttf-fzfont
 ttf-ms-fonts-zh_cn
 unzip-beta
 usb_modeswitch
@@ -183,6 +183,7 @@ wireless_tools
 wkhtmltopdf-static1
 wmname
 wpa_supplicant
+wpsoffice
 wvdial
 x11vnc
 xclip
