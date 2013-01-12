@@ -5,9 +5,9 @@ export EDITOR=vim
 export BROWSER=firefox
 export PAGER='less -isrf'
 export UNZIP='-O CP936'
-eval `dircolors $HOME/.dir_colors`
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='40;33;01'
+eval `dircolors $HOME/.dir_colors`
 
 # man color
 export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -18,8 +18,12 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
+st() {
+    setsid $* &>/dev/null
+}
+
 gq() {
-    setsid geeqie $* 2>/dev/null &
+    st geeqie
 }
 
 imgresize() {
@@ -34,9 +38,6 @@ cry() {
     fi
 }
 
-st() {
-    setsid $* &>/dev/null
-}
 
 c() {
     cd $1
@@ -101,15 +102,17 @@ x() {
 mcat() {
     markdown_py2 $1 -f /tmp/.html
     w3m /tmp/.html
+    rm /tmp/.html
 }
 
 wpa() {
     sudo ifconfig wlan0 up
-    sudo wpa_supplicant -B -Dwext -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf$1
+    wpa_passphrase $1 $2 > /tmp/wpa_supplicant.conf.tmp
+    sudo wpa_supplicant -B -Dwext -i wlan0 -c /tmp/wpa_supplicant.conf.tmp
 }
 
 findx() {
-    find -print0|xargs -0 $@
+    find -print0 | xargs -0 $@
 }
 
 calc() {
@@ -163,11 +166,6 @@ sl() {
 
 j() {
     sudo mount -o iocharset=utf8,uid=1000,gid=1000 /dev/$1 /mnt
-}
-
-jj() {
-    sudo mount /dev/$1 /mnt
-    sudo chown osily:osily /mnt
 }
 
 cwi() {
@@ -361,3 +359,4 @@ alias cpu='sudo cpupower frequency-set -f '
 alias cpug'=sudo cpupower frequency-set -g ondemand'
 alias vbox='st VirtualBox --comment win7 --startvm win7 --no-startvm-errormsgbox'
 alias fb='fbterm'
+alias ng='netcfg'
