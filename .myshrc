@@ -219,6 +219,10 @@ pbg() {
     wget http://mirrors.ustc.edu.cn/gentoo/distfiles/$1
 }
 
+pqii() {
+    cat /var/lib/pacman/local/$1-*/install
+}
+
 if which yaourt &>/dev/null; then
     alias p='yaourt'
     alias pi='p -S'
