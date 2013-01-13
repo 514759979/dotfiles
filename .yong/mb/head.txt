@@ -1,0 +1,11 @@
+name=∆¥“Ù
+key=abcdefghijklmnopqrstuvwxyz
+len=63
+wildcard=?
+pinyin=1
+split='
+hint=0
+user=pinyin.usr
+assist=mb/yong.txt 2
+code_a1=p..
+[DATA]
