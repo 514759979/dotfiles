@@ -84,6 +84,7 @@ lftp
 lib32-glu
 libtool
 licenses
+lighttpd
 lm_sensors
 logrotate
 lrzsz
@@ -119,7 +120,7 @@ parted
 patch
 pcmciautils
 perl-rename
-php
+php-cgi
 pidgin
 pidgin-lwqq
 pkg-config
@@ -127,7 +128,9 @@ pkgfile
 pkgstats
 procps-ng
 progsreiserfs
+python2-flup
 python2-gobject
+python2-webpy
 qjoypad
 qmmp
 ranger
