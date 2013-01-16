@@ -87,8 +87,8 @@ nnoremap <C-a> ggVG
 ca qq q!
 ca w!! w !sudo tee >/dev/null "%"
 "set t_ti= t_te=
-nnoremap <F2> :set mouse=<cr>
-nnoremap <F4> :set mouse=a<cr>
+nnoremap <F2> :set mouse=<cr>:set nonu<cr>
+nnoremap <F4> :set mouse=a<cr>:set nu<cr>
 map <C-c> "+y
 nmap k gk
 nmap j gj
