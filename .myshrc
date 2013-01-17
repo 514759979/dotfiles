@@ -23,7 +23,7 @@ st() {
 }
 
 gq() {
-    st geeqie
+    st geeqie $*
 }
 
 imgresize() {
@@ -202,6 +202,14 @@ ac() {
 
 smb() {
     sudo mount -o relatime,nobarrier,compress=lzo,ssd_spread,space_cache,autodefrag,inode_cache,subvol=$1 $2 /mnt
+}
+
+fordo() {
+    cmd=$1
+    shift
+    for i in $*; do
+        eval $cmd $i
+    done
 }
 
 y() {
