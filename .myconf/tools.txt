@@ -85,3 +85,6 @@ cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/eo.mo
 3、rm -r /usr/share/fonts/misc/
 4、crontab: * * * * * /home/osily/.bin/show
 5、timedatectl set-local-rtc false
+
+set from=lg50247@126.com smtp=smtp.126.com
+set smtp-auth-user=lg50247 smtp-auth-password=xxx smtp-auth=login

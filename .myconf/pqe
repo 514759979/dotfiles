@@ -54,7 +54,6 @@ flex
 fuse-exfat
 gdb
 geeqie
-getmail
 gimp
 gimp-ufraw
 gnome-themes-extras
@@ -101,8 +100,6 @@ mencoder
 mercurial
 mixxx
 mlocate
-msmtp
-mutt
 myfbterm
 mysql
 netcfg
@@ -161,7 +158,6 @@ tmux
 tp_smapi
 trayer
 tree
-ttf-fzfont
 ttf-ms-fonts-zh_cn
 unzip-beta
 usb_modeswitch
@@ -186,11 +182,12 @@ wireless_tools
 wkhtmltopdf-static1
 wmname
 wpa_supplicant
-wpsoffice
+wps-office
 wvdial
 x11vnc
 xclip
 xcur2png
+xcursor-silver-3d
 xdotool
 xf86-input-synaptics
 xf86-video-intel
