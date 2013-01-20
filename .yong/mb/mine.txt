@@ -1069,6 +1069,7 @@ anheer 安赫尔
 anhei 暗黑
 anhen 暗恨
 anheng 安恒
+anheqiaobei 安河桥北
 anhong 安宏 安红
 anhou 案后
 anhu 按户
@@ -1574,6 +1575,7 @@ anzhen 安贞
 anzheng 安政
 anzhenhuan 安贞焕
 anzhenli 安贞里
+anzhenmen 安贞门
 anzhenpo 案侦破
 anzhenqiao 安贞桥
 anzhi 安置
@@ -1785,6 +1787,7 @@ aolifu 奥利弗
 aolin 奥林
 aolinpi 奥林匹
 aolinpike 奥林匹克
+aolinpikegongyuan 奥林匹克公园
 aoliqi 奥利奇
 aoliwei 奥利维
 aoliweier 奥利维尔
@@ -1953,6 +1956,7 @@ aoyunguanjun 奥运冠军
 aoyunhui 奥运会
 aoyunjianer 奥运健儿
 aoyunjinpai 奥运金牌
+aoyunzhixian 奥运支线
 aozai 奥在
 aozhan 鏖战
 aozhen 澳镇
@@ -2236,7 +2240,7 @@ bageyue 八个月
 bagong 罢工
 bagongsi 把公司
 bagongzuo 把工作
-bagou 把狗
+bagou 把狗 巴沟
 bagu 八股
 bagua 八卦
 baguai 八怪
@@ -2282,7 +2286,7 @@ bahun 把婚
 bahuo 把火
 bahuoguan 拔火罐
 bahuqi 八虎骑
-bai 百 白 败 摆 伯 拜 柏 呗 掰 捭 佰 稗
+bai 白 百 败 摆 伯 拜 柏 呗 掰 捭 佰 稗
 baiai 白挨
 baiaixing 白矮星
 baian 白案
@@ -2364,6 +2368,7 @@ baidiu 白丢
 baidong 摆动 柏东
 baidou 白豆
 baidu 百度 拜读 摆渡
+baiduizi 白堆子
 baie 白鹅
 baieji 白垩纪
 baieluosi 白俄罗斯
@@ -2910,6 +2915,7 @@ bajiang 把将
 bajianshe 把建设
 bajiao 八角 芭蕉
 bajiaoyi 把交椅
+bajiaoyouleyuan 八角游乐园
 bajie 八届 巴结 八戒 拔节
 bajin 巴金
 bajing 八景
@@ -2988,6 +2994,7 @@ baling 巴陵
 balinghun 把灵魂
 balingjun 巴陵郡
 balinzuoqi 巴林左旗
+baliqiao 八里桥
 baliqieluo 巴里切罗
 balisi 巴里斯
 baliuxia 把留下
@@ -4647,6 +4654,7 @@ batie 把铁
 bating 巴亭
 batong 八通
 batongmu 巴通姆
+batongxian 八通线
 batou 把头
 batu 巴图
 batuan 八团
@@ -5231,6 +5239,7 @@ beijingcheng 北京城
 beijingchengjian 北京城建
 beijingchengxiang 北京城乡
 beijingdaxue 北京大学
+beijingdaxuedongmen 北京大学东门
 beijingdiqu 北京地区
 beijingdongfang 北京东方
 beijingdui 北京队
@@ -5257,6 +5266,7 @@ beijingju 北京局
 beijingkaoya 北京烤鸭
 beijingligong 北京理工
 beijinglixiang 背井离乡
+beijingnanzhan 北京南站
 beijingnvren 北京女人
 beijingren 北京人
 beijingribao 北京日报
@@ -5722,6 +5732,7 @@ beitoupai 被偷拍
 beitousu 被投诉
 beitu 北图
 beituan 被团
+beitucheng 北土城
 beitui 被推
 beituichi 被推迟
 beituidao 被推倒
@@ -5862,6 +5873,7 @@ beiyuan 北苑
 beiyuanaizi 北原爱子
 beiyuanduoxiangzi 北原多香子
 beiyuanlu 北苑路
+beiyuanlubei 北苑路北
 beiyuanxiamei 北原夏美
 beiyue 北约
 beiyuming 贝聿铭
@@ -12942,6 +12954,7 @@ changchuankong 肠穿孔
 changchulai 唱出来
 changchun 长春
 changchunchongzi 长春虫子
+changchunjie 长椿街
 changchunteng 常春藤
 changchunxiao 常春晓
 changchuxian 常出现
@@ -13815,6 +13828,7 @@ chaoya 超压
 chaoyan 超验
 chaoyang 朝阳 超洋
 chaoyanghuawu 超氧化物
+chaoyangmen 朝阳门
 chaoyangqu 朝阳区
 chaoyao 超要
 chaoye 朝野
@@ -13985,6 +13999,7 @@ cheernixuefusiji 车尔尼雪夫斯基
 chefangen 车范根
 chefei 车费
 chefu 车夫
+chegongzhuang 车公庄
 chegu 彻骨
 cheguangyu 车广宇
 chehang 车行
@@ -17681,6 +17696,7 @@ chuanma 川马
 chuanmai 船买
 chuanmao 船锚
 chuanmei 传媒
+chuanmeidaxue 传媒大学
 chuanmeizi 川妹子
 chuanmen 串门
 chuanmener 串门儿
@@ -19306,6 +19322,7 @@ ciqiangduan 次抢断
 ciqiao 此桥
 ciqibifu 此起彼伏
 ciqidian 瓷器店
+ciqikou 磁器口
 ciqin 刺秦
 ciqing 刺青
 ciqingcijing 此情此景
@@ -23441,6 +23458,7 @@ datuanjie 大团结
 datuanyuan 大团圆
 datui 大腿 打退
 datuitanggu 打退堂鼓
+datunludong 大屯路东
 datuo 达托
 datuoluo 达托洛
 datuzi 打兔子
@@ -23448,6 +23466,7 @@ dawa 达瓦
 dawan 打完
 dawanasha 达娃娜莎
 dawang 大王
+dawanglu 大望路
 dawangqiu 打网球
 dawayangzong 达娃央宗
 dawazhuoma 达瓦卓玛
@@ -23597,6 +23616,7 @@ dazhongguo 大中国
 dazhonghua 大众化
 dazhongma 大仲马
 dazhongningning 大冢宁宁
+dazhongsi 大钟寺
 dazhongxingqiye 大中型企业
 dazhou 大州
 dazhouhou 大周后
@@ -26786,6 +26806,7 @@ dongcun 东村
 dongcunrui 董存瑞
 dongda 东达
 dongdai 东带
+dongdan 东单
 dongdang 动荡
 dongdangbuan 动荡不安
 dongdao 东道
@@ -27207,6 +27228,7 @@ dongshuxin 董书新
 dongsi 冻死 东四
 dongsigong 董思恭
 dongsihuan 东四环
+dongsishitiao 东四十条
 dongsiyang 董思阳
 dongsong 东送
 dongsu 东苏
@@ -29939,6 +29961,7 @@ erhaitangchang 二海堂昶
 erhan 尔汉
 erhang 尔航
 erhao 二号
+erhaohangzhanlou 二号航站楼
 erhaolou 二号楼
 erhaoqiao 二号桥
 erhaorenwu 二号人物
@@ -39681,6 +39704,7 @@ gongyishebei 工艺设备
 gongyishi 工艺师
 gongyishiye 公益事业
 gongyixing 公益性
+gongyixiqiao 公益西桥
 gongyiyuan 工艺员
 gongyong 公用 共用 功用
 gongyongchao 龚勇超
@@ -40808,6 +40832,7 @@ guangxian 光线 光纤
 guangxiang 光想
 guangxiaosi 光孝寺
 guangxie 光写
+guangximen 光熙门
 guangxing 广兴
 guangxiong 光雄
 guangxizhuangzu 广西壮族
@@ -41292,7 +41317,7 @@ guanzhongxin 管中心
 guanzhou 冠周
 guanzhu 关注
 guanzhua 管抓
-guanzhuang 灌装
+guanzhuang 灌装 管庄
 guanzhuangbingdu 冠状病毒
 guanzhuanggou 冠状沟
 guanzhuangji 灌装机
@@ -41436,6 +41461,7 @@ guchen 古晨
 guchenbin 顾琛斌
 gucheng 顾城 顾成 古城
 guchengdong 顾成栋
+guchenglu 古城路
 guchengqiang 古城墙
 guchengrexian 古城热线
 guchengzhen 古城镇
@@ -42045,6 +42071,7 @@ guliye 谷立业
 gulong 古隆 古龙
 gulonggang 古龙岗
 gulou 鼓楼
+guloudajie 鼓楼大街
 gulouguawen 孤陋寡闻
 guloulan 古楼兰
 gulu 骨碌 轱轳 咕噜
@@ -42459,6 +42486,7 @@ guojianxin 郭建新
 guojianyong 郭建勇 国建勇
 guojiao 国脚
 guojiatiwei 国家体委
+guojiatushuguan 国家图书馆
 guojiaxue 郭家学
 guojiayi 郭家颐
 guojiazhuanliju 国家专利局
@@ -43651,6 +43679,7 @@ haideli 海德里
 haideman 海德曼
 haidi 海蒂 海底 海地
 haidian 海淀
+haidianhuangzhuang 海淀黄庄
 haidianqu 海淀区
 haidiao 海钓
 haidie 海蝶
@@ -46844,8 +46873,11 @@ hepijiu 喝啤酒
 heping 和平 贺平 何平
 hepingge 和平鸽
 hepinggongchu 和平共处
+hepinglibeijie 和平里北街
+hepingmen 和平门
 hepingping 何平平
 hepingtianshi 和平天使
+hepingxiqiao 和平西桥
 hepingzhang 何平章
 hepingzuhe 和平组合
 hepuren 贺普仁
@@ -50789,6 +50821,8 @@ huixinchen 惠新宸
 huixing 彗星 辉星 惠星
 huixinsangqi 灰心丧气
 huixinshi 回信时
+huixinxijiebeikou 惠新西街北口
+huixinxijienankou 惠新西街南口
 huixinzhuanyi 回心转意
 huixiong 灰熊
 huixiongdui 灰熊队
@@ -50854,6 +50888,7 @@ hujiachen 胡佳琛
 hujiahuwei 狐假虎威
 hujiajun 胡家俊
 hujialin 胡佳琳
+hujialou 呼家楼
 hujiamei 胡加梅
 hujian 胡鉴 胡建 胡坚 胡健
 hujiang 虎将
@@ -51762,7 +51797,7 @@ huoye 活页
 huoyi 获益 或以
 huoyimiao 活疫苗
 huoyin 或因
-huoying 火影
+huoying 火影 霍营
 huoyingdong 霍英东
 huoyishang 或以上
 huoyisi 霍伊斯
@@ -52706,6 +52741,7 @@ jiandao 见到 捡到 减到 剪刀 尖刀
 jiandaojiemei 剪刀姐妹
 jiandati 简答题
 jiande 建德 见得 兼得 间的
+jiandemen 健德门
 jiandeng 健等
 jiandi 减低 歼敌 见地
 jiandian 检点
@@ -54388,6 +54424,7 @@ jiaomao 叫毛
 jiaomasheng 叫骂声
 jiaomei 娇媚
 jiaomeng 较猛
+jiaomenxi 角门西
 jiaomi 叫米
 jiaomie 剿灭
 jiaomin 教民
@@ -55180,6 +55217,7 @@ jichang 机场 姬昌 吉昌
 jichangbin 纪昌斌
 jichangfei 机场费
 jichangjianshe 机场建设
+jichangkuaixian 机场快线
 jichanglu 机场路
 jichanglulu 饥肠辘辘
 jichangming 纪长铭
@@ -56718,6 +56756,7 @@ jingfuzuner 井伏鳟二
 jinggai 井盖
 jinggan 精干 竟敢
 jinggang 京港
+jinggangditie 京港地铁
 jinggangshan 井冈山 景冈山 景岗山
 jinggao 警告 净高 敬告
 jinggaochufen 警告处分
@@ -58068,6 +58107,7 @@ jintailu 金台路
 jintaixi 金泰熙 金泰希
 jintaixian 金太贤 金泰贤
 jintaixilu 金台西路
+jintaixizhao 金台夕照
 jintaixun 金泰勋
 jintaiyan 金泰妍
 jintaiyang 金太阳
@@ -58662,6 +58702,7 @@ jishua 及刷
 jishuang 及双
 jishui 积水 吉水 计税
 jishuiling 姬水灵
+jishuitan 积水潭
 jishujianduju 技术监督局
 jishuke 技术科
 jishuqi 计数器
@@ -59065,6 +59106,7 @@ jiukao 就靠
 jiuke 就可
 jiuken 就啃
 jiukeneng 就可能
+jiukeshu 九棵树
 jiukeyi 就可以
 jiukeyiguo 就可以过
 jiukeyihe 就可以和
@@ -60750,6 +60792,7 @@ junshe 均设
 junshen 军神
 junsheng 俊生 均生
 junshi 军事 均势 军师 军士 均是
+junshibowuguan 军事博物馆
 junshibu 军事部
 junshibushu 军事部署
 junshichongtu 军事冲突
@@ -69704,6 +69747,7 @@ liangma 两码
 liangmahe 亮马河
 liangmangmang 两茫茫
 liangmao 两毛
+liangmaqiao 亮马桥
 liangmashi 两码事
 liangmazishi 两码子事
 liangmei 两枚
@@ -72546,6 +72590,7 @@ lingjifu 令肌肤
 lingjihua 令计划
 lingjin 领巾
 lingjing 灵境
+lingjinghutong 灵境胡同
 lingjipusa 灵吉菩萨
 lingjiu 灵柩
 lingjiyidong 灵机一动
@@ -72937,6 +72982,7 @@ linhaowei 林浩威
 linhe 临河
 linhei 林黑
 linheier 林黑儿
+linheli 临河里
 linhen 林很
 linheng 林衡
 linhengzhu 林亨朱 林亨柱
@@ -73902,6 +73948,8 @@ lishuguang 李曙光
 lishuhua 李书华
 lishui 利税 丽水 沥水 溧水
 lishuifenliu 利税分流
+lishuiqiao 立水桥
+lishuiqiaonan 立水桥南
 lishujian 李树建
 lishulan 李淑兰
 lishumei 李淑美 李淑梅
@@ -74562,6 +74610,7 @@ liujiaoxin 刘交心
 liujiaqian 刘佳倩
 liujiawang 刘佳旺
 liujiaxiang 刘家祥
+liujiayao 刘家窑
 liujiaying 刘佳莹
 liujiayu 刘佳宇
 liujie 留解 刘节 刘杰 留杰 刘捷 刘婕 刘洁 刘玠
@@ -76982,7 +77031,7 @@ longyueye 胧月夜
 longyun 龙云
 longyutaihou 隆裕太后
 longzai 拢在
-longze 龙则
+longze 龙泽 龙则
 longzenainan 滝沢乃南 龙泽乃南
 longzexiuming 泷泽秀明
 longzhai 龙寨
@@ -80391,6 +80440,7 @@ majiantao 马健涛
 majianxin 马建鑫
 majianya 麻见雅
 majiao 马脚
+majiapu 马家堡
 majiate 马加特
 majibiao 马继彪
 majididi 麻吉弟弟
@@ -86626,6 +86676,7 @@ muxiaochuan 母小川
 muxiaoguang 穆晓光
 muxiayayoumei 木下亚由美
 muxibao 母细胞
+muxidi 木樨地
 muxie 木屑
 muxin 木心
 muxing 木星 母性
@@ -87295,6 +87346,7 @@ nanliao 难料
 nanlin 南林
 nanlina 南丽娜
 nanling 南陵 南绫 南岭
+nanlishilu 南礼士路
 nanlou 南楼
 nanlu 南路
 nanmai 难买
@@ -90967,6 +91019,7 @@ nongyeyinhang 农业银行
 nongyeyongdi 农业用地
 nongyeyuanxiao 农业院校
 nongyezaishangxintaijie 农业再上新台阶
+nongyezhanlanguan 农业展览馆
 nongyezhengce 农业政策
 nongyezongchanzhi 农业总产值
 nongyi 农艺
@@ -95141,6 +95194,7 @@ pingan 平安 拼敢
 pinganbao 平安保
 pinganbaoxian 平安保险
 pingandui 平安队
+pinganli 平安里
 pinganshen 平安神
 pinganwushi 平安无事
 pinganxian 平安县
@@ -96433,6 +96487,7 @@ puhong 普泓
 puhu 铺户
 puhua 普华
 puhuang 蒲黄
+puhuangyu 蒲黄榆
 puhuayaofei 朴花耀飞
 puhui 浦惠 普惠
 puhuijing 朴惠京
@@ -103892,6 +103947,7 @@ renmindahuitang 人民大会堂
 renmindaibiao 人民代表
 renmindaibiaodahui 人民代表大会
 renmindang 人民党
+renmindaxue 人民大学
 renminfating 人民法庭
 renminfayuan 人民法院
 renminfuzu 人民富足
@@ -107345,6 +107401,7 @@ sangziyaner 嗓子眼儿
 sanhai 三海
 sanhan 散寒
 sanhao 三号
+sanhaohangzhanlou 三号航站楼
 sanhaosheng 三好生
 sanhaowei 三号位
 sanhaoxian 三号线
@@ -108157,6 +108214,7 @@ senlinbaohu 森林保护
 senlinfa 森林法
 senlinfanghuo 森林防火
 senlingongyuan 森林公园
+senlingongyuannanmen 森林公园南门
 senlinhuozai 森林火灾
 senlinlang 森林狼
 senlinlangdui 森林狼队
@@ -108758,7 +108816,7 @@ shangdaoshanxiahuohai 上刀山下火海
 shangde 上的
 shangdeng 上等
 shangdengpin 上等品
-shangdi 上帝
+shangdi 上地 上帝
 shangdian 商店
 shangdianhua 上电话
 shangdianjie 商店街
@@ -112834,6 +112892,7 @@ shihangyu 释行宇
 shihanqing 史汉青
 shihao 嗜好 十号 士豪 士浩 世浩 是好
 shihaoshi 是好事
+shihaoxian 十号线
 shihe 适合
 shihei 是黑
 shiheijingxiang 石黑京香
@@ -113459,6 +113518,7 @@ shisang 是桑
 shisange 十三个
 shisangongzhu 十三公主
 shisanhao 十三号
+shisanhaoxian 十三号线
 shisanjie 十三届
 shisanjing 十三经
 shisanlang 十三狼
@@ -116777,7 +116837,8 @@ sihuan 四环 死缓
 sihuang 四荒
 sihuanlu 四环路
 sihuansu 四环素
-sihui 撕毁 思会 思卉 思慧 司慧 死灰 四会
+sihui 撕毁 思会 思卉 思慧 司慧 死灰 四会 四惠
+sihuidong 四惠东
 sihuifuran 死灰复燃
 sihun 厮混
 sihunling 死魂灵
@@ -117545,6 +117606,7 @@ songjiao 送交
 songjiaoren 宋教仁
 songjiaorenan 宋教仁案
 songjiaxin 宋嘉欣
+songjiazhuang 宋家庄
 songjie 宋杰
 songjieyou 松节油
 songjin 送进 松紧 松劲
@@ -122053,6 +122115,7 @@ taoqu 套取
 taoque 涛却
 taoqun 套裙
 taoran 陶然
+taoranting 陶然亭
 taorao 讨饶
 taore 套热
 taoren 桃仁
@@ -123010,6 +123073,8 @@ tiana 天啊
 tianai 天爱
 tianan 天安
 tiananmen 天安门
+tiananmendong 天安门东
+tiananmenxi 天安门西
 tianba 田坝
 tianbai 天白
 tianban 天半
@@ -123537,6 +123602,7 @@ tiantaishan 天台山
 tiantaishang 天台上
 tiantaixian 天台县
 tiantan 天坛
+tiantandongmen 天坛东门
 tiantang 天堂
 tiantangyu 天堂羽
 tiantangyuedui 天堂乐队
@@ -123558,6 +123624,9 @@ tiantie 天铁
 tianting 天庭
 tiantiying 天体营
 tiantong 天同
+tiantongyuan 天通苑
+tiantongyuanbei 天通苑北
+tiantongyuannan 天通苑南
 tiantou 甜头 田头
 tiantu 填涂
 tiantuan 天团
@@ -125830,6 +125899,7 @@ tongzhiyou 同志又
 tongzhizhe 统治者
 tongzhong 同种
 tongzhou 通州 铜轴
+tongzhoubeiyuan 通州北苑
 tongzhoudianlan 同轴电缆
 tongzhougongji 同舟共济
 tongzhoushi 通州市
@@ -129026,6 +129096,7 @@ wangjingrui 王静睿
 wangjingsi 王静思
 wangjingwei 汪精卫
 wangjingwen 王靖雯 王景文 王靖文
+wangjingxi 望京西
 wangjingxin 王景欣
 wangjingxuan 王靖轩
 wangjingya 王婧雅
@@ -130811,6 +130882,7 @@ wanshiruyi 万事如意
 wanshitong 万事通
 wanshiwanwu 万事万物
 wanshougongzhu 万寿公主
+wanshoulu 万寿路
 wanshouwujiang 万寿无疆
 wanshu 晚熟
 wanshua 玩耍
@@ -131284,6 +131356,7 @@ weigen 维根
 weigeng 为更
 weigeren 为个人
 weigong 威公 围攻 为公
+weigongcun 魏公村
 weigonggu 为巩固
 weigongkai 未公开
 weigongsi 为公司
@@ -139489,6 +139562,7 @@ xieriji 写日记
 xierong 谢荣
 xierongce 谢荣策
 xierou 蟹肉
+xierqi 西二旗
 xiersi 西尔斯 希尔斯
 xieru 写入 谢茹
 xierui 谢瑞
@@ -142270,6 +142344,7 @@ xitongxing 系统性
 xitongyanjiu 系统研究
 xitou 洗头 西头
 xitu 稀土
+xitucheng 西土城
 xitugaoke 稀土高科
 xitui 细腿
 xitujue 西突厥
@@ -142693,7 +142768,7 @@ xiyoujinshu 稀有金属
 xiyouqiti 稀有气体
 xiyouyuansu 稀有元素
 xiyu 西域 细雨 洗浴 喜雨 细语
-xiyuan 熙媛 奚媛 西园 熙元 戏院 西元
+xiyuan 熙媛 奚媛 西园 熙元 戏院 西元 西苑
 xiyuanyaji 西园雅集
 xiyue 惜月 锡月 喜悦 西乐
 xiyuezhiqing 喜悦之情
@@ -142996,6 +143071,7 @@ xuanwo 漩涡
 xuanwomingren 旋涡鸣人 漩涡鸣人
 xuanwu 玄武
 xuanwuhu 玄武湖
+xuanwumen 宣武门
 xuanwumenzhibian 玄武门之变
 xuanwuyan 玄武岩
 xuanwuyiyuan 宣武医院
@@ -152135,6 +152211,7 @@ yong 用 颙 永 拥 勇 涌 踊 泳 庸 佣 咏 俑 雍 恿 甬 臃 邕 镛 痈 壅 鳙 饔 喁 墉 蛹 
 yongai 用爱
 yongan 永安
 yonganjie 永安街
+yonganli 永安里
 yonganlinye 永安林业
 yonganlu 永安路
 yonganshi 永安市
@@ -152262,6 +152339,7 @@ yonghai 永海
 yonghan 勇悍
 yonghao 用好
 yonghe 永和
+yonghegong 雍和宫
 yonghei 用黑
 yonghen 用很
 yongheng 永恒
@@ -156026,6 +156104,7 @@ yuqiyang 余其扬
 yuqu 雨区
 yuquan 玉泉 于全 玉全 渔圈 羽泉
 yuquanguo 与全国
+yuquanlu 玉泉路
 yuquanying 玉泉营
 yuque 余缺
 yuquexian 与缺陷
@@ -161296,6 +161375,7 @@ zhangziyun 张子云
 zhangzizhen 张子臻
 zhangzizhi 张自治
 zhangzizhong 张自忠
+zhangzizhonglu 张自忠路
 zhangzizhou 张子洲
 zhangzong 张宗 张总 章宗
 zhangzongchang 张宗昌
@@ -164399,6 +164479,7 @@ zhichuanqi 直喘气
 zhichue 支出额
 zhichui 直吹
 zhichun 志春 之春
+zhichunli 知春里
 zhichunlu 知春路
 zhichuo 指戳
 zhichuxiangmu 支出项目
@@ -169626,7 +169707,7 @@ zhuzui 住嘴
 zhuzun 主尊
 zhuzuo 著作
 zhuzuoquan 著作权
-zi 自 子 字 紫 资 咨 滋 仔 姿 吱 兹 孜 渍 籽 梓 姊 恣 滓 谘 龇 秭 呲 辎 锱 眦 笫 髭 淄 茈 觜 訾 缁 耔 鲻 嵫 赀 孳 粢 趑 孖 甾 嗞
+zi 子 自 字 紫 资 咨 滋 仔 姿 吱 兹 孜 渍 籽 梓 姊 恣 滓 谘 龇 秭 呲 辎 锱 眦 笫 髭 淄 茈 觜 訾 缁 耔 鲻 嵫 赀 孳 粢 趑 孖 甾 嗞
 ziai 自爱
 zian 紫暗
 ziang 子昂
