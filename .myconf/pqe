@@ -118,7 +118,6 @@ patch
 pcmciautils
 perl-rename
 php-cgi
-pidgin
 pidgin-lwqq
 pkg-config
 pkgfile
@@ -147,7 +146,6 @@ sshpass
 strace
 subversion
 sudo
-supertux
 systemd-sysvcompat
 tcpdump
 thinkfan
@@ -187,7 +185,6 @@ wvdial
 x11vnc
 xclip
 xcur2png
-xcursor-silver-3d
 xdotool
 xf86-input-synaptics
 xf86-video-intel
