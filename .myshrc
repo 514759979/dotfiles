@@ -212,6 +212,14 @@ fordo() {
     done
 }
 
+n2dec() {
+    echo $[$2#$1]
+}
+
+dec2n() {
+    echo "obase=$2;$1" | bc
+}
+
 y() {
     pacman-color -Ss $*
     cat ~/.myconf/aurlist | grep -Pi --color=none "$*" | awk -F'  ' '{
