@@ -85,3 +85,5 @@ tmp
 .config/Kingsoft
 .config/Software
 .aria2
+.bin/bnac
+.bnac
