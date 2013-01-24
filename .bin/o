@@ -30,8 +30,14 @@ case $p in
     html|htm|mht|mhtml|swf)
         f firefox "$1"
         ;;
-    doc|docx|ppt|pptx|xls|xlsx)
+    doc|docx)
         f wps "$1"
+        ;;
+    ppt|pptx)
+        f wpp "$1"
+        ;;
+    xls|xlsx)
+        f et "$1"
         ;;
     jpg|png|gif)
         f geeqie "$1"
