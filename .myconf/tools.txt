@@ -81,7 +81,7 @@ cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/eo.mo
 
 安装系统后：
 1、sudoers修改
-2、gtk-query-immodules-2.0 > /etc/gtk.immodules
+2、gtk-query-immodules-2.0 > /etc/gtk-2.0/gtk.immodules
 3、rm -r /usr/share/fonts/misc/
 4、crontab: * * * * * /home/osily/.bin/show
 5、timedatectl set-local-rtc false
