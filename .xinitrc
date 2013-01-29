@@ -17,6 +17,9 @@ $HOME/.bin/show
 habak $HOME/.jpg &>/dev/null
 xmodmap $HOME/.xmodmaprc
 
+xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 8 1
+xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 8 2
+
 mkdir /tmp/.t
 
 exec dwm
