@@ -63,8 +63,8 @@ google-appengine-python
 graphicsmagick
 grub-bios
 habak
-hdaps-gl
 hdapsd
+hdaps-gl
 hddtemp
 heirloom-mailx
 htop
@@ -191,6 +191,7 @@ xfsprogs
 xmind
 xorg-server
 xorg-xinit
+xorg-xinput
 xorg-xkill
 xorg-xmodmap
 xorg-xsetroot
