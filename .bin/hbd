@@ -1,6 +1,7 @@
 #!/bin/bash
-sudo true
-sudo setsid ncsvc -h ct-vpn.baidu.com -u $1 -p $2$3 -r "RSA token 认证" -f ~/.myconf/vpn.crt &>/dev/null &
+echo $2$3 | sudo setsid openconnect --script /etc/vpnc/vpnc-script https://vpn.baidu.com/ --authgroup=SafeNet_Token_Auth -u $1 --passwd-on-stdin &>/dev/null &
+
+#sudo setsid ncsvc -h ct-vpn.baidu.com -u $1 -p $2$3 -r "RSA token 认证" -f ~/.myconf/vpn.crt &>/dev/null &
 # ct-vpn.baidu.com 电信
 # cnc-vpn.baidu.com 联通
 # yidong.baidu.com
