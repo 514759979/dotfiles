@@ -94,6 +94,7 @@ lzop
 make
 man-db
 man-pages
+mariadb
 mdadm
 memcached
 mencoder
@@ -101,7 +102,6 @@ mercurial
 mixxx
 mlocate
 myfbterm
-mysql
 netcfg
 nfs-utils
 ngrep
@@ -118,6 +118,7 @@ patch
 pcmciautils
 perl-rename
 php-cgi
+pianobooster
 pkg-config
 pkgfile
 pkgstats
@@ -150,6 +151,8 @@ tcpdump
 thinkfan
 tig
 tightvnc
+timidity++
+timidity-freepats
 tk
 tmux
 tp_smapi
