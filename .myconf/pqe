@@ -80,7 +80,6 @@ kexec-tools
 landslide
 less
 lftp
-lib32-glu
 libtool
 licenses
 lighttpd
@@ -109,6 +108,7 @@ nmap
 nmon
 ntfsprogs
 ntp
+openconnect
 os-prober
 p7zip
 pacman-color
