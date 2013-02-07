@@ -1,15 +1,15 @@
 #!/bin/bash
 for i in \
+    .cache\
     .adobe\
     .dbus\
     .gstreamer-0.10\
-    .juniper_networks\
     .kchmviewer\
     .local\
     .macromedia\
-    .pulse\
     .w3m\
 ; do
-    rm -r $i
-    ln -s .cache $i
+    ln -sf /tmp/.cache $i
 done
+
+ln -sf /tmp/.tmp .tmp
