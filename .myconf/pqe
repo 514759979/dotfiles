@@ -105,7 +105,7 @@ nfs-utils
 ngrep
 nmap
 nmon
-ntfsprogs
+ntfs-3g
 ntp
 openconnect
 os-prober
