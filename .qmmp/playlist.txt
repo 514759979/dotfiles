@@ -1,4 +1,4 @@
-current_playlist=9
+current_playlist=6
 playlist=cbfm
 current=14
 file=/home/osily/media/cbfm/四季歌_Vol.08_听一首歌，念一个人1_NJ：时光.mp3
@@ -3356,7 +3356,7 @@ track=15
 disc=
 length=155
 playlist=神秘园
-current=99
+current=0
 file=cue:///home/osily/media/secret_garden/1. Songs From A Secret Garden (神秘园之歌)/CDImage.utf8.cue#1
 title=Nocturne 夜曲
 artist=Secret Garden 神秘园
