@@ -221,7 +221,7 @@ dec2n() {
 }
 
 y() {
-    pacman-color -Ss $*
+    pacman -Ss $*
     cat ~/.myconf/aurlist | grep -Pi --color=none "$*" | awk -F'  ' '{
         a=" "$3" ["$1"] ("$4") {"$6"}"
         print "\033[35;1maur/\033[36;1m" $2 "\033[32;1m" a "\033[0m"
