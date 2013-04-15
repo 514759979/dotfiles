@@ -36,6 +36,7 @@ cscope
 dash
 davfs2
 dhcp
+dhcpcd
 dia
 dmidecode
 dnsutils
@@ -102,7 +103,7 @@ mercurial
 mixxx
 mlocate
 myfbterm
-netcfg
+netctl
 nfs-utils
 ngrep
 nmap
