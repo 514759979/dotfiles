@@ -22,9 +22,9 @@ btrfs-progs
 burp
 busybox
 bviplus
-catdoc
 ccal
 cdrkit
+chromium
 ckermit
 cmake
 colordiff
@@ -79,8 +79,8 @@ jfsutils
 jpdftweak
 kchmviewer-qt
 kexec-tools
+kingsoft-office
 landslide
-less
 lftp
 libtool
 licenses
@@ -181,7 +181,6 @@ wireless_tools
 wkhtmltopdf-static1
 wmname
 wpa_supplicant
-wps-office
 wvdial
 x11vnc
 xclip

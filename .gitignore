@@ -90,3 +90,5 @@ tmp
 .fonts
 .config/PianoBooster
 .config/pulse
+.config/chromium
+.templete/wps
