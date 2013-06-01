@@ -18,19 +18,23 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-st() {
+st()
+{
     setsid $* &>/dev/null
 }
 
-gq() {
+gq()
+{
     st geeqie $*
 }
 
-imgresize() {
+imgresize()
+{
     gm mogrify -resize $1x$2 $3
 }
 
-cry() {
+cry()
+{
     if [ "t$1" = "t-d" ]; then
         openssl enc -aes-256-cbc -d -in $2 -out $3
     else
@@ -39,24 +43,29 @@ cry() {
 }
 
 
-c() {
+c()
+{
     cd $1
     ls -F --color
 }
 
-zcd() {
+zcd()
+{
     cd ~/.avfs$PWD/$@#
 }
 
-zback() {
+zback()
+{
     cd $(pwd|sed -e 's|^.*\.avfs||g' -e 's|/[^/]*#$||g')
 }
 
-aftp() {
+aftp()
+{
     cd /home/osily/.avfs/#ftp:$1
 }
 
-vmvfs() {
+vmvfs()
+{
     echo $PWD | grep '.avfs' &>/dev/null && cd
     convmvfs /mnt/fuse -o srcdir=$PWD,icharset=gb18030
     cd /mnt/fuse/
@@ -65,7 +74,8 @@ vmvfs() {
 #atool
 file_7z='\.rar\b|\.deb\b|\.iso\b'
 
-al() {
+al()
+{
     if echo $* |grep -Pi $file_7z >/dev/null; then
         als $* -F 7z
     else
@@ -73,7 +83,8 @@ al() {
     fi
 }
 
-a() {
+a()
+{
     if echo $* |grep -Pi $file_7z >/dev/null; then
         apack $* -F 7z
     else
@@ -81,7 +92,8 @@ a() {
     fi
 }
 
-au() {
+au()
+{
     if echo $* |grep -Pi $file_7z >/dev/null; then
         arepack $* -F 7z
     else
@@ -89,7 +101,8 @@ au() {
     fi
 }
 
-x() {
+x()
+{
     if echo $* |grep -Pi $file_7z >/dev/null; then
         aunpack $* -F 7z
     else
@@ -99,32 +112,31 @@ x() {
 
 #end atool
 
-mcat() {
+mcat()
+{
     markdown_py2 $1 -f /tmp/.html
     w3m /tmp/.html
     rm /tmp/.html
 }
 
-wpa() {
-    sudo ifconfig wlan0 up
-    wpa_passphrase $1 $2 > /tmp/wpa_supplicant.conf.tmp
-    sudo wpa_supplicant -B -Dwext -i wlan0 -c /tmp/wpa_supplicant.conf.tmp
-}
-
-findx() {
+findx()
+{
     find -print0 | xargs -0 $@
 }
 
-calc() {
+calc()
+{
     zmodload zsh/mathfunc 2>/dev/null
     echo $[$*]
 }
 
-gr() {
+gr()
+{
     grep --color "$*" -r .
 }
 
-b() {
+b()
+{
     if [ $# = 0 ]; then
         cd ..
     else
@@ -138,7 +150,8 @@ b() {
     ls -F --color
 }
 
-opsqlite_chromium() {
+opsqlite_chromium()
+{
     cd $HOME/.config/chromium
     find -print0|xargs -0 file|grep SQLite|sed 's/:.*$//g' > .opsqlite
     while read i; do
@@ -148,7 +161,8 @@ opsqlite_chromium() {
     cd -
 }
 
-opsqlite_firefox() {
+opsqlite_firefox()
+{
     cd ~/.mozilla/firefox/
     for i in `find -name '*.sqlite'`; do
         sqlite3 $i vacuum
@@ -156,7 +170,8 @@ opsqlite_firefox() {
     cd -
 }
 
-sl() {
+sl()
+{
     if pgrep ckermit &>/dev/null; then
         sll1 $1
     else
@@ -164,33 +179,40 @@ sl() {
     fi
 }
 
-j() {
+j()
+{
     sudo mount -o iocharset=utf8,uid=1000,gid=1000 /dev/$1 /mnt
 }
 
-cwi() {
+cwi()
+{
     cat `which $1`
 }
 
-vwi() {
+vwi()
+{
     vim `which $1`
 }
 
-mm() {
+mm()
+{
     echo "$2" | mail -s "$1" $3 $4 ly50247@126.com
 }
 
-ba() {
+ba()
+{
     o "http://www.baidu.com/s?wd=$*"
 }
 
-csd() {
+csd()
+{
     now=$(cat ~/.asoundrc.asoundconf | awk '/defaults.ctl.card/ {print $2}')
     new=$(asoundconf list | sed "1d; /$now/d; /ThinkPadEC/d")
     asoundconf set-default-card $new
 }
 
-ac() {
+ac()
+{
     if [ $# = 1 ]; then
         awk '{print $'$1'}' $2
     elif [ $# = 2 ]; then
@@ -200,11 +222,13 @@ ac() {
     fi
 }
 
-smb() {
+smb()
+{
     sudo mount -o relatime,nobarrier,compress=lzo,ssd_spread,space_cache,autodefrag,inode_cache,subvol=$1 $2 /mnt
 }
 
-fordo() {
+fordo()
+{
     cmd=$1
     shift
     for i in $*; do
@@ -212,15 +236,18 @@ fordo() {
     done
 }
 
-n2dec() {
+n2dec()
+{
     echo $[$2#$1]
 }
 
-dec2n() {
+dec2n()
+{
     echo "obase=$2;$1" | bc
 }
 
-y() {
+y()
+{
     pacman -Ss $*
     cat ~/.myconf/aurlist | grep -Pi --color=none "$*" | awk -F'  ' '{
         a=" "$3" ["$1"] ("$4") {"$6"}"
@@ -229,11 +256,13 @@ y() {
     }'
 }
 
-pbg() {
+pbg()
+{
     wget http://mirrors.ustc.edu.cn/gentoo/distfiles/$1
 }
 
-pqii() {
+pqii()
+{
     cat /var/lib/pacman/local/$1-*/install
 }
 
@@ -303,7 +332,6 @@ alias hd='hexdump -C'
 alias le="$PAGER"
 alias sm='sudo mount'
 alias u='sudo umount'
-alias fu='fusermount -u'
 alias dh='df -hT'
 alias pyweb='SimpleHTTPServerWithUpload.py 8888'
 alias ucat='iconv -f gb18030 -t utf-8 -c'
@@ -342,8 +370,7 @@ alias e='echo'
 alias f='file'
 alias t='cat'
 alias i='git'
-alias ic='ifconfig'
-alias sic='sudo ifconfig'
+alias ic='sudo ifconfig'
 alias k='kill'
 alias pk='pkill'
 alias ka='killall'
@@ -372,7 +399,7 @@ alias bv='bviplus'
 alias makerom='rm -f META-INF/{CERT.RSA,CERT.SF}; a tmp.zip .; signapk tmp.zip update.zip; rm tmp.zip'
 alias pywebc="ifconfig | awk '/inet.*broadcast/ {print \$2 \":8888\"}' | cl"
 alias cpu='sudo cpupower frequency-set -f '
-alias cpug'=sudo cpupower frequency-set -g ondemand'
+alias cpug='sudo cpupower frequency-set -g ondemand'
 alias vb='st VirtualBox --comment xp --startvm xp --no-startvm-errormsgbox'
 alias fb='fbterm'
 alias ng='netcfg'
