@@ -3,7 +3,6 @@ alsa-utils
 android-sdk-platform-tools
 android-udev
 antiword
-apache
 arandr
 arch-install-scripts
 aria2
@@ -23,7 +22,6 @@ busybox
 bviplus
 ccal
 cdrkit
-chromium
 ckermit
 cmake
 colordiff
@@ -39,7 +37,6 @@ dhcpcd
 dia
 dmidecode
 dnsutils
-dosbox
 dosfstools
 doxygen
 ethtool
@@ -56,7 +53,6 @@ fuse-exfat
 gdb
 geeqie
 gimp
-gimp-ufraw
 gnome-themes-extras
 gnu-netcat
 goagent
@@ -83,7 +79,6 @@ landslide
 lftp
 libtool
 licenses
-lighttpd
 lm_sensors
 logrotate
 lrzsz
@@ -96,18 +91,13 @@ make
 man-db
 man-pages
 mariadb
-mdadm
-memcached
 mencoder
 mercurial
-mixxx
 mlocate
 myfbterm
 netctl
-nfs-utils
 ngrep
 nmap
-nmon
 ntfs-3g
 ntp
 openconnect
@@ -115,7 +105,6 @@ os-prober
 p7zip
 parted
 patch
-pcmciautils
 perl-rename
 php-cgi
 pianobooster
@@ -124,14 +113,9 @@ pkgfile
 pkgstats
 procps-ng
 progsreiserfs
-python2-flup
-python2-gobject
-python2-webpy
-qjoypad
 qmmp
 ranger
 rdesktop
-redis
 reiserfsprogs
 rp-pppoe
 rsync
@@ -151,7 +135,6 @@ tcpdump
 thinkfan
 tig
 tightvnc
-timidity-freepats
 tk
 tmux
 tp_smapi
@@ -184,7 +167,6 @@ wpa_supplicant
 wvdial
 x11vnc
 xclip
-xcur2png
 xdotool
 xf86-input-synaptics
 xf86-video-intel
