@@ -28,7 +28,6 @@ data
 .dbus
 .dia
 doc
-.dosbox
 .dwm/dwm
 .fontconfig
 .gimp-2.8
@@ -78,9 +77,6 @@ tmp
 .fceux
 .mozilla
 .pentadactyl
-.supertux2
-.qjoypad3
-.mixxx
 .share
 .config/Kingsoft
 .config/Software
@@ -92,3 +88,4 @@ tmp
 .config/pulse
 .config/chromium
 .templete/wps
+.config/fcitx
