@@ -45,7 +45,11 @@ exim
 expect
 fakeroot
 fbdump
-fceux
+fcitx-cloudpinyin
+fcitx-configtool
+fcitx-fbterm
+fcitx-gtk2
+fcitx-qt4
 firefox
 flashplugin
 flex
@@ -94,7 +98,6 @@ mariadb
 mencoder
 mercurial
 mlocate
-myfbterm
 netctl
 ngrep
 nmap
@@ -106,8 +109,6 @@ p7zip
 parted
 patch
 perl-rename
-php-cgi
-pianobooster
 pkg-config
 pkgfile
 pkgstats
@@ -180,7 +181,6 @@ xorg-xmodmap
 xorg-xsetroot
 xterm
 yaourt
-yong
 zathura-pdf-mupdf
 zip
 zsh-completions
