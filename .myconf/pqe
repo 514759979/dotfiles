@@ -15,6 +15,7 @@ automake
 avfs
 bc
 bison
+boost
 bpython2
 btrfs-progs
 burp
@@ -62,7 +63,7 @@ gnu-netcat
 goagent
 google-appengine-python
 graphicsmagick
-grub-bios
+grub
 habak
 hdapsd
 hdaps-gl
@@ -74,6 +75,7 @@ inxi
 iotop
 iputils
 iw
+jdk7-openjdk
 jfsutils
 jpdftweak
 kchmviewer-qt
@@ -109,6 +111,7 @@ p7zip
 parted
 patch
 perl-rename
+php
 pkg-config
 pkgfile
 pkgstats
@@ -134,6 +137,7 @@ sudo
 systemd-sysvcompat
 tcpdump
 thinkfan
+thrift
 tig
 tightvnc
 tk
