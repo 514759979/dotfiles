@@ -12,7 +12,7 @@ wmname LG3D
 fcitx -d
 $HOME/.bin/show
 habak $HOME/.jpg &>/dev/null
-sleep 0.2 && xmodmap $HOME/.xmodmaprc &
+sleep 1 && xmodmap $HOME/.xmodmaprc &
 
 synclient TapButton1=1
 synclient HorizEdgeScroll=1

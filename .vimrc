@@ -105,3 +105,5 @@ map <C-j> :tabprevious<cr>
 map <C-k> :tabnext<cr>
 map <esc>j :next<cr>
 map <esc>k :previous<cr>
+
+au BufRead,BufNewFile *.thrift set filetype=thrift
