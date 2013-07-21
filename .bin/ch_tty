@@ -6,5 +6,5 @@ ch_tty_size ()
 }
 
 if [ $1 = 1 ]; then
-    ch_tty_size $1 $2
+    ch_tty_size 127 34
 fi
