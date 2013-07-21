@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export LANG=en_US.UTF-8
 export PATH=$PATH:$HOME/.screenlayout
 export EDITOR=vim
 export BROWSER=firefox
@@ -290,6 +291,15 @@ if which yaourt &>/dev/null; then
     alias pad='p -D --asdeps'
     alias pcl='echo y"\n"y | p -Scc'
     alias pbs='p -G'
+elif which apt-get &>/dev/null; then
+    alias p='apt-cache search'
+    alias pi='apt-get install'
+    alias pp='apt-get purge'
+    alias pud='apt-get update;apt-get upgrade'
+    alias pqd='apt-get autoremove'
+    alias psu='apt-get upgrade'
+    alias pcl='apt-get clean'
+    alias pql='dpkg -l'
 elif which emerge &>/dev/null; then
     alias p='eix'
     alias pi='sudo emerge -uDN'
