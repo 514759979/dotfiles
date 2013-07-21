@@ -1,7 +1,7 @@
 #!/bin/bash
 ch_tty_size ()
 {
-    stty cols=$1 rows=$2
+    stty cols $1 rows $2
     reset
 }
 
