@@ -29,4 +29,4 @@ if [ $# -gt 0 ]; then
 fi
 
 head -n 1 $cg
-cat $cg | sed 1d | grep -P --color "$(sed -n 2p $cg)"
+cat $cg | sed 1d | grep -Pi --color "$(sed -n 2p $cg)"
