@@ -78,7 +78,7 @@ hi Comment ctermfg=6
 " I like highlighting strings inside C comments
 let c_comment_strings=1
 autocmd FileType c set makeprg=gcc\ -Wall\ %\ -o\ %:t:r
-autocmd FileType cpp set makeprg=g++\ -Wall\ %\ -o\ %:t:r
+autocmd FileType cpp set makeprg=g++\ -std=c++11\ -Wall\ %\ -o\ %:t:r
 autocmd FileType go set makeprg=go\ build\ %
 au BufRead,BufNewFile *.txt setlocal ft=txt
 nnoremap <F9> :w<cr>:make<cr>:cw<cr>
