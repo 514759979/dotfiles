@@ -7,6 +7,6 @@ ch_tty_size ()
 
 if [ x"$1" = x"1" ]; then
     ch_tty_size 127 34
-elif [ x"$2" = x"2" ]; then
+elif [ x"$1" = x"2" ]; then
     ch_tty_size 209 47
 fi
