@@ -13,3 +13,5 @@ map -m i,c <C-v> <Pass>
 map -m i,c <C-x> <Pass>
 map -m i,c <C-z> <Pass>
 map -m n,i,c <C-w> <Pass>
+
+":autocmd LocationChange www.wunderlist.com :normal! <C-z>
