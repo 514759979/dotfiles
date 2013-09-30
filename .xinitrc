@@ -11,7 +11,8 @@ wmname LG3D
 
 fcitx -d
 $HOME/.bin/show
-habak $HOME/.jpg &>/dev/null
+#habak $HOME/.jpg &>/dev/null
+/home/osily/.screenlayout/screen_up_down.sh
 sleep 1 && xmodmap $HOME/.xmodmaprc &
 
 synclient TapButton1=1

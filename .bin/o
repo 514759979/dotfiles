@@ -27,7 +27,7 @@ case $p in
     chm)
         f kchmviewer "$1"
         ;;
-    html|htm|mht|mhtml|swf)
+    html|htm|mht|mhtml|swf|epub)
         f firefox "$1"
         ;;
     doc|docx)
