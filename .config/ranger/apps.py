@@ -105,6 +105,7 @@ class CustomApplications(Applications):
             made = self.either(c, 'make')
             if made: return made
 
+        return self.either(c, 'o')
         if f.extension is not None:
             if f.extension in ('pdf', 'djvu'):
                 return self.either(c, 'o')
