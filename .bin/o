@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -e /usr/bin/open ]; then
-    exec open $@
+    exec open "$@"
 fi
 
 function f() {
