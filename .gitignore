@@ -92,3 +92,15 @@ tmp
 .config/fcitx
 .kingsoft
 .myconf/bdnew.pac
+Desktop/
+Documents/
+Downloads/
+Library/
+Movies/
+Music/
+Pictures/
+Public/
+.anyconnect
+.nomedia
+.CFUserTextEncoding
+.DS_Store
