@@ -107,3 +107,5 @@ Public/
 .htoprc
 .mplayer/config
 .Trash
+.arduino
+.config/MuPuF.org
