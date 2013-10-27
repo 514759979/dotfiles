@@ -3,7 +3,7 @@
 export LANG=en_US.UTF-8
 
 if [ -e /mach_kernel ]; then
-    export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+    export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.bin
     alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
     alias mplayer='/Applications/MPlayerX.app/Contents/Resources/binaries/x86_64/mplayer'
 else
