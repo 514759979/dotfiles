@@ -109,3 +109,4 @@ Public/
 .Trash
 .arduino
 .config/MuPuF.org
+.bin/login_email
