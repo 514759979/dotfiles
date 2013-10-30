@@ -84,6 +84,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_a,      spawn,          CMD("screen_up_down.sh") },
     { MODKEY,                       XK_m,      spawn,          SHCMD("xset dpms force off;slock") },
     { MODKEY,                       XK_n,      spawn,          SHCMD("xset dpms force off") },
+    { MODKEY|ShiftMask,             XK_l,      spawn,          CMD("login_email") },
     { MODKEY,                       XK_c,      spawn,          SHCMD("tmux save-buffer -|xclip -selection clipboard;tmux save-buffer -|xclip -selection primary") },
     { 0,                            XK_Print,  spawn,          CMD("scrot") },
     { Mod1Mask,                     XK_Print,  spawn,          SHCMD("sleep 0.5;scrot -s") },
