@@ -55,6 +55,9 @@ case $p in
     nes)
         f fceux "$1"
         ;;
+    xmind|mmap)
+        f XMind "$1"
+        ;;
     *)
         vim "$1"
         ;;
