@@ -99,6 +99,7 @@ lftp
 libcgroup
 libev
 libtool
+libubox-git
 licenses
 linux-docs
 linux-headers
@@ -137,6 +138,7 @@ pkgstats
 prll
 puppet
 python2-crypto
+python2-dnslib
 python-pyopenssl
 python-sh
 qmmp
@@ -172,6 +174,7 @@ tp_smapi
 trayer
 tree
 ttf-ms-fonts-zh_cn
+ubus-git
 unzip-beta
 upx
 usb_modeswitch
