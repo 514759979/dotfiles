@@ -1,6 +1,6 @@
 #!/bin/bash
 
-url="http://qq.ip138.com/weather/beijing/ChangPing.htm"
+url="http://qq.ip138.com/weather/beijing/haidian.htm"
 w3m -dump "$url" > /tmp/ipp
 
 echo 北京天气：
