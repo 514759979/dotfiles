@@ -112,3 +112,8 @@ Public/
 .bin/login_email
 .icedtea
 .puppet
+.config/SogouPY.users
+.config/SogouPY
+.config/fcitx-qimpanel
+.config/icedtea-web
+.fltk
