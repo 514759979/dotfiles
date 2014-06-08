@@ -46,7 +46,7 @@ case $p in
     jpg|png|gif)
         f geeqie "$1"
         ;;
-    avi|mp4|mp3|aac|ogg|ogv|mts|mkv|asf|wmv|flv|f4v|dat|vob|iso|ts|rm|rmvb|m4v|3gp|mpg)
+    avi|mp4|mp3|aac|ogg|ogv|mts|mkv|asf|wmv|flv|f4v|dat|vob|iso|ts|rm|rmvb|m4v|3gp|mpg|ape|flac)
         mplayer "$1"
         ;;
     sqlite)
