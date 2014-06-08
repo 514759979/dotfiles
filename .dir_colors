@@ -165,6 +165,7 @@ EXEC 01;32                   # This is for files with execute permission:
 .aac  00;38;05;132
 .au   00;38;05;132
 .flac 00;38;05;132
+.ape  00;38;05;132
 .mid  00;38;05;132
 .midi 00;38;05;132
 .mka  00;38;05;132
