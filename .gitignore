@@ -118,3 +118,4 @@ Public/
 .config/icedtea-web
 .fltk
 .config/vlc
+.ghc
