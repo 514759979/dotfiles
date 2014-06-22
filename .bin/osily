@@ -5,4 +5,4 @@ if [ $# != 0 ]; then
     SOCK_NAME=work
 fi
 
-tmux -L $SOCK_NAME a >/dev/null || tmux -L $SOCK_NAME
+(tmux -L $SOCK_NAME a >/dev/null || tmux -L $SOCK_NAME)
