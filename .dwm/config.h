@@ -60,7 +60,7 @@ static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_e,      spawn,          CMD("xterm") },
     { MODKEY,                       XK_f,      spawn,          CMD("firefox") },
-    { MODKEY,                       XK_r,      spawn,          SHCMD("setsid xterm -e osily &>/dev/null </dev/null &") },
+    { MODKEY,                       XK_r,      spawn,          SHCMD("xterm -e osily &>/dev/null </dev/null &") },
     { MODKEY,                       XK_q,      spawn,          SHCMD("xterm -e osily 1") },
 /*
     { ControlMask,                  XK_comma,  spawn,          SHCMD("m_con p") },
