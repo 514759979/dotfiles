@@ -1,7 +1,22 @@
 #!/bin/bash
 
+print_cg() {
+  cat /tmp/.cg
+  exit
+}
+
+[ $# -eq 1 ] || print_cg
+[ $1 -le $(( $(cat /tmp/.cg | wc -l) - 2 )) ] 2>/dev/null || print_cg
+
 cd $(head -n 1 /tmp/.cg)
-file=$(sed -n $[$1+2]p /tmp/.cg)
-filename=$(echo $file|awk -F: '{print $2}')
-line=$(echo $file|awk -F: '{print $3}')
-vim +$line $filename
+
+file=$(sed -n $[$1+2]p /tmp/.cg | perl -pe 's/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g' | col -b)
+filename=$(echo $file | cut -f1 -d: | cut -f2 -d" ")
+line=$(echo $file | cut -f2 -d:)
+
+[ ${filename} = "Binary" ] && {
+  filename=$(echo $file | cut -f4 -d" ")
+  line=0
+}
+
+vim +${line} ${filename}
