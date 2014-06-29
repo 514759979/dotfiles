@@ -431,3 +431,4 @@ alias fb='fbterm'
 alias ng='netcfg'
 alias hi='hostname -i'
 alias czip="export UNZIP='-O CP936'"
+alias vv='vg'
