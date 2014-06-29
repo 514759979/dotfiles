@@ -1,5 +1,7 @@
 #!/bin/bash
 
+IFS=
+
 print_cg() {
   cat /tmp/.cg
   exit
@@ -11,12 +13,13 @@ print_cg() {
 cd $(head -n 1 /tmp/.cg)
 
 file=$(sed -n $[$1+2]p /tmp/.cg | perl -pe 's/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g' | col -b)
-filename=$(echo $file | cut -f1 -d: | cut -f2 -d" ")
+filename="$(echo $file | cut -f2 | cut -f1 -d:)"
+echo $filename
 line=$(echo $file | cut -f2 -d:)
 
-[ ${filename} = "Binary" ] && {
+[ "${filename}" = "Binary" ] && {
   filename=$(echo $file | cut -f4 -d" ")
   line=0
 }
 
-vim +${line} ${filename}
+vim +${line} "${filename}"
