@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cat "$1" | sed 1d | g++ -x c++ -g -Wall - -o .a.out
+./.a.out
+rm ./.a.out

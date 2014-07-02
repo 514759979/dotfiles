@@ -1,3 +1,4 @@
+#!/usr/bin/env runc
 #include <stdio.h>
 #include <stdlib.h>
 
