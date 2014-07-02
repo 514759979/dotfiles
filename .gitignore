@@ -120,3 +120,4 @@ Public/
 .config/vlc
 .ghc
 .python_history
+.wireshark
