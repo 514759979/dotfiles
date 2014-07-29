@@ -3,8 +3,6 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
-slock &
-
 mkdir /tmp/.tmp /tmp/.cache
 
 wmname LG3D
