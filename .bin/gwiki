@@ -1,2 +1,0 @@
-#!/bin/bash
-curl ftp://wiki.babel.baidu.com/home/work/local/twiki/data/$1
