@@ -121,3 +121,8 @@ Public/
 .ghc
 .python_history
 .wireshark
+work
+.wiznote
+.config/sqlitebrowser
+.FBReader
+.IdeaIC13
