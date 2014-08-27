@@ -13,7 +13,7 @@ if [ $# == 0 ]; then
 fi
 
 if [ "${1/:*/}" = 'http' ] || [ "${1/:*/}" = 'https' ]; then
-    f chromium "$1"
+    f firefox "$1"
     exit
 fi
 
@@ -32,7 +32,7 @@ case $p in
         f kchmviewer "$1"
         ;;
     html|htm|mht|mhtml|swf|epub)
-        f chromium "$1"
+        f firefox "$1"
         ;;
     doc|docx)
         f wps "$1"

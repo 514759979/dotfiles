@@ -59,7 +59,7 @@ static const Layout layouts[] = {
 static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_e,      spawn,          CMD("xterm") },
-    { MODKEY,                       XK_f,      spawn,          CMD("chromium") },
+    { MODKEY,                       XK_f,      spawn,          CMD("firefox") },
     { MODKEY,                       XK_r,      spawn,          SHCMD("xterm -e osily") },
     { MODKEY,                       XK_q,      spawn,          SHCMD("xterm -e osily 1") },
 /*
