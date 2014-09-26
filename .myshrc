@@ -415,3 +415,4 @@ alias ng='netcfg'
 alias hi='hostname -i'
 alias czip="export UNZIP='-O CP936'"
 alias vv='vg'
+alias mvb='sudo mount.vboxsf -o uid=1000,gid=1000,dmode=700 home ~/tmp'
