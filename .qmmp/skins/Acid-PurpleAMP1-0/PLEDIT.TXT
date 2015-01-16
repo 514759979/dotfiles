@@ -1,6 +1,0 @@
-[Text]
-Normal=#0080FF
-Current=#AF61FF
-NormalBG=#000000
-SelectedBG=#2E35B8
-Font=Kids
