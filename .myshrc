@@ -13,7 +13,7 @@ fi
 export EDITOR=vim
 export BROWSER=firefox
 export PAGER='less -isrf'
-export GREP_OPTIONS='--color=auto'
+#export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='40;33;01'
 eval `dircolors $HOME/.dir_colors`
 
