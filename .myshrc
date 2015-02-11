@@ -11,6 +11,9 @@ elif [ -e /cygdrive ]; then
     alias notepad++='/cygdrive/c/Program\ Files\ \(x86\)/Notepad++/notepad++'
     alias markdownpad='/cygdrive/c/Program\ Files\ \(x86\)/MarkdownPad\ 2/MarkdownPad2.exe'
     alias firefox='/cygdrive/c/Program\ Files\ \(x86\)/Mozilla\ Firefox/firefox.exe'
+    ping() {
+       /cygdrive/c/Windows/system32/ping "$@" | iconv -f gb18030 -t utf-8
+   }
 else
     export PATH=$PATH:$HOME/.screenlayout
 fi
