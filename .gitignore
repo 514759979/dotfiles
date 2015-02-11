@@ -126,3 +126,5 @@ work
 .config/sqlitebrowser
 .FBReader
 .IdeaIC13
+.inputrc
+.profile
