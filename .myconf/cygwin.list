@@ -55,6 +55,7 @@ libargp
 libattr1
 libblkid1
 libbz2_1
+libcatgets1
 libcharset1
 libclang
 libcom_err2
