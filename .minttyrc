@@ -1,7 +1,12 @@
-BoldAsFont=no
+BoldAsFont=yes
 Font=Consolas
 FontHeight=14
-Locale=zh_CN
+Locale=en_US
 Charset=UTF-8
 CursorType=block
 RightClickAction=paste
+Transparency=off
+FontSmoothing=full
+AllowBlinking=yes
+BackspaceSendsBS=yes
+Scrollbar=none
