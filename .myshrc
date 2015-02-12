@@ -16,6 +16,14 @@ elif [ -e /cygdrive ]; then
     alias bpython='bpython3'
     alias gm='/cygdrive/c/Program\ Files/GraphicsMagick-1.3.20-Q16/gm.exe'
 
+    ifconfig() {
+        ipconfig "$@" 2>&1 | iconv -f gb18030 -t utf-8
+    }
+
+    host() {
+        nslookup "$@" 2>&1 | iconv -f gb18030 -t utf-8
+    }
+
     ping() {
         /cygdrive/c/Windows/system32/ping "$@" | iconv -f gb18030 -t utf-8
     }
