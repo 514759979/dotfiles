@@ -7,9 +7,7 @@ if [ -e /mach_kernel ]; then
     alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
     alias mplayer='/Applications/MPlayerX.app/Contents/Resources/MPlayerX.mplayer.bundle/Contents/Resources/x86_64/mplayer'
 elif [ -e /cygdrive ]; then
-    export SHELL=/bin/bash
-    [ $(pwd) = '/usr/bin' ] && cd $HOME
-    export PATH=/usr/bin:/bin:$PATH:$HOME/.bin
+    export PATH=$PATH:$HOME/.bin
     alias notepad++='/cygdrive/c/Program\ Files\ \(x86\)/Notepad++/notepad++'
     alias markdownpad='/cygdrive/c/Program\ Files\ \(x86\)/MarkdownPad\ 2/MarkdownPad2.exe'
     alias firefox='/cygdrive/c/Program\ Files\ \(x86\)/Mozilla\ Firefox/firefox.exe'
