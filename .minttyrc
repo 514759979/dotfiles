@@ -10,3 +10,4 @@ FontSmoothing=full
 AllowBlinking=yes
 BackspaceSendsBS=yes
 Scrollbar=none
+ClicksTargetApp=yes
