@@ -1,7 +1,11 @@
 #!/bin/bash
 
 if [ $# = 0 ]; then
-    word=`xclip -o`
+    if [ -e "/dev/clipboard" ]; then
+        word=`cat /dev/clipboard`
+    else
+        word=`xclip -o`
+    fi
 else
     word="$*"
 fi

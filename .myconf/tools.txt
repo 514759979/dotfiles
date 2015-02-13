@@ -88,3 +88,32 @@ cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/eo.mo
 
 set from=lg50247@126.com smtp=smtp.126.com
 set smtp-auth-user=lg50247 smtp-auth-password=xxx smtp-auth=login
+
+
+hbd:
+
+#!/bin/bash
+echo $2$3 | sudo setsid openconnect https://cnc-vpn.baidu.com/ --authgroup=RSA -u $1 --passwd-on-stdin --no-cert-check &>/dev/null &
+sleep 1
+
+#sudo setsid ncsvc -h ct-vpn.baidu.com -u $1 -p $2$3 -r "RSA token 认证" -f ~/.myconf/vpn.crt &>/dev/null &
+# ct-vpn.baidu.com 电信
+# cnc-vpn.baidu.com 联通
+# yidong.baidu.com
+
+
+chtty:
+
+#!/bin/bash
+ch_tty_size ()
+{
+    stty cols $1 rows $2
+#    reset
+}
+
+if [ x"$1" = x"1" ]; then
+    ch_tty_size 127 34
+elif [ x"$1" = x"2" ]; then
+    ch_tty_size 209 47
+fi
+

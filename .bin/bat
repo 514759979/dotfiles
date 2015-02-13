@@ -1,6 +1,0 @@
-#!/bin/zsh
-
-echo -n 'remaining_percent: '
-cat /sys/devices/platform/smapi/BAT0/remaining_percent
-echo -n 'remaining_running_time: '
-cat /sys/devices/platform/smapi/BAT0/remaining_running_time

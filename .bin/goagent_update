@@ -1,2 +1,0 @@
-#!/bin/bash
-sudo sed -i 's/appid = goagent/appid = lyproxy1|lyproxy2|lyproxy3|lyproxy4|lyproxy5|lyproxy6|lyproxy7|lyproxy8|lyproxy9|lyproxy10|lyproxy11|lyproxy12|lyproxy13|lyproxy14|lyproxy15|lyproxy16|lyproxy17|lyproxy18|lyproxy19/g' /usr/share/goagent/local/goagent.ini

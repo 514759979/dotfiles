@@ -1,9 +1,17 @@
 #!/bin/bash
 
-if [ $# = 0 ]; then
-    str='systemctl poweroff'
-elif [ $1 = 1 ]; then
-    str='systemctl reboot'
-fi
+type shutdown >/dev/null && {
+    if [ $# = 0 ]; then
+        shutdown -s -t 0
+    elif [ $1 = 1 ]; then
+        shutdown -r -t 0
+    fi
+}
 
-sudo $str
+type systemctl >/dev/null && {
+    if [ $# = 0 ]; then
+        sudo systemctl poweroff
+    elif [ $1 = 1 ]; then
+        sudo systemctl reboot
+    fi
+}

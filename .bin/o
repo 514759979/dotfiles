@@ -1,11 +1,8 @@
 #!/bin/bash
 
-shopt -s expand_aliases
-. ~/.myshrc
+[ -e /cygdrive/c/Windows/explorer ] && exec explorer "$@"
 
-if [ -e /usr/bin/open ]; then
-    exec open "$@"
-fi
+[ -e /usr/bin/open ] && exec open "$@"
 
 function f() {
     $1 "$2" &>/dev/null &
