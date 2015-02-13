@@ -117,3 +117,55 @@ elif [ x"$1" = x"2" ]; then
     ch_tty_size 209 47
 fi
 
+alias cl='xclip -se cl -i'
+alias lid_close='xset dpms force off'
+alias pywebc="ifconfig | awk '/inet.*broadcast/ {print \$2 \":8888\"}' | cl"
+alias cpug='sudo cpupower frequency-set -g ondemand'
+alias vb='st VirtualBox --comment xp --startvm xp --no-startvm-errormsgbox'
+alias cpu='sudo cpupower frequency-set -f '
+alias mvb='sudo mount.vboxsf -o uid=1000,gid=1000,dmode=700 home ~/tmp'
+alias ck='sudo ckermit ~/.kermrc -c'
+alias ma='mountavfs'
+alias ua='umountavfs'
+alias bd='nohup ~/.bnac/bnac.py &>/dev/null &'
+alias ledon='sudo sh -c "echo 255 > /sys/class/leds/tpacpi::thinklight/brightness"'
+alias ledoff='sudo sh -c "echo 0 > /sys/class/leds/tpacpi::thinklight/brightness"'
+alias wvd='sudo wvdial -C ~/.wvdialrc'
+export GREP_OPTIONS='--color=auto'
+
+gq() {
+    st geeqie $@
+}
+
+aftp() {
+    cd /home/osily/.avfs/#ftp:$1
+}
+
+vmvfs() {
+    echo $PWD | grep '.avfs' &>/dev/null && cd
+    convmvfs /mnt/fuse -o srcdir=$PWD,icharset=gb18030
+    cd /mnt/fuse/
+}
+
+j() {
+    sudo mount -o iocharset=utf8,uid=1000,gid=1000 /dev/$1 /mnt
+}
+
+csd() {
+    now=$(cat ~/.asoundrc.asoundconf | awk '/defaults.ctl.card/ {print $2}')
+    new=$(asoundconf list | sed "1d; /$now/d; /ThinkPadEC/d")
+    asoundconf set-default-card $new
+}
+
+sl() {
+    if pgrep ckermit &>/dev/null; then
+        sll1 $1
+    else
+        sll2 $1
+    fi
+}
+
+smb() {
+    sudo mount -o relatime,nobarrier,compress=lzo,ssd_spread,space_cache,autodefrag,inode_cache,subvol=$1 $2 /mnt
+}
+
