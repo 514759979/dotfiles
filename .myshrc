@@ -24,6 +24,10 @@ elif [ -e /cygdrive ]; then
             cmd /c mklink /h $2 $1 2>&1 | iconv -f gb18030 -t utf-8
         fi
     }
+
+    sudo() {
+        cygstart --action=runas "$@"
+    }
 else
     export PATH=$PATH:$HOME/.screenlayout
 fi
