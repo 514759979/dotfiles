@@ -22,7 +22,7 @@ if [ -e /cygdrive ]; then
     }
 
     get-service() {
-        powershell -c get-service
+        powershell "get-service $@"
     }
 fi
 
