@@ -51,16 +51,16 @@ set completeopt=menu
 "}}}
 
 "{{{ yong
-function Im2en()
-   let a = system("yong-vim 1")
-endfunction
-function Im2zh()
-   let a = system("yong-vim 0")
-endfunction
+"function Im2en()
+"   let a = system("yong-vim 1")
+"endfunction
+"function Im2zh()
+"   let a = system("yong-vim 0")
+"endfunction
 
-set timeoutlen=100
-autocmd! InsertLeave * call Im2en()
-autocmd! InsertEnter * call Im2zh()
+"set timeoutlen=100
+"autocmd! InsertLeave * call Im2en()
+"autocmd! InsertEnter * call Im2zh()
 "}}}
 
 "{{{ winmanager
