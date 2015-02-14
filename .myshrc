@@ -4,25 +4,30 @@
 
 if [ -e /cygdrive ]; then
     export PATH="$PATH:$HOME/.bin"
+    alias ucat='iconv -f gbk -t utf-8 -c'
 
     ifconfig() {
-        ipconfig "$@" 2>&1 | iconv -f gb18030 -t utf-8
+        ipconfig "$@" 2>&1 | ucat
     }
 
     ping() {
-        /cygdrive/c/Windows/system32/ping "$@" | iconv -f gb18030 -t utf-8
+        /cygdrive/c/Windows/system32/ping "$@" | ucat
     }
 
     mklink() {
         if [ "$1" = "-s" ]; then
-            cmd /c mklink /j "$3" "$2" 2>&1 | iconv -f gb18030 -t utf-8
+            cmd /c mklink /j "$3" "$2" 2>&1 | ucat
         else
-            cmd /c mklink /h "$2" "$1" 2>&1 | iconv -f gb18030 -t utf-8
+            cmd /c mklink /h "$2" "$1" 2>&1 | ucat
         fi
     }
 
     sudo() {
         cygstart --action=runas "$@"
+    }
+
+    get-service() {
+        powershell -c get-service | ucat
     }
 elif [ -e /mach_kernel ]; then
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.bin"
