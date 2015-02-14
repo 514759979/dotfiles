@@ -5,6 +5,7 @@
 if [ -e /cygdrive ]; then
     export PATH="$PATH:$HOME/.bin"
     alias psc='powershell -c'
+    alias z='powershell'
     alias ifconfig='ipconfig'
     alias ping='/cygdrive/c/Windows/system32/ping'
 
@@ -392,7 +393,6 @@ alias di='colordiff'
 alias frm='free -m'
 alias fm='ranger'
 alias d='tree'
-alias z='xargs'
 alias gmc='gm convert'
 alias mtu='sudo ifconfig wlan0 mtu 1480'
 alias jl='ll /dev/sd*; ll /dev/mmc*'
