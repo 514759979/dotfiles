@@ -24,6 +24,10 @@ if [ -e /cygdrive ]; then
     get-service() {
         powershell "get-service $@"
     }
+
+    get-process() {
+        powershell "get-process $@"
+    }
 fi
 
 export EDITOR=vim
