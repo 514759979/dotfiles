@@ -4,22 +4,15 @@
 
 if [ -e /cygdrive ]; then
     export PATH="$PATH:$HOME/.bin"
-    alias ucat='iconv -f gbk -t utf-8 -c'
     alias psc='powershell -c'
-
-    ifconfig() {
-        ipconfig "$@" 2>&1 | ucat
-    }
-
-    ping() {
-        /cygdrive/c/Windows/system32/ping "$@" | ucat
-    }
+    alias ifconfig='ipconfig'
+    alias ping='/cygdrive/c/Windows/system32/ping'
 
     mklink() {
         if [ "$1" = "-s" ]; then
-            cmd /c mklink /j "$3" "$2" 2>&1 | ucat
+            cmd /c mklink /j "$3" "$2" 2>&1
         else
-            cmd /c mklink /h "$2" "$1" 2>&1 | ucat
+            cmd /c mklink /h "$2" "$1" 2>&1
         fi
     }
 
@@ -28,7 +21,7 @@ if [ -e /cygdrive ]; then
     }
 
     get-service() {
-        psc get-service | ucat
+        powershell -c get-service
     }
 fi
 
