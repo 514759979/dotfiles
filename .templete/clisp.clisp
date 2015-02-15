@@ -1,6 +1,0 @@
-#!/usr/bin/clisp
-
-(defun hello ()  
-  (format t "hello")  
-)  
-(hello)
