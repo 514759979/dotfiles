@@ -1,5 +1,5 @@
 function prompt {
-	"$env:username@$env:computername $(get-location)`n$ "
+	"Yu@$env:computername $(get-location)`n$ "
 }
 
 $CYG='c:/cygwin64/'
@@ -35,3 +35,5 @@ set-alias v vim
 set-alias c cd
 set-alias find $CYG/bin/find.exe
 
+
+cd c:/mine
