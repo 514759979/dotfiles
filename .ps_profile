@@ -1,0 +1,37 @@
+function prompt {
+	"$env:username@$env:computername $(get-location)`n$ "
+}
+
+$CYG='c:/cygwin64/'
+
+function l {
+	ls -name
+}
+
+function la {
+	ls -name
+}
+
+function ln {
+	# TODO
+	cmd /c mklink
+}
+
+function cry($in_file, $out_file) {
+	openssl enc -aes-256-cbc -e -in $in_file -out $out_file
+}
+
+function cryd($in_file, $out_file) {
+	openssl enc -aes-256-cbc -d -in $in_file -out $out_file
+}
+
+# TODO
+# atool
+
+set-alias ll ls
+set-alias i git
+set-alias g select-string
+set-alias v vim
+set-alias c cd
+set-alias find $CYG/bin/find.exe
+
