@@ -128,3 +128,27 @@ work
 .IdeaIC13
 .inputrc
 .profile
+AppData/
+Application Data
+Contacts/
+Cookies
+Favorites/
+IntelGraphicsProfiles/
+Links/
+Local Settings
+My Documents
+NTUSER.DAT*
+NetHood
+OneDrive/
+PrintHood
+Recent
+Saved Games/
+Searches/
+SendTo
+Start Menu
+Templates
+Videos/
+ntuser.dat.*
+ntuser.ini
+vimperator/
+
