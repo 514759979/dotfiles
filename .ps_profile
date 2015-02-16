@@ -34,6 +34,7 @@ set-alias g select-string
 set-alias v vim
 set-alias c cd
 set-alias find $CYG/bin/find.exe
+set-alias o explorer
 
 
 cd c:/mine
