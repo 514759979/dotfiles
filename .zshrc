@@ -242,14 +242,9 @@ compdef vwi=sudo
 compdef st=sudo
 compdef findx=sudo
 
-if [ -d /usr/share/zsh/plugins/zsh-syntax-highlighting/ ]; then
+if [ -d /cygdrive/c/mine/app/zsh-syntax-highlighting ]; then
     ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
-if [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-    ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source /cygdrive/c/mine/app/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 #}}}
