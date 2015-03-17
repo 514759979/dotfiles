@@ -9,11 +9,23 @@ if [ -e /cygdrive ]; then
     alias ifconfig='ipconfig'
     alias ping='/cygdrive/c/Windows/system32/ping'
 
-    mklink() {
+    ln_dir() {
         if [ "$1" = "-s" ]; then
             src="${2/\//\\}"
             dst="${3/\//\\}"
             cmd /c mklink /j "$dst" "$src" 2>&1 | iconv -f gbk -t utf-8
+        else
+            src="$1"
+            dst="$2"
+            cmd /c mklink /j "$dst" "$src" 2>&1 | iconv -f gbk -t utf-8
+        fi
+    }
+
+    ln_file() {
+        if [ "$1" = "-s" ]; then
+            src="${2/\//\\}"
+            dst="${3/\//\\}"
+            sudo cmd /c mklink "$dst" "$src" 2>&1 | iconv -f gbk -t utf-8
         else
             src="$1"
             dst="$2"
