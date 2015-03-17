@@ -16,4 +16,4 @@ map -m n,i,c <C-w> <Pass>
 
 ":autocmd LocationChange www.wunderlist.com :normal! <C-z>
 
-set editor=vim -f
+set editor="vim -f"
