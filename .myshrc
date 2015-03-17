@@ -11,24 +11,24 @@ if [ -e /cygdrive ]; then
 
     ln_dir() {
         if [ "$1" = "-s" ]; then
-            src="${2/\//\\}"
-            dst="${3/\//\\}"
+            src=$(cygpath -w $2)
+            dst=$(cygpath -w $3)
             cmd /c mklink /j "$dst" "$src" 2>&1 | iconv -f gbk -t utf-8
         else
-            src="$1"
-            dst="$2"
+            src=$(cygpath -w $1)
+            dst=$(cygpath -w $2)
             cmd /c mklink /j "$dst" "$src" 2>&1 | iconv -f gbk -t utf-8
         fi
     }
 
     ln_file() {
         if [ "$1" = "-s" ]; then
-            src="${2/\//\\}"
-            dst="${3/\//\\}"
+            src=$(cygpath -w $2)
+            dst=$(cygpath -w $3)
             sudo cmd /c mklink "$dst" "$src" 2>&1 | iconv -f gbk -t utf-8
         else
-            src="$1"
-            dst="$2"
+            src=$(cygpath -w $1)
+            dst=$(cygpath -w $2)
             cmd /c mklink /h "$dst" "$src" 2>&1 | iconv -f gbk -t utf-8
         fi
     }
