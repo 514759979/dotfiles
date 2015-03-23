@@ -278,6 +278,7 @@ if which apt-cyg &>/dev/null; then
     #alias pqo='apt-cyg packageof'
     alias pqo='cygcheck -f'
     alias pql='cygcheck -l'
+    alias pcl='rm -rf /setup/*/x86_64/release/'
 elif which yaourt &>/dev/null; then
     alias p='yaourt'
     alias pi='p -S'
