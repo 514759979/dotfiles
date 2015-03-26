@@ -1,7 +1,7 @@
 #!/bin/bash
 
 for i in $(awk '{print $1}' /etc/setup/installed.db); do
-    apt-cyg -u describe "^$i$" | grep "requires:" >> requires.txt
+    apt-cyg show "^$i$" | grep "requires:" >> requires.txt
 done
 
 for i in $(awk '{print $1}' /etc/setup/installed.db); do

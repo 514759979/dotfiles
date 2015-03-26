@@ -268,17 +268,18 @@ lsproc() {
 }
 
 if which apt-cyg &>/dev/null; then
-    alias p='apt-cyg -u find'
-    alias pi='apt-cyg -u install'
-    alias pp='apt-cyg -u remove'
+    alias p='cat /setup/*/setup.ini | grep ^@ | grep'
+    alias pi='apt-cyg install'
+    alias pp='apt-cyg remove'
     alias pud='cygwin -gdNq'
-    alias pq='apt-cyg show'
-    alias pqi='apt-cyg -u describe'
-    alias psi='apt-cyg -u describe'
+    alias pq='apt-cyg list'
+    alias pqi='apt-cyg show'
+    alias psi='apt-cyg show'
     #alias pqo='apt-cyg packageof'
     alias pqo='cygcheck -f'
     alias pql='cygcheck -l'
     alias pcl='rm -rf /setup/*/x86_64/release/'
+    alias pd='apt-cyg download'
 elif which yaourt &>/dev/null; then
     alias p='yaourt'
     alias pi='p -S'
