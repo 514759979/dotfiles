@@ -268,7 +268,7 @@ lsproc() {
 }
 
 if which apt-cyg &>/dev/null; then
-    alias p='cat /setup/*/setup.ini | grep ^@ | grep'
+    alias p='cat /setup/*/*/setup.ini | grep ^@ | grep'
     alias pi='apt-cyg install'
     alias pp='apt-cyg remove'
     alias pud='cygwin -gdNq'
