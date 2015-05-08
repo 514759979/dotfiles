@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[ -e /cygdrive/c/Windows/explorer ] && exec explorer "$@"
+[ -e /cygdrive/c/Windows/explorer ] && exec explorer "$(cygpath -w $@)"
 
 [ -e /usr/bin/open ] && exec open "$@"
 
