@@ -8,6 +8,14 @@ if [ -e /cygdrive ]; then
     alias z='powershell'
     alias ifconfig='ipconfig'
     alias ping='/cygdrive/c/Windows/system32/ping'
+    alias vm='/cygdrive/c/Program\ Files/Oracle/VirtualBox/VBoxManage'
+    alias vm-start='vm startvm archlinux --type headless'
+    alias vm-stop='vm controlvm archlinux savestate'
+    alias vm-pause='vm controlvm archlinux pasue'
+    alias vm-resume='vm controlvm archlinux resume'
+    alias vm-halt='vm controlvm archlinux poweroff'
+    alias vm-list='vm list vms; echo --RUNNING--; vm list runningvms'
+    alias vs='ssh osily@127.0.0.1'
 
     ln_dir() {
         if [ "$1" = "-s" ]; then
@@ -428,11 +436,3 @@ alias tf='tailf'
 alias pb='cat ~/.myconf/source_list | grep'
 alias hi='hostname -i'
 alias czip="export UNZIP='-O CP936'"
-alias vm='/cygdrive/c/Program\ Files/Oracle/VirtualBox/VBoxManage'
-alias vm_start='vm startvm archlinux --type headless'
-alias vm_stop='vm controlvm archlinux savestate'
-alias vm_ssh='ssh osily@127.0.0.1'
-alias vm_pause='vm controlvm archlinux pasue'
-alias vm_resume='vm controlvm archlinux resume'
-alias vm_halt='vm controlvm archlinux poweroff'
-alias vm_list='vm list vms; echo --RUNNING--; vm list runningvms'
