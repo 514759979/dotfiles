@@ -44,6 +44,11 @@ if [ -e /cygdrive ]; then
     get-process() {
         powershell "get-process $@"
     }
+
+    mplayer() {
+        /cygdrive/c/mine/app/mplayer/mplayer.exe "$@"
+        rm -r ~/mplayer
+    }
 fi
 
 export EDITOR=vim
