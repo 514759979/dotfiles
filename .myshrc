@@ -16,6 +16,7 @@ if [ -e /cygdrive ]; then
     alias vm-halt='vm controlvm archlinux poweroff'
     alias vm-list='vm list vms; echo --RUNNING--; vm list runningvms'
     alias vs='ssh osily@127.0.0.1'
+    alias go='GOROOT="c:\mine\app\go" /cygdrive/c/mine/app/go/bin/go'
 
     ln_dir() {
         if [ "$1" = "-s" ]; then
