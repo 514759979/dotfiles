@@ -1,13 +1,1 @@
-#!/bin/bash
-
-# renamex 's/aaa/bbb/g' *
-
-reg="$1"
-shift
-
-for i in "$@"; do
-    new_name="$(echo "$i" | sed "$reg")"
-    [ "$i" = "$new_name" ] && continue
-    echo "rename $i to $new_name ..."
-    mv "$i" "$new_name"
-done
+/cygdrive/c/mine/app/renamex/renamex
