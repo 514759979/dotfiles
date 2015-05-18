@@ -19,6 +19,7 @@
     pu = push
     l = log
     ls = ls-files
+    b = branch
 [merge]
     tool = vimdiff
 [push]
