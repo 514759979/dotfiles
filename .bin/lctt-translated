@@ -14,3 +14,4 @@ cd ~/TranslateProject
 git add "translated/$category/$filename"
 git rm "sources/$category/$filename"
 git ci -m "[Translated] $filename"
+git push
