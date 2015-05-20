@@ -4,7 +4,7 @@ filename="$1"
 
 cp "$filename" "$HOME/mine/doc/blog/TranslateProject/"
 
-sed -i 1i'Translating by gaoliu ...\n' "$filename"
+sed -i 1i'Translating by goreliu ...\n' "$filename"
 
 git ci -m "[Translating] $filename"
 git push
