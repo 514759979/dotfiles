@@ -8,3 +8,4 @@ sed -i 's/译者ID/goreliu/g' "$filename"
 
 git ci -m "[Translating] $filename"
 git push
+hub pull-request
