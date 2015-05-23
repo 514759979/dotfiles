@@ -4,6 +4,7 @@
 if [ -e /cygdrive ]; then
     export PATH="$PATH:$HOME/.bin:/mingw64/bin"
     export MSYS="winsymlinks:lnk"
+    export GOROOT="/mingw64"
     alias psc='powershell -c'
     alias z='powershell'
     alias ifconfig='ipconfig'
@@ -16,7 +17,6 @@ if [ -e /cygdrive ]; then
     alias vm-halt='vm controlvm archlinux poweroff'
     alias vm-list='vm list vms; echo --RUNNING--; vm list runningvms'
     alias vs='ssh osily@127.0.0.1'
-    alias go='GOROOT="c:\mine\app\go" /cygdrive/c/mine/app/go/bin/go'
 
     sudo() {
         cygstart --action=runas "$@"
