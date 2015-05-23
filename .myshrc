@@ -2,7 +2,7 @@
 [ -n "$SHELL" ] || export SHELL="/bin/zsh"
 
 if [ -e /cygdrive ]; then
-    export PATH="$PATH:$HOME/.bin:/mingw64/bin/"
+    export PATH="$PATH:$HOME/.bin:/mingw64/bin"
     export MSYS="winsymlinks:lnk"
     alias psc='powershell -c'
     alias z='powershell'
@@ -17,30 +17,6 @@ if [ -e /cygdrive ]; then
     alias vm-list='vm list vms; echo --RUNNING--; vm list runningvms'
     alias vs='ssh osily@127.0.0.1'
     alias go='GOROOT="c:\mine\app\go" /cygdrive/c/mine/app/go/bin/go'
-
-    ln_dir() {
-        if [ "$1" = "-s" ]; then
-            src=$(cygpath -w $2)
-            dst=$(cygpath -w $3)
-            cmd /c mklink /j "$dst" "$src" 2>&1 | iconv -f gbk -t utf-8
-        else
-            src=$(cygpath -w $1)
-            dst=$(cygpath -w $2)
-            cmd /c mklink /j "$dst" "$src" 2>&1 | iconv -f gbk -t utf-8
-        fi
-    }
-
-    ln_file() {
-        if [ "$1" = "-s" ]; then
-            src=$(cygpath -w $2)
-            dst=$(cygpath -w $3)
-            sudo cmd /c mklink "$dst" "$src" 2>&1 | iconv -f gbk -t utf-8
-        else
-            src=$(cygpath -w $1)
-            dst=$(cygpath -w $2)
-            cmd /c mklink /h "$dst" "$src" 2>&1 | iconv -f gbk -t utf-8
-        fi
-    }
 
     sudo() {
         cygstart --action=runas "$@"
