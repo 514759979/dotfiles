@@ -2,7 +2,7 @@
 [ -n "$SHELL" ] || export SHELL="/bin/zsh"
 
 if [ -e /cygdrive ]; then
-    export PATH="$PATH:$HOME/.bin"
+    export PATH="$PATH:$HOME/.bin:/mingw64/bin/"
     export MSYS="winsymlinks:lnk"
     alias psc='powershell -c'
     alias z='powershell'
