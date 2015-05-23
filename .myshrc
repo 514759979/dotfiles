@@ -253,48 +253,7 @@ lsproc() {
   done
 }
 
-if which pacman &>/dev/null; then
-    alias p='pacman -Ss'
-    alias pi='pacman -S'
-    alias pia='pacman -S --noconfirm'
-    alias pli='pacman -U'
-    alias pud='pacman -Syu'
-    alias psu='pacman -Su'
-    alias pd='pacman -Sw'
-    alias pp='pacman -Rcsn'
-    alias psi='pacman -Si'
-    alias pq='pacman -Q'
-    alias pqi='pacman -Qi'
-    alias pqe='pacman -Qeq | sort'
-    alias psl='pkgfile -l'
-    alias pql='pacman -Ql'
-    alias pso='pkgfile -v'
-    alias pqo='pacman -Qo'
-    alias pqd='pacman -Qdt'
-    alias pqm='pacman -Qqm'
-    alias prd='pacman -Rdd'
-    alias pae='pacman -D --asexplicit'
-    alias pad='pacman -D --asdeps'
-    alias pcl='echo y"\n"y | pacman -Scc'
-
-    pqii() {
-        cat /var/lib/pacman/local/$1-*/install
-    }
-elif which apt-cyg &>/dev/null; then
-    alias p='cat /setup/*/*/setup.ini | grep ^@ | grep'
-    alias pi='apt-cyg install'
-    alias pp='apt-cyg remove'
-    alias pud='apt-cyg upgrade'
-    alias pud_bak='cygwin -gdNq'
-    alias pq='apt-cyg list'
-    alias pqi='apt-cyg show'
-    alias psi='apt-cyg show'
-    alias pqo='cygcheck -f'
-    alias pso='cygcheck -p'
-    alias pql='cygcheck -l'
-    alias pcl='rm -rf /setup/*/x86_64/release/'
-    alias pd='apt-cyg download'
-elif which yaourt &>/dev/null; then
+if type yaourt &>/dev/null; then
     alias p='yaourt'
     alias pi='p -S'
     alias pia='p -S --noconfirm'
@@ -332,7 +291,50 @@ elif which yaourt &>/dev/null; then
         cat /var/lib/pacman/local/$1-*/install
     }
 
-elif which brew &>/dev/null; then
+elif type pacman &>/dev/null; then
+    alias p='pacman -Ss'
+    alias pi='pacman -S'
+    alias pia='pacman -S --noconfirm'
+    alias pli='pacman -U'
+    alias pud='pacman -Syu'
+    alias psu='pacman -Su'
+    alias pd='pacman -Sw'
+    alias pp='pacman -Rcsn'
+    alias psi='pacman -Si'
+    alias pq='pacman -Q'
+    alias pqi='pacman -Qi'
+    alias pqe='pacman -Qeq | sort'
+    alias psl='pkgfile -l'
+    alias pql='pacman -Ql'
+    alias pso='pkgfile -v'
+    alias pqo='pacman -Qo'
+    alias pqd='pacman -Qdt'
+    alias pqm='pacman -Qqm'
+    alias prd='pacman -Rdd'
+    alias pae='pacman -D --asexplicit'
+    alias pad='pacman -D --asdeps'
+    alias pcl='echo y"\n"y | pacman -Scc'
+
+    pqii() {
+        cat /var/lib/pacman/local/$1-*/install
+    }
+
+elif type apt-cyg &>/dev/null; then
+    alias p='cat /setup/*/*/setup.ini | grep ^@ | grep'
+    alias pi='apt-cyg install'
+    alias pp='apt-cyg remove'
+    alias pud='apt-cyg upgrade'
+    alias pud_bak='cygwin -gdNq'
+    alias pq='apt-cyg list'
+    alias pqi='apt-cyg show'
+    alias psi='apt-cyg show'
+    alias pqo='cygcheck -f'
+    alias pso='cygcheck -p'
+    alias pql='cygcheck -l'
+    alias pcl='rm -rf /setup/*/x86_64/release/'
+    alias pd='apt-cyg download'
+
+elif type brew &>/dev/null; then
     alias p='brew search'
     alias pi='brew install'
     alias pp='brew uninstall'
@@ -341,7 +343,7 @@ elif which brew &>/dev/null; then
     alias pql='brew list'
     alias pud='brew update'
     alias psu='brew upgrade'
-elif which apt-get &>/dev/null; then
+elif type apt-get &>/dev/null; then
     alias p='apt-cache search'
     alias pi='apt-get install'
     alias pp='apt-get purge'
@@ -350,7 +352,7 @@ elif which apt-get &>/dev/null; then
     alias psu='apt-get upgrade'
     alias pcl='apt-get clean'
     alias pql='dpkg -l'
-elif which emerge &>/dev/null; then
+elif type emerge &>/dev/null; then
     alias p='eix'
     alias pi='sudo emerge -uDN'
     alias psu='sudo emerge -uDN world'
@@ -363,7 +365,7 @@ elif which emerge &>/dev/null; then
     alias pq='equery l'
     alias psi='emerge -pv'
     alias pli='sudo emerge -k'
-elif which jumbo &>/dev/null; then
+elif type jumbo &>/dev/null; then
     alias p='jumbo search'
     alias pi='jumbo install'
     alias pp='jumbo remove'
