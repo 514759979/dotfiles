@@ -277,7 +277,34 @@ lsproc() {
   done
 }
 
-if which apt-cyg &>/dev/null; then
+if which pacman &>/dev/null; then
+    alias p='pacman -Ss'
+    alias pi='pacman -S'
+    alias pia='pacman -S --noconfirm'
+    alias pli='pacman -U'
+    alias pud='pacman -Syu'
+    alias psu='pacman -Su'
+    alias pd='pacman -Sw'
+    alias pp='pacman -Rcsn'
+    alias psi='pacman -Si'
+    alias pq='pacman -Q'
+    alias pqi='pacman -Qi'
+    alias pqe='pacman -Qeq | sort'
+    alias psl='pkgfile -l'
+    alias pql='pacman -Ql'
+    alias pso='pkgfile -v'
+    alias pqo='pacman -Qo'
+    alias pqd='pacman -Qdt'
+    alias pqm='pacman -Qqm'
+    alias prd='pacman -Rdd'
+    alias pae='pacman -D --asexplicit'
+    alias pad='pacman -D --asdeps'
+    alias pcl='echo y"\n"y | pacman -Scc'
+
+    pqii() {
+        cat /var/lib/pacman/local/$1-*/install
+    }
+elif which apt-cyg &>/dev/null; then
     alias p='cat /setup/*/*/setup.ini | grep ^@ | grep'
     alias pi='apt-cyg install'
     alias pp='apt-cyg remove'
