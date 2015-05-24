@@ -2,7 +2,6 @@
 [ -n "$SHELL" ] || export SHELL="/bin/zsh"
 
 if [ -e /cygdrive ]; then
-    export PATH="$PATH:$HOME/.bin:/mingw64/bin"
     export MSYS="winsymlinks:lnk"
     export GOROOT="/mingw64"
     alias psc='powershell -c'
@@ -18,9 +17,9 @@ if [ -e /cygdrive ]; then
     alias vm-list='vm list vms; echo --RUNNING--; vm list runningvms'
     alias vs='ssh osily@127.0.0.1'
 
-    sudo() {
-        cygstart --action=runas "$@"
-    }
+    # sudo() {
+    #     cygstart --action=runas "$@"
+    # }
 
     get-service() {
         powershell "get-service $@"
@@ -36,6 +35,7 @@ if [ -e /cygdrive ]; then
     }
 fi
 
+export PATH="$PATH:$HOME/.bin"
 export EDITOR=vim
 export BROWSER=firefox
 export PAGER='less -isrf'
