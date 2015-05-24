@@ -1,1 +1,53 @@
-/cygdrive/c/mine/app/download_source/download_source
+#!/bin/bash
+
+source "$(dirname "$(readlink -f "$0")")/download_source.conf" || exit 1
+
+update_source_list() {
+    mkdir -p "$(dirname "$SOURCE_LIST_FILE")" || return 1
+
+    echo "Generating source list file, wait a moment ..."
+
+    wget "$GENTOO_MIRROR_URL/distfiles" -O - | \
+        sed 's/^.*ref="//g;s/">.*$//g;/^[<.].*/d' > \
+        "$SOURCE_LIST_FILE".new || return 1
+
+    mv "$SOURCE_LIST_FILE".new "$SOURCE_LIST_FILE"
+}
+
+search_source_file() {
+    [ -e "$SOURCE_LIST_FILE" ] || update_source_list
+
+    cat "$SOURCE_LIST_FILE" | grep "$@"
+}
+
+download_source_file() {
+    [ -e "$SOURCE_LIST_FILE" ] || update_source_list
+
+    for i in "$@"; do
+        wget "$GENTOO_MIRROR_URL/distfiles/$i"
+    done
+}
+
+[ "$1" = "update" ] && {
+    update_source_list
+    exit $?
+}
+
+[ "$1" = "search" ] && {
+    shift
+    search_source_file "$@"
+    exit $?
+}
+
+[ "$1" = "download" ] && {
+    shift
+    download_source_file "$@"
+    exit $?
+}
+
+echo "Usage:"
+echo "    $0 update : update source list file"
+echo "    $0 search source_name : search"
+echo "    $0 download filename : download"
+
+exit 1
