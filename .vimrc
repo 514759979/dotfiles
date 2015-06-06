@@ -131,7 +131,7 @@ Plugin 'plasticboy/vim-markdown'
 "Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tsaleh/vim-supertab'
 Plugin 'vim-scripts/TxtBrowser'
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 " vim-voom
 Plugin 'KNCheung/vim-winmanager'
 Plugin 'szw/vim-tags'
