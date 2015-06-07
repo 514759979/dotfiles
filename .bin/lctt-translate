@@ -8,4 +8,5 @@ sed -i 1i'Translating by goreliu ...\n' "$filename"
 
 git ci -m "[Translating] $filename"
 git push
+cd ../../
 hub pull-request

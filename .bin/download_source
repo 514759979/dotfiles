@@ -1,6 +1,11 @@
 #!/bin/bash
 
-source "$(dirname "$(readlink -f "$0")")/download_source.conf" || exit 1
+source "$(dirname "$(readlink -f "$0")")/download_source.conf" &>/dev/null || {
+    # gentoo mirror from https://www.gentoo.org/downloads/mirrors/
+    GENTOO_MIRROR_URL="http://mirrors.ustc.edu.cn/gentoo"
+
+    SOURCE_LIST_FILE="$HOME/.myconf/source_list"
+}
 
 update_source_list() {
     mkdir -p "$(dirname "$SOURCE_LIST_FILE")" || return 1
