@@ -17,9 +17,9 @@ if [ -e /cygdrive ]; then
     alias vm-list='vm list vms; echo --RUNNING--; vm list runningvms'
     alias vs='ssh osily@127.0.0.1'
 
-    # sudo() {
-    #     cygstart --action=runas "$@"
-    # }
+    sudo() {
+        cygstart --action=runas "$@"
+    }
 
     get-service() {
         powershell "get-service $@"
