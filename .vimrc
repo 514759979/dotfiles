@@ -135,6 +135,7 @@ Plugin 'vim-scripts/TxtBrowser'
 " vim-voom
 Plugin 'KNCheung/vim-winmanager'
 Plugin 'szw/vim-tags'
+Plugin 'derekwyatt/vim-scala'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
