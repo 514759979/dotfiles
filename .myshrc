@@ -2,6 +2,7 @@ export LANG="en_US.UTF-8"
 [ -n "$SHELL" ] || export SHELL="/bin/zsh"
 
 if [ -e /cygdrive ]; then
+    export PATH="$PATH:/mingw64/bin"
     export MSYS="winsymlinks:lnk"
     export GOROOT="/mingw64"
     alias psc='powershell -c'
