@@ -1,10 +1,10 @@
-OBJ = c
-DEP = c.o
-CC = gcc
+SOURCES = $(wildcard *.md)
+OBJS := $(patsubst %.md,%.html, $(SOURCES))
 
-$(OBJ):$(DEP)
-	$(CC)  $^
+all: $(OBJS)
 
-.c.o:
-	$(CC) -c $^ -o $@
-	
+%.html: %.md
+	landslide -t theme -x markdown.extensions.tables -l no -i $< -d $@
+
+clean:
+	rm -f $(OBJS)
