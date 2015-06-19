@@ -1,8 +1,7 @@
 #!/bin/bash
 
-[ -e /cygdrive/c/Windows/explorer ] && exec explorer "$(cygpath -w $@)"
-
-[ -e /usr/bin/open ] && exec open "$@"
+type cygstart &>/dev/null && exec cygstart "$@"
+type open &>/dev/null && exec open "$@"
 
 function f() {
     $1 "$2" &>/dev/null &
