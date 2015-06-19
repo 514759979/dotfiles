@@ -8,7 +8,7 @@ for i in $(seq 0 250 $num); do
 done
 
 if [ $(cat /tmp/.aurlist | wc -l) -ge $num ]; then
-    mv /tmp/.aurlist ~/.myconf/aurlist
+    mv /tmp/.aurlist ~/.cache/aurlist
 else
     rm /tmp/.aurlist
 fi
