@@ -8,7 +8,7 @@
 category="$1"
 filename="$2"
 
-cp "$filename" "$HOME/TranslateProject/translated/$category/"
+cp "$filename" "$HOME/git/TranslateProject/translated/$category/"
 
 cd ~/TranslateProject
 git add "translated/$category/$filename"
