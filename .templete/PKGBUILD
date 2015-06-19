@@ -1,44 +1,23 @@
-# Maintainer: osily <ly50247 at 126 dot com>
+# Maintainer: Gore Liu <goreliu@126.com>
 
-pkgname=NAME
-pkgver=VERSION
+pkgname=
+pkgver=
 pkgrel=1
-epoch=
-pkgdesc=""
-arch=()
-url=""
-license=('GPL')
-groups=()
-depends=()
-makedepends=()
-checkdepends=()
-optdepends=()
-provides=()
-conflicts=()
-replaces=()
-backup=()
-options=()
-install=
-changelog=
-source=($pkgname-$pkgver.tar.gz)
-noextract=()
-md5sums=()
+pkgdesc=''
+arch=('any')
+url=''
+license=('')
+source=("")
+md5sums=('')
 
 build() {
-  cd "$srcdir/$pkgname-$pkgver"
+  cd "${srcdir}/${pkgname}-${pkgver}"
+
   ./configure --prefix=/usr
   make
 }
 
-check() {
-  cd "$srcdir/$pkgname-$pkgver"
-  make -k check
-}
-
 package() {
-  cd "$srcdir/$pkgname-$pkgver"
-  make DESTDIR="$pkgdir/" install
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  make DESTDIR="${pkgdir}" install
 }
-
-
-# vim:set ts=2 sw=2 et:
