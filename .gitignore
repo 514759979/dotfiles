@@ -1,6 +1,8 @@
 .bash_history
+.bnac
 .cache
 .config
+.fonts
 git
 .gnupg
 .inputrc
@@ -9,6 +11,7 @@ git
 .profile
 .pythonhist
 .python_history
+.scala_history
 sources
 .sqlite_history
 .ssh
