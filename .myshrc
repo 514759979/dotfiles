@@ -9,12 +9,12 @@ if [ -e /cygdrive ]; then
     alias ifconfig='ipconfig'
     alias ping='/cygdrive/c/Windows/system32/ping'
     alias vm='/cygdrive/c/Program\ Files/Oracle/VirtualBox/VBoxManage'
-    alias vm-start='vm startvm archlinux --type headless'
-    alias vm-stop='vm controlvm archlinux savestate'
-    alias vm-pause='vm controlvm archlinux pasue'
-    alias vm-resume='vm controlvm archlinux resume'
-    alias vm-halt='vm controlvm archlinux poweroff'
-    alias vm-list='vm list vms; echo --RUNNING--; vm list runningvms'
+    alias vmup='vm startvm archlinux --type headless'
+    alias vmdown='vm controlvm archlinux savestate'
+    alias vmpause='vm controlvm archlinux pasue'
+    alias vmresume='vm controlvm archlinux resume'
+    alias vmhalt='vm controlvm archlinux poweroff'
+    alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
     alias vs='ssh goreliu@127.0.0.1'
 
     sudo() {
