@@ -241,6 +241,7 @@ compdef cwi=sudo
 compdef vwi=sudo
 compdef st=sudo
 compdef findx=sudo
+compdef packer=pacman
 
 #if [ -d /cygdrive/c/mine/app/zsh-syntax-highlighting ]; then
 #    ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)

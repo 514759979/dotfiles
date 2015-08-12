@@ -1,3 +1,5 @@
+#!/bin/sh
+
 export LANG="en_US.UTF-8"
 [ -n "$SHELL" ] || export SHELL="/bin/zsh"
 
@@ -262,7 +264,7 @@ if type yaourt &>/dev/null; then
     alias psu='p -Su --aur'
     alias pd='p -Sw'
     alias pp='p -Rcsn'
-    alias psi='p -Si'
+    alias psi='packer -Si'
     alias pq='p -Q'
     alias pqi='p -Qi'
     alias pqe='pacman -Qeq | sort'
