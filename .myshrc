@@ -264,7 +264,7 @@ if type yaourt &>/dev/null; then
     alias psu='p -Su --aur'
     alias pd='p -Sw'
     alias pp='p -Rcsn'
-    alias psi='packer -Si'
+    alias psi='p -Si'
     alias pq='p -Q'
     alias pqi='p -Qi'
     alias pqe='pacman -Qeq | sort'
