@@ -7,19 +7,16 @@
     branch = auto
 [alias]
     st = status
-    s = status
     ci = commit -a
-    c = commit -a
     cm = commit -am
     co = checkout
     rmc = rm --cached
     d = diff
     dd = diff --cached
-    pl = pull
-    pu = push
     l = log
     ls = ls-files
     b = branch
+    info = remote -v
 [merge]
     tool = vimdiff
 [push]
