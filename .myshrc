@@ -5,7 +5,7 @@ if [ -e /cygdrive ]; then
     export PATH="$PATH:/mingw64/bin"
     export MSYS="winsymlinks:lnk"
     alias psc='powershell -c'
-    alias z='powershell'
+    alias z='winpty powershell'
     alias ifconfig='ipconfig'
     alias ping='/cygdrive/c/Windows/system32/ping'
     alias vm='/cygdrive/c/Program\ Files/Oracle/VirtualBox/VBoxManage'
