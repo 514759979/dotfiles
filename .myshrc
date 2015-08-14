@@ -82,6 +82,10 @@ zback() {
     cd $(pwd|sed -e 's|^.*\.avfs||g' -e 's|/[^/]*#$||g')
 }
 
+vmpath () {
+    echo "scp -r 127.0.0.1:`readlink -f $1` ."
+}
+
 
 # atool begin
 file_7z='\.rar\b|\.deb\b|\.iso\b'
