@@ -286,9 +286,9 @@ if type yaourt &>/dev/null; then
 
     y() {
         pacman -Ss $*
-        cat ~/.myconf/aurlist | grep -Pi --color=none "$*" | awk -F'  ' '{
-            a=" "$3" ["$1"] ("$4") {"$6"}"
-            print "\033[35;1maur/\033[36;1m" $2 "\033[32;1m" a "\033[0m"
+        cat ~/.cache/aurlist | grep -Pi --color=none "$*" | awk -F'  ' '{
+            a=" "$2" ("$3")"
+            print "\033[35;1maur/\033[36;1m" $1 "\033[32;1m" a "\033[0m"
             print "    "$5
         }'
     }
