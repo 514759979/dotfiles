@@ -17,7 +17,23 @@ if [ -e /cygdrive ]; then
     alias vmresume='vm controlvm archlinux resume'
     alias vmhalt='vm controlvm archlinux poweroff'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
-    alias vs='ssh goreliu@127.0.0.1'
+
+    vs() {
+        ssh goreliu@127.0.0.1 "$@"
+
+        [ $? -eq 255 -a $# -eq 0 ] && {
+            /cygdrive/c/Program\ Files/Oracle/VirtualBox/VBoxManage \
+                startvm archlinux --type headless
+
+            while true; do
+                ssh goreliu@127.0.0.1 "$@"
+                [ $? -eq 0 ] && {
+                    break
+                }
+                sleep 1
+            done
+        }
+    }
 
     sudo() {
         cygstart --action=runas "$@"
