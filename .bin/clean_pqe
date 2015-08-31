@@ -1,7 +1,13 @@
 #!/bin/bash
 
+PACMAN="sudo pacman"
+
+[ "$(uname -o)" = "Msys" ] && {
+    PACMAN="pacman"
+}
+
 for i in $(pacman -Qeq); do
     if ! pacman -Qi $i | grep -q 'Required By.*None'; then
-        sudo pacman -D --asdeps $i
+        $PACMAN -D --asdeps $i
     fi
 done
