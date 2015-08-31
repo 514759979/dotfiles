@@ -10,7 +10,6 @@ update() {
 
 [ ! -e "$local_file" -o "$1" = "update" ] && {
     update
-    exit
 }
 
 cat "$local_file" | grep -Pi "$*"
