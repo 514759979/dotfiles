@@ -1,0 +1,16 @@
+#!/bin/bash
+
+local_file="$HOME/.cache/cpu"
+
+update() {
+    url="http://itianti.sinaapp.com/index.php/cpu"
+
+    w3m -dump "$url" | grep -P '^\d+ ' > "$local_file"
+}
+
+[ ! -e "$local_file" -o "$1" = "update" ] && {
+    update
+    exit
+}
+
+cat "$local_file" | grep -Pi "$*"
