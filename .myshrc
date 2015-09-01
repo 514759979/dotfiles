@@ -35,6 +35,10 @@ if [ -e /cygdrive ]; then
         }
     }
 
+    vcp() {
+        scp -r "$@" goreliu@127.0.0.1:~/
+    }
+
     sudo() {
         cygstart --action=runas "$@"
     }
