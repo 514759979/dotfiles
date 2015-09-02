@@ -466,3 +466,4 @@ alias pb='download_source search'
 alias pbg='download_source download'
 alias hi='hostname -i'
 alias czip="export UNZIP='-O CP936'"
+alias mountvbfs="sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600"
