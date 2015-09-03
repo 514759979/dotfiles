@@ -19,6 +19,7 @@ if [ -e /cygdrive ]; then
     alias vmhalt='vm controlvm archlinux poweroff'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
     alias vcl='vs cat /tmp/.clipboard 2>/dev/null | cl'
+    alias ,='canything'
 
     vs() {
         ssh goreliu@127.0.0.1 "$@"
@@ -60,6 +61,7 @@ if [ -e /cygdrive ]; then
 else
     alias smvb="sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600"
     alias cl='cat >/tmp/.clipboard'
+    alias ,='peco'
 fi
 
 export PATH="$PATH:$HOME/.bin"
