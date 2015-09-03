@@ -10,6 +10,7 @@ if [ -e /cygdrive ]; then
     alias z='winpty powershell'
     alias ifconfig='ipconfig'
     alias ping='/cygdrive/c/Windows/system32/ping'
+    alias cl='cat >/dev/clipboard'
     alias vm='/cygdrive/c/Program\ Files/Oracle/VirtualBox/VBoxManage'
     alias vmup='vm startvm archlinux --type headless'
     alias vmdown='vm controlvm archlinux savestate'
@@ -17,6 +18,7 @@ if [ -e /cygdrive ]; then
     alias vmresume='vm controlvm archlinux resume'
     alias vmhalt='vm controlvm archlinux poweroff'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
+    alias vcl='vs cat /tmp/.clipboard 2>/dev/null | cl'
 
     vs() {
         ssh goreliu@127.0.0.1 "$@"
@@ -55,6 +57,9 @@ if [ -e /cygdrive ]; then
         /cygdrive/c/mine/app/mplayer/mplayer.exe "$@"
         rm -r ~/mplayer
     }
+else
+    alias smvb="sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600"
+    alias cl='cat >/tmp/.clipboard'
 fi
 
 export PATH="$PATH:$HOME/.bin"
@@ -105,7 +110,6 @@ zback() {
 vmpath () {
     echo "scp -r 127.0.0.1:`readlink -f $1` ."
 }
-
 
 # atool begin
 file_7z='\.rar\b|\.deb\b|\.iso\b'
@@ -175,24 +179,6 @@ b() {
     fi
 
     ls -F --color
-}
-
-opsqlite_chromium() {
-    cd ~/.config/chromium
-    find -print0|xargs -0 file|grep SQLite|sed 's/:.*$//g' > .opsqlite
-    while read i; do
-        sqlite3 $i vacuum
-    done < .opsqlite
-    rm .opsqlite
-    cd -
-}
-
-opsqlite_firefox() {
-    cd ~/.mozilla/firefox/
-    for i in `find -name '*.sqlite'`; do
-        sqlite3 $i vacuum
-    done
-    cd -
 }
 
 cwi() {
@@ -271,7 +257,7 @@ lsfd() {
 }
 
 lsproc() {
-  [ "$#" -eq 1 ] || return 0
+  [ $# -eq 1 ] || return 0
   ps aux | grep "$1"
   for i in $(pgrep "$1"); do
     echo "\n$i":
@@ -369,6 +355,7 @@ elif type brew &>/dev/null; then
     alias pql='brew list'
     alias pud='brew update'
     alias psu='brew upgrade'
+
 elif type apt-get &>/dev/null; then
     alias p='apt-cache search'
     alias pi='apt-get install'
@@ -378,6 +365,7 @@ elif type apt-get &>/dev/null; then
     alias psu='apt-get upgrade'
     alias pcl='apt-get clean'
     alias pql='dpkg -l'
+
 elif type emerge &>/dev/null; then
     alias p='eix'
     alias pi='sudo emerge -uDN'
@@ -391,6 +379,7 @@ elif type emerge &>/dev/null; then
     alias pq='equery l'
     alias psi='emerge -pv'
     alias pli='sudo emerge -k'
+
 elif type jumbo &>/dev/null; then
     alias p='jumbo search'
     alias pi='jumbo install'
@@ -430,21 +419,16 @@ alias dud='du --max-depth 1 -bh '
 alias psg='ps aux|grep -v grep|grep'
 alias psa='ps aux'
 alias pst='pstree'
-alias mt='top -u osily'
+alias mt='top -u goreliu'
 alias ctime='time cat'
-alias lg='luit -encoding gb18030'
 alias wi='which'
 alias rpd='rm -r $PWD;cd ..'
 alias rpdf='rm -rf $PWD;cd ..'
 alias cpui='cat /proc/cpuinfo | grep MHz'
-alias cl='cat >/dev/clipboard'
 alias find0='find -print0'
 alias xargs0='xargs -0'
 alias findg='find | grep -P'
 alias se='sudo systemctl'
-alias ehttp='export http_proxy=http://127.0.0.1:8087'
-alias ehttps='export https_proxy=http://127.0.0.1:8087'
-alias eh='ehttp;ehttps'
 alias e='echo'
 alias f='file'
 alias t='cat'
@@ -459,11 +443,9 @@ alias frm='free -m'
 alias fm='ranger'
 alias d='tree'
 alias gmc='gm convert'
-alias mtu='sudo ifconfig wlan0 mtu 1480'
 alias jl='ll /dev/sd*; ll /dev/mmc*'
 alias tf='tailf'
 alias pb='download_source search'
 alias pbg='download_source download'
 alias hi='hostname -i'
 alias czip="export UNZIP='-O CP936'"
-alias mountvbfs="sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600"
