@@ -9,12 +9,9 @@ type systemctl &>/dev/null && {
 }
 
 type shutdown &>/dev/null && {
-    . ~/.myshrc
     if [ $# = 0 ]; then
-        vmdown
         shutdown -s -t 0
     elif [ $1 = 1 ]; then
-        vmdown
         shutdown -r -t 0
     fi
 }
