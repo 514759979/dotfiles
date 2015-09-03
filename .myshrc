@@ -108,7 +108,9 @@ zback() {
 }
 
 vmpath () {
-    echo "scp -r 127.0.0.1:`readlink -f $1` ."
+    src="$1"
+    [ -n "$src" ] || src="$PWD"
+    echo "scp -r 127.0.0.1:`readlink -f $src` ."
 }
 
 # atool begin
