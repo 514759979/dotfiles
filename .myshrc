@@ -19,7 +19,7 @@ if [ -e /cygdrive ]; then
     alias vmhalt='vm controlvm archlinux poweroff'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
     alias vcl='vs cat /tmp/.clipboard 2>/dev/null | cl'
-    alias ,='canything'
+    alias ,='TERM=xterm percol'
 
     vs() {
         ssh goreliu@127.0.0.1 "$@"
