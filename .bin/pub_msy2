@@ -1,0 +1,7 @@
+#!/bin/bash
+
+rm -rf pkg src
+mv "$1" c:/mine/app/msys2-pkgs
+
+cd c:/mine/app/msys2-pkgs
+./update.sh
