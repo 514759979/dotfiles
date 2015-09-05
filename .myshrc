@@ -7,8 +7,7 @@ if [ -e /cygdrive ]; then
     export TERM=xterm
     export PATH="$PATH:/mingw64/bin"
     export MSYS="winsymlinks:lnk"
-    alias psc='powershell -c'
-    alias z='winpty powershell'
+    alias z='winpty powershell -NoLogo'
     alias ifconfig='ipconfig|iconv -f gbk -t utf-8'
     alias ping='/cygdrive/c/Windows/system32/ping'
     alias hostname='/usr/lib/gettext/hostname'
@@ -45,6 +44,18 @@ if [ -e /cygdrive ]; then
 
     sudo() {
         cygstart --action=runas "$@"
+    }
+
+    srun() {
+        sudo powershell -NoLogo -c "$@;pause"
+    }
+
+    disma() {
+        srun Dism.exe /Online /Cleanup-Image /AnalyzeComponentStore
+    }
+
+    dismc() {
+        srun Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
     }
 
     get-service() {
