@@ -4,6 +4,7 @@ export LANG="en_US.UTF-8"
 [ -n "$SHELL" ] || export SHELL="/bin/zsh"
 
 if [ -e /cygdrive ]; then
+    export TERM=xterm
     export PATH="$PATH:/mingw64/bin"
     export MSYS="winsymlinks:lnk"
     alias psc='powershell -c'
@@ -20,7 +21,6 @@ if [ -e /cygdrive ]; then
     alias vmhalt='vm controlvm archlinux poweroff'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
     alias vcl='vs cat /tmp/.clipboard 2>/dev/null | cl'
-    alias ,='TERM=xterm percol'
 
     vs() {
         ssh goreliu@127.0.0.1 "$@"
@@ -62,7 +62,6 @@ if [ -e /cygdrive ]; then
 else
     alias smvb="sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600"
     alias cl='cat >/tmp/.clipboard'
-    alias ,='percol'
 fi
 
 export PATH="$PATH:$HOME/.bin"
@@ -454,3 +453,4 @@ alias pb='download_source search'
 alias pbg='download_source download'
 alias hi='hostname -i'
 alias czip="export UNZIP='-O CP936'"
+alias ,='percol'
