@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+ahk =(sed 1d "$1")
