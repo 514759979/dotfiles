@@ -70,6 +70,10 @@ if [ -e /cygdrive ]; then
         /cygdrive/c/mine/app/mplayer/mplayer.exe "$@"
         rm -r ~/mplayer
     }
+
+    # note
+    # enable ps1
+    # srun Set-ExecutionPolicy RemoteSigned
 else
     alias smvb="sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600"
     alias cl='cat >/tmp/.clipboard'
