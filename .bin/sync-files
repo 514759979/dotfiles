@@ -1,3 +1,0 @@
-#!/bin/bash
-
-rsync -aSvH ~/sources/scm/op/oped/noah/argus/tsdb/saver/* /cygdrive/y/scm/saver/op/oped/noah/argus/tsdb/saver
