@@ -89,6 +89,20 @@ if [ -e /cygdrive ]; then
 else
     alias smvb="sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600"
     alias cl='cat >/tmp/.clipboard'
+
+    zcd() {
+        cd ~/.avfs$PWD/$@#
+    }
+
+    zback() {
+        cd $(pwd|sed -e 's|^.*\.avfs||g' -e 's|/[^/]*#$||g')
+    }
+
+    vmpath () {
+        src="$1"
+        [ -n "$src" ] || src="$PWD"
+        echo "scp -r 127.0.0.1:`readlink -f $src` ."
+    }
 fi
 
 export PATH="$PATH:$HOME/.bin"
@@ -125,20 +139,6 @@ cry() {
 c() {
     cd $1
     ls -F --color
-}
-
-zcd() {
-    cd ~/.avfs$PWD/$@#
-}
-
-zback() {
-    cd $(pwd|sed -e 's|^.*\.avfs||g' -e 's|/[^/]*#$||g')
-}
-
-vmpath () {
-    src="$1"
-    [ -n "$src" ] || src="$PWD"
-    echo "scp -r 127.0.0.1:`readlink -f $src` ."
 }
 
 # atool begin
@@ -179,7 +179,7 @@ x() {
 # atool end
 
 mcat() {
-    markdown2 $1 -f /tmp/.html
+    markdown_py $1 -f /tmp/.html
     w3m /tmp/.html
     rm /tmp/.html
 }
