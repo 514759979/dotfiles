@@ -7,13 +7,24 @@ if [ -e /cygdrive ]; then
     export TERM=xterm
     export PATH="$PATH:/mingw64/bin"
     export MSYS="winsymlinks:lnk"
-    alias z='winpty powershell -NoLogo'
-    alias ifconfig='ipconfig|iconv -f gbk -t utf-8'
+
+    alias adb="/cygdrive/c/mine/app/android-platform-tools/adb.exe"
+    alias ahk="/cygdrive/c/mine/app/AutoHotkey/AutoHotkey.exe"
+    alias fastboot="/cygdrive/c/mine/app/android-platform-tools/fastboot.exe"
+    alias mencoder="/cygdrive/c/mine/app/mplayer/mencoder"
+    alias mpv="/cygdrive/c/mine/app/mpv/mpv.exe"
+    alias notepad++="/cygdrive/c/mine/app/notepad++/notepad++"
+    alias pandoc="/cygdrive/c/mine/app/Pandoc/pandoc.exe"
+    alias wkhtmltoimage="/cygdrive/c/mine/app/wkhtmltopdf/bin/wkhtmltoimage"
+    alias wkhtmltopdf="/cygdrive/c/mine/app/wkhtmltopdf/bin/wkhtmltopdf"
     alias ping='/cygdrive/c/Windows/system32/ping'
-    alias hostname='/usr/lib/gettext/hostname'
-    alias cl='cat >/dev/clipboard'
+    alias ifconfig='ipconfig|iconv -f gbk -t utf-8'
     alias vb='(/cygdrive/c/Program\ Files/Oracle/VirtualBox/VirtualBox &)'
     alias vm='/cygdrive/c/Program\ Files/Oracle/VirtualBox/VBoxManage'
+    alias hostname='/usr/lib/gettext/hostname'
+
+    alias z='winpty powershell -NoLogo'
+    alias cl='cat >/dev/clipboard'
     alias vmup='vm startvm archlinux --type headless'
     alias vmdown='vm controlvm archlinux savestate'
     alias vmpause='vm controlvm archlinux pasue'
@@ -82,7 +93,6 @@ fi
 
 export PATH="$PATH:$HOME/.bin"
 export EDITOR=vim
-export BROWSER=firefox
 export PAGER='less'
 export GREP_COLOR='40;33;01'
 eval `dircolors $HOME/.dir_colors`

@@ -10,4 +10,4 @@ else
     word="$*"
 fi
 
-firefox "http://dict.youdao.com/search?q=$word"
+o "http://dict.youdao.com/search?q=$word"

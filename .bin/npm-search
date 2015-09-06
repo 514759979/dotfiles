@@ -1,3 +1,3 @@
 #!/bin/sh
 
-firefox "https://npm.taobao.org/browse/keyword/$@"
+o "https://npm.taobao.org/browse/keyword/$@"
