@@ -12,6 +12,7 @@ if [ -e /cygdrive ]; then
     alias ping='/cygdrive/c/Windows/system32/ping'
     alias hostname='/usr/lib/gettext/hostname'
     alias cl='cat >/dev/clipboard'
+    alias vb='(/cygdrive/c/Program\ Files/Oracle/VirtualBox/VirtualBox &)'
     alias vm='/cygdrive/c/Program\ Files/Oracle/VirtualBox/VBoxManage'
     alias vmup='vm startvm archlinux --type headless'
     alias vmdown='vm controlvm archlinux savestate'
