@@ -3,24 +3,24 @@
 export LANG="en_US.UTF-8"
 [ -n "$SHELL" ] || export SHELL="/bin/zsh"
 
-if [ -e /cygdrive ]; then
+if [ "$OSTYPE" = "msys" ]; then
     export TERM=xterm
     export PATH="$PATH:/mingw64/bin"
     export MSYS="winsymlinks:lnk"
 
-    alias adb="/cygdrive/c/mine/app/android-platform-tools/adb.exe"
-    alias ahk="/cygdrive/c/mine/app/AutoHotkey/AutoHotkey.exe"
-    alias fastboot="/cygdrive/c/mine/app/android-platform-tools/fastboot.exe"
-    alias mencoder="/cygdrive/c/mine/app/mplayer/mencoder"
-    alias mpv="/cygdrive/c/mine/app/mpv/mpv.exe"
-    alias notepad++="/cygdrive/c/mine/app/notepad++/notepad++"
-    alias pandoc="/cygdrive/c/mine/app/Pandoc/pandoc.exe"
-    alias wkhtmltoimage="/cygdrive/c/mine/app/wkhtmltopdf/bin/wkhtmltoimage"
-    alias wkhtmltopdf="/cygdrive/c/mine/app/wkhtmltopdf/bin/wkhtmltopdf"
-    alias ping='/cygdrive/c/Windows/system32/ping'
+    alias adb="/c/mine/app/android-platform-tools/adb.exe"
+    alias ahk="/c/mine/app/AutoHotkey/AutoHotkey.exe"
+    alias fastboot="/c/mine/app/android-platform-tools/fastboot.exe"
+    alias mencoder="/c/mine/app/mplayer/mencoder"
+    alias mpv="/c/mine/app/mpv/mpv.exe"
+    alias notepad++="/c/mine/app/notepad++/notepad++"
+    alias pandoc="/c/mine/app/Pandoc/pandoc.exe"
+    alias wkhtmltoimage="/c/mine/app/wkhtmltopdf/bin/wkhtmltoimage"
+    alias wkhtmltopdf="/c/mine/app/wkhtmltopdf/bin/wkhtmltopdf"
+    alias ping='/c/Windows/system32/ping'
     alias ifconfig='ipconfig|iconv -f gbk -t utf-8'
-    alias vb='(/cygdrive/c/Program\ Files/Oracle/VirtualBox/VirtualBox &)'
-    alias vm='/cygdrive/c/Program\ Files/Oracle/VirtualBox/VBoxManage'
+    alias vb='(/c/Program\ Files/Oracle/VirtualBox/VirtualBox &)'
+    alias vm='/c/Program\ Files/Oracle/VirtualBox/VBoxManage'
     alias hostname='/usr/lib/gettext/hostname'
 
     alias z='winpty powershell -NoLogo'
@@ -37,7 +37,7 @@ if [ -e /cygdrive ]; then
         ssh goreliu@127.0.0.1 "$@"
 
         [ $? -eq 255 -a $# -eq 0 ] && {
-            /cygdrive/c/Program\ Files/Oracle/VirtualBox/VBoxManage \
+            /c/Program\ Files/Oracle/VirtualBox/VBoxManage \
                 startvm archlinux --type headless
 
             while true; do
@@ -79,7 +79,7 @@ if [ -e /cygdrive ]; then
     }
 
     mplayer() {
-        /cygdrive/c/mine/app/mplayer/mplayer.exe "$@"
+        /c/mine/app/mplayer/mplayer.exe "$@"
         rm -r ~/mplayer
     }
 
