@@ -1,0 +1,7 @@
+#!/bin/bash
+
+[ "$OSTYPE" = "msys" ] && {
+    update_msys2_mirrorlist
+    mkpasswd | sed 's/bash/zsh/g' > /etc/passwd
+    mkgroup > /etc/group
+}
