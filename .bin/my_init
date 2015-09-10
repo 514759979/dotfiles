@@ -4,6 +4,7 @@
     update_msys2_mirrorlist
     mkpasswd | sed 's/bash/zsh/g' > /etc/passwd
     mkgroup > /etc/group
+    ln -f .pentadactylrc /c/Users/goreliu/.pentadactylrc
 }
 
 [ "$OSTYPE" = "linux-gnu" ] && {
