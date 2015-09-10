@@ -5,3 +5,11 @@
     mkpasswd | sed 's/bash/zsh/g' > /etc/passwd
     mkgroup > /etc/group
 }
+
+[ "$OSTYPE" = "linux-gnu" ] && {
+    cd /etc
+    ln -sf  ../usr/share/zoneinfo/Asia/Shanghai localtime
+    sudo sh -c 'echo en_US.UTF-8 UTF-8' >> /etc/locale.gen
+    sudo sh -c 'echo zh_CN-8 UTF-8' >> /etc/locale.gen
+    sudo locale-gen
+}
