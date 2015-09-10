@@ -1,0 +1,11 @@
+#!/bin/bash
+
+BASE_URL="http://mirror.bit.edu.cn"
+
+[ -n "$1" ] && {
+    BASE_URL="$1"
+}
+
+sed -i "1i Server = $BASE_URL/msys2/REPOS/MSYS2/\$arch" /etc/pacman.d/mirrorlist.msys
+sed -i "1i Server = $BASE_URL/msys2/REPOS/MINGW/x86_64" /etc/pacman.d/mirrorlist.mingw64
+sed -i "1i Server = $BASE_URL/msys2/REPOS/MINGW/i686" /etc/pacman.d/mirrorlist.mingw32
