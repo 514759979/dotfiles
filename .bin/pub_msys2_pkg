@@ -4,4 +4,8 @@ rm -rf pkg src
 mv "$1" c:/mine/app/msys2-pkgs
 
 cd c:/mine/app/msys2-pkgs
-./update.sh
+
+rm custom.db* custom.files*
+repo-add custom.db.tar.gz *.tar.*
+mv custom.db.tar.gz custom.db
+mv custom.files.tar.gz custom.files
