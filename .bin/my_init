@@ -5,6 +5,7 @@
     mkpasswd | sed 's/bash/zsh/g' > /etc/passwd
     mkgroup > /etc/group
     ln -f .pentadactylrc /c/Users/goreliu/.pentadactylrc
+    ln -sf c:/Windows/System32/drivers/etc/hosts /etc/hosts
 }
 
 [ "$OSTYPE" = "linux-gnu" ] && {
