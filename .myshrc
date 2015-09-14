@@ -107,7 +107,7 @@ fi
 
 export PATH="$PATH:$HOME/.bin"
 export EDITOR=vim
-export PAGER='less'
+export PAGER='less -irf'
 export GREP_COLOR='40;33;01'
 eval `dircolors $HOME/.dir_colors`
 
