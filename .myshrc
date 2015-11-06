@@ -83,6 +83,10 @@ if [ "$OSTYPE" = "msys" ]; then
         rm -r ~/mplayer
     }
 
+    mskill() {
+        taskkill //im "$1.exe" 2>&1 | iconv -f gb18030 -t utf-8 -c
+    }
+
     # note
     # enable ps1
     # srun Set-ExecutionPolicy RemoteSigned
