@@ -15,4 +15,4 @@ map -m i,c <C-z> <Pass>
 map -m n,i,c <C-w> <Pass>
 
 set editor="mintty -e vim -f"
-:autocmd LocationChange '^file:' :normal! <C-z>
+":autocmd LocationChange '^file:' :normal! <C-z>

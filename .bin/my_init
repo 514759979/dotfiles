@@ -6,6 +6,7 @@
     mkgroup > /etc/group
     ln -f .pentadactylrc /c/Users/goreliu/.pentadactylrc
     ln -sf c:/Windows/System32/drivers/etc/hosts /etc/hosts
+    ln -sf "$HOME/.pentadactylrc" c:/Users/goreliu/.pentadactylrc
 }
 
 [ "$OSTYPE" = "linux-gnu" ] && {
