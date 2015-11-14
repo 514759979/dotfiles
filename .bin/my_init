@@ -1,10 +1,11 @@
 #!/bin/bash
 
 [ "$OSTYPE" = "msys" ] && {
+    cd
     update_msys2_mirrorlist
     mkpasswd | sed 's/bash/zsh/g' > /etc/passwd
     mkgroup > /etc/group
-    ln -f .pentadactylrc /c/Users/goreliu/.pentadactylrc
+    ln -f .vimperatorrc /c/Users/goreliu/.vimperatorrc
     ln -sf c:/Windows/System32/drivers/etc/hosts /etc/hosts
     ln -sf "$HOME/.pentadactylrc" c:/Users/goreliu/.pentadactylrc
 }
