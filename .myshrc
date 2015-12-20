@@ -4,6 +4,7 @@ export LANG="en_US.UTF-8"
 [ -n "$SHELL" ] || export SHELL="/bin/zsh"
 
 if [ "$OSTYPE" = "msys" ]; then
+    chcp 437 >/dev/nul
     export TERM=xterm
     export PATH="$PATH:/mingw64/bin"
     export MSYS="winsymlinks:lnk"
@@ -84,7 +85,7 @@ if [ "$OSTYPE" = "msys" ]; then
     }
 
     mskill() {
-        taskkill //im "$1.exe" 2>&1 | iconv -f gb18030 -t utf-8 -c
+        taskkill //im "$1.exe" 2>&1
     }
 
     # note
