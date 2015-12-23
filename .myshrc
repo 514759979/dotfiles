@@ -4,7 +4,7 @@ export LANG="en_US.UTF-8"
 [ -n "$SHELL" ] || export SHELL="/bin/zsh"
 
 if [ "$OSTYPE" = "msys" ]; then
-    chcp 437 >/dev/nul
+    chcp 437 &>/dev/nul
     export TERM=xterm
     export PATH="$PATH:/mingw64/bin"
     export MSYS="winsymlinks:lnk"
