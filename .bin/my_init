@@ -5,9 +5,8 @@
     update_msys2_mirrorlist
     mkpasswd | sed 's/bash/zsh/g' > /etc/passwd
     mkgroup > /etc/group
-    ln -f .vimperatorrc /c/Users/goreliu/.vimperatorrc
     ln -sf c:/Windows/System32/drivers/etc/hosts /etc/hosts
-    ln -sf "$HOME/.pentadactylrc" c:/Users/goreliu/.pentadactylrc
+    ln -sf "$HOME/.vimperatorrc" c:/Users/goreliu/.vimperatorrc
 }
 
 [ "$OSTYPE" = "linux-gnu" ] && {
