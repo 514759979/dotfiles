@@ -13,9 +13,13 @@ if [ "$OSTYPE" = "msys" ]; then
     alias ahk="/c/mine/app/AutoHotkey/AutoHotkey.exe"
     alias fastboot="/c/mine/app/android-platform-tools/fastboot.exe"
     alias mencoder="/c/mine/app/mplayer/mencoder"
-    alias mpv="/c/mine/app/mpv/mpv.exe"
+    alias mplayer="HOME=/t /c/mine/app/mplayer/mplayer.exe"
+    alias mpv="winpty /c/mine/app/mpv/mpv.exe"
     alias notepad++="/c/mine/app/notepad++/notepad++"
     alias pandoc="/c/mine/app/Pandoc/pandoc.exe"
+    alias ffmpeg="/c/mine/app/ffmpeg/bin/ffmpeg.exe"
+    alias ffplay="/c/mine/app/ffmpeg/bin/ffplay.exe"
+    alias ffprobe="/c/mine/app/ffmpeg/bin/ffprobe.exe"
     alias wkhtmltoimage="/c/mine/app/wkhtmltopdf/bin/wkhtmltoimage"
     alias wkhtmltopdf="/c/mine/app/wkhtmltopdf/bin/wkhtmltopdf"
     alias ping='/c/Windows/system32/ping'
@@ -79,13 +83,8 @@ if [ "$OSTYPE" = "msys" ]; then
         powershell "get-process $@"
     }
 
-    mplayer() {
-        /c/mine/app/mplayer/mplayer.exe "$@"
-        rm -r ~/mplayer
-    }
-
     mskill() {
-        taskkill //im "$1.exe" 2>&1
+        taskkill //f //im "$1.exe" 2>&1
     }
 
     # note
