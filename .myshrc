@@ -5,7 +5,7 @@ export LANG="en_US.UTF-8"
 
 if [ "$OSTYPE" = "msys" ]; then
     chcp 437 &>/dev/nul
-    export TERM=xterm
+    export TERM="xterm"
     export PATH="$PATH:/mingw64/bin"
     export MSYS="winsymlinks:lnk"
 
@@ -19,13 +19,12 @@ if [ "$OSTYPE" = "msys" ]; then
     alias pandoc="/c/mine/app/Pandoc/pandoc.exe"
     alias wkhtmltoimage="/c/mine/app/wkhtmltopdf/bin/wkhtmltoimage"
     alias wkhtmltopdf="/c/mine/app/wkhtmltopdf/bin/wkhtmltopdf"
-    alias ping='/c/Windows/system32/ping'
-    alias ifconfig='ipconfig|iconv -f gbk -t utf-8'
+    alias ifconfig='ipconfig | iconv -f gbk -t utf-8'
     alias vb='(/c/Program\ Files/Oracle/VirtualBox/VirtualBox &)'
     alias vm='/c/Program\ Files/Oracle/VirtualBox/VBoxManage'
     alias hostname='/usr/lib/gettext/hostname'
-    alias msiextract='msiexec //qb //a'
 
+    alias msiextract='msiexec //qb //a'
     alias z='winpty powershell -NoLogo'
     alias cl='cat >/dev/clipboard'
     alias vmup='vm startvm archlinux --type headless'
@@ -411,15 +410,6 @@ elif type emerge &>/dev/null; then
     alias pq='equery l'
     alias psi='emerge -pv'
     alias pli='sudo emerge -k'
-
-elif type jumbo &>/dev/null; then
-    alias p='jumbo search'
-    alias pi='jumbo install'
-    alias pp='jumbo remove'
-    alias pql='jumbo list-files'
-    alias pli='jumbo local-install'
-    alias pud='jumbo update'
-    alias pqd='jumbo check-unused'
 fi
 
 alias h='history'
