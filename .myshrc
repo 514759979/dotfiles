@@ -24,6 +24,7 @@ if [ "$OSTYPE" = "msys" ]; then
     alias vb='(/c/Program\ Files/Oracle/VirtualBox/VirtualBox &)'
     alias vm='/c/Program\ Files/Oracle/VirtualBox/VBoxManage'
     alias hostname='/usr/lib/gettext/hostname'
+    alias msiextract='msiexec //qb //a'
 
     alias z='winpty powershell -NoLogo'
     alias cl='cat >/dev/clipboard'
