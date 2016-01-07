@@ -1,0 +1,14 @@
+#!/bin/sh
+
+[ -n "$1" ] || exit 1
+
+git clone ssh://aur@aur.archlinux.org/$1.git
+cd $1
+
+wget http://pkgbuild.com/git/aur-mirror.git/plain/$1/PKGBUILD
+mksrcinfo
+
+git add PKGBUILD .SRCINFO
+
+echo download other files
+echo git push origin master
