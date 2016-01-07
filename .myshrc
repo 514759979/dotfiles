@@ -14,6 +14,7 @@ if [ "$OSTYPE" = "msys" ]; then
     alias fastboot="/c/mine/app/android-platform-tools/fastboot.exe"
     alias mencoder="/c/mine/app/AMT/AMT_Binaries/mplayer-svn-37569/mencoder.exe"
     alias mplayer="HOME=/t /c/mine/app/AMT/AMT_Binaries/mplayer-svn-37569/AMT-MPlayer.exe"
+    alias ffmpeg="/c/mine/app/Audacity/ffmpeg/ffmpeg"
     alias mpv="winpty /c/mine/app/mpv/mpv.exe"
     alias notepad++="/c/mine/app/notepad++/notepad++"
     alias pandoc="/c/mine/app/Pandoc/pandoc.exe"
