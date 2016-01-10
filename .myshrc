@@ -6,7 +6,8 @@ export LANG="en_US.UTF-8"
 if [ "$OSTYPE" = "msys" ]; then
     chcp 437 &>/dev/nul
     export TERM="xterm"
-    export PATH="$PATH:/mingw64/bin"
+    # Clean PATH in /etc/profile first.
+    export PATH="/bin:/mingw64/bin:$PATH"
     export MSYS="winsymlinks:lnk"
 
     alias adb="/c/mine/app/android-platform-tools/adb.exe"
