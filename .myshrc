@@ -11,6 +11,7 @@ if [ "$OSTYPE" = "msys" ]; then
 
     alias adb="/c/mine/app/android-platform-tools/adb.exe"
     alias ahk="/c/mine/app/AutoHotkey/AutoHotkey.exe"
+    alias ahk2exe="/c/mine/app/AutoHotkey/Compiler/Ahk2Exe.exe"
     alias fastboot="/c/mine/app/android-platform-tools/fastboot.exe"
     alias mencoder="/c/mine/app/AMT/AMT_Binaries/mplayer-svn-37569/mencoder.exe"
     alias mplayer="HOME=/t winpty /c/mine/app/AMT/AMT_Binaries/mplayer-svn-37569/AMT-MPlayer.exe -nofontconfig"
@@ -25,7 +26,6 @@ if [ "$OSTYPE" = "msys" ]; then
     alias vm='/c/Program\ Files/Oracle/VirtualBox/VBoxManage'
     alias hostname='/usr/lib/gettext/hostname'
 
-    alias msiextract='msiexec //qb //a'
     alias z='winpty powershell -NoLogo'
     alias cl='cat >/dev/clipboard'
     alias vmup='vm startvm archlinux --type headless'
