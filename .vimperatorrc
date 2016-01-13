@@ -3,6 +3,7 @@ set previouspattern=上一,上页,前一,\b(prev|previous)\b,^(<|‹|<<|‹‹|�
 
 map J gT
 map K gt
+map x d
 "map . d
 
 set editor="C:/mine/app/notepad++/notepad++.exe"
