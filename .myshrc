@@ -26,6 +26,7 @@ if [ "$OSTYPE" = "msys" ]; then
     alias vb='(/c/Program\ Files/Oracle/VirtualBox/VirtualBox &)'
     alias vm='/c/Program\ Files/Oracle/VirtualBox/VBoxManage'
     alias hostname='/usr/lib/gettext/hostname'
+    alias tc='(/c/mine/app/totalcmd/TOTALCMD.EXE $PWD &)'
 
     alias z='winpty powershell -NoLogo'
     alias cl='cat >/dev/clipboard'
@@ -36,6 +37,7 @@ if [ "$OSTYPE" = "msys" ]; then
     alias vmhalt='vm controlvm archlinux poweroff'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
     alias vcl='vs cat /tmp/.clipboard 2>/dev/null | cl'
+    alias tl='tasklist'
 
     vs() {
         ssh goreliu@127.0.0.1 "$@"
@@ -74,15 +76,7 @@ if [ "$OSTYPE" = "msys" ]; then
         srun Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
     }
 
-    get-service() {
-        powershell "get-service $@"
-    }
-
-    get-process() {
-        powershell "get-process $@"
-    }
-
-    mskill() {
+    tk() {
         taskkill //f //im "$1.exe" 2>&1
     }
 

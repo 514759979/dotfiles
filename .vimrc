@@ -26,7 +26,7 @@ syntax enable
 filetype plugin indent on
 
 "{{{ taglist
-ca tl Tlist
+"ca tl Tlist
 let Tlist_File_Fold_Auto_Close=1
 let Tlist_Auto_Open = 1
 let Tlist_Show_One = 1
