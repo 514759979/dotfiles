@@ -7,7 +7,7 @@ if [ "$OSTYPE" = "msys" ]; then
     chcp 437 &>/dev/nul
     export TERM="xterm"
     # Clean PATH in /etc/profile first.
-    export PATH="/bin:/mingw64/bin:$PATH"
+    export PATH="/usr/bin:/mingw64/bin:$PATH"
     export MSYS="winsymlinks:lnk"
 
     alias adb="/c/mine/app/android-platform-tools/adb.exe"
