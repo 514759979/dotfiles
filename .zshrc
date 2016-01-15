@@ -1,3 +1,5 @@
+#local start_time=$(date "+%s.%N")
+
 source $HOME/.myshrc
 
 #{{{ 命令提示符、标题栏、任务栏样式
@@ -248,3 +250,5 @@ compdef findx=sudo
 #fi
 
 #}}}
+
+#echo $(( $(date "+%s.%N") - start_time))
