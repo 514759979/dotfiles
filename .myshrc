@@ -28,6 +28,7 @@ if [ "$OSTYPE" = "msys" ]; then
     alias hostname='/usr/lib/gettext/hostname'
     alias tc='(/c/mine/app/totalcmd/TOTALCMD.EXE $PWD &)'
     alias tl='tasklist'
+    alias psa='ps -W'
 
     alias z='winpty powershell -NoLogo'
     alias cl='cat >/dev/clipboard'
@@ -96,6 +97,7 @@ else
     alias u='sudo umount'
     alias se='sudo systemctl'
     alias czip="export UNZIP='-O CP936'"
+    alias psa='ps aux'
 
     #zcd() {
     #    cd ~/.avfs$PWD/$@#
@@ -444,7 +446,6 @@ alias u16cat='iconv -f utf-16 -t utf-8 -c'
 alias dub='du -sbh'
 alias dud='du --max-depth 1 -bh '
 alias psg='ps aux|grep -v grep|grep'
-alias psa='ps aux'
 alias pst='pstree'
 alias mt="top -u $USERNAME"
 alias ctime='time cat'
