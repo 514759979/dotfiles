@@ -7,7 +7,7 @@
     mkgroup > /etc/group
     ln -sf /usr/share/zoneinfo/Asia/Shanghai /usr/share/zoneinfo/localtime
     ln -sf c:/Windows/System32/drivers/etc/hosts /etc/hosts
-    ln -sf "$HOME/.vimperatorrc" c:/Users/goreliu/.vimperatorrc
+    ln -f "$HOME/.vimperatorrc" c:/Users/goreliu/.vimperatorrc
 }
 
 [ "$OSTYPE" = "linux-gnu" ] && {
