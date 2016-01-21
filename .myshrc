@@ -82,11 +82,11 @@ if [ "$OSTYPE" = "msys" ]; then
         taskkill //f //im "$1.exe" 2>&1
     }
 
-    #tmux() {
-    #    /usr/bin/tmux
-    #
-    #    [ $# -eq 0 ] && rm /tmp/tmux-*/default 2>/dev/null
-    #}
+    tmux() {
+        /usr/bin/tmux
+    
+        [ $# -eq 0 ] && rm /tmp/tmux-*/default 2>/dev/null
+    }
 
     # note
     # enable ps1
@@ -446,7 +446,7 @@ alias gcat='iconv -f utf-8 -t gb18030 -c'
 alias u16cat='iconv -f utf-16 -t utf-8 -c'
 alias dub='du -sbh'
 alias dud='du --max-depth 1 -bh '
-alias psg='ps aux|grep -v grep|grep'
+alias psg='psa|grep -v grep|grep'
 alias pst='pstree'
 alias mt="top -u $USERNAME"
 alias ctime='time cat'
