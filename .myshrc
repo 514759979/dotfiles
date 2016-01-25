@@ -30,6 +30,7 @@ if [ "$OSTYPE" = "msys" ]; then
     alias tc='(/c/mine/app/totalcmd/TOTALCMD.EXE $PWD &)'
     alias tl='tasklist'
     alias psa='ps -W'
+    alias flve='/c/mine/app/FLV_Extract/FLVExtractCL.exe'
 
     alias z='winpty powershell -NoLogo'
     alias cl='cat >/dev/clipboard'
