@@ -31,6 +31,8 @@ if [ "$OSTYPE" = "msys" ]; then
     alias tl='tasklist'
     alias psa='ps -W'
     alias flve='/c/mine/app/FLV_Extract/FLVExtractCL.exe'
+    alias mgcc='/mingw64/bin/gcc'
+    alias mg++='/mingw64/bin/g++'
 
     alias z='winpty powershell -NoLogo'
     alias cl='cat >/dev/clipboard'
