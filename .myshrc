@@ -19,7 +19,7 @@ if [ "$OSTYPE" = "msys" ]; then
     alias mplayer="HOME=/t winpty /c/mine/app/AMT/AMT_Binaries/mplayer-svn-37569/AMT-MPlayer.exe -nofontconfig"
     alias ffmpeg="/c/mine/app/Audacity/ffmpeg/ffmpeg"
     alias mpv="winpty /c/mine/app/mpv/mpv.exe"
-    alias notepad++="/c/mine/app/notepad++/notepad++"
+    alias np="/c/mine/app/notepad++/notepad++"
     alias pandoc="/c/mine/app/Pandoc/pandoc"
     alias wkhtmltoimage="/c/mine/app/wkhtmltopdf/bin/wkhtmltoimage"
     alias wkhtmltopdf="/c/mine/app/wkhtmltopdf/bin/wkhtmltopdf"
