@@ -1,0 +1,15 @@
+#!/bin/bash
+
+[ "$(uname -o)" = 'Msys' ] || {
+    exec sudo systemctl start sshd
+}
+
+grep '^sshd' /etc/passwd >/dev/null || {
+    echo 'sshd:*:2000:2000::/tmp:/usr/bin/false' >> /etc/passwd
+}
+
+[ -e '/etc/ssh/ssh_host_rsa_key' ] || {
+    ssh-keygen -A
+}
+
+(/usr/bin/sshd.exe -u sshd &)
