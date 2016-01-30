@@ -19,17 +19,17 @@ precmd () {
 }
 
 case $TERM in
-	(*screen*)
-	preexec() {
+    (*screen*)
+    preexec() {
         sctitle "%30>..>$1%< <";
     }
-	;;
+    ;;
 
-	(*xterm*|*rxvt*)
-	preexec() {
+    (*xterm*|*rxvt*)
+    preexec() {
         print -Pn "\e]0;%~$ ${1//\\/\\\\}\a"
     }
-	;;
+    ;;
 esac
 #}}}
 
@@ -123,8 +123,8 @@ autoload -U compinit
 compinit
 
 _force_rehash() {
-  (( CURRENT == 1 )) && rehash
-  return 1	# Because we didn't really complete anything
+    (( CURRENT == 1 )) && rehash
+    return 1    # Because we didn't really complete anything
 }
 zstyle ':completion:::::' completer _force_rehash _complete _approximate
 
