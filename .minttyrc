@@ -12,3 +12,4 @@ BackspaceSendsBS=yes
 Scrollbar=none
 ClicksTargetApp=yes
 Printer=Microsoft Print to PDF
+ConfirmExit=no
