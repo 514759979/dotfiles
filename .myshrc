@@ -46,7 +46,7 @@ if [ "$OSTYPE" = "msys" ]; then
     alias vcl='vs cat /tmp/.clipboard 2>/dev/null | cl'
 
     vst() {
-        ssh -t $USERNAME@127.0.0.1 "$@"
+        ssh -t $USERNAME@127.0.0.1 -p 50247 "$@"
     }
 
     vs() {
@@ -61,7 +61,7 @@ if [ "$OSTYPE" = "msys" ]; then
             args="MYSSH=1 bash -lc \"$@\""
         }
 
-        ssh $USERNAME@127.0.0.1 "$args"
+        ssh $USERNAME@127.0.0.1 -p 50247 "$args"
 
         ret=$?
 
@@ -70,7 +70,7 @@ if [ "$OSTYPE" = "msys" ]; then
                 startvm archlinux --type headless
 
             while true; do
-                ssh $USERNAME@127.0.0.1 "$args"
+                ssh $USERNAME@127.0.0.1 -p 50247 "$args"
                 ret=$?
                 [ $ret -eq 0 ] && {
                     break
