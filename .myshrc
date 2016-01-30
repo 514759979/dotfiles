@@ -106,7 +106,7 @@ if [ "$OSTYPE" = "msys" ]; then
     }
 
     tmux() {
-        /usr/bin/tmux
+        /usr/bin/tmux "$@"
     
         [ $# -eq 0 ] && rm /tmp/tmux-*/default 2>/dev/null
     }
