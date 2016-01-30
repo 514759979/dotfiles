@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+[ $(pgrep mintty|wc -l) -ge 2 ] && cd && exec zsh
+
 print -Pn "\e]0;goreliu\a"
 preexec() {}
 
