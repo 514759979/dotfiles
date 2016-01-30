@@ -2,7 +2,8 @@
 
 [ $(pgrep mintty|wc -l) -ge 2 ] && cd && exec zsh
 
-print -Pn "\e]0;goreliu\a"
+#print -Pn "\e]0;goreliu\a"
+print -Pn "\e]0;\a"
 preexec() {}
 
 pgrep tmux > /dev/null
