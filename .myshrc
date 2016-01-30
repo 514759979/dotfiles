@@ -82,7 +82,7 @@ if [ "$OSTYPE" = "msys" ]; then
     }
 
     vcp() {
-        scp -r "$@" USERNAME@127.0.0.1:~/
+        scp -r "$@" $USERNAME@127.0.0.1:~/
     }
 
     sudo() {
