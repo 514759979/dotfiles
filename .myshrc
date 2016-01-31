@@ -7,7 +7,7 @@ export LC_TIME="C"
 
 if [ "$OSTYPE" = "msys" ]; then
     chcp 437 &>/dev/nul
-    export TERM="screen"
+    [ -n "$TMUX" ] && export TERM="screen"
     export PATH="/usr/bin:/mingw64/bin:$PATH"
     export MSYS="winsymlinks:lnk"
 
