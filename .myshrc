@@ -393,6 +393,7 @@ elif type pacman &>/dev/null; then
     alias pae='pacman --color auto -D --asexplicit'
     alias pad='pacman --color auto -D --asdeps'
     alias pcl='echo y"\n"y | pacman --color auto -Scc'
+    alias pfy='pkgfile -u'
 
     pqii() {
         cat /var/lib/pacman/local/$1-*/install
