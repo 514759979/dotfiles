@@ -355,6 +355,7 @@ if type yaourt &>/dev/null; then
     alias pad='p -D --asdeps'
     alias pcl='echo y"\n"y | p -Scc'
     alias pbs='p -G'
+    alias pfy='sudo pkgfile -uz'
 
     y() {
         pacman -Ss $*
