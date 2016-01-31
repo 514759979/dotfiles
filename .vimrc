@@ -81,8 +81,8 @@ autocmd FileType c set makeprg=gcc\ -g\ -Wall\ %\ -o\ %:t:r
 autocmd FileType cpp set makeprg=g++\ -g\ -std=c++11\ -Wall\ %\ -o\ %:t:r
 autocmd FileType go set makeprg=go\ build\ %
 au BufRead,BufNewFile *.txt setlocal ft=txt
-nnoremap <F9> :w<cr>:make<cr>:cw<cr>
-nnoremap <F10> :!./%:t:r<cr>
+"nnoremap <F9> :w<cr>:make<cr>:cw<cr>
+nnoremap <F9> :!./%:t:r<cr>
 nnoremap <F5> :!./%<cr>
 nnoremap <C-a> ggVG
 ca qq q!
