@@ -331,6 +331,10 @@ lsproc() {
   done
 }
 
+exaac() {
+    ffmpeg -i $1 -vn -sn -c:a copy -y -map 0:a:0 $1.aac
+}
+
 if type yaourt &>/dev/null; then
     alias p='yaourt'
     alias pi='p -S'
