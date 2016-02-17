@@ -2,7 +2,7 @@
 
 export LANG="en_US.UTF-8"
 export LC_TIME="C"
-[ -n "$USERNAME" ] || export USERNAME="goreliu"
+[ -n "$USER" ] || export USER="goreliu"
 [ -n "$SHELL" ] || export SHELL="/bin/zsh"
 
 if [ "$OSTYPE" = "msys" ]; then
@@ -46,7 +46,7 @@ if [ "$OSTYPE" = "msys" ]; then
     alias vcl='vs cat /tmp/.clipboard 2>/dev/null | cl'
 
     vst() {
-        ssh -t $USERNAME@127.0.0.1 -p 50247 "$@"
+        ssh -t $USER@127.0.0.1 -p 50247 "$@"
     }
 
     vs() {
@@ -61,7 +61,7 @@ if [ "$OSTYPE" = "msys" ]; then
             args="MYSSH=1 bash -lc \"$@\""
         }
 
-        ssh $USERNAME@127.0.0.1 -p 50247 "$args"
+        ssh $USER@127.0.0.1 -p 50247 "$args"
 
         ret=$?
 
@@ -70,7 +70,7 @@ if [ "$OSTYPE" = "msys" ]; then
                 startvm archlinux --type headless
 
             while true; do
-                ssh $USERNAME@127.0.0.1 -p 50247 "$args"
+                ssh $USER@127.0.0.1 -p 50247 "$args"
                 ret=$?
                 [ $ret -eq 0 ] && {
                     break
@@ -83,7 +83,7 @@ if [ "$OSTYPE" = "msys" ]; then
     }
 
     vcp() {
-        scp -P 50247 -r "$@" $USERNAME@127.0.0.1:~/
+        scp -P 50247 -r "$@" $USER@127.0.0.1:~/
     }
 
     sudo() {
@@ -480,7 +480,7 @@ alias dub='du -sbh'
 alias dud='du --max-depth 1 -bh '
 alias psg='psa|grep -v grep|grep'
 alias pst='pstree'
-alias mt="top -u $USERNAME"
+alias mt="top -u $USER"
 alias ctime='time cat'
 alias wi='which'
 alias rpd='rm -r $PWD;cd ..'
