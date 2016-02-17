@@ -160,9 +160,11 @@ EXEC 01;32                   # This is for files with execute permission:
 .svgz 00;38;05;33
 .mng  00;38;05;33
 .pcx  00;38;05;33
+.psd  00;38;05;33
 
 # audio formats
 .aac  00;38;05;132
+.m4a  00;38;05;132
 .au   00;38;05;132
 .flac 00;38;05;132
 .ape  00;38;05;132
@@ -214,6 +216,7 @@ EXEC 01;32                   # This is for files with execute permission:
 .ogx  00;35
 .3gp  00;35
 .mts  00;35
+.ts  00;35
 
 # Document files
 .pdf   00;32
