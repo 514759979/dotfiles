@@ -1,0 +1,10 @@
+#!/bin/bash
+
+ip="$1"
+
+[ -n "$ip" ] || {
+    ip="$(/usr/lib/gettext/hostname -i | tail -n 1 | sed 's/\[//g; s/\]//g')"
+}
+
+w3m -dump "http://www.ip138.com/ips1388.asp?ip=$ip&action=2" \
+    | grep • |sed 's/^ *//g'
