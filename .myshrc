@@ -35,6 +35,7 @@ if [ "$OSTYPE" = "msys" ]; then
     alias mg++='/mingw64/bin/g++'
     alias mp4box='/c/mine/app/小丸工具箱/tools/mp4box'
     alias mi='mintty'
+    alias mediainfo='/c/mine/app/MediaInfo_CLI/MediaInfo.exe'
 
     alias z='winpty powershell -NoLogo'
     alias cl='cat >/dev/clipboard'
