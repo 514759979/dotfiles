@@ -17,15 +17,16 @@ if [ "$OSTYPE" = "msys" ]; then
     alias fastboot="/c/mine/app/android-platform-tools/fastboot.exe"
     alias mencoder="/c/mine/app/AMT/AMT_Binaries/mplayer-svn-37569/mencoder.exe"
     alias mplayer="HOME=/t winpty /c/mine/app/AMT/AMT_Binaries/mplayer-svn-37569/AMT-MPlayer.exe -nofontconfig"
-    alias ffmpeg="/c/mine/app/Audacity/ffmpeg/ffmpeg"
+    # alias ffmpeg="/c/mine/app/Audacity/ffmpeg/ffmpeg"
+    # alias ffmpeg="/c/mine/app/小丸工具箱/tools/ffmpeg.exe"
     alias mpv="winpty /c/mine/app/mpv/mpv.exe"
-    alias np="/c/mine/app/notepad++/notepad++"
-    alias pandoc="/c/mine/app/Pandoc/pandoc"
-    alias wkhtmltoimage="/c/mine/app/wkhtmltopdf/bin/wkhtmltoimage"
-    alias wkhtmltopdf="/c/mine/app/wkhtmltopdf/bin/wkhtmltopdf"
+    alias np="/c/mine/app/notepad++/notepad++.exe"
+    alias pandoc="/c/mine/app/Pandoc/pandoc.exe"
+    alias wkhtmltoimage="/c/mine/app/wkhtmltopdf/bin/wkhtmltoimage.exe"
+    alias wkhtmltopdf="/c/mine/app/wkhtmltopdf/bin/wkhtmltopdf.exe"
     alias ifconfig='ipconfig | iconv -f gbk -t utf-8'
-    alias vb='(/c/Program\ Files/Oracle/VirtualBox/VirtualBox &)'
-    alias vm='/c/Program\ Files/Oracle/VirtualBox/VBoxManage'
+    alias vb='(/c/Program\ Files/Oracle/VirtualBox/VirtualBox.exe &)'
+    alias vm='/c/Program\ Files/Oracle/VirtualBox/VBoxManage.exe'
     alias hostname='/usr/lib/gettext/hostname'
     alias tc='(/c/mine/app/totalcmd/TOTALCMD.EXE $PWD &)'
     alias tl='tasklist'
@@ -33,10 +34,10 @@ if [ "$OSTYPE" = "msys" ]; then
     alias flve='/c/mine/app/FLV_Extract/FLVExtractCL.exe'
     alias mgcc='/mingw64/bin/gcc'
     alias mg++='/mingw64/bin/g++'
-    alias mp4box='/c/mine/app/小丸工具箱/tools/mp4box'
+    alias mp4box='/c/mine/app/小丸工具箱/tools/mp4box.exe'
     alias mi='mintty'
     alias mediainfo='/c/mine/app/MediaInfo_CLI/MediaInfo.exe'
-    alias cv='cygstart mintty -e vim '
+    alias cv='cygstart mintty -e vim'
 
     alias z='winpty powershell -NoLogo'
     alias cl='cat >/dev/clipboard'
@@ -216,12 +217,6 @@ x() {
 }
 
 # atool end
-
-#mcat() {
-#    markdown_py $1 -f /tmp/.html
-#    w3m /tmp/.html
-#    rm /tmp/.html
-#}
 
 findx() {
     find -print0 | xargs -0 $@
