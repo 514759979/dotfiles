@@ -1,0 +1,5 @@
+#!/bin/bash
+
+. ~/.myshrc
+wget https://raw.githubusercontent.com/racaljk/hosts/master/hosts
+sudo mv host /etc/
