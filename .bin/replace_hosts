@@ -2,4 +2,4 @@
 
 . ~/.myshrc
 wget https://raw.githubusercontent.com/racaljk/hosts/master/hosts
-sudo mv host /etc/
+sudo mv hosts /etc/
