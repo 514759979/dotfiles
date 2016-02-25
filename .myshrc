@@ -29,6 +29,7 @@ if [ "$OSTYPE" = "msys" ]; then
     alias vm='/c/Program\ Files/Oracle/VirtualBox/VBoxManage.exe'
     alias hostname='/usr/lib/gettext/hostname'
     alias tc='(/c/mine/app/totalcmd/TOTALCMD.EXE $PWD &)'
+    alias fm='(/c/mine/app/totalcmd/TOTALCMD.EXE $PWD &)'
     alias tl='tasklist'
     alias psa='ps -W'
     alias flve='/c/mine/app/FLV_Extract/FLVExtractCL.exe'
@@ -129,6 +130,7 @@ else
     alias se='sudo systemctl'
     alias czip="export UNZIP='-O CP936'"
     alias psa='ps aux'
+    alias fm='ranger'
 
     #zcd() {
     #    cd ~/.avfs$PWD/$@#
@@ -498,7 +500,6 @@ alias vd='vimdiff'
 alias wl='wc -l'
 alias di='colordiff'
 alias frm='free -m'
-alias fm='ranger'
 alias d='tree'
 alias gmc='gm convert'
 alias jl='ll /dev/sd*'
