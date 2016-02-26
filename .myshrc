@@ -13,6 +13,7 @@ if [ "$OSTYPE" = "msys" ]; then
 
     alias adb="/c/mine/app/android-platform-tools/adb.exe"
     alias ahk="/c/mine/app/AutoHotkey/AutoHotkey.exe"
+    alias ahk32="/c/mine/app/AutoHotkey/AutoHotkeyU32.exe"
     alias ahk2exe="/c/mine/app/AutoHotkey/Compiler/Ahk2Exe.exe"
     alias fastboot="/c/mine/app/android-platform-tools/fastboot.exe"
     alias mencoder="/c/mine/app/AMT/AMT_Binaries/mplayer-svn-37569/mencoder.exe"
