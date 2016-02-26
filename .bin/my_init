@@ -13,8 +13,15 @@
 
 [ "$OSTYPE" = "linux-gnu" ] && {
     cd /etc
-    ln -sf ../usr/share/zoneinfo/Asia/Shanghai localtime
-    sudo sh -c 'echo en_US.UTF-8 UTF-8' >> /etc/locale.gen
-    sudo sh -c 'echo zh_CN-8 UTF-8' >> /etc/locale.gen
-    sudo locale-gen
+    sudo ln -sf ../usr/share/zoneinfo/Asia/Shanghai localtime
+
+    [ -e /etc/hostname ] || {
+        sudo sh -c 'echo my-pc-linux > /etc/hostname'
+    }
+
+    grep '#zh_CN.UTF-8 UTF-8' /etc/locale.gen >/dev/null && {
+        sudo sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
+        sudo sed -i 's/#zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/g' /etc/locale.gen
+        sudo locale-gen
+    }
 }
