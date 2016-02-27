@@ -8,6 +8,7 @@
     ln -sf /usr/share/zoneinfo/Asia/Shanghai /usr/share/zoneinfo/localtime
     ln -sf c:/Windows/System32/drivers/etc/hosts /etc/hosts
     ln -f "$HOME/.vimperatorrc" c:/Users/goreliu/.vimperatorrc
+    ln -sf /c/mine /
 }
 
 [ "$OSTYPE" = "linux-gnu" ] && {
