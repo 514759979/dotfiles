@@ -42,6 +42,7 @@ if [ "$OSTYPE" = "msys" ]; then
     alias mi='mintty'
     alias mediainfo='/mine/app/MediaInfo_CLI/MediaInfo.exe'
     alias cv='cygstart mintty -e vim'
+    alias di='/mine/app/WinMerge/WinMergeU.exe'
 
     alias z='winpty powershell -NoLogo'
     alias cl='cat >/dev/clipboard'
@@ -134,6 +135,7 @@ else
     alias czip="export UNZIP='-O CP936'"
     alias psa='ps aux'
     alias fm='ranger'
+    alias di='colordiff'
 
     #zcd() {
     #    cd ~/.avfs$PWD/$@#
@@ -501,7 +503,6 @@ alias m='man'
 alias q='exit'
 alias vd='vimdiff'
 alias wl='wc -l'
-alias di='colordiff'
 alias frm='free -m'
 alias d='tree'
 alias gmc='gm convert'
