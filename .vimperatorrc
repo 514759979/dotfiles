@@ -5,6 +5,7 @@ map J gT
 map K gt
 map x d
 "map . d
+map <C-a> <C-v><C-a>
 
 set editor="C:/mine/app/notepad++/notepad++.exe"
 
