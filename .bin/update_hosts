@@ -3,3 +3,4 @@
 . ~/.myshrc
 wget https://raw.githubusercontent.com/racaljk/hosts/master/hosts
 sudo mv hosts /c/Windows/System32/drivers/etc/hosts
+ln -sf /c/Windows/System32/drivers/etc/hosts /etc/hosts
