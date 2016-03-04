@@ -2,3 +2,4 @@
 
 netsh wlan show hostednetwork
 arp -a | grep -F 192.168.137 | grep -Fv .255
+arp -a | grep -F 192.168.191 | grep -Fv .255
