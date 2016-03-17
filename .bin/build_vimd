@@ -6,6 +6,7 @@ mkdir VimDesktop
 cp * VimDesktop -r 2>/dev/null
 rm VimDesktop/vimd.ini
 rm -rf VimDesktop/VimDesktop
+rm -rf VimDesktop/doc/vimdesktop.wiki/.git
 
 apack VimDesktop-$1.zip VimDesktop
 rm -rf VimDesktop
