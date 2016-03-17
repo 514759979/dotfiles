@@ -11,4 +11,4 @@ rm -rf VimDesktop/doc/vimdesktop.wiki/.git
 apack VimDesktop-$1.zip VimDesktop
 rm -rf VimDesktop
 mv VimDesktop-$1.zip ~/tmp
-cp doc/HISTORY.md ~/tmp/VimDesktop更新历史.txt
+cp doc/vimdesktop.wiki/HISTORY.md ~/tmp/VimDesktop更新历史.txt
