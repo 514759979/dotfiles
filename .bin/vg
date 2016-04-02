@@ -3,16 +3,16 @@
 IFS=
 
 print_cg() {
-  cat /tmp/.cg
+  cat ~/.cache/.cg
   exit
 }
 
 [ $# -eq 1 ] || print_cg
-[ $1 -le $(( $(cat /tmp/.cg | wc -l) - 2 )) ] 2>/dev/null || print_cg
+[ $1 -le $(( $(cat ~/.cache/.cg | wc -l) - 2 )) ] 2>/dev/null || print_cg
 
-cd $(head -n 1 /tmp/.cg)
+cd $(head -n 1 ~/.cache/.cg)
 
-file=$(sed -n $[$1+2]p /tmp/.cg | perl -pe 's/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g' | col -b)
+file=$(sed -n $[$1+2]p ~/.cache/.cg | perl -pe 's/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g' | col -b)
 filename="$(echo $file | cut -f2 | cut -f1 -d:)"
 echo $filename
 line=$(echo $file | cut -f2 -d:)
