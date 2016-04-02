@@ -1,8 +1,6 @@
 .bash_history
-.bnac
 .cache
 .config
-.fonts
 .gnupg
 .inputrc
 .lesshst
@@ -23,7 +21,9 @@
 .zhistory
 app
 git
-sources
 tmp
 .percol.d
 .wget-hsts
+.termux
+mine
+sdcard
