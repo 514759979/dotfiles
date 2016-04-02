@@ -442,7 +442,9 @@ elif type apt-get &>/dev/null; then
     alias pqd='apt-get autoremove'
     alias psu='apt-get upgrade'
     alias pcl='apt-get clean'
-    alias pql='dpkg -l'
+    alias pql='dpkg -L'
+    alias pq='apt list --installed'
+    alias psi='apt show'
 
 elif type emerge &>/dev/null; then
     alias p='eix'
