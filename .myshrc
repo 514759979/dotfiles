@@ -127,6 +127,11 @@ if [ "$OSTYPE" = "msys" ]; then
     # note
     # enable ps1
     # srun Set-ExecutionPolicy RemoteSigned
+elif [ "$OSTYPE" = "linux-androideabi" ]; then
+    alias o="bash ~/.bin/o"
+    alias n="bash ~/.bin/n"
+    alias cg="bash ~/.bin/cg"
+    alias vg="bash ~/.bin/vg"
 else
     alias smvb="sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600"
     alias cl='cat >/tmp/.clipboard'
