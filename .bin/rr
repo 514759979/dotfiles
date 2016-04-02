@@ -1,0 +1,3 @@
+cmd=$(which $1)
+shift
+bash "$cmd" "$@"
