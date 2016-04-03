@@ -18,9 +18,9 @@ filename="$(echo $file | cut -f2 | cut -f1 -d:)"
 echo $filename
 line=$(echo $file | cut -f2 -d:)
 
-[ "${filename}" = "Binary" ] && {
-  filename=$(echo $file | cut -f4 -d" ")
-  line=0
+[ "${line}" -gt 0 ] 2>/dev/null || {
+    filename="$(echo $filename | cut -f3 -d" ")"
+    line=0
 }
 
 vim +${line} "${filename}"
