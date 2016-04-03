@@ -17,6 +17,8 @@
     ls = ls-files
     b = branch
     info = remote -v
+    u = push
+    p = pull
 [merge]
     tool = vimdiff
 [push]
