@@ -184,7 +184,7 @@ if [ "$OSTYPE" = "msys" ]; then
     # note
     # enable ps1
     # srun Set-ExecutionPolicy RemoteSigned
-elif [ "$OSTYPE" = "linux-androideabi" ]; then
+elif [ "$OSTYPE" = "linux-android" ]; then
     alias o="bash ~/.bin/o"
     alias n="bash ~/.bin/n"
     alias cg="bash ~/.bin/cg"
