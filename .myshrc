@@ -30,6 +30,7 @@ alias gcat='iconv -f utf-8 -t gb18030 -c'
 alias u16cat='iconv -f utf-16 -t utf-8 -c'
 alias dub='du -sbh'
 alias dud='du --max-depth 1 -bh '
+alias psa='ps aux'
 alias psg='psa|grep -v grep|grep'
 alias pst='pstree'
 alias mt="top -u $USER"
@@ -199,7 +200,6 @@ else
     alias u='sudo umount'
     alias se='sudo systemctl'
     alias czip="export UNZIP='-O CP936'"
-    alias psa='ps aux'
     alias fm='ranger'
     alias di='colordiff'
 
