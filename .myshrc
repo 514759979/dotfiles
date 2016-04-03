@@ -512,6 +512,8 @@ elif type apt-get &>/dev/null; then
     alias pql='dpkg -L'
     alias pq='apt list --installed'
     alias psi='apt show'
+    alias pli='dpkg -i'
+    alias pl='apt list'
 
 elif type emerge &>/dev/null; then
     alias p='eix'
