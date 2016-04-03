@@ -190,6 +190,7 @@ elif [ "$OSTYPE" = "linux-androideabi" ]; then
     alias cg="bash ~/.bin/cg"
     alias vg="bash ~/.bin/vg"
     alias dh="df 2>/dev/null"
+    alias frm="free -m | sed 's/ \+/   /g'"
 else
     alias smvb="sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600"
     alias cl='cat >/tmp/.clipboard'
