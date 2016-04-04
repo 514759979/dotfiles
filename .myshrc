@@ -482,48 +482,26 @@ elif type pacman &>/dev/null; then
         cat /var/lib/pacman/local/$1-*/install
     }
 
-elif type apt-cyg &>/dev/null; then
-    alias p='cat /setup/*/*/setup.ini | grep ^@ | grep'
-    alias pi='apt-cyg install'
-    alias pp='apt-cyg remove'
-    alias pud='apt-cyg upgrade'
-    alias pud_bak='cygwin -gdNq'
-    alias pq='apt-cyg list'
-    alias pqi='apt-cyg show'
-    alias psi='apt-cyg show'
-    alias pqo='cygcheck -f'
-    alias pso='cygcheck -p'
-    alias pql='cygcheck -l'
-    alias pcl='rm -rf /setup/*/x86_64/release/'
-    alias pd='apt-cyg download'
-
-elif type brew &>/dev/null; then
-    alias p='brew search'
-    alias pi='brew install'
-    alias pp='brew uninstall'
-    alias psi='brew info'
-    alias pq='brew list'
-    alias pql='brew list'
-    alias pud='brew update'
-    alias psu='brew upgrade'
-
 elif type apt-get &>/dev/null; then
     alias p='apt-cache search'
     alias pi='apt-get install'
     alias pia='apt-get install'
     alias pp='apt-get purge'
-    alias pud='apt-get update;apt-get upgrade'
+    alias pud='apt-get update; apt-get upgrade'
     alias psu='apt-get upgrade'
     alias pqd='apt-get autoremove'
     alias pcl='apt-get clean'
     alias pql='dpkg -L'
     alias pq='apt list --installed'
-    alias pqe='apt list --installed | grep -v ",automatic"'
+    alias pqe='apt list --installed 2>/dev/null | grep -Fv ",automatic"'
+    alias pqm='apt list --installed 2>/dev/null | grep -F ",local"'
     alias psi='apt show'
     alias pqi='dpkg -s'
     alias pqo='dpkg -S'
     alias pli='dpkg -i'
     alias pl='apt list'
+    alias pae='apt-get install'
+    alias pad='apt-get markauto'
 
 elif type emerge &>/dev/null; then
     alias p='eix'
@@ -538,4 +516,29 @@ elif type emerge &>/dev/null; then
     alias pq='equery l'
     alias psi='emerge -pv'
     alias pli='sudo emerge -k'
+
+elif type brew &>/dev/null; then
+    alias p='brew search'
+    alias pi='brew install'
+    alias pp='brew uninstall'
+    alias psi='brew info'
+    alias pq='brew list'
+    alias pql='brew list'
+    alias pud='brew update'
+    alias psu='brew upgrade'
+
+elif type apt-cyg &>/dev/null; then
+    alias p='cat /setup/*/*/setup.ini | grep ^@ | grep'
+    alias pi='apt-cyg install'
+    alias pp='apt-cyg remove'
+    alias pud='apt-cyg upgrade'
+    alias pud_bak='cygwin -gdNq'
+    alias pq='apt-cyg list'
+    alias pqi='apt-cyg show'
+    alias psi='apt-cyg show'
+    alias pqo='cygcheck -f'
+    alias pso='cygcheck -p'
+    alias pql='cygcheck -l'
+    alias pcl='rm -rf /setup/*/x86_64/release/'
+    alias pd='apt-cyg download'
 fi
