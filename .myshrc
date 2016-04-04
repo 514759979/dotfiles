@@ -477,6 +477,7 @@ elif type pacman &>/dev/null; then
     alias pad='pacman --color auto -D --asdeps'
     alias pcl='echo y"\n"y | pacman --color auto -Scc'
     alias pfy='pkgfile -u'
+    alias pl='p'
 
     pqii() {
         cat /var/lib/pacman/local/$1-*/install
@@ -502,6 +503,7 @@ elif type apt-get &>/dev/null; then
     alias pl='apt list'
     alias pae='apt-get install'
     alias pad='apt-get markauto'
+    alias pd='pi -d'
 
 elif type emerge &>/dev/null; then
     alias p='eix'
