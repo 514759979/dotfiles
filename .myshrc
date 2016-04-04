@@ -263,7 +263,7 @@ c() {
 }
 
 # atool begin
-file_7z='\.rar\b|\.deb\b|\.iso\b'
+file_7z='\.deb\b|\.iso\b'
 
 al() {
     if echo $* |grep -Pi $file_7z >/dev/null; then
