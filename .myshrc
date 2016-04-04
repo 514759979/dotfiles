@@ -510,14 +510,18 @@ elif type brew &>/dev/null; then
 elif type apt-get &>/dev/null; then
     alias p='apt-cache search'
     alias pi='apt-get install'
+    alias pia='apt-get install'
     alias pp='apt-get purge'
     alias pud='apt-get update;apt-get upgrade'
-    alias pqd='apt-get autoremove'
     alias psu='apt-get upgrade'
+    alias pqd='apt-get autoremove'
     alias pcl='apt-get clean'
     alias pql='dpkg -L'
     alias pq='apt list --installed'
+    alias pqe='apt list --installed | grep -v ",automatic"'
     alias psi='apt show'
+    alias pqi='dpkg -s'
+    alias pqo='dpkg -S'
     alias pli='dpkg -i'
     alias pl='apt list'
 
@@ -535,4 +539,3 @@ elif type emerge &>/dev/null; then
     alias psi='emerge -pv'
     alias pli='sudo emerge -k'
 fi
-
