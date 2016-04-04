@@ -187,6 +187,7 @@ if [ "$OSTYPE" = "msys" ]; then
     # note
     # enable ps1
     # srun Set-ExecutionPolicy RemoteSigned
+
 elif [ "$OSTYPE" = "linux-android" ]; then
     alias o="bash ~/.bin/o"
     alias n="bash ~/.bin/n"
@@ -195,6 +196,11 @@ elif [ "$OSTYPE" = "linux-android" ]; then
     alias dh="df 2>/dev/null"
     alias frm="free -m | sed 's/ \+/  /g'"
     alias pkill="busybox pkill"
+
+    precmd() {
+        PROMPT=$(echo "${CYAN}goreliu@${GREEN}my-phone:$RED%(?..[%?]:)$WHITE%~\n$WHITE\$$FINISH ")
+    }
+
 else
     alias smvb="sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600"
     alias cl='cat >/tmp/.clipboard'

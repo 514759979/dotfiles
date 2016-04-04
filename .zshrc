@@ -1,14 +1,12 @@
 #local start_time=$(date "+%s.%N")
 
-source $HOME/.myshrc
-
 #{{{ 命令提示符、标题栏、任务栏样式
 sctitle() {
     value="\ek$1\e\\"
     print -Pn ${value/\\\033*\[?m/}
 }
 
-precmd () {
+precmd() {
     PROMPT=$(echo "$CYAN%n@$GREEN%M:$RED%(?..[%?]:)$WHITE%~\n$WHITE\$$FINISH ")
 
     case $TERM in
@@ -46,6 +44,8 @@ eval $color='%{$fg[${(L)color}]%}'
 done
 FINISH="%{$terminfo[sgr0]%}"
 #}}}
+
+source $HOME/.myshrc
 
 #{{{ 关于历史纪录的配置
 #历史纪录条目数量
