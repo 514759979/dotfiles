@@ -64,6 +64,8 @@ alias hi='hostname -i'
 alias ,='percol'
 alias ua='uname -a'
 alias utf8_add_bom='sed -i "1s/^/\xEF\xBB\xBF/g"'
+alias a='apack'
+alias au='arepack'
 
 if [ "$OSTYPE" = "msys" ]; then
     chcp 437 &>/dev/nul
@@ -262,42 +264,13 @@ c() {
     ls -F --color
 }
 
-# atool begin
-file_7z='\.deb\b|\.iso\b'
-
 al() {
-    if echo $* |grep -Pi $file_7z >/dev/null; then
-        als $* -F 7z
-    else
-        als $*
-    fi
-}
-
-a() {
-    if echo $* |grep -Pi $file_7z >/dev/null; then
-        apack $* -F 7z
-    else
-        apack $*
-    fi
-}
-
-au() {
-    if echo $* |grep -Pi $file_7z >/dev/null; then
-        arepack $* -F 7z
-    else
-        arepack $*
-    fi
+    als "$@" || 7z l "$@"
 }
 
 x() {
-    if echo $* |grep -Pi $file_7z >/dev/null; then
-        aunpack $* -F 7z
-    else
-        aunpack $*
-    fi
+    aunpack "$@" || aunpack "$@" -F 7z
 }
-
-# atool end
 
 findx() {
     find -print0 | xargs -0 $@
