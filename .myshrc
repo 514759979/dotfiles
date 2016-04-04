@@ -14,7 +14,7 @@ alias lla='ll -A'
 alias llh='ll -h'
 alias g='grep'
 alias rd='rmdir'
-alias md='mkdir'
+alias md='mkdir -p'
 alias v='vim'
 alias sv='sudo vim'
 alias py2='python2'
@@ -29,21 +29,23 @@ alias ucat='iconv -f gb18030 -t utf-8 -c'
 alias gcat='iconv -f utf-8 -t gb18030 -c'
 alias u16cat='iconv -f utf-16 -t utf-8 -c'
 alias dub='du -sbh'
-alias dud='du --max-depth 1 -bh '
+alias dud='du --max-depth 1 -bh'
 alias psa='ps aux'
-alias psg='psa|grep -v grep|grep'
-alias pk="pkill"
-alias ka="killall"
+alias psg='psa | grep -v grep | grep'
+alias pk='pkill'
+alias pk9='pkill -9'
+alias ka='killall'
+alias ka9='killall -9'
 alias pst='pstree'
 alias mt="top -u $USER"
 alias ctime='time cat'
 alias wi='which'
-alias rpd='rm -r $PWD;cd ..'
-alias rpdf='rm -rf $PWD;cd ..'
+alias rpd='rm -r $PWD; cd ..'
+alias rpdf='rm -rf $PWD; cd ..'
 alias cpui='cat /proc/cpuinfo | grep MHz'
 alias find0='find -print0'
 alias xargs0='xargs -0'
-alias findg='find | grep -P'
+alias fng='find | grep -P'
 alias e='echo'
 alias f='file'
 alias t='cat'
@@ -70,7 +72,7 @@ alias au='arepack'
 if [ "$OSTYPE" = "msys" ]; then
     chcp 437 &>/dev/nul
     [ -n "$TMUX" ] && export TERM="screen"
-    export PATH="/usr/bin:/mine/app/ffmpeg/bin:/mingw64/bin:$PATH"
+    export PATH="/usr/bin:/mingw64/bin:$PATH"
     export MSYS="winsymlinks:lnk"
 
     alias adb="/mine/app/android-platform-tools/adb.exe"
@@ -82,31 +84,29 @@ if [ "$OSTYPE" = "msys" ]; then
     alias fastboot="/mine/app/android-platform-tools/fastboot.exe"
     alias mencoder="/mine/app/AMT/AMT_Binaries/mplayer-svn-37569/mencoder.exe"
     alias mplayer="HOME=/t winpty /mine/app/AMT/AMT_Binaries/mplayer-svn-37569/AMT-MPlayer.exe -nofontconfig"
-    # alias ffmpeg="/mine/app/Audacity/ffmpeg/ffmpeg"
-    # alias ffmpeg="/mine/app/小丸工具箱/tools/ffmpeg.exe"
-    alias mpv="winpty /mine/app/mpv/mpv.exe"
     alias np="/mine/app/notepad++/notepad++.exe"
     alias pandoc="/mine/app/Pandoc/pandoc.exe"
     alias wkhtmltoimage="/mine/app/wkhtmltopdf/bin/wkhtmltoimage.exe"
     alias wkhtmltopdf="/mine/app/wkhtmltopdf/bin/wkhtmltopdf.exe"
-    alias ifconfig='ipconfig | iconv -f gbk -t utf-8'
-    alias vb='(/c/Program\ Files/Oracle/VirtualBox/VirtualBox.exe &)'
+    alias flve='/mine/app/FLV_Extract/FLVExtractCL.exe'
+    alias mp4box='/mine/app/小丸工具箱/tools/mp4box.exe'
+    alias flac='/mine/app/小丸工具箱/tools/flac.exe'
+    alias mediainfo='/mine/app/MediaInfo_CLI/MediaInfo.exe'
     alias vm='/c/Program\ Files/Oracle/VirtualBox/VBoxManage.exe'
+    alias mpv="winpty /mine/app/mpv/mpv.exe"
+    alias di='/mine/app/WinMerge/WinMergeU.exe'
+
+    alias ifconfig='ipconfig | iconv -f gbk -t utf-8 -c'
+    alias vb='(/c/Program\ Files/Oracle/VirtualBox/VirtualBox.exe &)'
     alias hostname='/usr/lib/gettext/hostname'
     alias tc='(/mine/app/totalcmd/TOTALCMD.EXE $PWD &)'
     alias fm='(/mine/app/totalcmd/TOTALCMD.EXE $PWD &)'
     alias tl='tasklist'
     alias psa='ps -W'
-    alias flve='/mine/app/FLV_Extract/FLVExtractCL.exe'
     alias mgcc='/mingw64/bin/gcc'
     alias mg++='/mingw64/bin/g++'
-    alias mp4box='/mine/app/小丸工具箱/tools/mp4box.exe'
-    alias flac='/mine/app/小丸工具箱/tools/flac.exe'
     alias mi='mintty'
-    alias mediainfo='/mine/app/MediaInfo_CLI/MediaInfo.exe'
     alias cv='cygstart mintty -e vim'
-    alias di='/mine/app/WinMerge/WinMergeU.exe'
-
     alias z='winpty powershell -NoLogo'
     alias cl='cat >/dev/clipboard'
     alias vmup='vm startvm archlinux --type headless'
@@ -115,11 +115,8 @@ if [ "$OSTYPE" = "msys" ]; then
     alias vmresume='vm controlvm archlinux resume'
     alias vmhalt='vm controlvm archlinux poweroff'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
-    alias vcl='vs cat /tmp/.clipboard 2>/dev/null | cl'
-
-    vst() {
-        ssh -t $USER@127.0.0.1 -p 50247 "$@"
-    }
+    alias sv='vim'
+    alias vst="ssh -t $USER@127.0.0.1 -p 50247"
 
     vs() {
         [ "$1" = "-t" ] && {
@@ -182,8 +179,6 @@ if [ "$OSTYPE" = "msys" ]; then
         /usr/bin/tmux "$@"
 
         pgrep tmux >/dev/null || rm /tmp/tmux-*/default 2>/dev/null
-    
-        # [ $# -eq 0 ] && rm /tmp/tmux-*/default 2>/dev/null
     }
 
     # note
@@ -205,7 +200,6 @@ elif [ "$OSTYPE" = "linux-android" ]; then
 
 else
     alias smvb="sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600"
-    alias cl='cat >/tmp/.clipboard'
     alias sm='sudo mount'
     alias u='sudo umount'
     alias se='sudo systemctl'
@@ -221,7 +215,7 @@ else
     #    cd $(pwd|sed -e 's|^.*\.avfs||g' -e 's|/[^/]*#$||g')
     #}
 
-    vmpath () {
+    vmpath() {
         src="$1"
         [ -n "$src" ] || src="$PWD"
         echo "scp -P 50247 -r 127.0.0.1:`readlink -f $src` ."
@@ -273,7 +267,7 @@ x() {
 }
 
 findx() {
-    find -print0 | xargs -0 $@
+    find -print0 | xargs -0 "$@"
 }
 
 calc() {
