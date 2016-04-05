@@ -186,6 +186,7 @@ if [ "$OSTYPE" = "msys" ]; then
     # srun Set-ExecutionPolicy RemoteSigned
 
 elif [ "$OSTYPE" = "linux-android" ]; then
+    export SHELL="/data/data/com.termux/files/usr/bin/zsh"
     alias o="bash ~/.bin/o"
     alias n="bash ~/.bin/n"
     alias cg="bash ~/.bin/cg"
