@@ -185,12 +185,14 @@ if [ "$OSTYPE" = "msys" ]; then
     # enable ps1
     # srun Set-ExecutionPolicy RemoteSigned
 
-elif [ "$OSTYPE" = "linux-android" ]; then
+elif [ "$OSTYPE" = "linux-android" -o "$OSTYPE" = "linux-androideabi" ]; then
     export SHELL="/data/data/com.termux/files/usr/bin/zsh"
     alias o="bash ~/.bin/o"
     alias n="bash ~/.bin/n"
     alias cg="bash ~/.bin/cg"
     alias vg="bash ~/.bin/vg"
+    alias renamex="bash ~/.bin/renamex"
+    alias search_cpu="bash ~/.bin/search_cpu"
     alias dh="df 2>/dev/null"
     alias frm="free -m | sed 's/ \+/  /g'"
     alias pkill="busybox pkill"
