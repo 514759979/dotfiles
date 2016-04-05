@@ -99,7 +99,7 @@ vmap $ g$
 vmap 0 g0
 vmap k gk
 vmap j gj
-set statusline=%F%m%r%h%w\ [%Y:%{&fenc!=''?&fenc:&enc}]\ [%l/%L,%p%%,%v]
+"set statusline=%F%m%r%h%w\ [%Y:%{&fenc!=''?&fenc:&enc}]\ [%l/%L,%p%%,%v]
 set laststatus=2
 ca tt tabe
 map <C-j> :tabprevious<cr>
@@ -135,6 +135,7 @@ Plugin 'vim-scripts/TxtBrowser'
 Plugin 'KNCheung/vim-winmanager'
 Plugin 'szw/vim-tags'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'Lokaltog/vim-powerline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

@@ -71,7 +71,7 @@ alias au='arepack'
 
 if [ "$OSTYPE" = "msys" ]; then
     chcp 437 &>/dev/nul
-    [ -n "$TMUX" ] && export TERM="screen"
+    [ -n "$TMUX" ] && export TERM="screen-256color"
     export PATH="/usr/bin:/mingw64/bin:$PATH"
     export MSYS="winsymlinks:lnk"
 

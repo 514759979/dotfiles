@@ -14,3 +14,4 @@ ClicksTargetApp=yes
 Printer=Microsoft Print to PDF
 ConfirmExit=no
 BellType=0
+Term=xterm-256color
