@@ -99,7 +99,22 @@ vmap $ g$
 vmap 0 g0
 vmap k gk
 vmap j gj
-"set statusline=%F%m%r%h%w\ [%Y:%{&fenc!=''?&fenc:&enc}]\ [%l/%L,%p%%,%v]
+
+set statusline=
+set statusline +=%1*\ %n\ %*                      "buffer number
+set statusline +=%5*%{&ff}%*                      "file format
+set statusline +=%3*,%{&fenc!=''?&fenc:&enc}%*    "encoding
+set statusline +=%3*%{&bomb?',bom':''}%*          "bom
+set statusline +=%3*%Y%*                          "file type
+set statusline +=%3*%R%*                          "readonly
+set statusline +=%4*\ %<%F%*                      "full path
+set statusline +=%2*%m%*                          "modified flag
+set statusline +=%1*%=%5l%*                       "current line
+set statusline +=%2*/%L%*                         "total lines
+set statusline +=%2*\ %p%%\ %*                    "lines %
+set statusline +=%1*%4v\ %*                       "virtual column number
+set statusline +=%2*0x%04B\ %*                    "character under cursor
+
 set laststatus=2
 ca tt tabe
 map <C-j> :tabprevious<cr>
@@ -127,15 +142,10 @@ Plugin 'vim-scripts/a.vim'
 Plugin 'othree/vim-autocomplpop'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'godlygeek/tabular'
-"Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tsaleh/vim-supertab'
 Plugin 'vim-scripts/TxtBrowser'
-"Plugin 'SirVer/ultisnips'
-" vim-voom
 Plugin 'KNCheung/vim-winmanager'
 Plugin 'szw/vim-tags'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'Lokaltog/vim-powerline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
