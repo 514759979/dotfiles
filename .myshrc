@@ -455,6 +455,7 @@ elif type pacman &>/dev/null; then
 
 elif type apt-get &>/dev/null; then
     alias p='apt-cache search'
+    alias y='apt list 2>/dev/null | grep'
     alias pi='apt-get install'
     alias pia='apt-get install'
     alias pp='apt-get purge'
