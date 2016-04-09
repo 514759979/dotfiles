@@ -92,12 +92,12 @@ if [ "$OSTYPE" = "msys" ]; then
     alias mp4box='/mine/app/小丸工具箱/tools/mp4box.exe'
     alias flac='/mine/app/小丸工具箱/tools/flac.exe'
     alias mediainfo='/mine/app/MediaInfo_CLI/MediaInfo.exe'
-    alias vm='/c/Program\ Files/Oracle/VirtualBox/VBoxManage.exe'
+    alias vm='/mnt/c/Program\ Files/Oracle/VirtualBox/VBoxManage.exe'
     alias mpv="winpty /mine/app/mpv/mpv.exe"
     alias di='/mine/app/WinMerge/WinMergeU.exe'
 
     alias ifconfig='ipconfig | iconv -f gbk -t utf-8 -c'
-    alias vb='(/c/Program\ Files/Oracle/VirtualBox/VirtualBox.exe &)'
+    alias vb='(/mnt/c/Program\ Files/Oracle/VirtualBox/VirtualBox.exe &)'
     alias hostname='/usr/lib/gettext/hostname'
     alias tc='(/mine/app/totalcmd/TOTALCMD.EXE $PWD &)'
     alias fm='(/mine/app/totalcmd/TOTALCMD.EXE $PWD &)'
@@ -135,7 +135,7 @@ if [ "$OSTYPE" = "msys" ]; then
         ret=$?
 
         [ $ret -eq 255 -a $# -eq 0 ] && {
-            /c/Program\ Files/Oracle/VirtualBox/VBoxManage \
+            /mnt/c/Program\ Files/Oracle/VirtualBox/VBoxManage \
                 startvm archlinux --type headless
 
             while true; do
