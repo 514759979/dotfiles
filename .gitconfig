@@ -19,7 +19,7 @@
     info = remote -v
     u = push
     p = pull
-    c = clone
+    c = clone --depth 1
 [merge]
     tool = vimdiff
 [push]
