@@ -8,7 +8,7 @@ rm VimDesktop/vimd.ini
 rm VimDesktop/tools/RunZ.ini
 rm VimDesktop/tools/SearchFileList.txt
 rm -rf VimDesktop/VimDesktop
-rm -rf VimDesktop/doc/vimdesktop.wiki/.git
+rm -rf VimDesktop/doc/wiki/.git
 
 apack VimDesktop-$1.zip VimDesktop
 rm -rf VimDesktop
@@ -17,6 +17,6 @@ mv VimDesktop-$1.zip ~/tmp
 echo -e "历史版本详见 Releases · goreliu/vimdesktop · GitHub" > ~/tmp/VimDesktop更新历史.txt
 echo "https://github.com/goreliu/vimdesktop/releases" >> ~/tmp/VimDesktop更新历史.txt
 echo  >> ~/tmp/VimDesktop更新历史.txt
-cat doc/vimdesktop.wiki/HISTORY.md >> ~/tmp/VimDesktop更新历史.txt
+cat doc/wiki/HISTORY.md >> ~/tmp/VimDesktop更新历史.txt
 sed -i "1s/^/\xEF\xBB\xBF/g" ~/tmp/VimDesktop更新历史.txt
 unix2dos ~/tmp/VimDesktop更新历史.txt
