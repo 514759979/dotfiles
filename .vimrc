@@ -84,6 +84,7 @@ au BufRead,BufNewFile *.txt setlocal ft=txt
 "nnoremap <F9> :w<cr>:make<cr>:cw<cr>
 nnoremap <F9> :!./%:t:r<cr>
 nnoremap <F5> :!./%<cr>
+nnoremap <F6> :!o %<cr>
 nnoremap <C-a> ggVG
 ca qq q!
 ca w!! w !sudo tee >/dev/null "%"
