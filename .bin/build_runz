@@ -1,0 +1,21 @@
+#!/bin/bash
+
+mkdir RunZ
+cp * RunZ -r 2>/dev/null
+cp /mine/app/AutoHotkey/AutoHotkey.exe RunZ/RunZ.exe
+rm -f RunZ/RunZ.ini
+rm -f RunZ/.RunZ.ini.bak
+rm -f RunZ/SearchFileList.txt
+rm -rf RunZ/RunZ
+rm -rf RunZ/Doc/.git
+
+apack RunZ-$1.zip RunZ
+rm -rf RunZ
+mv RunZ-$1.zip ~/tmp
+
+echo -e "历史版本详见 Releases · goreliu/runz · GitHub" > ~/tmp/RunZ\ 更新历史.txt
+echo "https://github.com/goreliu/runz/releases" >> ~/tmp/RunZ\ 更新历史.txt
+echo  >> ~/tmp/RunZ\ 更新历史.txt
+cat Doc/HISTORY.md >> ~/tmp/RunZ\ 更新历史.txt
+sed -i "1s/^/\xEF\xBB\xBF/g" ~/tmp/RunZ\ 更新历史.txt
+unix2dos ~/tmp/RunZ\ 更新历史.txt
