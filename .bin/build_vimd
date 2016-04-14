@@ -4,9 +4,10 @@ rm -rf VimDesktop*
 mkdir VimDesktop
 
 cp * VimDesktop -r 2>/dev/null
-rm VimDesktop/vimd.ini
-rm VimDesktop/tools/RunZ.ini
-rm VimDesktop/tools/SearchFileList.txt
+rm -f VimDesktop/vimd.ini
+rm -f VimDesktop/tools/RunZ.ini
+rm -f VimDesktop/tools/.RunZ.ini.bak
+rm -f VimDesktop/tools/SearchFileList.txt
 rm -rf VimDesktop/VimDesktop
 rm -rf VimDesktop/doc/wiki/.git
 
