@@ -4,6 +4,7 @@ rm -rf VimDesktop*
 mkdir VimDesktop
 
 cp * VimDesktop -r 2>/dev/null
+cp /mine/app/AutoHotkey/AutoHotkey.exe VimDesktop/vimd.exe
 rm -f VimDesktop/vimd.ini
 rm -rf VimDesktop/VimDesktop
 rm -rf VimDesktop/doc/wiki/.git
