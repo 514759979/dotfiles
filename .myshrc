@@ -94,7 +94,6 @@ if [ "$OSTYPE" = "msys" ]; then
     alias mediainfo='/mine/app/MediaInfo_CLI/MediaInfo.exe'
     alias vm='/mnt/c/Program\ Files/Oracle/VirtualBox/VBoxManage.exe'
     alias mpv="winpty /mine/app/mpv/mpv.exe"
-    alias di='/mine/app/WinMerge/WinMergeU.exe'
 
     alias ifconfig='ipconfig | iconv -f gbk -t utf-8 -c'
     alias vb='(/mnt/c/Program\ Files/Oracle/VirtualBox/VirtualBox.exe &)'
@@ -117,6 +116,11 @@ if [ "$OSTYPE" = "msys" ]; then
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
     alias sv='vim'
     alias vst="ssh -t $USER@127.0.0.1 -p 50247"
+
+    di() {
+        /mine/app/WinMerge/WinMergeU.exe "$@"
+        rm /tmp/_*.tmp
+    }
 
     vs() {
         [ "$1" = "-t" ] && {
