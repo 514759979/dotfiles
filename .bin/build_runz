@@ -3,6 +3,9 @@
 mkdir RunZ
 cp * RunZ -r 2>/dev/null
 cp /mine/app/AutoHotkey/AutoHotkey.exe RunZ/RunZ.exe
+mkdir RunZ/Lib/TCMatch
+cp /home/goreliu/git/QuickZ/Lib/tcmatch.* RunZ/Lib/TCMatch
+rm -f RunZ/lib/TCMatch/tcmatch.ahk
 rm -f RunZ/RunZ.ini
 rm -f RunZ/RunZ.auto.ini
 rm -f RunZ/SearchFileList.txt
