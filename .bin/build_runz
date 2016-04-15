@@ -4,7 +4,7 @@ mkdir RunZ
 cp * RunZ -r 2>/dev/null
 cp /mine/app/AutoHotkey/AutoHotkey.exe RunZ/RunZ.exe
 rm -f RunZ/RunZ.ini
-rm -f RunZ/.RunZ.ini.bak
+rm -f RunZ/RunZ.auto.ini
 rm -f RunZ/SearchFileList.txt
 rm -rf RunZ/RunZ
 rm -rf RunZ/Doc/.git
