@@ -2,23 +2,36 @@
 
 mkdir RunZ
 cp * RunZ -r 2>/dev/null
-cp /mine/app/AutoHotkey/AutoHotkey.exe RunZ/RunZ.exe
-mkdir RunZ/Lib/TCMatch
-cp /home/goreliu/git/QuickZ/Lib/tcmatch.* RunZ/Lib/TCMatch
-rm -f RunZ/lib/TCMatch/tcmatch.ahk
-rm -f RunZ/RunZ.ini
-rm -f RunZ/RunZ.auto.ini
-rm -f RunZ/SearchFileList.txt
-rm -rf RunZ/RunZ
-rm -rf RunZ/Doc/.git
 
+cd RunZ
+
+cp /mine/app/AutoHotkey/AutoHotkey.exe RunZ.exe
+mkdir Lib/TCMatch
+cp /home/goreliu/git/QuickZ/Lib/tcmatch.* Lib/TCMatch
+rm -f lib/TCMatch/tcmatch.ahk
+rm -f Conf/RunZ.ini
+rm -f Conf/RunZ.auto.ini
+rm -f Conf/SearchFileList.txt
+rm -rf RunZ
+rm -rf Doc/.git
+rm -rf Doc/Icons
+
+echo -e "历史版本详见 Releases · goreliu/runz · GitHub" > Doc/HISTORY.md.new
+echo "https://github.com/goreliu/runz/releases" >> Doc/HISTORY.md.new
+echo  >> Doc/HISTORY.md.new
+cat Doc/HISTORY.md >> Doc/HISTORY.md.new
+
+for i in Doc/*.md*; do
+    sed -i "1s/^/\xEF\xBB\xBF/g" $i
+    unix2dos $i
+done
+
+mv Doc/HISTORY.md.new Doc/更新历史.md
+rm -f Doc/HISTORY.md
+mv Doc/Home.md Doc/介绍.md
+cp Doc/更新历史.md ~/tmp/RunZ\ 更新历史.txt
+
+cd ..
 apack RunZ-$1.zip RunZ
 rm -rf RunZ
 mv RunZ-$1.zip ~/tmp
-
-echo -e "历史版本详见 Releases · goreliu/runz · GitHub" > ~/tmp/RunZ\ 更新历史.txt
-echo "https://github.com/goreliu/runz/releases" >> ~/tmp/RunZ\ 更新历史.txt
-echo  >> ~/tmp/RunZ\ 更新历史.txt
-cat Doc/HISTORY.md >> ~/tmp/RunZ\ 更新历史.txt
-sed -i "1s/^/\xEF\xBB\xBF/g" ~/tmp/RunZ\ 更新历史.txt
-unix2dos ~/tmp/RunZ\ 更新历史.txt
