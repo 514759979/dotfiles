@@ -15,6 +15,7 @@ rm -f Conf/SearchFileList.txt
 rm -rf RunZ
 rm -rf Doc/.git
 rm -rf Doc/Icons
+rm -rf Doc/Images
 
 echo -e "历史版本详见 Releases · goreliu/runz · GitHub" > Doc/HISTORY.md.new
 echo "https://github.com/goreliu/runz/releases" >> Doc/HISTORY.md.new
