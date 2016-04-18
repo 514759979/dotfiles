@@ -119,7 +119,7 @@ if [ "$OSTYPE" = "msys" ]; then
 
     di() {
         /mine/app/WinMerge/WinMergeU.exe "$@"
-        rm -f /tmp/_*.tmp
+        rm -f /tmp/*.tmp &>/dev/null
     }
 
     vs() {
