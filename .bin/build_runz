@@ -9,9 +9,12 @@ cp /mine/app/AutoHotkey/AutoHotkey.exe RunZ.exe
 mkdir -p Lib/TCMatch
 cp /home/goreliu/git/QuickZ/Lib/tcmatch.* Lib/TCMatch
 rm -f lib/TCMatch/tcmatch.ahk
+rm -f Core/*.js
+rm -f Core/*.lnk
 rm -f Conf/RunZ.ini
 rm -f Conf/RunZ.auto.ini
 rm -f Conf/SearchFileList.txt
+rm -f Conf/UserFunctionsAuto.txt*
 rm -rf RunZ
 rm -rf Doc/.git
 rm -rf Doc/Icons
