@@ -16,6 +16,7 @@ rm -f Conf/RunZ.auto.ini
 rm -f Conf/SearchFileList.txt
 rm -f Conf/UserFunctionsAuto.txt
 rm -f Conf/UserFunctionsAuto.txt.bak
+rm -f Conf/UserFileList.txt
 rm -rf RunZ
 rm -rf Doc/.git
 rm -rf Doc/Icons
