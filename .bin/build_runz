@@ -8,6 +8,7 @@ cd RunZ
 cp /mine/app/AutoHotkey/AutoHotkey.exe RunZ.exe
 rm -f Core/*.js
 rm -f Core/*.lnk
+rm -f Core/Plugins.ahk
 rm -f Conf/RunZ.ini
 rm -f Conf/RunZ.auto.ini
 rm -f Conf/SearchFileList.txt
