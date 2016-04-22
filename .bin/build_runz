@@ -6,9 +6,6 @@ cp * RunZ -r 2>/dev/null
 cd RunZ
 
 cp /mine/app/AutoHotkey/AutoHotkey.exe RunZ.exe
-mkdir -p Lib/TCMatch
-cp /home/goreliu/git/QuickZ/Lib/tcmatch.* Lib/TCMatch
-rm -f lib/TCMatch/tcmatch.ahk
 rm -f Core/*.js
 rm -f Core/*.lnk
 rm -f Conf/RunZ.ini
