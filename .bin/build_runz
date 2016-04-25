@@ -20,18 +20,17 @@ rm -rf Doc/.git
 rm -rf Doc/Icons
 rm -rf Doc/Images
 
-echo -e "历史版本详见 Releases · goreliu/runz · GitHub" > Doc/HISTORY.md.new
-echo "https://github.com/goreliu/runz/releases" >> Doc/HISTORY.md.new
-echo  >> Doc/HISTORY.md.new
-cat Doc/HISTORY.md >> Doc/HISTORY.md.new
+echo -e "历史版本详见 Releases · goreliu/runz · GitHub" > Doc/更新历史.md.new
+echo "https://github.com/goreliu/runz/releases" >> Doc/更新历史.md.new
+echo  >> Doc/更新历史.md.new
+cat Doc/更新历史.md >> Doc/更新历史.md.new
 
 for i in Doc/*.md*; do
     sed -i "1s/^/\xEF\xBB\xBF/g" $i
     unix2dos $i
 done
 
-mv Doc/HISTORY.md.new Doc/更新历史.md
-rm -f Doc/HISTORY.md
+mv Doc/更新历史.md.new Doc/更新历史.md
 mv Doc/Home.md Doc/介绍.md
 cp Doc/更新历史.md ~/tmp/RunZ\ 更新历史.txt
 
