@@ -196,6 +196,8 @@ elif [ "$OSTYPE" = "linux-android" -o "$OSTYPE" = "linux-androideabi" ]; then
     alias cg="bash ~/.bin/cg"
     alias vg="bash ~/.bin/vg"
     alias renamex="bash ~/.bin/renamex"
+    alias pb="bash ~/.bin/download_source search"
+    alias pbg="bash ~/.bin/download_source download"
     alias search_cpu="bash ~/.bin/search_cpu"
     alias dh="df 2>/dev/null"
     alias frm="free -m | sed 's/ \+/  /g'"
