@@ -155,6 +155,10 @@ if [ "$OSTYPE" = "msys" ]; then
         return $ret
     }
 
+    vv() {
+        ssh $USER@127.0.0.1 -p 50248 "$@"
+    }
+
     vcp() {
         scp -P 50247 -r "$@" $USER@127.0.0.1:~/
     }
