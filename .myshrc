@@ -71,13 +71,21 @@ alias au='arepack'
 
 if [ "$HOST" = "MY-PC" ]; then
     vv() {
-        ssh $USER@127.0.0.1 -p 50249 "cd $PWD;$@"
+        ssh $USER@127.0.0.1 -p 50249 "cd ${PWD/\/home\/goreliu/\/home\/goreliu-};$@"
     }
 
-    [ -n "$TMUX" ] || {
-        tmux a || exec tmux
+    [ -e "/tmp/.dir" ] && {
+        DOTDIR=`cat /tmp/.dir`
+        cd "$DOTDIR"
+        rm -f /tmp/.dir
+    }
+
+    [ -z "$DOTDIR" -a -z "$TMUX" ] && {
+        tmux a &>/dev/null || exec tmux
         exit
     }
+
+    clear
 elif [ "$OSTYPE" = "msys" ]; then
     chcp 437 &>/dev/nul
     [ -n "$TMUX" ] && export TERM="screen-256color"
