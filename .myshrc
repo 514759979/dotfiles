@@ -69,7 +69,12 @@ alias utf8_add_bom='sed -i "1s/^/\xEF\xBB\xBF/g"'
 alias a='apack'
 alias au='arepack'
 
-if [ "$OSTYPE" = "msys" ]; then
+if [ "$HOST" = "MY-PC" ]; then
+    [ -n "$TMUX" ] || {
+        tmux a || exec tmux
+        exit
+    }
+elif [ "$OSTYPE" = "msys" ]; then
     chcp 437 &>/dev/nul
     [ -n "$TMUX" ] && export TERM="screen-256color"
     export PATH="/usr/bin:/mingw64/bin:$PATH"
