@@ -70,6 +70,10 @@ alias a='apack'
 alias au='arepack'
 
 if [ "$HOST" = "MY-PC" ]; then
+    vv() {
+        ssh $USER@127.0.0.1 -p 50249 "cd $PWD;$@"
+    }
+
     [ -n "$TMUX" ] || {
         tmux a || exec tmux
         exit
