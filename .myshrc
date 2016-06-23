@@ -74,10 +74,10 @@ if [ "$HOST" = "MY-PC" ]; then
         ssh $USER@127.0.0.1 -p 50249 "cd ${PWD/\/home\/goreliu/\/home\/goreliu-};$@"
     }
 
-    [ -e "/tmp/.dir" ] && {
-        DOTDIR=`cat /tmp/.dir`
+    [ -e "$HOME/tmp/.dir" ] && {
+        DOTDIR=`cat $HOME/tmp/.dir`
         cd "$DOTDIR"
-        rm -f /tmp/.dir
+        rm -f $HOME/tmp/.dir
     }
 
     [ -z "$DOTDIR" -a -z "$TMUX" ] && {
