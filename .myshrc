@@ -165,7 +165,7 @@ elif [ "$OSTYPE" = "msys" ]; then
     }
 
     vv() {
-        ssh $USER@127.0.0.1 -p 50248 "$@"
+        ssh $USER@127.0.0.1 -p 50248 "cd $PWD;$@"
     }
 
     vcp() {
