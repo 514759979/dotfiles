@@ -127,7 +127,7 @@ if [ "$HOST" = "MY-PC" ]; then
         ret=$?
 
         [ $ret -eq 255 -a $# -eq 0 ] && {
-            /mnt/c/Program\ Files/Oracle/VirtualBox/VBoxManage \
+            vv /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage \
                 startvm archlinux --type headless
 
             while true; do
