@@ -74,18 +74,20 @@ if [ "$HOST" = "MY-PC" ]; then
         ssh $USER@127.0.0.1 -p 50249 "cd ${PWD/\/home\/goreliu/\/home\/goreliu-};$@"
     }
 
-    [ -e "$HOME/tmp/.dir" ] && {
-        DOTDIR=`cat $HOME/tmp/.dir`
-        cd "$DOTDIR"
-        rm -f $HOME/tmp/.dir
+    [ -n "$PASSDIR" ] && {
+        cd "$PASSDIR"
     }
 
-    [ -z "$DOTDIR" -a -z "$TMUX" ] && {
-        tmux a &>/dev/null || exec tmux
+    [ -z "$TMUX" ] && {
+        if [ -n "$PASSDIR" ]; then
+            NEWPASSDIR="$PASSDIR"
+            unset PASSDIR
+            tmux new-window -c "$NEWPASSDIR" \; a &>/dev/null || exec tmux
+        else
+            tmux a &>/dev/null || exec tmux
+        fi
         exit
     }
-
-    clear
 elif [ "$OSTYPE" = "msys" ]; then
     chcp 437 &>/dev/nul
     [ -n "$TMUX" ] && export TERM="screen-256color"
