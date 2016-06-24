@@ -109,6 +109,7 @@ if [ "$HOST" = "MY-PC" ]; then
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
     alias vst="ssh -t $USER@127.0.0.1 -p 50247"
     alias di="vv /mine/app/WinMerge/WinMergeU.exe"
+    alias ping="vv 'chcp 437 &>/dev/null;ping'"
 
     vs() {
         [ "$1" = "-t" ] && {
@@ -187,7 +188,7 @@ if [ "$HOST" = "MY-PC" ]; then
     }
 
 elif [ "$OSTYPE" = "msys" ]; then
-    chcp 437 &>/dev/nul
+    chcp 437 &>/dev/null
     [ -n "$TMUX" ] && export TERM="screen-256color"
     export PATH="/usr/bin:/mingw64/bin:$PATH"
     export MSYS="winsymlinks:lnk"
