@@ -1,5 +1,9 @@
 #!/bin/bash
 
+[ "$HOSTNAME" = "MY-PC" ] && {
+    exec ssh $USER@127.0.0.1 -p 50249 "cd \"${PWD/\/\/home\/\/goreliu/\/home\/goreliu-}\";cygstart \"$@\""
+}
+
 type cygstart &>/dev/null && exec cygstart "$@"
 type open &>/dev/null && exec open "$@"
 
