@@ -72,9 +72,9 @@ alias au='arepack'
 if [ "$HOST" = "MY-PC" ]; then
     vv() {
         if [ -n "$*" ]; then
-            ssh $USER@127.0.0.1 -p 50249 "cd \"${PWD/\/home\/goreliu/\/home\/goreliu-}\";$@"
+            ssh $USER@127.0.0.1 -p 50249 "cd \"${PWD/\/\/home\/\/goreliu/\/home\/goreliu-}\";$@"
         else
-            ssh $USER@127.0.0.1 -t -p 50249 "cd \"${PWD/\/home\/goreliu/\/home\/goreliu-}\";zsh"
+            ssh $USER@127.0.0.1 -t -p 50249 "cd \"${PWD/\/\/home\/\/goreliu/\/home\/goreliu-}\";zsh"
         fi
     }
 
