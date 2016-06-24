@@ -72,9 +72,9 @@ alias au='arepack'
 if [ "$HOST" = "MY-PC" ]; then
     vv() {
         if [ -n "$*" ]; then
-            ssh $USER@127.0.0.1 -p 50249 "cd ${PWD/\/home\/goreliu/\/home\/goreliu-};$@"
+            ssh $USER@127.0.0.1 -p 50249 "cd \"${PWD/\/home\/goreliu/\/home\/goreliu-}\";$@"
         else
-            ssh $USER@127.0.0.1 -t -p 50249 "cd ${PWD/\/home\/goreliu/\/home\/goreliu-};zsh"
+            ssh $USER@127.0.0.1 -t -p 50249 "cd \"${PWD/\/home\/goreliu/\/home\/goreliu-}\";zsh"
         fi
     }
 
@@ -144,9 +144,12 @@ if [ "$HOST" = "MY-PC" ]; then
     }
 
     mpv() {
-       ssh $USER@127.0.0.1 -t -p 50249 sh -c "PWD=`pwd`;cd ${PWD/\/home\/goreliu/\/home\/goreliu-}; winpty /mine/app/mpv/mpv.exe \"$@\""
-       #ssh $USER@127.0.0.1 -t -p 50249 sh -c "PWD=`pwd`;cd ${PWD/\/home\/goreliu/\/home\/goreliu-}; winpty /mine/app/mpv/mpv.exe \"$@\""
-   }
+        ssh -t $USER@127.0.0.1 -p 50249 "cd \"${PWD/\/home\/goreliu/\/home\/goreliu-}\";winpty /mine/app/mpv/mpv.exe \"$@\""
+    }
+
+    mplayer() {
+        ssh -t $USER@127.0.0.1 -p 50249 "cd \"${PWD/\/home\/goreliu/\/home\/goreliu-}\";HOME=/t winpty /mine/app/AMT/AMT_Binaries/mplayer-svn-37569/AMT-MPlayer.exe -nofontconfig \"$@\""
+    }
 
     vcp() {
         scp -P 50247 -r "$@" $USER@127.0.0.1:~/
