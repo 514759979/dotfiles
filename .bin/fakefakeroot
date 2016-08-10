@@ -1,5 +1,12 @@
 #!/bin/bash
 
+if [ "$1" = "-v" ]; then
+    echo 1.0
+    exit
+fi
+
 export FAKEROOTKEY=1
 
 exec "$@"
+
+unset FAKEROOTKEY
