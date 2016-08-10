@@ -83,7 +83,6 @@ if [ "$HOST" = "MY-PC" ]; then
     alias ahk64="vv /mine/app/AutoHotkey/AutoHotkeyU64.exe"
     alias ahk2exe="vv /mine/app/AutoHotkey/Compiler/Ahk2Exe.exe"
     alias fastboot="vv /mine/app/android-platform-tools/fastboot.exe"
-    alias mencoder="vv /mine/app/AMT/AMT_Binaries/mplayer-svn-37569/mencoder.exe"
     alias np="vv /mine/app/notepad++/notepad++.exe"
     alias flve='vv /mine/app/FLV_Extract/FLVExtractCL.exe'
     alias ipconfig='vv ipconfig | iconv -f gbk -t utf-8 -c'
@@ -194,7 +193,6 @@ elif [ "$OSTYPE" = "msys" ]; then
     alias ahk64="/mine/app/AutoHotkey/AutoHotkeyU64.exe"
     alias ahk2exe="/mine/app/AutoHotkey/Compiler/Ahk2Exe.exe"
     alias fastboot="/mine/app/android-platform-tools/fastboot.exe"
-    alias mencoder="/mine/app/AMT/AMT_Binaries/mplayer-svn-37569/mencoder.exe"
     alias mplayer="HOME=/t winpty /mine/app/AMT/AMT_Binaries/mplayer-svn-37569/AMT-MPlayer.exe -nofontconfig"
     alias np="/mine/app/notepad++/notepad++.exe"
     alias flve='/mine/app/FLV_Extract/FLVExtractCL.exe'
