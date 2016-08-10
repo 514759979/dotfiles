@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export FAKEROOTKEY=1
+
+exec "$@"
