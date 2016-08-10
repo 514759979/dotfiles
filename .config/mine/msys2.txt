@@ -1,0 +1,16 @@
+cygutils
+file
+gawk
+man-db
+mintty
+openssh
+pacman
+procps
+psmisc
+rebase
+rsync
+tree
+util-linux
+vim
+winpty
+zsh
