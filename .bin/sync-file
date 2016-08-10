@@ -3,6 +3,7 @@
 rsync -av --delete \
     --exclude git \
     --exclude tmp \
+    --exclude .git \
     --exclude .zhistory \
     --exclude .zhistory \
     --exclude .viminfo \
