@@ -111,6 +111,7 @@ if [ "$HOST" = "MY-PC" ]; then
     alias vst="ssh -t $USER@127.0.0.1 -p 50247"
     alias di="vv /mine/app/WinMerge/WinMergeU.exe"
     alias ping="vv 'chcp 437 &>/dev/null;ping'"
+    alias sync-file="vv ~/.bin/sync-file"
 
     vs() {
         [ "$1" = "-t" ] && {
@@ -188,20 +189,18 @@ if [ "$HOST" = "MY-PC" ]; then
         exit
     }
 
+    # note
+    # enable ps1
+    # srun Set-ExecutionPolicy RemoteSigned
+
 elif [ "$OSTYPE" = "msys" ]; then
     chcp 437 &>/dev/null
     export PATH="/usr/bin:/mingw64/bin:$PATH"
     export MSYS="winsymlinks:lnk"
 
-    #alias mplayer="HOME=/t winpty /mine/app/AMT/AMT_Binaries/mplayer-svn-37569/AMT-MPlayer.exe -nofontconfig"
-    #alias mpv="winpty /mine/app/mpv/mpv.exe"
     alias ifconfig='ipconfig | iconv -f gbk -t utf-8 -c'
     alias hostname='/usr/lib/gettext/hostname'
     alias cl='cat >/dev/clipboard'
-
-    # note
-    # enable ps1
-    # srun Set-ExecutionPolicy RemoteSigned
 
 elif [ "$OSTYPE" = "linux-android" -o "$OSTYPE" = "linux-androideabi" ]; then
     export SHELL="/data/data/com.termux/files/usr/bin/zsh"
@@ -229,20 +228,6 @@ else
     alias czip="export UNZIP='-O CP936'"
     alias fm='ranger'
     alias di='colordiff'
-
-    #zcd() {
-    #    cd ~/.avfs$PWD/$@#
-    #}
-
-    #zback() {
-    #    cd $(pwd|sed -e 's|^.*\.avfs||g' -e 's|/[^/]*#$||g')
-    #}
-
-    vmpath() {
-        src="$1"
-        [ -n "$src" ] || src="$PWD"
-        echo "scp -P 50247 -r 127.0.0.1:`readlink -f $src` ."
-    }
 fi
 
 export PATH="$PATH:$HOME/.bin"
@@ -351,7 +336,7 @@ fordo() {
 }
 
 n2dec() {
-    echo $[$2#$1]
+    echo "$[$2#$1]"
 }
 
 dec2n() {
@@ -519,19 +504,4 @@ elif type brew &>/dev/null; then
     alias pql='brew list'
     alias pud='brew update'
     alias psu='brew upgrade'
-
-elif type apt-cyg &>/dev/null; then
-    alias p='cat /setup/*/*/setup.ini | grep ^@ | grep'
-    alias pi='apt-cyg install'
-    alias pp='apt-cyg remove'
-    alias pud='apt-cyg upgrade'
-    alias pud_bak='cygwin -gdNq'
-    alias pq='apt-cyg list'
-    alias pqi='apt-cyg show'
-    alias psi='apt-cyg show'
-    alias pqo='cygcheck -f'
-    alias pso='cygcheck -p'
-    alias pql='cygcheck -l'
-    alias pcl='rm -rf /setup/*/x86_64/release/'
-    alias pd='apt-cyg download'
 fi
