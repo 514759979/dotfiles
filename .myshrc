@@ -85,22 +85,23 @@ if [ "$HOST" = "MY-PC" ]; then
         fi
     }
 
-    alias adb="vv /mine/app/android-platform-tools/adb.exe"
+    # no output
     alias ahk="vv /mine/app/AutoHotkey/AutoHotkeyU32.exe"
     alias ahk64="vv /mine/app/AutoHotkey/AutoHotkeyU64.exe"
-    alias fastboot="vv /mine/app/android-platform-tools/fastboot.exe"
     alias np="vv /mine/app/notepad++/notepad++.exe"
-    alias flve='vv /mine/app/FLV_Extract/FLVExtractCL.exe'
-    alias ipconfig='vv ipconfig | iconv -f gbk -t utf-8 -c'
-    alias vb='(vv /mnt/c/Program\\ Files/Oracle/VirtualBox/VirtualBox.exe &)'
-    alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
+    alias mi='vv mintty'
+    alias cl='vv sh -c "cat >/dev/clipboard"'
     alias tc='(vv /mine/app/totalcmd/TOTALCMD.EXE $PWD &)'
     alias fm='(vv /mine/app/totalcmd/TOTALCMD.EXE $PWD &)'
+    alias di="vv /mine/app/WinMerge/WinMergeU.exe"
+
+    # has output
+    alias flve='vv /mine/app/FLV_Extract/FLVExtractCL.exe'
+    alias ipconfig='vv ipconfig | iconv -f gbk -t utf-8 -c'
+    alias z='ssh -t $USER@127.0.0.1 -p 50249 winpty powershell -NoLogo'
     alias tl='vv tasklist | iconv -f gbk -t utf-8'
     alias psw='vv ps -W'
-    alias mi='vv mintty'
-    alias z='ssh -t $USER@127.0.0.1 -p 50249 winpty powershell -NoLogo'
-    alias cl='vv sh -c "cat >/dev/clipboard"'
+    alias ping="vv 'chcp 437 &>/dev/null;ping'"
     alias vm='vv /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage.exe'
     alias vmup='vm startvm archlinux --type headless'
     alias vmdown='vm controlvm archlinux savestate'
@@ -108,10 +109,9 @@ if [ "$HOST" = "MY-PC" ]; then
     alias vmresume='vm controlvm archlinux resume'
     alias vmhalt='vm controlvm archlinux poweroff'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
+
+    alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
     alias vst="ssh -t $USER@127.0.0.1 -p 50247"
-    alias di="vv /mine/app/WinMerge/WinMergeU.exe"
-    alias ping="vv 'chcp 437 &>/dev/null;ping'"
-    alias sync-file="vv ~/.bin/sync-file"
 
     vs() {
         [ "$1" = "-t" ] && {
