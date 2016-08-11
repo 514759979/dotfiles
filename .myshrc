@@ -95,6 +95,23 @@ if [ "$HOST" = "MY-PC" ]; then
         echo -n '!^0!'"cd \"$NEWPWD\";$@"'!$$!' > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
     }
 
+    vv2() {
+        NEWPWD="$PWD"
+
+        [ "$NEWPWD" = "/home/goreliu" ] && {
+            NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
+        }
+
+        echo -n '!^1!'"cd \"$NEWPWD\";$@"'!$$!' > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
+
+        touch /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/wait
+        while [ -e /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/wait ]; do
+            sleep 0.01
+        done
+
+        cat /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/output.txt | sed 's/\x0d/\x0a/g'
+    }
+
     # no output
     alias ahk="vv1 /mine/app/AutoHotkey/AutoHotkeyU32.exe"
     alias ahk64="vv1 /mine/app/AutoHotkey/AutoHotkeyU64.exe"
@@ -103,69 +120,65 @@ if [ "$HOST" = "MY-PC" ]; then
     alias tc='vv1 /mine/app/totalcmd/TOTALCMD.EXE $PWD'
     alias fm='vv1 /mine/app/totalcmd/TOTALCMD.EXE $PWD'
     alias di="vv1 /mine/app/WinMerge/WinMergeU.exe"
+    alias mpv="vv1 winpty /mine/app/mpv/mpv.exe"
+    alias mplayer="vv1 HOME=/t winpty /mine/app/AMT/AMT_Binaries/mplayer-svn-37569/AMT-MPlayer.exe -nofontconfig"
 
     # has output
-    alias cl='vv sh -c "cat >/dev/clipboard"'
-    alias flve='vv /mine/app/FLV_Extract/FLVExtractCL.exe'
-    alias ipconfig='vv ipconfig | iconv -f gbk -t utf-8 -c'
-    alias z='ssh -t $USER@127.0.0.1 -p 50249 winpty powershell -NoLogo'
-    alias tl='vv tasklist | iconv -f gbk -t utf-8'
-    alias psw='vv ps -W'
-    alias ping="vv 'chcp 437 &>/dev/null;ping'"
-    alias vm='vv /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage.exe'
-    alias vmup='vm startvm archlinux --type headless'
-    alias vmdown='vm controlvm archlinux savestate'
-    alias vmpause='vm controlvm archlinux pasue'
-    alias vmresume='vm controlvm archlinux resume'
-    alias vmhalt='vm controlvm archlinux poweroff'
-    alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
-
+    alias flve='vv2 /mine/app/FLV_Extract/FLVExtractCL.exe'
+    alias ipconfig='vv2 ipconfig'
+    alias tl='vv2 tasklist'
+    alias ping='vv2 ping'
     alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
-    alias vst="ssh -t $USER@127.0.0.1 -p 50247"
 
-    vs() {
-        [ "$1" = "-t" ] && {
-            shift
-            vst "$@"
-            return
-        }
+    # has input
+    #alias cl='vv sh -c "cat >/dev/clipboard"'
+    #alias z='ssh -t $USER@127.0.0.1 -p 50249 winpty powershell -NoLogo'
+    #alias ping="vv 'chcp 437 &>/dev/null;ping'"
 
-        local args
-        [ "$#" -ge 1 ] && {
-            args="MYSSH=1 bash -lc \"$@\""
-        }
+    #alias vm='vv /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage.exe'
+    #alias vmup='vm startvm archlinux --type headless'
+    #alias vmdown='vm controlvm archlinux savestate'
+    #alias vmpause='vm controlvm archlinux pasue'
+    #alias vmresume='vm controlvm archlinux resume'
+    #alias vmhalt='vm controlvm archlinux poweroff'
+    #alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
+    #alias vst="ssh -t $USER@127.0.0.1 -p 50247"
 
-        ssh $USER@127.0.0.1 -p 50247 "$args"
+    #vs() {
+    #    [ "$1" = "-t" ] && {
+    #        shift
+    #        vst "$@"
+    #        return
+    #    }
 
-        ret=$?
+    #    local args
+    #    [ "$#" -ge 1 ] && {
+    #        args="MYSSH=1 bash -lc \"$@\""
+    #    }
 
-        [ $ret -eq 255 -a $# -eq 0 ] && {
-            vv /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage \
-                startvm archlinux --type headless
+    #    ssh $USER@127.0.0.1 -p 50247 "$args"
 
-            while true; do
-                ssh $USER@127.0.0.1 -p 50247 "$args"
-                ret=$?
-                [ $ret -eq 0 ] && {
-                    break
-                }
-                sleep 1
-            done
-        }
+    #    ret=$?
 
-        return $ret
-    }
+    #    [ $ret -eq 255 -a $# -eq 0 ] && {
+    #        vv /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage \
+    #            startvm archlinux --type headless
 
-    mpv() {
-        ssh -t $USER@127.0.0.1 -p 50249 "cd \"${PWD}\";winpty /mine/app/mpv/mpv.exe \"$@\""
-    }
-
-    mplayer() {
-        ssh -t $USER@127.0.0.1 -p 50249 "cd \"${PWD}\";HOME=/t winpty /mine/app/AMT/AMT_Binaries/mplayer-svn-37569/AMT-MPlayer.exe -nofontconfig \"$@\""
-    }
+    #        while true; do
+    #            ssh $USER@127.0.0.1 -p 50247 "$args"
+    #            ret=$?
+    #            [ $ret -eq 0 ] && {
+    #                break
+    #            }
+    #            sleep 1
+    #        done
+    #    }
+    #
+    #    return $ret
+    #}
 
     wsudo() {
-        vv cygstart --action=runas "$@"
+        vv1 cygstart --action=runas "$@"
     }
 
     srun() {
@@ -181,7 +194,7 @@ if [ "$HOST" = "MY-PC" ]; then
     }
 
     tk() {
-        vv taskkill //f //im "$1.exe" 2>&1 | ucat
+        vv2 taskkill //f //im "$1.exe" '2>&1'
     }
 
     [ -n "$PASSDIR" ] && {
