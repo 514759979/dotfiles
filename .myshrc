@@ -85,17 +85,27 @@ if [ "$HOST" = "MY-PC" ]; then
         fi
     }
 
+    vv1() {
+        NEWPWD="$PWD"
+
+        [ "$NEWPWD" = "/home/goreliu" ] && {
+            NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
+        }
+
+        echo -n '!^0!'"cd \"$NEWPWD\";$@"'!$$!' > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
+    }
+
     # no output
-    alias ahk="vv /mine/app/AutoHotkey/AutoHotkeyU32.exe"
-    alias ahk64="vv /mine/app/AutoHotkey/AutoHotkeyU64.exe"
-    alias np="vv /mine/app/notepad++/notepad++.exe"
-    alias mi='vv mintty'
-    alias cl='vv sh -c "cat >/dev/clipboard"'
-    alias tc='(vv /mine/app/totalcmd/TOTALCMD.EXE $PWD &)'
-    alias fm='(vv /mine/app/totalcmd/TOTALCMD.EXE $PWD &)'
-    alias di="vv /mine/app/WinMerge/WinMergeU.exe"
+    alias ahk="vv1 /mine/app/AutoHotkey/AutoHotkeyU32.exe"
+    alias ahk64="vv1 /mine/app/AutoHotkey/AutoHotkeyU64.exe"
+    alias np="vv1 /mine/app/notepad++/notepad++.exe"
+    alias mi='vv1 mintty'
+    alias tc='vv1 /mine/app/totalcmd/TOTALCMD.EXE $PWD'
+    alias fm='vv1 /mine/app/totalcmd/TOTALCMD.EXE $PWD'
+    alias di="vv1 /mine/app/WinMerge/WinMergeU.exe"
 
     # has output
+    alias cl='vv sh -c "cat >/dev/clipboard"'
     alias flve='vv /mine/app/FLV_Extract/FLVExtractCL.exe'
     alias ipconfig='vv ipconfig | iconv -f gbk -t utf-8 -c'
     alias z='ssh -t $USER@127.0.0.1 -p 50249 winpty powershell -NoLogo'
