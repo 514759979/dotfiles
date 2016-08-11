@@ -71,20 +71,6 @@ alias a='apack'
 alias au='arepack'
 
 if [ "$HOST" = "MY-PC" ]; then
-    vv0() {
-        NEWPWD="$PWD"
-
-        if [ -n "$*" ]; then
-            [ "$NEWPWD" = "/home/goreliu" ] && {
-                NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
-            }
-
-            ssh $USER@127.0.0.1 -p 50249 "cd \"$NEWPWD\";$@"
-        else
-            ssh $USER@127.0.0.1 -t -p 50249 "cd \"$NEWPWD\";zsh"
-        fi
-    }
-
     vv1() {
         for i in "$@"; do
             cmd=$cmd' "'$i'"'
@@ -96,7 +82,8 @@ if [ "$HOST" = "MY-PC" ]; then
             NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
         }
 
-        echo -n '!^0!'"cd \"$NEWPWD\";$cmd"'!$$!' > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
+        echo -n '!^0!'"cd \"$NEWPWD\";$cmd"'!$$!' \
+            > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
         unset cmd
     }
 
@@ -111,7 +98,8 @@ if [ "$HOST" = "MY-PC" ]; then
             NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
         }
 
-        echo -n '!^1!'"cd \"$NEWPWD\";$cmd"'!$$!' > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
+        echo -n '!^1!'"cd \"$NEWPWD\";$cmd"'!$$!' \
+            > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
 
         touch /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/wait
         while [ -e /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/wait ]; do
@@ -132,7 +120,8 @@ if [ "$HOST" = "MY-PC" ]; then
             NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
         }
 
-        echo -n '!^1!'"cd \"$NEWPWD\";$cmd"'!$$!' > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
+        echo -n '!^1!'"cd \"$NEWPWD\";$cmd"'!$$!' \
+            > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
 
         while [ ! -e /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/output.txt ]; do
             sleep 0.01
@@ -155,6 +144,20 @@ if [ "$HOST" = "MY-PC" ]; then
     alias tl='vv2 tasklist'
     alias ping='vv3 ping'
     alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
+
+    #vv0() {
+    #    NEWPWD="$PWD"
+
+    #    if [ -n "$*" ]; then
+    #        [ "$NEWPWD" = "/home/goreliu" ] && {
+    #            NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
+    #        }
+
+    #        ssh $USER@127.0.0.1 -p 50249 "cd \"$NEWPWD\";$@"
+    #    else
+    #        ssh $USER@127.0.0.1 -t -p 50249 "cd \"$NEWPWD\";zsh"
+    #    fi
+    #}
 
     #alias vm='vv0 /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage.exe'
     #alias vmup='vm startvm archlinux --type headless'
