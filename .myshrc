@@ -24,7 +24,8 @@ alias s='sudo'
 alias hd='hexdump -C'
 alias le='less -irf'
 alias dh='df -hT'
-alias pyweb='python_upload 8888'
+#alias pyweb='python_upload 8888'
+alias pyweb='python -m http.server 8888'
 alias ucat='iconv -f gb18030 -t utf-8 -c'
 alias gcat='iconv -f utf-8 -t gb18030 -c'
 alias u16cat='iconv -f utf-16 -t utf-8 -c'
@@ -71,10 +72,16 @@ alias au='arepack'
 
 if [ "$HOST" = "MY-PC" ]; then
     vv() {
+        NEWPWD="$PWD"
+
         if [ -n "$*" ]; then
-            ssh $USER@127.0.0.1 -p 50249 "cd \"${PWD}\";$@"
+            [ "$NEWPWD" = "/home/goreliu" ] && {
+                NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
+            }
+
+            ssh $USER@127.0.0.1 -p 50249 "cd \"$NEWPWD\";$@"
         else
-            ssh $USER@127.0.0.1 -t -p 50249 "cd \"${PWD}\";zsh"
+            ssh $USER@127.0.0.1 -t -p 50249 "cd \"$NEWPWD\";zsh"
         fi
     }
 
@@ -86,7 +93,7 @@ if [ "$HOST" = "MY-PC" ]; then
     alias flve='vv /mine/app/FLV_Extract/FLVExtractCL.exe'
     alias ipconfig='vv ipconfig | iconv -f gbk -t utf-8 -c'
     alias vb='(vv /mnt/c/Program\\ Files/Oracle/VirtualBox/VirtualBox.exe &)'
-    alias hi='vv /usr/lib/gettext/hostname -i'
+    alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
     alias tc='(vv /mine/app/totalcmd/TOTALCMD.EXE $PWD &)'
     alias fm='(vv /mine/app/totalcmd/TOTALCMD.EXE $PWD &)'
     alias tl='vv tasklist | iconv -f gbk -t utf-8'
@@ -146,10 +153,6 @@ if [ "$HOST" = "MY-PC" ]; then
         ssh -t $USER@127.0.0.1 -p 50249 "cd \"${PWD}\";HOME=/t winpty /mine/app/AMT/AMT_Binaries/mplayer-svn-37569/AMT-MPlayer.exe -nofontconfig \"$@\""
     }
 
-    vcp() {
-        scp -P 50247 -r "$@" $USER@127.0.0.1:~/
-    }
-
     wsudo() {
         vv cygstart --action=runas "$@"
     }
@@ -164,6 +167,10 @@ if [ "$HOST" = "MY-PC" ]; then
 
     dismc() {
         srun Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
+    }
+
+    tk() {
+        vv taskkill //f //im "$1.exe" 2>&1 | ucat
     }
 
     [ -n "$PASSDIR" ] && {
@@ -183,105 +190,14 @@ if [ "$HOST" = "MY-PC" ]; then
 
 elif [ "$OSTYPE" = "msys" ]; then
     chcp 437 &>/dev/null
-    [ -n "$TMUX" ] && export TERM="screen-256color"
     export PATH="/usr/bin:/mingw64/bin:$PATH"
     export MSYS="winsymlinks:lnk"
 
-    alias adb="/mine/app/android-platform-tools/adb.exe"
-    alias ahk="/mine/app/AutoHotkey/AutoHotkey.exe"
-    alias ahk64="/mine/app/AutoHotkey/AutoHotkeyU64.exe"
-    alias fastboot="/mine/app/android-platform-tools/fastboot.exe"
-    alias mplayer="HOME=/t winpty /mine/app/AMT/AMT_Binaries/mplayer-svn-37569/AMT-MPlayer.exe -nofontconfig"
-    alias np="/mine/app/notepad++/notepad++.exe"
-    alias flve='/mine/app/FLV_Extract/FLVExtractCL.exe'
-    alias mediainfo='/mine/app/MediaInfo_CLI/MediaInfo.exe'
-    alias vm='/mnt/c/Program\ Files/Oracle/VirtualBox/VBoxManage.exe'
-    alias mpv="winpty /mine/app/mpv/mpv.exe"
-
+    #alias mplayer="HOME=/t winpty /mine/app/AMT/AMT_Binaries/mplayer-svn-37569/AMT-MPlayer.exe -nofontconfig"
+    #alias mpv="winpty /mine/app/mpv/mpv.exe"
     alias ifconfig='ipconfig | iconv -f gbk -t utf-8 -c'
-    alias vb='(/mnt/c/Program\ Files/Oracle/VirtualBox/VirtualBox.exe &)'
     alias hostname='/usr/lib/gettext/hostname'
-    alias tc='(/mine/app/totalcmd/TOTALCMD.EXE $PWD &)'
-    alias fm='(/mine/app/totalcmd/TOTALCMD.EXE $PWD &)'
-    alias tl='tasklist'
-    alias psa='ps -W'
-    alias psw='ps -W'
-    alias mi='mintty'
-    alias cv='cygstart mintty -e vim'
-    alias z='winpty powershell -NoLogo'
     alias cl='cat >/dev/clipboard'
-    alias vmup='vm startvm archlinux --type headless'
-    alias vmdown='vm controlvm archlinux savestate'
-    alias vmpause='vm controlvm archlinux pasue'
-    alias vmresume='vm controlvm archlinux resume'
-    alias vmhalt='vm controlvm archlinux poweroff'
-    alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
-    alias sv='vim'
-    alias vst="ssh -t $USER@127.0.0.1 -p 50247"
-    alias di="/mine/app/WinMerge/WinMergeU.exe"
-
-    vs() {
-        [ "$1" = "-t" ] && {
-            shift
-            vst "$@"
-            return
-        }
-
-        local args
-        [ "$#" -ge 1 ] && {
-            args="MYSSH=1 bash -lc \"$@\""
-        }
-
-        ssh $USER@127.0.0.1 -p 50247 "$args"
-
-        ret=$?
-
-        [ $ret -eq 255 -a $# -eq 0 ] && {
-            /mnt/c/Program\ Files/Oracle/VirtualBox/VBoxManage \
-                startvm archlinux --type headless
-
-            while true; do
-                ssh $USER@127.0.0.1 -p 50247 "$args"
-                ret=$?
-                [ $ret -eq 0 ] && {
-                    break
-                }
-                sleep 1
-            done
-        }
-
-        return $ret
-    }
-
-    vcp() {
-        scp -P 50247 -r "$@" $USER@127.0.0.1:~/
-    }
-
-    sudo() {
-        cygstart --action=runas "$@"
-    }
-
-    srun() {
-        sudo powershell -NoLogo -c "$@;pause"
-    }
-
-    disma() {
-        srun Dism.exe /Online /Cleanup-Image /AnalyzeComponentStore
-    }
-
-    dismc() {
-        srun Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
-    }
-
-    tk() {
-        taskkill //f //im "$1.exe" 2>&1
-    }
-
-    tmux() {
-        /usr/bin/tmux "$@"
-
-        pgrep tmux >/dev/null || rm /tmp/tmux-*/default 2>/dev/null
-    }
 
     # note
     # enable ps1
