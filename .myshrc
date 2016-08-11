@@ -71,7 +71,7 @@ alias a='apack'
 alias au='arepack'
 
 if [ "$HOST" = "MY-PC" ]; then
-    vv() {
+    vv0() {
         NEWPWD="$PWD"
 
         if [ -n "$*" ]; then
@@ -113,6 +113,7 @@ if [ "$HOST" = "MY-PC" ]; then
     }
 
     # no output
+    alias vv=vv1
     alias ahk="vv1 /mine/app/AutoHotkey/AutoHotkeyU32.exe"
     alias ahk64="vv1 /mine/app/AutoHotkey/AutoHotkeyU64.exe"
     alias np="vv1 /mine/app/notepad++/notepad++.exe"
@@ -131,11 +132,11 @@ if [ "$HOST" = "MY-PC" ]; then
     alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
 
     # has input
-    #alias cl='vv sh -c "cat >/dev/clipboard"'
+    #alias cl='vv0 sh -c "cat >/dev/clipboard"'
     #alias z='ssh -t $USER@127.0.0.1 -p 50249 winpty powershell -NoLogo'
-    #alias ping="vv 'chcp 437 &>/dev/null;ping'"
+    #alias ping="vv0 'chcp 437 &>/dev/null;ping'"
 
-    #alias vm='vv /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage.exe'
+    #alias vm='vv0 /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage.exe'
     #alias vmup='vm startvm archlinux --type headless'
     #alias vmdown='vm controlvm archlinux savestate'
     #alias vmpause='vm controlvm archlinux pasue'
@@ -161,7 +162,7 @@ if [ "$HOST" = "MY-PC" ]; then
     #    ret=$?
 
     #    [ $ret -eq 255 -a $# -eq 0 ] && {
-    #        vv /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage \
+    #        vv0 /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage \
     #            startvm archlinux --type headless
 
     #        while true; do
