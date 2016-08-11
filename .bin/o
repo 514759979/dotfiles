@@ -1,7 +1,23 @@
 #!/bin/bash
 
+vv1() {
+	for i in "$@"; do
+		cmd=$cmd' "'$i'"'
+	done
+
+	NEWPWD="$PWD"
+
+	[ "$NEWPWD" = "/home/goreliu" ] && {
+		NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
+	}
+
+	echo -n '!^0!'"cd \"$NEWPWD\";$cmd"'!$$!' > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
+	unset cmd
+}
+
 [ "$HOSTNAME" = "MY-PC" ] && {
-    exec ssh $USER@127.0.0.1 -p 50249 "cd \"${PWD/\/\/home\/\/goreliu/\/home\/goreliu-}\";cygstart \"$@\""
+    vv1 cygstart "$@"
+    exit
 }
 
 type cygstart &>/dev/null && exec cygstart "$@"
