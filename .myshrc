@@ -100,6 +100,7 @@ if [ "$HOST" = "MY-PC" ]; then
 
         echo -n '!^1!'"cd \"$NEWPWD\";$cmd"'!$$!' \
             > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
+        unset cmd
 
         touch /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/wait
         while [ -e /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/wait ]; do
@@ -122,6 +123,7 @@ if [ "$HOST" = "MY-PC" ]; then
 
         echo -n '!^1!'"cd \"$NEWPWD\";$cmd"'!$$!' \
             > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
+        unset cmd
 
         while [ ! -e /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/output.txt ]; do
             sleep 0.01
@@ -223,7 +225,7 @@ if [ "$HOST" = "MY-PC" ]; then
     }
 
     tk() {
-        vv2 taskkill //f //im "$1.exe" '2>&1'
+        vv2 taskkill //f //im "$1.exe"
     }
 
     [ -n "$PASSDIR" ] && {
