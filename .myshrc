@@ -109,11 +109,26 @@ if [ "$HOST" = "MY-PC" ]; then
             sleep 0.01
         done
 
-        cat /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/output.txt | sed 's/\x0d/\x0a/g'
+        cat /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/output.txt
     }
 
-    # no output
-    alias vv=vv1
+    vv3() {
+        NEWPWD="$PWD"
+
+        [ "$NEWPWD" = "/home/goreliu" ] && {
+            NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
+        }
+
+        echo -n '!^1!'"cd \"$NEWPWD\";$@"'!$$!' > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
+
+        while [ ! -e /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/output.txt ]; do
+            sleep 0.01
+        done
+
+        tail -s 0.5 -f /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/output.txt
+    }
+
+    alias z=vv1
     alias ahk="vv1 /mine/app/AutoHotkey/AutoHotkeyU32.exe"
     alias ahk64="vv1 /mine/app/AutoHotkey/AutoHotkeyU64.exe"
     alias np="vv1 /mine/app/notepad++/notepad++.exe"
@@ -123,18 +138,11 @@ if [ "$HOST" = "MY-PC" ]; then
     alias di="vv1 /mine/app/WinMerge/WinMergeU.exe"
     alias mpv="vv1 winpty /mine/app/mpv/mpv.exe"
     alias mplayer="vv1 HOME=/t winpty /mine/app/AMT/AMT_Binaries/mplayer-svn-37569/AMT-MPlayer.exe -nofontconfig"
-
-    # has output
     alias flve='vv2 /mine/app/FLV_Extract/FLVExtractCL.exe'
     alias ipconfig='vv2 ipconfig'
     alias tl='vv2 tasklist'
-    alias ping='vv2 ping'
+    alias ping='vv3 ping'
     alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
-
-    # has input
-    #alias cl='vv0 sh -c "cat >/dev/clipboard"'
-    #alias z='ssh -t $USER@127.0.0.1 -p 50249 winpty powershell -NoLogo'
-    #alias ping="vv0 'chcp 437 &>/dev/null;ping'"
 
     #alias vm='vv0 /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage.exe'
     #alias vmup='vm startvm archlinux --type headless'
@@ -177,6 +185,11 @@ if [ "$HOST" = "MY-PC" ]; then
     #
     #    return $ret
     #}
+
+    cl() {
+        cat >/mnt/c/Users/goreliu/AppData/Local/Temp/run_output/clip
+        vv1 'cat /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/clip > /dev/clipboard'
+    }
 
     wsudo() {
         vv1 cygstart --action=runas "$@"
