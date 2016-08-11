@@ -86,23 +86,32 @@ if [ "$HOST" = "MY-PC" ]; then
     }
 
     vv1() {
+        for i in "$@"; do
+            cmd=$cmd' "'$i'"'
+        done
+
         NEWPWD="$PWD"
 
         [ "$NEWPWD" = "/home/goreliu" ] && {
             NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
         }
 
-        echo -n '!^0!'"cd \"$NEWPWD\";$@"'!$$!' > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
+        echo -n '!^0!'"cd \"$NEWPWD\";$cmd"'!$$!' > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
+        unset cmd
     }
 
     vv2() {
+        for i in "$@"; do
+            cmd=$cmd' "'$i'"'
+        done
+
         NEWPWD="$PWD"
 
         [ "$NEWPWD" = "/home/goreliu" ] && {
             NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
         }
 
-        echo -n '!^1!'"cd \"$NEWPWD\";$@"'!$$!' > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
+        echo -n '!^1!'"cd \"$NEWPWD\";$cmd"'!$$!' > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
 
         touch /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/wait
         while [ -e /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/wait ]; do
@@ -113,13 +122,17 @@ if [ "$HOST" = "MY-PC" ]; then
     }
 
     vv3() {
+        for i in "$@"; do
+            cmd=$cmd' "'$i'"'
+        done
+
         NEWPWD="$PWD"
 
         [ "$NEWPWD" = "/home/goreliu" ] && {
             NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
         }
 
-        echo -n '!^1!'"cd \"$NEWPWD\";$@"'!$$!' > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
+        echo -n '!^1!'"cd \"$NEWPWD\";$cmd"'!$$!' > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
 
         while [ ! -e /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/output.txt ]; do
             sleep 0.01
@@ -137,7 +150,6 @@ if [ "$HOST" = "MY-PC" ]; then
     alias fm='vv1 /mine/app/totalcmd/TOTALCMD.EXE $PWD'
     alias di="vv1 /mine/app/WinMerge/WinMergeU.exe"
     alias mpv="vv1 winpty /mine/app/mpv/mpv.exe"
-    alias mplayer="vv1 HOME=/t winpty /mine/app/AMT/AMT_Binaries/mplayer-svn-37569/AMT-MPlayer.exe -nofontconfig"
     alias flve='vv2 /mine/app/FLV_Extract/FLVExtractCL.exe'
     alias ipconfig='vv2 ipconfig'
     alias tl='vv2 tasklist'
