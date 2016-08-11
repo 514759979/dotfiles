@@ -2,9 +2,5 @@
 
 ip="$1"
 
-[ -n "$ip" ] || {
-    ip="$(/usr/lib/gettext/hostname -i | grep -Ev '\[192|\[169' | sed 's/\[//g; s/\]//g')"
-}
-
 w3m -dump "http://www.ip138.com/ips1388.asp?ip=$ip&action=2" \
     | grep • |sed 's/^ *//g'

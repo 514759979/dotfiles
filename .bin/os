@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[ "$HOST" = "MY-PC" ] && {
+[ "$HOSTNAME" = "MY-PC" ] && {
     if [ $# = 0 ]; then
         z shutdown -s -t 0
     elif [ $1 = 1 ]; then
