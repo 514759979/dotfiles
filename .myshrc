@@ -81,7 +81,6 @@ if [ "$HOST" = "MY-PC" ]; then
     alias adb="vv /mine/app/android-platform-tools/adb.exe"
     alias ahk="vv /mine/app/AutoHotkey/AutoHotkeyU32.exe"
     alias ahk64="vv /mine/app/AutoHotkey/AutoHotkeyU64.exe"
-    alias ahk2exe="vv /mine/app/AutoHotkey/Compiler/Ahk2Exe.exe"
     alias fastboot="vv /mine/app/android-platform-tools/fastboot.exe"
     alias np="vv /mine/app/notepad++/notepad++.exe"
     alias flve='vv /mine/app/FLV_Extract/FLVExtractCL.exe'
@@ -191,7 +190,6 @@ elif [ "$OSTYPE" = "msys" ]; then
     alias adb="/mine/app/android-platform-tools/adb.exe"
     alias ahk="/mine/app/AutoHotkey/AutoHotkey.exe"
     alias ahk64="/mine/app/AutoHotkey/AutoHotkeyU64.exe"
-    alias ahk2exe="/mine/app/AutoHotkey/Compiler/Ahk2Exe.exe"
     alias fastboot="/mine/app/android-platform-tools/fastboot.exe"
     alias mplayer="HOME=/t winpty /mine/app/AMT/AMT_Binaries/mplayer-svn-37569/AMT-MPlayer.exe -nofontconfig"
     alias np="/mine/app/notepad++/notepad++.exe"
