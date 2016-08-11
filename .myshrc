@@ -130,7 +130,6 @@ if [ "$HOST" = "MY-PC" ]; then
         tail -s 0.5 -f /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/output.txt
     }
 
-    alias z=vv1
     alias ahk="vv1 /mine/app/AutoHotkey/AutoHotkeyU32.exe"
     alias ahk64="vv1 /mine/app/AutoHotkey/AutoHotkeyU64.exe"
     alias np="vv1 /mine/app/notepad++/notepad++.exe"

@@ -1,11 +1,12 @@
 #!/bin/bash
 
-type systemctl &>/dev/null && {
+[ "$HOST" = "MY-PC" ] && {
     if [ $# = 0 ]; then
-        sudo systemctl poweroff
+        z shutdown -s -t 0
     elif [ $1 = 1 ]; then
-        sudo systemctl reboot
+        z shutdown -r -t 0
     fi
+    exit
 }
 
 type shutdown &>/dev/null && {
@@ -14,4 +15,14 @@ type shutdown &>/dev/null && {
     elif [ $1 = 1 ]; then
         shutdown -r -t 0
     fi
+    exit
+}
+
+type systemctl &>/dev/null && {
+    if [ $# = 0 ]; then
+        sudo systemctl poweroff
+    elif [ $1 = 1 ]; then
+        sudo systemctl reboot
+    fi
+    exit
 }

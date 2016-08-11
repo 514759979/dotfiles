@@ -1,0 +1,15 @@
+#!/bin/bash
+
+for i in "$@"; do
+	cmd=$cmd' "'$i'"'
+done
+
+NEWPWD="$PWD"
+
+[ "$NEWPWD" = "/home/goreliu" ] && {
+	NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
+}
+
+echo -n '!^0!'"cd \"$NEWPWD\";$cmd"'!$$!' \
+	> /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
+unset cmd
