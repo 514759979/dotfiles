@@ -126,11 +126,12 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
             > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
         unset cmd
 
-        while [ ! -e /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/output.txt ]; do
-            sleep 0.01
-        done
+        touch /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/wait
+        (watch_file /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/wait &)
 
-        tail -s 0.5 -f /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/output.txt
+        tail -s 0.5 \
+            --pid $(cat /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/wait.pid) \
+            -f /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/output.txt
     }
 
     alias u="vv2"
