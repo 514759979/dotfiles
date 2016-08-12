@@ -139,8 +139,8 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     alias ahk64="vv1 /mine/app/AutoHotkey/AutoHotkeyU64.exe"
     alias np="vv1 /mine/app/notepad++/notepad++.exe"
     alias mi='vv1 mintty'
-    alias tc='vv1 /mine/app/totalcmd/TOTALCMD.EXE $PWD'
-    alias fm='vv1 /mine/app/totalcmd/TOTALCMD.EXE $PWD'
+    #alias tc='vv1 /mine/app/totalcmd/TOTALCMD.EXE $PWD'
+    alias fm='tc'
     alias di="vv1 /mine/app/WinMerge/WinMergeU.exe"
     alias mpv="vv1 winpty /mine/app/mpv/mpv.exe"
     alias flve='vv2 /mine/app/FLV_Extract/FLVExtractCL.exe'
@@ -191,6 +191,16 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     #
     #    return $ret
     #}
+
+    tc() {
+        NEWPWD="$(readlink -f $PWD)"
+
+        [ "$NEWPWD" = "/home/goreliu" ] && {
+            NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
+        }
+
+        vv1 /mine/app/totalcmd/TOTALCMD.EXE "$NEWPWD"
+    }
 
     cl() {
         cat >/mnt/c/Users/goreliu/AppData/Local/Temp/run_output/clip
