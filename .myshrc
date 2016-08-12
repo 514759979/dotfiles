@@ -69,8 +69,9 @@ alias ua='uname -a'
 alias utf8_add_bom='sed -i "1s/^/\xEF\xBB\xBF/g"'
 alias a='apack'
 alias au='arepack'
+# j k
 
-if [ "$HOST" = "MY-PC" ]; then
+if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     vv1() {
         for i in "$@"; do
             cmd=$cmd' "'$i'"'
@@ -132,6 +133,7 @@ if [ "$HOST" = "MY-PC" ]; then
         tail -s 0.5 -f /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/output.txt
     }
 
+    alias u="vv2"
     alias ahk="vv1 /mine/app/AutoHotkey/AutoHotkeyU32.exe"
     alias ahk64="vv1 /mine/app/AutoHotkey/AutoHotkeyU64.exe"
     alias np="vv1 /mine/app/notepad++/notepad++.exe"
@@ -147,21 +149,7 @@ if [ "$HOST" = "MY-PC" ]; then
     alias sync_file='vv2 ~/.bin/sync_file'
     alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
 
-    #vv0() {
-    #    NEWPWD="$PWD"
-
-    #    if [ -n "$*" ]; then
-    #        [ "$NEWPWD" = "/home/goreliu" ] && {
-    #            NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
-    #        }
-
-    #        ssh $USER@127.0.0.1 -p 50249 "cd \"$NEWPWD\";$@"
-    #    else
-    #        ssh $USER@127.0.0.1 -t -p 50249 "cd \"$NEWPWD\";zsh"
-    #    fi
-    #}
-
-    #alias vm='vv0 /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage.exe'
+    #alias vm='vv2 /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage.exe'
     #alias vmup='vm startvm archlinux --type headless'
     #alias vmdown='vm controlvm archlinux savestate'
     #alias vmpause='vm controlvm archlinux pasue'
@@ -187,7 +175,7 @@ if [ "$HOST" = "MY-PC" ]; then
     #    ret=$?
 
     #    [ $ret -eq 255 -a $# -eq 0 ] && {
-    #        vv0 /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage \
+    #        vv2 /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage \
     #            startvm archlinux --type headless
 
     #        while true; do
@@ -275,11 +263,11 @@ elif [ "$OSTYPE" = "linux-android" -o "$OSTYPE" = "linux-androideabi" ]; then
     }
 
 else
-    alias smvb="sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600"
-    alias sm='sudo mount'
-    alias u='sudo umount'
+    #alias smvb="sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600"
+    #alias sm='sudo mount'
+    #alias u='sudo umount'
+    #alias czip="export UNZIP='-O CP936'"
     alias se='sudo systemctl'
-    alias czip="export UNZIP='-O CP936'"
     alias fm='ranger'
     alias di='colordiff'
 fi
