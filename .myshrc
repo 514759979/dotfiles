@@ -299,10 +299,6 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-st() {
-    ($@ &>/dev/null &)
-}
-
 imgresize() {
     gm mogrify -resize $1x$2 $3
 }
@@ -500,28 +496,4 @@ elif type apt-get &>/dev/null; then
     alias pae='sudo apt-get install'
     alias pad='sudo apt-get markauto'
     alias pd='sudo pi -d'
-
-elif type emerge &>/dev/null; then
-    alias p='eix'
-    alias pi='sudo emerge -uDN'
-    alias psu='sudo emerge -uDN world'
-    alias pp='sudo emerge -c'
-    alias prd='sudo emerge -C'
-    alias pud='sudo emerge --sync'
-    alias pd='sudo emerge -f'
-    alias pql='equery f'
-    alias pqo='equery b'
-    alias pq='equery l'
-    alias psi='emerge -pv'
-    alias pli='sudo emerge -k'
-
-elif type brew &>/dev/null; then
-    alias p='brew search'
-    alias pi='brew install'
-    alias pp='brew uninstall'
-    alias psi='brew info'
-    alias pq='brew list'
-    alias pql='brew list'
-    alias pud='brew update'
-    alias psu='brew upgrade'
 fi
