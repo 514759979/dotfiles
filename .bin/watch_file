@@ -1,9 +1,0 @@
-#!/bin/bash
-
-echo $$ > "$1.pid"
-
-while [ -e "$1" ]; do
-	sleep 0.2
-done
-
-rm -f "$1.pid"

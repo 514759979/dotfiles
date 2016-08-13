@@ -1,6 +1,12 @@
 #!/bin/bash
 
-[ "$HOSTNAME" = "MY-PC" ] && exec z /usr/bin/cygstart "$@"
+[ "$HOSTNAME" = "MY-PC" ] && {
+    echo "$@" | grep " " >/dev/null || exec wstart "$@"
+    # TODO
+    exec z c:/mine/app/msys2/usr/bin/cygstart "$@"
+}
+
+exit
 
 type cygstart &>/dev/null && exec cygstart "$@"
 type open &>/dev/null && exec open "$@"
