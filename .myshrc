@@ -177,8 +177,6 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
                 | sed 's|rootfs/home|home|g')"
         fi
 
-        echo vstart c:/mine/app/totalcmd/TOTALCMD.EXE "$newpwd"
-
         vstart c:/mine/app/totalcmd/TOTALCMD.EXE "$newpwd"
     }
 
