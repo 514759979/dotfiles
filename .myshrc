@@ -228,6 +228,10 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
         wsudo powershell -NoLogo -c "\"$@;pause\""
     }
 
+    wrm() {
+        wsudo /usr/bin/rm -rf "$@"
+    }
+
     disma() {
         srun Dism.exe /Online /Cleanup-Image /AnalyzeComponentStore
     }
