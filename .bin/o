@@ -1,15 +1,10 @@
 #!/bin/bash
 
 [ "$HOSTNAME" = "MY-PC" ] && {
-    echo "$@" | grep " " >/dev/null || exec wstart "$@"
-    # TODO
-    exec z c:/mine/app/msys2/usr/bin/cygstart "$@"
+    expr index "$1" " " >/dev/null || exec wstart "$1"
+
+    exec wrun explorer "${1//\//\\}"
 }
-
-exit
-
-type cygstart &>/dev/null && exec cygstart "$@"
-type open &>/dev/null && exec open "$@"
 
 function f() {
     $1 "$2" &>/dev/null &
