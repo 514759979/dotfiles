@@ -188,6 +188,9 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     }
 
     wrm() {
+        wsudo "c:/mine/app/msys2/usr/bin/rm -rf '$@'"
+        return
+
         local newpwd="$(readlink -f $PWD)"
 
         if [ "${newpwd:0:5}" = "/mnt/" ]; then
