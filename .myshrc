@@ -405,6 +405,15 @@ exaac() {
     ffmpeg -i $1 -vn -sn -c:a copy -y -map 0:a:0 $1.aac
 }
 
+top_history() {
+    num=20
+    [ -n "$1" ] && num="$1"
+    history 1 \
+        | awk '{CMD[$2]++;count++;}END \
+            { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' \
+        | column -c3 -s " " -t | sort -nr | nl | head -n"$num"
+}
+
 if type yaourt &>/dev/null; then
     alias p='yaourt'
     alias pi='p -S'
