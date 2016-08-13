@@ -221,7 +221,7 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     }
 
     wsudo() {
-        vv1 cygstart --action=runas "$@"
+        vv1 /usr/bin/cygstart --action=runas "$@"
     }
 
     srun() {
