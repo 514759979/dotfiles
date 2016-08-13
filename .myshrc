@@ -135,6 +135,20 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
             -f /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/output.txt
     }
 
+    vv4() {
+        cmd="$@"
+
+        NEWPWD="$PWD"
+
+        [ "$NEWPWD" = "/home/goreliu" ] && {
+            NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
+        }
+
+        echo -n '!^0!'"cd \"$NEWPWD\";$cmd"'!$$!' \
+            > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
+        unset cmd
+    }
+
     alias u="vv2"
     alias ahk="vv1 /mnt/c/mine/app/AutoHotkey/AutoHotkeyU32.exe"
     alias ahk64="vv1 /mnt/c/mine/app/AutoHotkey/AutoHotkeyU64.exe"
@@ -203,7 +217,7 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
 
     cl() {
         cat >/mnt/c/Users/goreliu/AppData/Local/Temp/run_output/clip
-        vv1 'cat /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/clip > /dev/clipboard'
+        vv4 "clip < /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/clip"
     }
 
     wsudo() {
