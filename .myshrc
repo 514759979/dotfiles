@@ -73,97 +73,58 @@ alias lc='lolcat'
 # j k
 
 if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
-    vv1() {
+    vcmd() {
+        local cmd arg
+        cmd="$1"
+        shift
+
         for i in "$@"; do
-            cmd=$cmd' "'$i'"'
+            arg=$arg' "'$i'"'
         done
 
-        NEWPWD="$PWD"
-
-        [ "$NEWPWD" = "/home/goreliu" ] && {
-            NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
-        }
-
-        echo -n '!^0!'"cd \"$NEWPWD\";$cmd"'!$$!' \
-            > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
-        unset cmd
+        wcmd $cmd $arg
     }
 
-    vv2() {
+    vrun() {
+        local cmd arg
+        cmd="$1"
+        shift
+
         for i in "$@"; do
-            cmd=$cmd' "'$i'"'
+            arg=$arg' "'$i'"'
         done
 
-        NEWPWD="$PWD"
-
-        [ "$NEWPWD" = "/home/goreliu" ] && {
-            NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
-        }
-
-        echo -n '!^1!'"cd \"$NEWPWD\";$cmd"'!$$!' \
-            > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
-        unset cmd
-
-        touch /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/wait
-        while [ -e /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/wait ]; do
-            sleep 0.01
-        done
-
-        cat /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/output.txt
+        wrun $cmd $arg
     }
 
-    vv3() {
+    vstart() {
+        local cmd arg
+        cmd="$1"
+        shift
+
         for i in "$@"; do
-            cmd=$cmd' "'$i'"'
+            arg=$arg' "'$i'"'
         done
 
-        NEWPWD="$PWD"
-
-        [ "$NEWPWD" = "/home/goreliu" ] && {
-            NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
-        }
-
-        echo -n '!^1!'"cd \"$NEWPWD\";$cmd"'!$$!' \
-            > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
-        unset cmd
-
-        touch /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/wait
-        (watch_file /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/wait &)
-
-        tail -s 0.5 \
-            --pid $(cat /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/wait.pid) \
-            -f /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/output.txt
+        (wstart $cmd $arg &)
     }
 
-    vv4() {
-        cmd="$@"
-
-        NEWPWD="$PWD"
-
-        [ "$NEWPWD" = "/home/goreliu" ] && {
-            NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
-        }
-
-        echo -n '!^0!'"cd \"$NEWPWD\";$cmd"'!$$!' \
-            > /mnt/c/Users/goreliu/AppData/Local/Temp/run_input/input.txt
-        unset cmd
-    }
-
-    alias u="vv2"
-    alias ahk="vv1 /mnt/c/mine/app/AutoHotkey/AutoHotkeyU32.exe"
-    alias ahk64="vv1 /mnt/c/mine/app/AutoHotkey/AutoHotkeyU64.exe"
-    alias np="vv1 /mnt/c/mine/app/notepad++/notepad++.exe"
-    alias mi='vv1 /usr/bin/mintty'
+    alias u="vcmd"
+    alias ahk="vrun c:/mine/app/AutoHotkey/AutoHotkey.exe"
+    alias ahk64="vrun c:/mine/app/AutoHotkey/AutoHotkeyU64.exe"
+    alias np="wstart c:/mine/app/notepad++/notepad++.exe"
+    alias mi='st wstart c:/mine/app/msys2/usr/bin/mintty'
     alias fm='tc'
-    alias di="vv1 /mnt/c/mine/app/WinMerge/WinMergeU.exe"
-    alias mpv="vv1 /usr/bin/winpty /mnt/c/mine/app/mpv/mpv.exe"
-    alias flve='vv2 /mnt/c/mine/app/FLV_Extract/FLVExtractCL.exe'
-    alias ipconfig='vv2 ipconfig'
-    alias tl='vv2 tasklist'
-    alias ping='vv3 ping'
+    alias di="vstart c:/mine/app/WinMerge/WinMergeU.exe"
+    alias mpv='vstart c:/mine/app/mpv/mpv.exe'
+    alias flve='vrun c:/mine/app/FLV_Extract/FLVExtractCL.exe'
+    alias ipconfig='wcmd ipconfig | ucat'
+    alias tl='wcmd tasklist'
+    alias ping='wcmd ping'
     alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
+    alias cl='wrun clip'
 
-    #alias vm='vv2 /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage.exe'
+    #alias vm='wrun /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage.exe'
     #alias vmup='vm startvm archlinux --type headless'
     #alias vmdown='vm controlvm archlinux savestate'
     #alias vmpause='vm controlvm archlinux pasue'
@@ -189,7 +150,7 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     #    ret=$?
 
     #    [ $ret -eq 255 -a $# -eq 0 ] && {
-    #        vv2 /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage \
+    #        wrun /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage \
     #            startvm archlinux --type headless
 
     #        while true; do
@@ -206,22 +167,20 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     #}
 
     tc() {
-        NEWPWD="$(readlink -f $PWD)"
+        local newpwd="$(readlink -f $PWD)"
 
-        [ "$NEWPWD" = "/home/goreliu" ] && {
-            NEWPWD="/mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu"
-        }
+        if [ "${newpwd:0:5}" = "/mnt/" ]; then
+            echo $newpwd
+            newpwd="${newpwd:5:1}:${newpwd:6}"
+        else
+            newpwd="c:/Users/goreliu/AppData/Local/lxss/$newpwd"
+        fi
 
-        vv1 /mnt/c/mine/app/totalcmd/TOTALCMD.EXE "$NEWPWD"
-    }
-
-    cl() {
-        cat >/mnt/c/Users/goreliu/AppData/Local/Temp/run_output/clip
-        vv4 "clip < /mnt/c/Users/goreliu/AppData/Local/Temp/run_output/clip"
+        vstart c:/mine/app/totalcmd/TOTALCMD.EXE "$newpwd"
     }
 
     wsudo() {
-        vv1 /usr/bin/cygstart --action=runas "$@"
+        wstart c:/mine/app/msys2/usr/bin/cygstart --action=runas "$@"
     }
 
     srun() {
@@ -241,14 +200,14 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     }
 
     tk() {
-        vv2 taskkill //f //im "$1.exe"
+        wrun taskkill /f /im "$1.exe"
     }
 
     [ -n "$PASSDIR" ] && {
         cd "$PASSDIR"
     }
 
-    [ -z "$TMUX" -a -z "$NOTMUX" ] && {
+    [ -z "$TMUX" -a -n "$USETMUX" ] && {
         if [ -n "$PASSDIR" ]; then
             NEWPASSDIR="$PASSDIR"
             unset PASSDIR
@@ -314,6 +273,10 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
+
+st() {
+    ($@ &)
+}
 
 imgresize() {
     gm mogrify -resize $1x$2 $3
