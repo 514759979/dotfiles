@@ -147,7 +147,6 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     alias ipconfig='vv2 ipconfig'
     alias tl='vv2 tasklist'
     alias ping='vv3 ping'
-    alias sync_file='vv2 ~/.bin/sync_file'
     alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
 
     #alias vm='vv2 /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage.exe'
