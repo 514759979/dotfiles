@@ -69,6 +69,7 @@ alias ua='uname -a'
 alias utf8_add_bom='sed -i "1s/^/\xEF\xBB\xBF/g"'
 alias a='apack'
 alias au='arepack'
+alias lc='lolcat'
 # j k
 
 if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
