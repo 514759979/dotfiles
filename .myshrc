@@ -170,7 +170,6 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
         local newpwd="$(readlink -f $PWD)"
 
         if [ "${newpwd:0:5}" = "/mnt/" ]; then
-            echo $newpwd
             newpwd="${newpwd:5:1}:${newpwd:6}"
         else
             newpwd="$(echo c:/Users/goreliu/AppData/Local/lxss/rootfs$newpwd \
@@ -181,7 +180,7 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     }
 
     wsudo() {
-        wstart c:/mine/app/msys2/usr/bin/cygstart --action=runas "$@"
+        wstart c:/mine/app/bash/runas.js "$@"
     }
 
     srun() {
@@ -189,7 +188,16 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     }
 
     wrm() {
-        wsudo /usr/bin/rm -rf "$@"
+        local newpwd="$(readlink -f $PWD)"
+
+        if [ "${newpwd:0:5}" = "/mnt/" ]; then
+            newpwd="${newpwd:5:1}:${newpwd:6}"
+        else
+            newpwd="$(echo c:/Users/goreliu/AppData/Local/lxss/rootfs$newpwd \
+                | sed 's|rootfs/home|home|g')"
+        fi
+
+        wsudo "powershell -c cd $newpwd; rmdir '$@'; pause"
     }
 
     disma() {
