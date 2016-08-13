@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[ "$HOSTNAME" = "MY-PC" ] && exec z cygstart "$@"
+[ "$HOSTNAME" = "MY-PC" ] && exec z /usr/bin/cygstart "$@"
 
 type cygstart &>/dev/null && exec cygstart "$@"
 type open &>/dev/null && exec open "$@"
