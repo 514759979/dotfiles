@@ -2,9 +2,9 @@
 
 [ "$HOSTNAME" = "MY-PC" ] && {
     if [ $# = 0 ]; then
-        z shutdown -s -t 0
+        wrun shutdown -s -t 0
     elif [ $1 = 1 ]; then
-        z shutdown -r -t 0
+        wrun shutdown -r -t 0
     fi
     exit
 }
