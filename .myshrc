@@ -119,9 +119,9 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     alias di='st vrun c:/mine/app/WinMerge/WinMergeU.exe'
     alias mpv='st vstart c:/mine/app/mpv/mpv.exe'
     alias flve='vrun c:/mine/app/FLV_Extract/FLVExtractCL.exe'
-    alias ipconfig='wcmd ipconfig | ucat'
-    alias tl='wcmd tasklist'
-    alias ping='wcmd ping'
+    alias ipconfig='wrun ipconfig | ucat'
+    alias tl='wrun tasklist'
+    alias ping='wrun ping'
     alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
     alias cl='wrun clip'
 
