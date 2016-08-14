@@ -110,6 +110,7 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     }
 
     alias u="vcmd"
+    alias z="st vstart"
     alias ahk="vrun c:/mine/app/AutoHotkey/AutoHotkey.exe"
     alias ahk64="vrun c:/mine/app/AutoHotkey/AutoHotkeyU64.exe"
     alias np="wstart c:/mine/app/notepad++/notepad++.exe"
