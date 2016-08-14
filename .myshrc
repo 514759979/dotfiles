@@ -106,7 +106,7 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
             arg=$arg' "'$i'"'
         done
 
-        (wstart $cmd $arg &)
+        wstart $cmd $arg
     }
 
     alias u="vcmd"
@@ -115,8 +115,8 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     alias np="wstart c:/mine/app/notepad++/notepad++.exe"
     alias mi='st wstart c:/mine/app/msys2/usr/bin/mintty'
     alias fm='tc'
-    alias di="vstart c:/mine/app/WinMerge/WinMergeU.exe"
-    alias mpv='vstart c:/mine/app/mpv/mpv.exe'
+    alias di='st vrun c:/mine/app/WinMerge/WinMergeU.exe'
+    alias mpv='st vstart c:/mine/app/mpv/mpv.exe'
     alias flve='vrun c:/mine/app/FLV_Extract/FLVExtractCL.exe'
     alias ipconfig='wcmd ipconfig | ucat'
     alias tl='wcmd tasklist'
@@ -169,6 +169,8 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     tc() {
         local newpwd="$(readlink -f $PWD)"
 
+        [ -n "$1" ] && newpwd="$(readlink -f $1)"
+
         if [ "${newpwd:0:5}" = "/mnt/" ]; then
             newpwd="${newpwd:5:1}:${newpwd:6}"
         else
@@ -176,7 +178,7 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
                 | sed 's|rootfs/home|home|g')"
         fi
 
-        vstart c:/mine/app/totalcmd/TOTALCMD.EXE "$newpwd"
+        (vrun c:/mine/app/totalcmd/TOTALCMD.EXE "$newpwd" &)
     }
 
     wsudo() {
