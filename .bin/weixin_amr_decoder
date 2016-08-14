@@ -1,6 +1,6 @@
 #!/bin/bash
 
 sed -i 's/.#!SILK_V3/#!SILK_V3/g' $1
-z c:/mine/app/silk_decoder/silk_decoder $1 $1.pcm
+silk_decoder "$1" "$1.pcm"
 ffmpeg -f s16le -ar 24k -ac 1 -i $1.pcm $1.ogg
 rm $1.pcm
