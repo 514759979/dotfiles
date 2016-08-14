@@ -4,4 +4,4 @@ type msg &>/dev/null && {
     exit
 }
 
-z msg $(id -un)  "$@"
+wrun msg $(id -un)  "$@"
