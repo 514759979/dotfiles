@@ -377,31 +377,38 @@ top_history() {
         | column -c3 -s " " -t | sort -nr | nl | head -n"$num"
 }
 
-if type yaourt &>/dev/null; then
-    alias p='yaourt'
-    alias pi='p -S'
-    alias pia='p -S --noconfirm'
-    alias pli='p -U'
-    alias pud='p -Syu --aur'
-    alias psu='p -Su --aur'
-    alias pd='p -Sw'
-    alias pp='p -Rcsn'
-    alias psi='p -Si'
-    alias pq='p -Q'
-    alias pqi='p -Qi'
+if type pacman &>/dev/null; then
+    alias pac='sudo pacman --color auto'
+    alias p='pacman --color auto -Ss'
+    type yaourt &>/dev/null && {
+        alias pac='yaourt'
+        alias p='yaourt'
+        aur_flag='--aur'
+    }
+    alias pi='pac -S'
+    alias pia='pac -S --noconfirm'
+    alias pli='pac -U'
+    alias pud="pac -Syu $aur_flag"
+    alias psu="pac -Su $aur_flag"
+    alias pd='pac -Sw'
+    alias pp='pac -Rcsn'
+    alias psi='pac -Si'
+    alias pq='pac -Q'
+    alias pqi='pac -Qi'
     alias pqe='pacman -Qeq | sort'
     alias psl='pkgfile -l'
-    alias pql='p -Ql'
+    alias pql='pac -Ql'
     alias pso='pkgfile -v'
-    alias pqo='p -Qo'
-    alias pqd='p -Qdt'
-    alias pqm='p -Qqm'
-    alias prd='p -Rdd'
-    alias pae='p -D --asexplicit'
-    alias pad='p -D --asdeps'
-    alias pcl='echo y"\n"y | p -Scc'
-    alias pbs='p -G'
+    alias pqo='pac -Qo'
+    alias pqd='pac -Qdt'
+    alias pqm='pac -Qqm'
+    alias prd='pac -Rdd'
+    alias pae='pac -D --asexplicit'
+    alias pad='pac -D --asdeps'
+    alias pcl='echo y"\n"y | pac -Scc'
+    alias pbs='pac -G'
     alias pfy='sudo pkgfile -uz'
+    alias pl='pac -Ss'
 
     y() {
         pacman -Ss $*
@@ -413,36 +420,6 @@ if type yaourt &>/dev/null; then
             print "    "$5
         }'
     }
-
-    pqii() {
-        cat /var/lib/pacman/local/$1-*/install
-    }
-
-elif type pacman &>/dev/null; then
-    alias p='pacman --color auto -Ss'
-    alias pi='pacman --color auto -S'
-    alias pia='pacman --color auto -S --noconfirm'
-    alias pli='pacman --color auto -U'
-    alias pud='pacman --color auto -Syu'
-    alias psu='pacman --color auto -Su'
-    alias pd='pacman --color auto -Sw'
-    alias pp='pacman --color auto -Rcsn'
-    alias psi='pacman --color auto -Si'
-    alias pq='pacman --color auto -Q'
-    alias pqi='pacman --color auto -Qi'
-    alias pqe='pacman --color auto -Qeq | sort'
-    alias psl='pkgfile -l'
-    alias pql='pacman --color auto -Ql'
-    alias pso='pkgfile -v'
-    alias pqo='pacman --color auto -Qo'
-    alias pqd='pacman --color auto -Qdt'
-    alias pqm='pacman --color auto -Qqm'
-    alias prd='pacman --color auto -Rdd'
-    alias pae='pacman --color auto -D --asexplicit'
-    alias pad='pacman --color auto -D --asdeps'
-    alias pcl='echo y"\n"y | pacman --color auto -Scc'
-    alias pfy='pkgfile -u'
-    alias pl='p'
 
     pqii() {
         cat /var/lib/pacman/local/$1-*/install
