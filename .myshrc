@@ -133,19 +133,21 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     #    return $ret
     #}
 
-    tc() {
-        local newpwd="$(readlink -f $PWD)"
+    lxss_pwd() {
+        local result="$(readlink -f $PWD)"
 
-        [ -n "$1" ] && newpwd="$(readlink -f $1)"
+        [ -n "$1" ] && result="$(readlink -f $1)"
 
-        if [ "${newpwd:0:5}" = "/mnt/" ]; then
-            newpwd="${newpwd:5:1}:${newpwd:6}"
+        if [ "${result:0:5}" = "/mnt/" ]; then
+            echo "${result:5:1}:${result:6}"
         else
-            newpwd="$(echo c:/Users/goreliu/AppData/Local/lxss/rootfs$newpwd \
+            echo "$(echo c:/Users/goreliu/AppData/Local/lxss/rootfs$result \
                 | sed 's|rootfs/home|home|g')"
         fi
+    }
 
-        (wrun c:/mine/app/totalcmd/TOTALCMD.EXE "$newpwd" &)
+    tc() {
+        (wrun c:/mine/app/totalcmd/TOTALCMD.EXE $(lxss_pwd "$1") &)
     }
 
     wsudo() {
@@ -160,16 +162,7 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
         #wsudo c:/mine/app/msys2/usr/bin/rm -rf "'$@'"
         #return
 
-        local newpwd="$(readlink -f $PWD)"
-
-        if [ "${newpwd:0:5}" = "/mnt/" ]; then
-            newpwd="${newpwd:5:1}:${newpwd:6}"
-        else
-            newpwd="$(echo c:/Users/goreliu/AppData/Local/lxss/rootfs$newpwd \
-                | sed 's|rootfs/home|home|g')"
-        fi
-
-        wsudo powershell -NoLogo -c "\"cd '$newpwd'; rm '$@' -Recurse -Force\""
+        wsudo powershell -NoLogo -c "\"cd '$(lxss_pwd)'; rm '$@' -Recurse -Force\""
     }
 
     disma() {
