@@ -1,10 +1,6 @@
 #!/bin/bash
 
-[ "$HOSTNAME" = "MY-PC" ] && {
-    expr index "$1" " " >/dev/null || exec wstart "$1"
-
-    exec wrun explorer "${1//\//\\}"
-}
+[ "$HOSTNAME" = "MY-PC" ] && exec wstart "$@"
 
 function f() {
     $1 "$2" &>/dev/null &
