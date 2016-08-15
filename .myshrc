@@ -70,14 +70,16 @@ alias utf8_add_bom='sed -i "1s/^/\xEF\xBB\xBF/g"'
 alias a='apack'
 alias au='arepack'
 alias lc='lolcat'
+alias sm='sudo mount'
+alias um='sudo umount'
 # j k
 
 if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     alias u="wcmd"
-    alias z="st wstart"
+    alias z="st wrun"
     alias ahk="wrun c:/mine/app/AutoHotkey/AutoHotkey.exe"
     alias ahk64="wrun c:/mine/app/AutoHotkey/AutoHotkeyU64.exe"
-    alias np="wstart c:/mine/app/notepad++/notepad++.exe"
+    alias np="st wrun c:/mine/app/notepad++/notepad++.exe"
     alias mi='st wstart c:/mine/app/msys2/usr/bin/mintty'
     alias fm='tc'
     alias di='st wrun c:/mine/app/WinMerge/WinMergeU.exe'
@@ -155,7 +157,7 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     }
 
     wrm() {
-        #wsudo "c:/mine/app/msys2/usr/bin/rm -rf '$@'"
+        #wsudo c:/mine/app/msys2/usr/bin/rm -rf "'$@'"
         #return
 
         local newpwd="$(readlink -f $PWD)"
@@ -167,7 +169,7 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
                 | sed 's|rootfs/home|home|g')"
         fi
 
-        wsudo "powershell -c cd $newpwd; rmdir '$@'; pause"
+        wsudo powershell -NoLogo -c "\"cd '$newpwd'; rm '$@' -Recurse -Force\""
     }
 
     disma() {
@@ -225,13 +227,12 @@ elif [ "$OSTYPE" = "linux-android" -o "$OSTYPE" = "linux-androideabi" ]; then
     alias pkill="busybox pkill"
 
     precmd() {
-        PROMPT=$(echo "${CYAN}goreliu@${GREEN}my-phone:$RED%(?..[%?]:)$WHITE%~\n$WHITE\$$FINISH ")
+        PROMPT=$(echo "${CYAN}goreliu@${GREEN}my-phone:$RED%(?..[%?]:)\
+            $WHITE%~\n$WHITE\$$FINISH ")
     }
 
 else
     #alias smvb="sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600"
-    #alias sm='sudo mount'
-    #alias u='sudo umount'
     #alias czip="export UNZIP='-O CP936'"
     alias se='sudo systemctl'
     alias fm='ranger'
@@ -275,11 +276,15 @@ c() {
 }
 
 al() {
-    als "$@" || 7z l "$@"
+    als "$@" || {
+        [ $# -ge 1 ] && 7z l "$@"
+    }
 }
 
 x() {
-    aunpack "$@" || aunpack "$@" -F 7z
+    aunpack "$@" || {
+        [ $# -ge 1 ] && aunpack "$@" -F 7z
+    }
 }
 
 findx() {
@@ -400,6 +405,8 @@ if type yaourt &>/dev/null; then
 
     y() {
         pacman -Ss $*
+        [ -e "~/.cache/aurlist" ] || return
+
         cat ~/.cache/aurlist | grep -Pi --color=none "$*" | awk -F'  ' '{
             a=" "$2" ("$3")"
             print "\033[35;1maur/\033[36;1m" $1 "\033[32;1m" a "\033[0m"
