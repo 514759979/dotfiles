@@ -227,8 +227,8 @@ elif [ "$OSTYPE" = "linux-android" -o "$OSTYPE" = "linux-androideabi" ]; then
     alias pkill="busybox pkill"
 
     precmd() {
-        PROMPT=$(echo "${CYAN}goreliu@${GREEN}my-phone:$RED%(?..[%?]:)\
-            $WHITE%~\n$WHITE\$$FINISH ")
+        PROMPT=$(echo "${CYAN}goreliu@${GREEN}my-phone:$RED%(?..[%?]:)$WHITE%~\
+            \n$WHITE\$$FINISH ")
     }
 
 else
