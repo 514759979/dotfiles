@@ -148,7 +148,7 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     }
 
     tc() {
-        (wrun c:/mine/app/totalcmd/TOTALCMD.EXE $(lxss_pwd "$1") &)
+        (wrun c:/mine/app/totalcmd/TOTALCMD.EXE "$(lxss_pwd "$1")" &)
     }
 
     wsudo() {
