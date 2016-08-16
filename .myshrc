@@ -75,7 +75,6 @@ alias um='sudo umount'
 # j k
 
 if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
-    alias o="st wstart"
     alias u="wcmd"
     alias z="wrun"
     alias ahk="wrun c:/mine/app/AutoHotkey/AutoHotkey.exe"
@@ -147,6 +146,20 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
         fi
     }
 
+    o() {
+        dir_name="$(dirname "$1")"
+        base_name="$(basename "$1")"
+
+        if [ "$dir_name" = "/" ]; then
+            (cd /; wstart . &)
+        elif [ "$dir_name" = "/mnt" ]; then
+            (cd /; wstart "$base_name:" &)
+        else
+            shift
+            (cd "$dir_name" && wstart "$base_name" "$@" &)
+        fi
+    }
+
     tc() {
         (wrun c:/mine/app/totalcmd/TOTALCMD.EXE "$(lxss_pwd "$1")" &)
     }
@@ -212,7 +225,6 @@ elif [ "$OSTYPE" = "msys" ]; then
 
 elif [ "$OSTYPE" = "linux-android" -o "$OSTYPE" = "linux-androideabi" ]; then
     export SHELL="/data/data/com.termux/files/usr/bin/zsh"
-    alias o="bash ~/.bin/o"
     alias n="bash ~/.bin/n"
     alias cg="bash ~/.bin/cg"
     alias vg="bash ~/.bin/vg"
