@@ -203,12 +203,12 @@ bindkey "\t" user-complete
 ##}}}
 
 ##在命令前插入 sudo {{{
-sudo-command-line() {
-    [[ -z $BUFFER ]] && zle up-history
-    [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
-    #光标移动到行末
-    zle end-of-line
-}
+#sudo-command-line() {
+#    [[ -z $BUFFER ]] && zle up-history
+#    [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
+#    #光标移动到行末
+#    zle end-of-line
+#}
 
 zle -N sudo-command-line
 bindkey '^[j' sudo-command-line
@@ -220,22 +220,20 @@ bindkey '^g' edit-command-line
 
 #{{{ 路径别名
 # 进入相应的路径时只要 cd ~xxx
-hash -d tmp='/home/osily/tmp/'
-hash -d data='/home/osily/data/'
-hash -d photo='/home/osily/photo/'
-hash -d media='/home/osily/media/'
-hash -d book='/home/osily/book/'
+hash -d mine='/mnt/c/mine'
+hash -d mydata='/mnt/c/mydata'
+hash -d video='/mnt/d/video/'
 #}}}
 
 #{{{ 自定义补全
 # 补全 ping
-zstyle ':completion:*:ping:*' hosts www.baidu.com g.cn
+#zstyle ':completion:*:ping:*' hosts www.baidu.com g.cn
 
 #{{{ 补全 ssh scp sftp 等
-my_accounts=(
-osily::1
-)
-zstyle ':completion:*:my-accounts' users-hosts $my_accounts
+#my_accounts=(
+#goreliu::1
+#)
+#zstyle ':completion:*:my-accounts' users-hosts $my_accounts
 #}}}
 
 #{{{ other
@@ -244,9 +242,9 @@ compdef vwi=sudo
 compdef st=sudo
 compdef findx=sudo
 
-#if [ -d /cygdrive/c/mine/app/zsh-syntax-highlighting ]; then
+#if [ -d /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
 #    ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-#    source /cygdrive/c/mine/app/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #fi
 
 #}}}
