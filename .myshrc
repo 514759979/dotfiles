@@ -198,7 +198,10 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
             unset PASSDIR
             tmux new-window -c "$NEWPASSDIR" \; a &>/dev/null || exec tmux
         else
-            tmux a &>/dev/null || exec tmux
+            tmux a &>/dev/null || {
+                cd
+                exec tmux
+            }
         fi
         exit
     }

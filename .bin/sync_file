@@ -10,6 +10,5 @@ rsync -av --delete \
     --exclude .zcompdump \
     --exclude .lesshst \
     --exclude .cache \
-    --exclude .vim \
     --exclude .ssh \
     /mnt/c/Users/goreliu/AppData/Local/lxss/home/goreliu /home
