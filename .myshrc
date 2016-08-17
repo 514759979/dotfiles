@@ -91,13 +91,13 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
     alias cl='wrun clip'
 
-    #alias vm='wrun /mnt/c/Program\\ Files/Oracle/VirtualBox/VBoxManage.exe'
+    alias vm='wrun "c:/Program Files/Oracle/VirtualBox/VBoxManage.exe"'
+    alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
     #alias vmup='vm startvm archlinux --type headless'
     #alias vmdown='vm controlvm archlinux savestate'
     #alias vmpause='vm controlvm archlinux pasue'
     #alias vmresume='vm controlvm archlinux resume'
     #alias vmhalt='vm controlvm archlinux poweroff'
-    #alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
     #alias vst="ssh -t $USER@127.0.0.1 -p 50247"
 
     #vs() {
