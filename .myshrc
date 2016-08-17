@@ -80,7 +80,7 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     alias ahk="wrun c:/mine/app/AutoHotkey/AutoHotkey.exe"
     alias ahk64="wrun c:/mine/app/AutoHotkey/AutoHotkeyU64.exe"
     alias np="st wrun c:/mine/app/notepad++/notepad++.exe"
-    alias mi='st wstart c:/mine/app/bash/usr/bin/mintty'
+    alias mi='st wstart c:/msys64/usr/bin/mintty'
     alias fm='tc'
     alias di='st wrun c:/mine/app/WinMerge/WinMergeU.exe'
     alias mpv='st wstart c:/mine/app/mpv/mpv.exe'
@@ -173,9 +173,6 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     }
 
     wrm() {
-        #wsudo c:/mine/app/bash/usr/bin/rm -rf "'$@'"
-        #return
-
         wsudo powershell -NoLogo -c "\"cd '$(lxss_pwd)'; rm '$@' -Recurse -Force\""
     }
 
