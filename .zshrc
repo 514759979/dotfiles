@@ -3,7 +3,8 @@
 #{{{ 命令提示符、标题栏、任务栏样式
 sctitle() {
     value="\ek$1\e\\"
-    print -Pn ${value/\\\033*\[?m/}
+    #print -Pn ${value/\\\033*\[?m/}
+    print -Pn ${value/\x1b*\[?m/}
 }
 
 precmd() {
