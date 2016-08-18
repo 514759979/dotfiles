@@ -1,31 +1,28 @@
 #local start_time=$(date "+%s.%N")
 
 #{{{ 命令提示符、标题栏、任务栏样式
-sctitle() {
-    value="\ek$1\e\\"
-    #print -Pn ${value/\\\033*\[?m/}
-    print -Pn ${value/\x1b*\[?m/}
-}
-
 precmd() {
     PROMPT=$(echo "$CYAN%n@$GREEN%M:$RED%(?..[%?]:)$WHITE%~\n$WHITE\$$FINISH ")
 
+    # 清空上次显示的命令
     case $TERM in
-        (*screen*)
-        sctitle "%30< ..<%~%<<"
+        (screen*)
+        print -Pn "\ek%30< ..<%~%<<\e\\"
         ;;
     esac
 }
 
 case $TERM in
-    (*screen*)
+    (screen*)
     preexec() {
-        sctitle "%30>..>$1%< <";
+        [ "${1/ */}" = "echo" -o "${1/ */}" = "printf" ] && return
+        print -Pn "\ek%30>..>$1%< <\e\\"
     }
     ;;
 
-    (*xterm*|*rxvt*)
+    (xterm*)
     preexec() {
+        [ "${1/ */}" = "echo" -o "${1/ */}" = "printf" ] && return
         print -Pn "\e]0;%~$ ${1//\\/\\\\}\a"
     }
     ;;
