@@ -405,6 +405,18 @@ colorbar() {
     }'
 }
 
+loop() {
+    while true; do
+        eval "$@"
+    done
+}
+
+loopf() {
+    for i in *; do
+        eval "$@" "$i"
+    done
+}
+
 if type pacman &>/dev/null; then
     alias pac='sudo pacman --color auto'
     alias p='pacman --color auto -Ss'
