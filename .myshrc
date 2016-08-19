@@ -189,21 +189,14 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
         wrun taskkill /f /im "$1.exe"
     }
 
-    [ -n "$PASSDIR" ] && {
-        cd "$PASSDIR"
-    }
+    [ -z "$TMUX" -a -n "$USE_TMUX" ] && {
+        [ -n "$ATTACH_ONLY" ] && {
+            cd
+            tmux a 2>/dev/null || exec tmux
+            exit
+        }
 
-    [ -z "$TMUX" -a -n "$USETMUX" ] && {
-        if [ -n "$PASSDIR" ]; then
-            NEWPASSDIR="$PASSDIR"
-            unset PASSDIR
-            tmux new-window -c "$NEWPASSDIR" \; a &>/dev/null || exec tmux
-        else
-            tmux a &>/dev/null || {
-                cd
-                exec tmux
-            }
-        fi
+        tmux new-window -c "$PWD" \; a 2>/dev/null || exec tmux
         exit
     }
 
