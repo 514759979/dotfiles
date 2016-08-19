@@ -20,6 +20,7 @@
     u = push
     p = pull
     c = clone --depth 1
+    pullup = pull upstream master
 [merge]
     tool = vimdiff
 [push]
