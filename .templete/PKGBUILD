@@ -7,6 +7,8 @@ pkgdesc=''
 arch=('any')
 url=''
 license=('')
+depends=('')
+makedepends=('')
 source=("")
 md5sums=('')
 
