@@ -189,17 +189,6 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
         wrun taskkill /f /im "$1.exe"
     }
 
-    [ -z "$TMUX" -a -n "$USE_TMUX" ] && {
-        [ -n "$ATTACH_ONLY" ] && {
-            cd
-            tmux a 2>/dev/null || exec tmux
-            exit
-        }
-
-        tmux new-window -c "$PWD" \; a 2>/dev/null || exec tmux
-        exit
-    }
-
     # note
     # enable ps1
     # srun Set-ExecutionPolicy RemoteSigned
