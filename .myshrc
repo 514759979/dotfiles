@@ -119,7 +119,8 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
         ret=$?
 
         [ $ret -eq 255 -a $# -eq 0 ] && {
-            vm startvm archlinux --type headless
+            wrun "c:/Program Files/Oracle/VirtualBox/VBoxManage.exe" \
+                startvm archlinux --type headless
 
             while true; do
                 ssh $USER@127.0.0.1 -p 50247 "$args"
