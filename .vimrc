@@ -24,6 +24,7 @@ set ru
 syntax on
 syntax enable
 filetype plugin indent on
+colorscheme elflord
 
 "{{{ taglist
 "ca tl Tlist
