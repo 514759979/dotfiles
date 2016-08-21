@@ -92,6 +92,7 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     alias netstat='wrun netstat'
     alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
     alias cl='wrun clip'
+    alias ps1='wrun powershell -c'
 
     alias vm='wrun "c:/Program Files/Oracle/VirtualBox/VBoxManage.exe"'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
