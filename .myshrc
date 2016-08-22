@@ -152,6 +152,10 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
     o() {
         dir_name="$(dirname "$1")"
         base_name="$(basename "$1")"
+        [ "$dir_name" = "http:" -o "$dir_name" = "https:" ] && {
+            wstart "$@"
+            return
+        }
 
         if [ "$dir_name" = "/" ]; then
             (cd /; wstart . &)
