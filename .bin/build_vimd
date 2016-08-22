@@ -9,9 +9,9 @@ rm -f VimDesktop/vimd.ini
 rm -rf VimDesktop/VimDesktop
 rm -rf VimDesktop/doc/wiki/.git
 
-apack VimDesktop-$1.zip VimDesktop
+apack VimDesktop-$1.7z VimDesktop
 rm -rf VimDesktop
-mv VimDesktop-$1.zip ~/tmp
+mv VimDesktop-$1.7z ~/tmp
 
 echo -e "历史版本详见 Releases · goreliu/vimdesktop · GitHub" > ~/tmp/VimDesktop更新历史.txt
 echo "https://github.com/goreliu/vimdesktop/releases" >> ~/tmp/VimDesktop更新历史.txt
