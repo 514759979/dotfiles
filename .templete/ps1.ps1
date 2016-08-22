@@ -1,2 +1,2 @@
-#!/usr/bin/env powershell
+#!/usr/bin/wrun powershell
 
