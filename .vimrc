@@ -23,33 +23,7 @@ set ru
 "set clipboard=unnamedplus
 syntax on
 syntax enable
-filetype plugin indent on
 colorscheme elflord
-
-"{{{ taglist
-"ca tl Tlist
-let Tlist_File_Fold_Auto_Close=1
-let Tlist_Auto_Open = 1
-let Tlist_Show_One = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Ctags_Cmd="ctags"
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Use_Right_Window = 1
-"let Tlist_WinWidth=30
-map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-"set tags+=~/.tags/c++.tags
-"}}}
-
-"{{{ omnicppcomplete
-"let OmniCpp_NamespaceSearch = 1
-"let OmniCpp_GlobalScopeSearch = 1
-"let OmniCpp_ShowAccess = 1
-"let OmniCpp_MayCompleteDot = 1
-"let OmniCpp_MayCompleteArrow = 1
-"let OmniCpp_MayCompleteScope = 1
-"let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-"set completeopt=menu
-"}}}
 
 "{{{ yong
 "function Im2en()
@@ -67,7 +41,6 @@ map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 "{{{ winmanager
 let g:winManagerWindowLayout = "BufExplorer|FileExplorer"
 ca nt WMT
-ca NT WMT
 "}}}
 "
 "{{{ bufexplorer
@@ -91,7 +64,8 @@ nnoremap <F9> :w<cr>:make<cr>:cw<cr>
 nnoremap <C-a> ggVG
 ca qq q!
 ca w!! w !sudo tee >/dev/null "%"
-map <C-c> "+y
+"map <C-c> "+y
+map <C-c> :'<,'>w !wrun clip<cr><cr>
 nmap k gk
 nmap j gj
 nmap 0 g0
@@ -123,7 +97,7 @@ map <C-k> :tabnext<cr>
 map <esc>j :next<cr>
 map <esc>k :previous<cr>
 
-au BufRead,BufNewFile *.thrift set filetype=thrift
+"au BufRead,BufNewFile *.thrift set filetype=thrift
 
 
 "{{{ vundle
@@ -142,11 +116,9 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-scripts/a.vim'
 Plugin 'othree/vim-autocomplpop'
 Plugin 'jlanzarotta/bufexplorer'
-Plugin 'godlygeek/tabular'
 Plugin 'tsaleh/vim-supertab'
 Plugin 'vim-scripts/TxtBrowser'
 Plugin 'KNCheung/vim-winmanager'
-Plugin 'szw/vim-tags'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
