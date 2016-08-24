@@ -64,7 +64,6 @@ setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 #在命令前添加空格，不将此命令添加到纪录文件中
 setopt HIST_IGNORE_SPACE
-#remove beep
 unsetopt beep
 #}}}
 
@@ -74,7 +73,7 @@ unsetopt beep
 # /v/c/p/p => /var/cache/pacman/pkg
 setopt complete_in_word
 
-#禁用 core dumps
+# 禁用 core dumps
 #limit coredumpsize 0
 
 bindkey -v
@@ -200,17 +199,19 @@ zle -N user-complete
 bindkey "\t" user-complete
 ##}}}
 
-##在命令前插入 sudo {{{
+#{{{ 在命令前插入 sudo
 #sudo-command-line() {
 #    [[ -z $BUFFER ]] && zle up-history
 #    [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
 #    #光标移动到行末
 #    zle end-of-line
 #}
+#
+#zle -N sudo-command-line
+#bindkey '^[j' sudo-command-line
+#}}}
 
-zle -N sudo-command-line
-bindkey '^[j' sudo-command-line
-
+#{{{
 autoload edit-command-line
 zle -N edit-command-line
 bindkey '^g' edit-command-line
@@ -223,28 +224,11 @@ hash -d mydata='/mnt/c/mydata'
 hash -d video='/mnt/d/video/'
 #}}}
 
-#{{{ 自定义补全
-# 补全 ping
-#zstyle ':completion:*:ping:*' hosts www.baidu.com g.cn
-
-#{{{ 补全 ssh scp sftp 等
-#my_accounts=(
-#goreliu::1
-#)
-#zstyle ':completion:*:my-accounts' users-hosts $my_accounts
-#}}}
-
 #{{{ other
 compdef cwi=sudo
 compdef vwi=sudo
 compdef st=sudo
 compdef findx=sudo
-
-#if [ -d /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-#    ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-#    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#fi
-
 #}}}
 
 #echo $(( $(date "+%s.%N") - start_time))
