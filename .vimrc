@@ -1,7 +1,7 @@
 set nocompatible
 "set ch=2
-set fileencodings=utf-8,gb18030
-set fencs=utf-8,gb18030
+set fileencodings=utf-8,utf-16le,gb18030
+set fencs=utf-8,utf-16le,gb18030
 set enc=utf-8
 set ambiwidth=double
 set display=lastline " 不显示@
@@ -21,31 +21,10 @@ set autochdir
 set nobackup
 set ru
 "set clipboard=unnamedplus
+"map <C-c> "+y
 syntax on
 syntax enable
 colorscheme elflord
-
-"{{{ yong
-"function Im2en()
-"   let a = system("yong-vim 1")
-"endfunction
-"function Im2zh()
-"   let a = system("yong-vim 0")
-"endfunction
-
-"set timeoutlen=100
-"autocmd! InsertLeave * call Im2en()
-"autocmd! InsertEnter * call Im2zh()
-"}}}
-
-"{{{ winmanager
-let g:winManagerWindowLayout = "BufExplorer|FileExplorer"
-ca nt WMT
-"}}}
-"
-"{{{ bufexplorer
-let g:bufExplorerSortBy='name'
-"}}}
 
 hi Comment ctermfg=6
 " I like highlighting strings inside C comments
@@ -64,7 +43,6 @@ nnoremap <F9> :w<cr>:make<cr>:cw<cr>
 nnoremap <C-a> ggVG
 ca qq q!
 ca w!! w !sudo tee >/dev/null "%"
-"map <C-c> "+y
 map <C-c> :'<,'>w !wrun clip<cr><cr>
 nmap k gk
 nmap j gj
@@ -91,14 +69,30 @@ set statusline +=%1*%4v\ %*                       "virtual column number
 set statusline +=%2*0x%04B\ %*                    "character under cursor
 
 set laststatus=2
-ca tt tabe
 map <C-j> :tabprevious<cr>
 map <C-k> :tabnext<cr>
-map <esc>j :next<cr>
-map <esc>k :previous<cr>
 
-"au BufRead,BufNewFile *.thrift set filetype=thrift
+"{{{ yong
+"function Im2en()
+"   let a = system("yong-vim 1")
+"endfunction
+"function Im2zh()
+"   let a = system("yong-vim 0")
+"endfunction
 
+"set timeoutlen=100
+"autocmd! InsertLeave * call Im2en()
+"autocmd! InsertEnter * call Im2zh()
+"}}}
+
+"{{{ winmanager
+ca nt WMT
+"}}}
+
+"{{{ supertab
+let g:SuperTabMappingForward = '<s-tab>'
+let g:SuperTabMappingBackward = '<tab>'
+"}}}
 
 "{{{ vundle
 
@@ -115,9 +109,7 @@ Plugin 'L9'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-scripts/a.vim'
 Plugin 'othree/vim-autocomplpop'
-Plugin 'jlanzarotta/bufexplorer'
 Plugin 'tsaleh/vim-supertab'
-Plugin 'vim-scripts/TxtBrowser'
 Plugin 'KNCheung/vim-winmanager'
 
 " All of your Plugins must be added before the following line
