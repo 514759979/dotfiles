@@ -74,7 +74,6 @@ ca NT WMT
 let g:bufExplorerSortBy='name'
 "}}}
 
-set pastetoggle=<F3>
 hi Comment ctermfg=6
 " I like highlighting strings inside C comments
 let c_comment_strings=1
@@ -82,16 +81,16 @@ autocmd FileType c set makeprg=gcc\ -g\ -Wall\ %\ -o\ %:t:r
 autocmd FileType cpp set makeprg=g++\ -g\ -std=c++11\ -Wall\ %\ -o\ %:t:r
 autocmd FileType go set makeprg=go\ build\ %
 au BufRead,BufNewFile *.txt setlocal ft=txt
-"nnoremap <F9> :w<cr>:make<cr>:cw<cr>
-nnoremap <F9> :!./%:t:r<cr>
+nnoremap <F2> :set mouse=<cr>:set nonu<cr>
+set pastetoggle=<F3>
+nnoremap <F4> :set mouse=a<cr>:set nu<cr>
 nnoremap <F5> :!./%<cr>
-nnoremap <F6> :!o %<cr>
+nnoremap <F6> :!o %<cr><cr>
+nnoremap <F7> :!./%:t:r<cr>
+nnoremap <F9> :w<cr>:make<cr>:cw<cr>
 nnoremap <C-a> ggVG
 ca qq q!
 ca w!! w !sudo tee >/dev/null "%"
-"set t_ti= t_te=
-nnoremap <F2> :set mouse=<cr>:set nonu<cr>
-nnoremap <F4> :set mouse=a<cr>:set nu<cr>
 map <C-c> "+y
 nmap k gk
 nmap j gj
