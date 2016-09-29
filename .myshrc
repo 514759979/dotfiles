@@ -88,7 +88,6 @@ if [ "$HOST" = "my-pc" -o "$HOSTNAME" = "my-pc" ]; then
     alias flve='wrun c:/mine/app/FLV_Extract/FLVExtractCL.exe'
     alias ipconfig='wrun ipconfig | ucat'
     alias tl='wrun tasklist'
-    alias ping='wrun ping'
     alias netstat='wrun netstat'
     alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
     alias cl='wrun clip'
