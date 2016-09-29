@@ -81,7 +81,6 @@ if [ "$HOST" = "my-pc" -o "$HOSTNAME" = "my-pc" ]; then
     alias ahk="wrun c:/mine/app/AutoHotkey/AutoHotkey.exe"
     alias ahk64="wrun c:/mine/app/AutoHotkey/AutoHotkeyU64.exe"
     alias np="st wrun c:/mine/app/notepad++/notepad++.exe"
-    #alias mi='st wstart c:/msys64/usr/bin/mintty'
     alias fm='tc'
     alias di='st wrun c:/mine/app/WinMerge/WinMergeU.exe'
     alias mpv='st wstart c:/mine/app/mpv/mpv.exe'
@@ -185,6 +184,10 @@ if [ "$HOST" = "my-pc" -o "$HOSTNAME" = "my-pc" ]; then
 
         tmux new-window -c "$PWD" \; a 2>/dev/null || exec tmux
         exit
+    }
+
+    [ -e /proc/sys/fs/binfmt_misc/run_exe ] || {
+        sudo /usr/lib/systemd/systemd-binfmt
     }
 
     # note
