@@ -78,8 +78,8 @@ alias um='sudo umount'
 if [ "$HOST" = "my-pc" -o "$HOSTNAME" = "my-pc" ]; then
     alias u="wcmd"
     alias z="wrun"
-    alias ahk="wrun c:/mine/app/AutoHotkey/AutoHotkey.exe"
-    alias ahk64="wrun c:/mine/app/AutoHotkey/AutoHotkeyU64.exe"
+    alias ahk="wrun --silent-breakaway c:/mine/app/AutoHotkey/AutoHotkey.exe"
+    alias ahk64="wrun --silent-breakaway c:/mine/app/AutoHotkey/AutoHotkeyU64.exe"
     alias np="st wrun c:/mine/app/notepad++/notepad++.exe"
     alias fm='tc'
     alias di='st wrun c:/mine/app/WinMerge/WinMergeU.exe'
