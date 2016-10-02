@@ -74,20 +74,18 @@ alias sm='sudo mount'
 alias um='sudo umount'
 # j k
 
-if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
+if [ "$HOST" = "my-pc" -o "$HOSTNAME" = "my-pc" ]; then
     alias u="wcmd"
     alias z="wrun"
-    alias ahk="wrun c:/mine/app/AutoHotkey/AutoHotkey.exe"
-    alias ahk64="wrun c:/mine/app/AutoHotkey/AutoHotkeyU64.exe"
+    alias ahk="wrun --silent-breakaway c:/mine/app/AutoHotkey/AutoHotkey.exe"
+    alias ahk64="wrun --silent-breakaway c:/mine/app/AutoHotkey/AutoHotkeyU64.exe"
     alias np="st wrun c:/mine/app/notepad++/notepad++.exe"
-    #alias mi='st wstart c:/msys64/usr/bin/mintty'
     alias fm='tc'
     alias di='st wrun c:/mine/app/WinMerge/WinMergeU.exe'
     alias mpv='st wstart c:/mine/app/mpv/mpv.exe'
     alias flve='wrun c:/mine/app/FLV_Extract/FLVExtractCL.exe'
     alias ipconfig='wrun ipconfig | ucat'
     alias tl='wrun tasklist'
-    alias ping='wrun ping'
     alias netstat='wrun netstat'
     alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
     alias cl='wrun clip'
@@ -185,6 +183,10 @@ if [ "$HOST" = "MY-PC" -o "$HOSTNAME" = "MY-PC" ]; then
 
         tmux new-window -c "$PWD" \; a 2>/dev/null || exec tmux
         exit
+    }
+
+    [ -e /proc/sys/fs/binfmt_misc/run_exe ] || {
+        sudo /usr/lib/systemd/systemd-binfmt
     }
 
     # note

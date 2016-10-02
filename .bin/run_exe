@@ -1,0 +1,7 @@
+#!/bin/bash
+
+wrun --silent-breakaway "${1/.\//}"
+
+[ $? -eq 255 ] && {
+    wstart "${1/.\//}"
+}
