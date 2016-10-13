@@ -74,7 +74,7 @@ alias sm='sudo mount'
 alias um='sudo umount'
 # j k
 
-if [ "$HOST" = "my-pc" -o "$HOSTNAME" = "my-pc" ]; then
+if [ -e /dev/lxss ]; then
     alias u="wcmd"
     alias z="wrun"
     alias ahk="wrun --silent-breakaway c:/mine/app/AutoHotkey/AutoHotkey.exe"
