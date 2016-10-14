@@ -186,7 +186,7 @@ if [ -e /dev/lxss ]; then
     }
 
     [ -e /proc/sys/fs/binfmt_misc/run_exe ] || {
-        sudo /usr/lib/systemd/systemd-binfmt
+        sudo /usr/lib/systemd/systemd-binfmt &>/dev/null
     }
 
     # note
