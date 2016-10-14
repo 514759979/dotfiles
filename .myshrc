@@ -90,6 +90,7 @@ if [ -e /dev/lxss ]; then
     alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
     alias cl='wrun clip'
     alias ps1='wrun powershell -c'
+    alias mi='wstart c:/mine/app/wsl-terminal/bin/mintty.exe /bin/wslbridge -t zsh'
 
     alias vm='wrun "c:/Program Files/Oracle/VirtualBox/VBoxManage.exe"'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
