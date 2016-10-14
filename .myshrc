@@ -179,8 +179,9 @@ if [ -e /dev/lxss ]; then
         if [ -z "$TMUX" ]; then
             img2sixel "$@"
         else
+            echo img2sixel \""$@"\"";zsh" >/dev/shm/cmd
             wrun --silent-breakaway c:/mine/app/wsl-terminal/bin/mintty.exe \
-                -s maxwidth -s maxheight /bin/wslbridge -t zsh
+                -s maxwidth -s maxheight /bin/wslbridge -t zsh /dev/shm/cmd
         fi
     }
 
