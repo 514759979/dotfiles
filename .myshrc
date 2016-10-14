@@ -72,7 +72,6 @@ alias au='arepack'
 alias lc='lolcat'
 alias sm='sudo mount'
 alias um='sudo umount'
-alias imgcat='img2sixel'
 # j k
 
 if [ -e /dev/lxss ]; then
@@ -174,6 +173,14 @@ if [ -e /dev/lxss ]; then
 
     tk() {
         wrun taskkill /f /im "$1.exe"
+    }
+
+    imgcat() {
+        if [ -z "$TMUX" ]; then
+            img2sixel "$@"
+        else
+            wrun --silent-breakaway c:/mine/app/wsl-terminal/bin/mintty.exe /bin/wslbridge -t zsh
+        fi
     }
 
     [ -z "$TMUX" -a -n "$USE_TMUX" ] && {
