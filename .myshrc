@@ -180,8 +180,7 @@ if [ -e /dev/lxss ]; then
             img2sixel "$@"
         else
             wrun --silent-breakaway c:/mine/app/wsl-terminal/bin/mintty.exe \
-                -s maxwidth -s maxheight \
-                /bin/wslbridge -t bash -c "img2sixel '$@'; zsh"
+                -s maxwidth -s maxheight /bin/wslbridge -t zsh
         fi
     }
 
