@@ -14,6 +14,7 @@
     d = diff
     dd = diff --cached
     l = log
+    lp = log -p
     ls = ls-files
     b = branch
     info = remote -v
