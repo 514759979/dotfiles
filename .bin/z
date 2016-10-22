@@ -1,3 +1,0 @@
-#!/bin/bash
-
-/init cmd /C "cd $(lxss_pwd) & $@"

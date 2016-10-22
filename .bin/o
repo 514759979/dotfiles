@@ -9,10 +9,10 @@ dir_name="$(dirname "$1")"
 base_name="$(basename "$1")"
 
 if [ "$dir_name" = "/" ]; then
-    (cd /; z start . &)
+    (cd /; wrun start . &)
 elif [ "$dir_name" = "/mnt" ]; then
-    (cd /; z start "$base_name:" &)
+    (cd /; wrun start "$base_name:" &)
 else
     shift 2>/dev/null
-    (cd "$dir_name" && z start "$base_name" "$@" &)
+    (cd "$dir_name" && wrun start "$base_name" "$@" &)
 fi

@@ -75,13 +75,13 @@ alias um='sudo umount'
 # j k
 
 if [ -e /dev/lxss ]; then
-    alias ahk="z c:/mine/app/AutoHotkey/AutoHotkey.exe"
-    alias ahk64="z c:/mine/app/AutoHotkey/AutoHotkeyU64.exe"
-    alias np="st z c:/mine/app/notepad++/notepad++.exe"
+    alias ahk="wrun c:/mine/app/AutoHotkey/AutoHotkeyU32.exe"
+    alias ahk64="wrun c:/mine/app/AutoHotkey/AutoHotkeyU64.exe"
+    alias np="st wrun c:/mine/app/notepad++/notepad++.exe"
     alias fm='tc'
-    alias di='st z c:/mine/app/WinMerge/WinMergeU.exe'
-    alias mpv='st z c:/mine/app/mpv/mpv.exe'
-    alias flve='z c:/mine/app/FLV_Extract/FLVExtractCL.exe'
+    alias di='st wrun c:/mine/app/WinMerge/WinMergeU.exe'
+    alias mpv='st wrun c:/mine/app/mpv/mpv.exe'
+    alias flve='wrun c:/mine/app/FLV_Extract/FLVExtractCL.exe'
     alias ipconfig='/init ipconfig | ucat'
     alias tl='/init tasklist'
     alias netstat='/init netstat'
@@ -134,7 +134,7 @@ if [ -e /dev/lxss ]; then
     }
 
     tc() {
-        (/init c:/mine/app/totalcmd/TOTALCMD.EXE "$(lxss_pwd "$1")" &)
+        (/init c:/mine/app/totalcmd/TOTALCMD.EXE "$(wrun -f "$1")" &)
     }
 
     wsudo() {
@@ -146,7 +146,7 @@ if [ -e /dev/lxss ]; then
     }
 
     wrm() {
-        wsudo powershell -NoLogo -c "\"cd '$(lxss_pwd)'; rm '$@' -Recurse -Force\""
+        wsudo powershell -NoLogo -c "\"cd '$(wrun -f)'; rm '$@' -Recurse -Force\""
     }
 
     disma() {
@@ -166,7 +166,7 @@ if [ -e /dev/lxss ]; then
             img2sixel "$@"
         else
             echo img2sixel \""$@"\"";zsh" >/dev/shm/cmd
-            z c:/mine/app/wsl-terminal/bin/mintty.exe \
+            wrun c:/mine/app/wsl-terminal/bin/mintty.exe \
                 -s maxwidth -s maxheight /bin/wslbridge -t zsh /dev/shm/cmd
         fi
     }
