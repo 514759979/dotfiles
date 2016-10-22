@@ -1,2 +1,1 @@
-#!/usr/bin/wrun powershell
-
+#!/home/goreliu/.bin/wrun powershell
