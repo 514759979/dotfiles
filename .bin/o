@@ -1,7 +1,25 @@
 #!/bin/bash
 
+lxss_pwd() {
+	local result="$(readlink -f $PWD)"
+
+	[ -n "$1" ] && result="$(readlink -f $1)"
+
+	if [ "${result:0:5}" = "/mnt/" ]; then
+		echo "${result:5:1}:${result:6}"
+	else
+		echo "$(echo c:/Users/goreliu/AppData/Local/lxss/rootfs$result \
+			| sed 's|rootfs/home|home|g')"
+	fi
+}
+
+z() {
+	/init cmd /C "cd $(lxss_pwd) & $@"
+}
+
+
 [ "${1:0:4}" = "http" -o "${1:0:4}" = "www." ] && {
-    wstart "$@"
+    /init cmd /C start "$@"
     exit
 }
 
@@ -9,10 +27,10 @@ dir_name="$(dirname "$1")"
 base_name="$(basename "$1")"
 
 if [ "$dir_name" = "/" ]; then
-    (cd /; wstart . &)
+    (cd /; z start . &)
 elif [ "$dir_name" = "/mnt" ]; then
-    (cd /; wstart "$base_name:" &)
+    (cd /; z start "$base_name:" &)
 else
     shift 2>/dev/null
-    (cd "$dir_name" && wstart "$base_name" "$@" &)
+    (cd "$dir_name" && z start "$base_name" "$@" &)
 fi
