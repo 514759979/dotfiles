@@ -78,7 +78,7 @@ static char* convert_drive_fs_path_to_win32(const char* path)
     return result;
 }
 
-char cmd[102400] = "/init cmd /C \"cd ";
+char cmd[102400] = "/init cmd /C \'cd ";
 
 int main(int argc, char *argv[])
 {
@@ -97,33 +97,32 @@ int main(int argc, char *argv[])
     }
 
     strcat(cmd, cwd_win32);
-    strcat(cmd, " &");
+    strcat(cmd, " & ");
 
-    if (strcmp(argv[1], "-d") == 0) {
-        for (int i = 2; i < argc; ++i) {
-            strcat(cmd, " ");
-            strcat(cmd, argv[i]);
-        }
-
-        strcat(cmd, "\"");
-        printf("%s\n", cmd);
-        free(cwd_win32);
-        free(cwd);
-        return 0;
+    if (argv[1][0] != '.') {
+        strcat(cmd, argv[1]);
+    } else {
+        strcat(cmd, argv[1] + 2);
     }
 
-    for (int i = 1; i < argc; ++i) {
-        strcat(cmd, " ");
+    for (int i = 2; i < argc; ++i) {
+        strcat(cmd, " \"");
         if (i == 1 && argv[i][0] == '.') {
             strcat(cmd, argv[i] + 2);
         } else {
             strcat(cmd, argv[i]);
         }
+        strcat(cmd, "\"");
     }
 
-    strcat(cmd, "\"");
+    strcat(cmd, "\'");
+
+    if (getenv("WRUN_DEBUG") != NULL) {
+        printf("%s\n", cmd);
+    }
 
     system(cmd);
+
     free(cwd_win32);
     free(cwd);
     return 0;
