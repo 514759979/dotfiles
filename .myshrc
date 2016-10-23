@@ -79,10 +79,10 @@ if [ -e /dev/lxss ]; then
     alias ahk="wrun c:/mine/app/AutoHotkey/AutoHotkeyU32.exe"
     alias ahk64="wrun c:/mine/app/AutoHotkey/AutoHotkeyU64.exe"
     alias np="st wrun c:/mine/app/notepad++/notepad++.exe"
-    alias fm='tc'
     alias di='st wrun c:/mine/app/WinMerge/WinMergeU.exe'
     alias mpv='st wrun c:/mine/app/mpv/mpv.exe'
     alias flve='wrun c:/mine/app/FLV_Extract/FLVExtractCL.exe'
+    alias fm='tc'
     alias ipconfig='/init ipconfig | ucat'
     alias tl='/init tasklist'
     alias tlg='/init tasklist | grep'
@@ -146,10 +146,6 @@ if [ -e /dev/lxss ]; then
         wsudo powershell -NoLogo -c "\"$@;pause\""
     }
 
-    wrm() {
-        wsudo powershell -NoLogo -c "\"cd '$(wrun -f)'; rm '$@' -Recurse -Force\""
-    }
-
     disma() {
         srun Dism.exe /Online /Cleanup-Image /AnalyzeComponentStore
     }
@@ -172,7 +168,7 @@ if [ -e /dev/lxss ]; then
             img2sixel "$@"
         else
             echo img2sixel \""$@"\"";zsh" >/dev/shm/cmd
-            wrun c:/mine/app/wsl-terminal/bin/mintty.exe \
+            /init c:/mine/app/wsl-terminal/bin/mintty.exe \
                 -s maxwidth -s maxheight /bin/wslbridge -t zsh /dev/shm/cmd
         fi
     }
