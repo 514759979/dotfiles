@@ -31,3 +31,4 @@ sdcard
 lib
 .sudo_as_admin_successful
 .bin/wrun
+.android
