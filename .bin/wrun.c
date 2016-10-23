@@ -1,6 +1,7 @@
 #include <errno.h>
 #include <limits.h>
 #include <pwd.h>
+#include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -66,6 +67,8 @@ int main(int argc, char *argv[])
         dprintf(STDERR_FILENO, "wrun called without argument\n");
         return 1;
     }
+
+    signal(SIGINT, SIG_IGN);
 
     char* cwd = agetcwd();
     char* cwd_win32 = convert_drive_fs_path_to_win32(cwd);
