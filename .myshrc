@@ -87,10 +87,9 @@ if [ -e /dev/lxss ]; then
     alias tl='/init tasklist'
     alias netstat='/init netstat'
     alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
-    # TODO
-    alias cl='/init clip'
     alias ps1='/init powershell -c'
     alias mi='/init c:/mine/app/wsl-terminal/bin/mintty.exe /bin/wslbridge -t zsh'
+    alias pa='/init paste'
 
     alias vm='/init "c:/Program Files/Oracle/VirtualBox/VBoxManage.exe"'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
@@ -160,6 +159,11 @@ if [ -e /dev/lxss ]; then
 
     tk() {
         /init taskkill /f /im "$1.exe"
+    }
+
+    cl() {
+        cat > /tmp/clipboard
+        /init cmd /C 'clip < c:\Users\goreliu\AppData\Local\lxss\rootfs\tmp\clipboard'
     }
 
     imgcat() {
