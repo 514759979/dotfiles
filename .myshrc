@@ -76,6 +76,7 @@ alias um='sudo umount'
 
 if [ -e /dev/lxss ]; then
     alias z="wrun"
+    alias cmd="wrun cmd"
     alias ahk="wrun c:/mine/app/AutoHotkey/AutoHotkeyU32.exe"
     alias ahk64="wrun c:/mine/app/AutoHotkey/AutoHotkeyU64.exe"
     alias np="st wrun c:/mine/app/notepad++/notepad++.exe"
@@ -88,7 +89,7 @@ if [ -e /dev/lxss ]; then
     alias tlg='/init tasklist | grep'
     alias netstat='/init netstat'
     alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
-    alias ps1='/init powershell -c'
+    alias ps1='wrun powershell'
     alias mi='/init c:/mine/app/wsl-terminal/bin/mintty.exe /bin/wslbridge -t zsh'
     alias pa='/init paste'
 
