@@ -85,6 +85,7 @@ if [ -e /dev/lxss ]; then
     alias flve='wrun c:/mine/app/FLV_Extract/FLVExtractCL.exe'
     alias ipconfig='/init ipconfig | ucat'
     alias tl='/init tasklist'
+    alias tlg='/init tasklist | grep'
     alias netstat='/init netstat'
     alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
     alias ps1='/init powershell -c'
