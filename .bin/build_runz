@@ -5,7 +5,7 @@ cp * RunZ -r 2>/dev/null
 
 cd RunZ
 
-cp /mine/app/AutoHotkey/AutoHotkey.exe RunZ.exe
+cp /mnt/c/mine/app/AutoHotkey/AutoHotkey.exe RunZ.exe
 rm -f Core/*.js
 rm -f Core/*.lnk
 rm -f Core/Plugins.ahk
