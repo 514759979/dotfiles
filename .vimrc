@@ -19,6 +19,7 @@ set laststatus=2
 syntax on
 syntax enable
 colorscheme elflord
+filetype plugin indent on
 
 let c_comment_strings=1 " highlighting strings inside C comments
 autocmd FileType c set makeprg=gcc\ -g\ -Wall\ %\ -o\ %:t:r
@@ -69,33 +70,16 @@ let g:SuperTabMappingForward = '<s-tab>'
 let g:SuperTabMappingBackward = '<tab>'
 "}}}
 
-"{{{ vundle
-filetype off                  " required
+"{{{ vim-plug
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+call plug#begin('~/.vim/plugged')
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+Plug 'L9'
+Plug 'vim-scripts/a.vim'
+Plug 'othree/vim-autocomplpop'
+Plug 'tsaleh/vim-supertab'
+Plug 'KNCheung/vim-winmanager'
 
-" mkdir -p ~/.vim/bundle
-" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'L9'
-Plugin 'vim-scripts/a.vim'
-Plugin 'othree/vim-autocomplpop'
-Plugin 'tsaleh/vim-supertab'
-Plugin 'KNCheung/vim-winmanager'
-
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+call plug#end()            " required
 "}}}
