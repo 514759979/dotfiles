@@ -76,8 +76,10 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" mkdir -p ~/.vim/bundle
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'L9'
-Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-scripts/a.vim'
 Plugin 'othree/vim-autocomplpop'
 Plugin 'tsaleh/vim-supertab'
