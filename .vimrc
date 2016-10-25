@@ -1,3 +1,4 @@
+"{{{ basic
 set nocompatible
 set fencs=utf-8,utf-16le,gb18030
 set enc=utf-8
@@ -20,32 +21,43 @@ syntax on
 syntax enable
 colorscheme elflord
 filetype plugin indent on
+"}}}
 
+"{{{ language
 let c_comment_strings=1 " highlighting strings inside C comments
 autocmd FileType c set makeprg=gcc\ -g\ -Wall\ %\ -o\ %:t:r
 autocmd FileType cpp set makeprg=g++\ -g\ -std=c++11\ -Wall\ %\ -o\ %:t:r
-nnoremap <F2> :set mouse=<cr>:set nonu<cr>
+"}}}
+
+"{{{ key
 set pastetoggle=<F3>
+
+noremap j gj
+noremap k gk
+noremap 0 g0
+noremap $ g$
+noremap <C-j> :tabprevious<cr>
+noremap <C-k> :tabnext<cr>
+
+nnoremap <F2> :set mouse=<cr>:set nonu<cr>
 nnoremap <F4> :set mouse=a<cr>:set nu<cr>
 nnoremap <F5> :!./%<cr>
 nnoremap <F6> :!o %<cr><cr>
 nnoremap <F7> :!./%:t:r<cr>
 nnoremap <F9> :w<cr>:make<cr>:cw<cr>
 nnoremap <C-a> ggVG
+nnoremap <C-l> <C-v>
+nnoremap <C-v> :r!/init paste<cr>
+
+vnoremap <C-c> :'<,'>w !cl<cr><cr>
+"}}}
+
+"{{{ command
 ca qq q!
 ca w!! w !sudo tee >/dev/null "%"
-map <C-c> :'<,'>w !wrun clip<cr><cr>
-nmap k gk
-nmap j gj
-nmap 0 g0
-nmap $ g$
-vmap $ g$
-vmap 0 g0
-vmap k gk
-vmap j gj
-map <C-j> :tabprevious<cr>
-map <C-k> :tabnext<cr>
+"}}}
 
+"{{{ statusline
 set statusline=
 set statusline +=%1*\ %n\ %*                      "buffer number
 set statusline +=%5*%{&ff}%*                      "file format
@@ -60,6 +72,7 @@ set statusline +=%2*/%L%*                         "total lines
 set statusline +=%2*\ %p%%\ %*                    "lines %
 set statusline +=%1*%4v\ %*                       "virtual column number
 set statusline +=%2*0x%04B\ %*                    "character under cursor
+"}}}
 
 "{{{ winmanager
 ca nt WMT
@@ -81,5 +94,5 @@ Plug 'othree/vim-autocomplpop'
 Plug 'tsaleh/vim-supertab'
 Plug 'KNCheung/vim-winmanager'
 
-call plug#end()            " required
+call plug#end()
 "}}}
