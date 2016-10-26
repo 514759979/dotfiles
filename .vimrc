@@ -1,6 +1,6 @@
 "{{{ basic
 set nocompatible
-set fencs=utf-8,utf-16le,gb18030
+set fencs=utf-8,gb18030,utf-16le
 set enc=utf-8
 set ambiwidth=double
 set display=lastline " 不显示@
