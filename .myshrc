@@ -75,6 +75,7 @@ alias um='sudo umount'
 # j k
 
 if [ -e /dev/lxss ]; then
+    export PATH="/usr/bin"
     alias z="wrun"
     alias cmd="wrun cmd"
     alias ahk="wrun c:/mine/app/AutoHotkey/AutoHotkeyU32.exe"

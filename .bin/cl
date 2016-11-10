@@ -1,4 +1,3 @@
 #!/bin/bash
 
-cat > /tmp/clipboard
-/init cmd /C 'clip < c:\Users\goreliu\AppData\Local\lxss\rootfs\tmp\clipboard'
+cat | /init clip
