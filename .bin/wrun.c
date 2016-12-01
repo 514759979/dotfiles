@@ -59,7 +59,7 @@ static char* convert_drive_fs_path_to_win32(const char* path)
     return result;
 }
 
-char cmd[102400] = "/init cmd /C \'set COMPUTERNAME=MY-PC & set TMP=C:\\Users\\goreliu\\AppData\\Local\\Temp & cd ";
+char cmd[102400] = "/init cmd /C \'cd ";
 
 int main(int argc, char *argv[])
 {
