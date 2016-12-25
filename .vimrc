@@ -49,7 +49,7 @@ nnoremap <C-a> ggVG
 nnoremap <C-l> <C-v>
 nnoremap <C-v> :r!/init paste<cr>
 
-vnoremap <C-c> y:call system("cl", getreg("\""))<cr>
+vnoremap <C-c> y:call system("~/.bin/cl", getreg("\""))<cr>
 "}}}
 
 "{{{ command
