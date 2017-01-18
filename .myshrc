@@ -85,16 +85,16 @@ if [ -e /dev/lxss ]; then
     alias mpv='st wrun c:/mine/app/mpv/mpv.exe'
     alias flve='wrun c:/mine/app/FLV_Extract/FLVExtractCL.exe'
     alias fm='tc'
-    alias ipconfig='/init ipconfig | ucat'
-    alias tl='/init tasklist'
-    alias tlg='/init tasklist | grep'
-    alias netstat='/init netstat'
+    alias ipconfig='wrun ipconfig | ucat'
+    alias tl='wrun tasklist'
+    alias tlg='wrun tasklist | grep'
+    alias netstat='wrun netstat'
     alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
     alias ps1='wrun powershell'
-    alias mi='/init /mnt/c/mine/app/wsl-terminal/bin/mintty.exe /bin/wslbridge -t zsh'
-    alias pa='/init paste'
+    alias mi='wrun c:/mine/app/wsl-terminal/bin/mintty.exe /bin/wslbridge -t zsh'
+    alias pa='wrun c:/mine/app/0misc/bin/paste.exe'
 
-    alias vm='/init "/mnt/c/Program Files/Oracle/VirtualBox/VBoxManage.exe"'
+    alias vm='wrun "c:/Program Files/Oracle/VirtualBox/VBoxManage.exe"'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
     alias vmup='vm startvm archlinux --type headless'
     alias vmdown='vm controlvm archlinux savestate'
@@ -120,7 +120,7 @@ if [ -e /dev/lxss ]; then
         ret=$?
 
         [ $ret -eq 255 -a $# -eq 0 ] && {
-            /init "c:/Program Files/Oracle/VirtualBox/VBoxManage.exe" \
+            wrun "c:/Program Files/Oracle/VirtualBox/VBoxManage.exe" \
                 startvm archlinux --type headless
 
             while true; do
@@ -137,11 +137,11 @@ if [ -e /dev/lxss ]; then
     }
 
     tc() {
-        (/init /mnt/c/mine/app/totalcmd/Totalcmd.exe "$(wrun -f "$1")" &)
+        (wrun c:/mine/app/totalcmd/Totalcmd.exe "$(wrun -f "$1")" &)
     }
 
     wsudo() {
-        /init cmd /C /mnt/c/mine/app/wsl-terminal/tools/runas.js "$@"
+        wrun cmd /C c:/mine/app/wsl-terminal/tools/runas.js "$@"
     }
 
     srun() {
@@ -157,7 +157,7 @@ if [ -e /dev/lxss ]; then
     }
 
     tk() {
-        /init taskkill /f /im "$1.exe"
+        wrun taskkill /f /im "$1.exe"
     }
 
     imgcat() {
@@ -165,7 +165,7 @@ if [ -e /dev/lxss ]; then
             img2sixel "$@"
         else
             echo img2sixel \""$@"\"";zsh" >/dev/shm/cmd
-            /init /mnt/c/mine/app/wsl-terminal/bin/mintty.exe \
+            wrun c:/mine/app/wsl-terminal/bin/mintty.exe \
                 -s maxwidth -s maxheight /bin/wslbridge -t zsh /dev/shm/cmd
         fi
     }
