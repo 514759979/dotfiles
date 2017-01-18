@@ -91,10 +91,10 @@ if [ -e /dev/lxss ]; then
     alias netstat='/init netstat'
     alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
     alias ps1='wrun powershell'
-    alias mi='/init c:/mine/app/wsl-terminal/bin/mintty.exe /bin/wslbridge -t zsh'
+    alias mi='/init /mnt/c/mine/app/wsl-terminal/bin/mintty.exe /bin/wslbridge -t zsh'
     alias pa='/init paste'
 
-    alias vm='/init "c:/Program Files/Oracle/VirtualBox/VBoxManage.exe"'
+    alias vm='/init "/mnt/c/Program Files/Oracle/VirtualBox/VBoxManage.exe"'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
     alias vmup='vm startvm archlinux --type headless'
     alias vmdown='vm controlvm archlinux savestate'
@@ -137,11 +137,11 @@ if [ -e /dev/lxss ]; then
     }
 
     tc() {
-        (/init c:/mine/app/totalcmd/TOTALCMD.EXE "$(wrun -f "$1")" &)
+        (/init /mnt/c/mine/app/totalcmd/Totalcmd.exe "$(wrun -f "$1")" &)
     }
 
     wsudo() {
-        /init cmd /C c:/mine/app/wsl-terminal/tools/runas.js "$@"
+        /init cmd /C /mnt/c/mine/app/wsl-terminal/tools/runas.js "$@"
     }
 
     srun() {
@@ -165,7 +165,7 @@ if [ -e /dev/lxss ]; then
             img2sixel "$@"
         else
             echo img2sixel \""$@"\"";zsh" >/dev/shm/cmd
-            /init c:/mine/app/wsl-terminal/bin/mintty.exe \
+            /init /mnt/c/mine/app/wsl-terminal/bin/mintty.exe \
                 -s maxwidth -s maxheight /bin/wslbridge -t zsh /dev/shm/cmd
         fi
     }
