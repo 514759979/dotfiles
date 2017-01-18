@@ -104,6 +104,7 @@ int main(int argc, char *argv[])
         printf("%s\n", cmd);
     }
 
+    chdir("/mnt/c");
     system(cmd);
 
     free(cwd_win32);
