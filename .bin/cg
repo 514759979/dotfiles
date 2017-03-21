@@ -22,7 +22,7 @@ if [ $# -gt 0 ]; then
         flag2='.'
     fi
 
-    grep -EHn "$@" $flag1 $flag2 --color=yes \
+    grep -PHn "$@" $flag1 $flag2 --color=yes \
         --exclude-dir='.svn' --exclude-dir='.git' --exclude-dir='.libs' \
         --exclude=tags \
         | nl -n ln >> $cg
