@@ -1,7 +1,6 @@
 #include <errno.h>
 #include <limits.h>
 #include <pwd.h>
-#include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -59,8 +58,7 @@ static char* convert_drive_fs_path_to_win32(const char* path)
     return result;
 }
 
-//char cmd[102400] = "/init /mnt/c/Windows/System32/cmd.exe /C \'cd ";
-char cmd[102400] = "/mnt/c/mine/app/wsl-terminal/bin/wrun /mnt/c/Windows/System32/cmd.exe /C \'cd ";
+char cmd[102400] = "cd ";
 
 int main(int argc, char *argv[])
 {
@@ -68,8 +66,6 @@ int main(int argc, char *argv[])
         dprintf(STDERR_FILENO, "wrun called without argument\n");
         return 1;
     }
-
-    signal(SIGINT, SIG_IGN);
 
     char* cwd = agetcwd();
     char* cwd_win32 = convert_drive_fs_path_to_win32(cwd);
@@ -99,14 +95,14 @@ int main(int argc, char *argv[])
         strcat(cmd, "\"");
     }
 
-    strcat(cmd, "\'");
-
     if (getenv("WRUN_DEBUG") != NULL) {
         printf("%s\n", cmd);
     }
 
     chdir("/mnt/c");
-    system(cmd);
+    execl("/mnt/c/mine/app/wsl-terminal/bin/wrun", "wrun",
+        "--silent-breakaway", "/mnt/c/Windows/System32/cmd.exe", "/C", cmd, NULL);
+    // execl("/init", "wrun", "/mnt/c/Windows/System32/cmd.exe", "/C", cmd, NULL);
 
     free(cwd_win32);
     free(cwd);
