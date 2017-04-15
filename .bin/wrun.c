@@ -59,7 +59,8 @@ static char* convert_drive_fs_path_to_win32(const char* path)
     return result;
 }
 
-char cmd[102400] = "/init /mnt/c/Windows/System32/cmd.exe /C \'cd ";
+//char cmd[102400] = "/init /mnt/c/Windows/System32/cmd.exe /C \'cd ";
+char cmd[102400] = "/mnt/c/mine/app/wsl-terminal/bin/wrun /mnt/c/Windows/System32/cmd.exe /C \'cd ";
 
 int main(int argc, char *argv[])
 {
