@@ -213,6 +213,7 @@ elif [ "$OSTYPE" = "linux-android" -o "$OSTYPE" = "linux-androideabi" ]; then
     alias dh="df 2>/dev/null"
     alias frm="free -m | sed 's/ \+/  /g'"
     alias pkill="busybox pkill"
+    alias fm='ranger'
 
     precmd() {
         PROMPT=$(echo "${CYAN}goreliu@${GREEN}my-phone:$RED%(?..[%?]:)$WHITE%~\
