@@ -84,6 +84,8 @@ let g:SuperTabMappingBackward = '<tab>'
 "}}}
 
 "{{{ vim-plug
+let g:plug_shallow = 1
+let g:plug_window = 'new'
 ca PlugInit !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
