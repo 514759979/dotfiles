@@ -74,8 +74,8 @@ set statusline +=%1*%4v\ %*                       "virtual column number
 set statusline +=%2*0x%04B\ %*                    "character under cursor
 "}}}
 
-"{{{ winmanager
-ca nt WMT
+"{{{ nerdtree
+ca nt NERDTreeToggle
 "}}}
 
 "{{{ supertab
@@ -92,7 +92,7 @@ Plug 'L9'
 Plug 'vim-scripts/a.vim'
 Plug 'othree/vim-autocomplpop'
 Plug 'tsaleh/vim-supertab'
-Plug 'KNCheung/vim-winmanager'
+Plug 'scrooloose/nerdtree'
 
 call plug#end()
 "}}}

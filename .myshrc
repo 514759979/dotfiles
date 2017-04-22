@@ -221,7 +221,7 @@ elif [ "$OSTYPE" = "linux-android" -o "$OSTYPE" = "linux-androideabi" ]; then
     }
 
 else
-    #alias smvb="sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600"
+    alias smvb="sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600"
     #alias czip="export UNZIP='-O CP936'"
     alias se='sudo systemctl'
     alias fm='ranger'
