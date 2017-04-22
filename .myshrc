@@ -94,7 +94,7 @@ if [ -e /dev/lxss ]; then
     alias mi='wrun c:/mine/app/wsl-terminal/bin/mintty.exe /bin/wslbridge -t zsh'
     alias pa='wrun c:/mine/app/0misc/bin/paste.exe'
 
-    alias vm='wrun "c:/Program Files/Oracle/VirtualBox/VBoxManage.exe"'
+    alias vm='/init /mnt/c/Program\ Files/Oracle/VirtualBox/VBoxManage.exe'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
     alias vmup='vm startvm archlinux --type headless'
     alias vmdown='vm controlvm archlinux savestate'
@@ -120,7 +120,7 @@ if [ -e /dev/lxss ]; then
         ret=$?
 
         [ $ret -eq 255 -a $# -eq 0 ] && {
-            wrun "c:/Program Files/Oracle/VirtualBox/VBoxManage.exe" \
+            /init /mnt/c/Program\ Files/Oracle/VirtualBox/VBoxManage.exe \
                 startvm archlinux --type headless
 
             while true; do
