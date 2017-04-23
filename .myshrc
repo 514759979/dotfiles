@@ -226,7 +226,6 @@ else
     alias se='sudo systemctl'
     alias fm='ranger'
     alias di='colordiff'
-    alias di='colordiff'
     alias jf='journalctl -f'
 fi
 
