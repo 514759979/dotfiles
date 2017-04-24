@@ -1,6 +1,9 @@
 #!/bin/bash
+
 if [ $# = 0 ]; then
     ls ~/.templete --color
-    exit 0
+elif [ $# = 1 ]; then
+    cp ~/.templete/$1* .
+elif [ $# = 2 ]; then
+    cp ~/.templete/$1* $2
 fi
-cp ~/.templete/$1* .
