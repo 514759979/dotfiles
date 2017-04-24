@@ -17,12 +17,3 @@ type systemctl &>/dev/null && {
     fi
     exit
 }
-
-type shutdown &>/dev/null && {
-    if [ $# = 0 ]; then
-        shutdown -s -t 0
-    elif [ $1 = 1 ]; then
-        shutdown -r -t 0
-    fi
-    exit
-}

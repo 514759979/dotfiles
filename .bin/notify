@@ -1,7 +1,0 @@
-#!/bin/bash
-type msg &>/dev/null && {
-    msg $(id -un)  "$@"
-    exit
-}
-
-wrun msg $(id -un)  "$@"
