@@ -101,21 +101,14 @@ if [ -e /dev/lxss ]; then
     alias vmpause='vm controlvm archlinux pasue'
     alias vmresume='vm controlvm archlinux resume'
     alias vmhalt='vm controlvm archlinux poweroff'
-    alias vst="ssh -t $USER@127.0.0.1 -p 50247"
 
     vs() {
-        [ "$1" = "-t" ] && {
-            shift
-            vst "$@"
-            return
-        }
-
         local args
         [ "$#" -ge 1 ] && {
             args="MYSSH=1 bash -lc \"$@\""
         }
 
-        ssh $USER@127.0.0.1 -p 50247 "$args"
+        ssh -tq $USER@127.0.0.1 -p 50247 "$args"
 
         ret=$?
 
@@ -124,7 +117,7 @@ if [ -e /dev/lxss ]; then
                 startvm archlinux --type headless
 
             while true; do
-                ssh $USER@127.0.0.1 -p 50247 "$args"
+                ssh -tq $USER@127.0.0.1 -p 50247 "$args"
                 ret=$?
                 [ $ret -eq 0 ] && {
                     break
@@ -160,16 +153,6 @@ if [ -e /dev/lxss ]; then
         wrun taskkill /f /im "$1.exe"
     }
 
-    imgcat() {
-        if [ -z "$TMUX" ]; then
-            img2sixel "$@"
-        else
-            echo img2sixel \""$@"\"";zsh" >/dev/shm/cmd
-            wrun c:/mine/app/wsl-terminal/bin/mintty.exe \
-                -s maxwidth -s maxheight /bin/wslbridge -t zsh /dev/shm/cmd
-        fi
-    }
-
     [ -z "$TMUX" -a -n "$USE_TMUX" ] && {
         [ -n "$ATTACH_ONLY" ] && {
             tmux a 2>/dev/null || cd && exec tmux
@@ -182,23 +165,6 @@ if [ -e /dev/lxss ]; then
 
     [ -e /proc/sys/fs/binfmt_misc/run_exe ] || {
         sudo /usr/lib/systemd/systemd-binfmt &>/dev/null
-    }
-
-    # note
-    # enable ps1
-    # srun Set-ExecutionPolicy RemoteSigned
-
-elif [ "$OSTYPE" = "msys" ]; then
-    chcp 437 &>/dev/null
-    export PATH="/usr/bin:/mingw64/bin:$PATH"
-    export MSYS="winsymlinks:lnk"
-
-    alias ifconfig='ipconfig | iconv -f gbk -t utf-8 -c'
-    alias hostname='/usr/lib/gettext/hostname'
-    alias cl='cat >/dev/clipboard'
-
-    sudo() {
-        $@
     }
 
 elif [ "$OSTYPE" = "linux-android" -o "$OSTYPE" = "linux-androideabi" ]; then
@@ -222,7 +188,6 @@ elif [ "$OSTYPE" = "linux-android" -o "$OSTYPE" = "linux-androideabi" ]; then
 
 else
     alias smvb="sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600"
-    #alias czip="export UNZIP='-O CP936'"
     alias se='sudo systemctl'
     alias fm='ranger'
     alias di='colordiff'
@@ -401,22 +366,7 @@ spi() {
         args="MYSSH=1 bash -lc \"$@\""
     }
 
-    ssh -t $USER@192.168.31.212 "$args"
-
-    ret=$?
-
-    [ $ret -eq 255 -a $# -eq 0 ] && {
-        while true; do
-            ssh -t $USER@192.168.31.212 "$args"
-            ret=$?
-            [ $ret -eq 0 ] && {
-                break
-            }
-            sleep 1
-        done
-    }
-
-    return $ret
+    ssh -tq $USER@192.168.31.212 "$args"
 }
 
 if type pacman &>/dev/null; then
