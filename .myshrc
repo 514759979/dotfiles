@@ -360,7 +360,7 @@ loopf() {
     done
 }
 
-spi() {
+rp() {
     local args
     [ "$#" -ge 1 ] && {
         args="MYSSH=1 bash -lc \"$@\""
