@@ -75,8 +75,8 @@ alias u='cd -'
 alias up='uptime'
 alias w='w -i'
 alias dmg='dmesg'
-alias b='date +"%Y-%M-%d %u %H:%m:%S"'
-alias j='ll'
+alias b='date +"%Y-%m-%d %H:%M:%S (%u)"'
+alias j='llh'
 
 if [ -e /dev/lxss ]; then
     export PATH="/usr/bin"
@@ -377,13 +377,13 @@ if type pacman &>/dev/null; then
     type yaourt &>/dev/null && {
         alias pac='yaourt'
         alias p='yaourt'
-        aur_flag='--aur'
     }
     alias pi='pac -S'
     alias pia='pac -S --noconfirm'
     alias pli='pac -U'
-    alias pud="pac -Syu $aur_flag"
-    alias psu="pac -Su $aur_flag"
+    alias pud="pac -Syu"
+    alias pudd="pac -Syu --aur"
+    alias psu="pac -Su"
     alias pd='pac -Sw'
     alias pp='pac -Rcsn'
     alias psi='pac -Si'
