@@ -395,6 +395,30 @@ loopf() {
     done
 }
 
+spi() {
+    local args
+    [ "$#" -ge 1 ] && {
+        args="MYSSH=1 bash -lc \"$@\""
+    }
+
+    ssh -t $USER@192.168.31.212 "$args"
+
+    ret=$?
+
+    [ $ret -eq 255 -a $# -eq 0 ] && {
+        while true; do
+            ssh -t $USER@192.168.31.212 "$args"
+            ret=$?
+            [ $ret -eq 0 ] && {
+                break
+            }
+            sleep 1
+        done
+    }
+
+    return $ret
+}
+
 if type pacman &>/dev/null; then
     alias pac='sudo pacman --color auto'
     alias p='pacman --color auto -Ss'
