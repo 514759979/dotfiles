@@ -44,8 +44,6 @@ alias wi='which'
 alias rpd='rm -r $PWD; cd ..'
 alias rpdf='rm -rf $PWD; cd ..'
 alias cpui='cat /proc/cpuinfo | grep MHz'
-alias find0='find -print0'
-alias xargs0='xargs -0'
 alias fng='find | grep -P'
 alias e='echo'
 alias f='file'
@@ -59,7 +57,7 @@ alias wl='wc -l'
 alias frm='free -m'
 alias d='tree'
 alias gmc='gm convert'
-alias jl='ll /dev/sd*'
+alias jl='ll /dev | grep -E "(sd|mmcblk)"'
 alias tf='tail -f'
 alias pb='download_source search'
 alias pbg='download_source download'
@@ -156,16 +154,6 @@ if [ -e /dev/lxss ]; then
 
     tk() {
         wrun taskkill /f /im "$1.exe"
-    }
-
-    [ -z "$TMUX" -a -n "$USE_TMUX" ] && {
-        [ -n "$ATTACH_ONLY" ] && {
-            tmux a 2>/dev/null || cd && exec tmux
-            exit
-        }
-
-        tmux new-window -c "$PWD" \; a 2>/dev/null || exec tmux
-        exit
     }
 
     [ -e /proc/sys/fs/binfmt_misc/run_exe ] || {
@@ -275,11 +263,11 @@ k() {
 }
 
 cwi() {
-    cat "`which $1`"
+    type $1 && cat "`which $1`" 2>/dev/null
 }
 
 vwi() {
-    vim "`which $1`"
+    type $1 && [ -e "`which $1`" ] && vim "`which $1`" 2>/dev/null
 }
 
 ac() {
