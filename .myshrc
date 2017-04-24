@@ -75,7 +75,7 @@ alias u='cd -'
 alias up='uptime'
 alias w='w -i'
 alias dmg='dmesg'
-alias b='date --rfc-3339=seconds'
+alias b='date +"%Y-%M-%d %u %H:%m:%S"'
 # j
 
 if [ -e /dev/lxss ]; then
