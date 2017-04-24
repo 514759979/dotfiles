@@ -77,6 +77,7 @@ alias w='w -i'
 alias dmg='dmesg'
 alias b='date +"%Y-%m-%d %H:%M:%S (%u)"'
 alias j='llh'
+alias wd='w3m -dump'
 
 if [ -e /dev/lxss ]; then
     export PATH="/usr/bin"
@@ -389,7 +390,7 @@ if type pacman &>/dev/null; then
     alias psi='pac -Si'
     alias pq='pac -Q'
     alias pqi='pac -Qi'
-    alias pqe='pacman -Qeq | sort'
+    alias pqe='pacman -Qeq | sort | less'
     alias psl='pkgfile -l'
     alias pql='pac -Ql'
     alias pso='pkgfile -v'
