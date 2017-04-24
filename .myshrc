@@ -367,6 +367,10 @@ rp() {
     ssh -tq $USER@192.168.31.212 "$args"
 }
 
+icm () {
+    git cm "$*"
+}
+
 if type pacman &>/dev/null; then
     alias pac='sudo pacman --color auto'
     alias p='pacman --color auto -Ss'
