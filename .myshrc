@@ -47,7 +47,6 @@ alias cpui='cat /proc/cpuinfo | grep MHz'
 alias fng='find | grep -P'
 alias e='echo'
 alias f='file'
-alias t='cat'
 alias i='git'
 alias ic='ifconfig'
 alias m='man'
@@ -75,7 +74,9 @@ alias vrc='vim ~/.myshrc; . ~/.myshrc'
 alias u='cd -'
 alias up='uptime'
 alias w='w -i'
-# b j
+alias dmg='dmesg'
+alias b='date --rfc-3339=seconds'
+# j
 
 if [ -e /dev/lxss ]; then
     export PATH="/usr/bin"
@@ -260,6 +261,10 @@ k() {
     fi
 
     ls -F --color
+}
+
+t() {
+    cat "$@" 2>/dev/null || ls -lF --color "$@" 2>/dev/null
 }
 
 cwi() {
