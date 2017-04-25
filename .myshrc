@@ -78,6 +78,8 @@ alias dmg='dmesg'
 alias b='date +"%Y-%m-%d %H:%M:%S (%u)"'
 alias j='llh'
 alias wd='w3m -dump'
+alias fm='ranger'
+alias di='colordiff'
 
 if [ -e /dev/lxss ]; then
     export PATH="/usr/bin"
@@ -174,7 +176,8 @@ elif [ "$OSTYPE" = "linux-android" -o "$OSTYPE" = "linux-androideabi" ]; then
     alias dh="df 2>/dev/null"
     alias frm="free -m | sed 's/ \+/  /g'"
     alias pkill="busybox pkill"
-    alias fm='ranger'
+    alias ip138="bash ~/.bin/ip138"
+    alias 24-bin-color.sh="bash ~/.bin/24-bit-color.sh"
 
     precmd() {
         PROMPT=$(echo "${CYAN}goreliu@${GREEN}my-phone:$RED%(?..[%?]:)$WHITE%~\
@@ -184,8 +187,6 @@ elif [ "$OSTYPE" = "linux-android" -o "$OSTYPE" = "linux-androideabi" ]; then
 else
     alias smvb="sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600"
     alias se='sudo systemctl'
-    alias fm='ranger'
-    alias di='colordiff'
     alias jf='journalctl -f'
 fi
 
