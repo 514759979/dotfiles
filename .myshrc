@@ -81,6 +81,7 @@ alias j='llh'
 alias wd='w3m -dump'
 alias fm='ranger'
 alias di='colordiff'
+alias sync_dir_check='rsync -n --delete -av' # dir1/ dir2/
 
 if [ -e /dev/lxss ]; then
     export PATH="/usr/bin"
