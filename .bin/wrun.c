@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
     chdir("/mnt/c");
     // execl("/mnt/c/mine/app/wsl-terminal/bin/wrun", "wrun",
     //     "--silent-breakaway", "/mnt/c/Windows/System32/cmd.exe", "/C", cmd, NULL);
-    execl("/init", "wrun", "/mnt/c/Windows/System32/cmd_.exe", "/C", cmd, NULL);
+    execl("/init", "wrun", "/mnt/c/Windows/System32/cmd.exe", "/C", cmd, NULL);
 
     free(cwd_win32);
     free(cwd);
