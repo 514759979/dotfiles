@@ -81,6 +81,7 @@ alias j='llh'
 alias wd='w3m -dump'
 alias fm='ranger'
 alias di='colordiff'
+alias we='wget'
 
 if [ -e /dev/lxss ]; then
     export PATH="/usr/bin"
@@ -381,6 +382,11 @@ sync_dir() {
     else
         rsync -n --delete -av "$1/" "$2/"
     fi
+}
+
+mdcd() {
+    md "$1"
+    cd "$1"
 }
 
 if type pacman &>/dev/null; then
