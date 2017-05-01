@@ -83,6 +83,18 @@ alias fm='ranger'
 alias di='colordiff'
 alias we='wget'
 
+[ -z "$TMUX" -a -n "$USE_TMUX" ] && {
+    [ -n "$ATTACH_ONLY" ] && {
+        tmux a 2>/dev/null || {
+            cd && exec tmux
+        }
+        exit
+    }
+
+    tmux new-window -c "$PWD" \; a 2>/dev/null || exec tmux
+    exit
+}
+
 if [ -e /dev/lxss ]; then
     export PATH="/usr/bin"
     alias z="wrun"
