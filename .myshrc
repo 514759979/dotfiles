@@ -380,7 +380,7 @@ rp() {
         args="MYSSH=1 bash -lc \"$@\""
     }
 
-    ssh -tq $USER@192.168.31.212 "$args"
+    ssh -tq $USER@192.168.31.7 "$args"
 }
 
 icm () {
