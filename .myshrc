@@ -91,8 +91,8 @@ alias we='wget'
         exit
     }
 
-    tmux new-window -c "$PWD" \; a 2>/dev/null || exec tmux
-    exit
+    tmux new-window -c "$PWD" 2>/dev/null && exec tmux a
+    exec tmux
 }
 
 if [ -e /dev/lxss ]; then
