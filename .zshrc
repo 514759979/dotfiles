@@ -220,8 +220,6 @@ bindkey '^g' edit-command-line
 #{{{ 路径别名
 # 进入相应的路径时只要 cd ~xxx
 hash -d mine='/mnt/c/mine'
-hash -d mydata='/mnt/c/mydata'
-hash -d video='/mnt/d/video/'
 #}}}
 
 #{{{ other
