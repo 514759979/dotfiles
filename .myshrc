@@ -99,6 +99,7 @@ alias we='wget'
 
 if [ -e /dev/lxss ]; then
     export PATH="/usr/bin"
+    export LD_PRELOAD=$HOME/.bin/libmyomck.so
     alias z="wrun"
     alias cmd="wrun cmd"
     alias ahk="wrun c:/mine/app/AutoHotkey/AutoHotkeyU32.exe"

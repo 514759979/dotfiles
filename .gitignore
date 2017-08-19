@@ -1,6 +1,7 @@
 .android
 .bash_history
 .bin/wrun
+.bin/libmymock.so
 .cache
 .config
 .gnupg
