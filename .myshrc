@@ -102,6 +102,7 @@ if [ -e /dev/lxss ]; then
     export LD_PRELOAD=$HOME/.bin/libmymock.so
     alias z="wrun"
     alias cmd="wrun cmd"
+    alias se='sudo python2 ~/git/docker-systemctl-replacement/files/docker/systemctl.py'
     alias ahk="wrun c:/mine/app/AutoHotkey/AutoHotkeyU32.exe"
     alias ahk64="wrun c:/mine/app/AutoHotkey/AutoHotkeyU64.exe"
     alias np="st wrun c:/mine/app/notepad++/notepad++.exe"
