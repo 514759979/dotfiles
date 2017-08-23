@@ -1841,10 +1841,11 @@ static void generate_dir_listing(struct connection *conn, const char *path) {
     append(listing, decoded_url);
     free(decoded_url);
 
-    append(listing, "</h2>\n<div class=\"list\">\n");
-    append(listing, "<table summary=\"Directory Listing\" cellpadding=\"0\" cellspacing=\"0\">\n");
-    append(listing, "<thead><tr><th class=\"n\">Name</th><th class=\"s\">Size</th></thead>\n");
-    append(listing, "<tbody>\n");
+    appendf(listing, " (%lld files)", listsize);
+    append(listing, "</h2>\n<div class=\"list\">\n"
+     "<table summary=\"Directory Listing\" cellpadding=\"0\" cellspacing=\"0\">\n"
+     "<thead><tr><th class=\"n\">Name</th><th class=\"s\">Size</th></thead>\n"
+     "<tbody>\n");
 
     spaces = xmalloc(maxlen);
     memset(spaces, ' ', maxlen);
