@@ -92,11 +92,7 @@ int main(int argc, char *argv[])
 
     for (int i = 2; i < argc; ++i) {
         strcat(cmd, " \"");
-        if (i == 1 && argv[i][0] == '.') {
-            strcat(cmd, argv[i] + 2);
-        } else {
-            strcat(cmd, argv[i]);
-        }
+        strcat(cmd, argv[i]);
         strcat(cmd, "\"");
     }
 
