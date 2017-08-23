@@ -8,6 +8,6 @@ all: ../darkhttpd ../libmymock.so ../z
 	gcc -shared -fPIC $< -o $@
 	strip $@
 
-../z: wrun.c
+../z: z.c
 	gcc -Ofast $< -o $@
 	strip $@

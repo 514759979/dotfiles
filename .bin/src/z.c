@@ -63,7 +63,7 @@ char cmd[102400] = "cd ";
 int main(int argc, char *argv[])
 {
     if (argc <= 1) {
-        dprintf(STDERR_FILENO, "wrun called without argument\n");
+        dprintf(STDERR_FILENO, "z called without argument\n");
         return 1;
     }
 
@@ -100,14 +100,17 @@ int main(int argc, char *argv[])
         strcat(cmd, "\"");
     }
 
-    if (getenv("WRUN_DEBUG") != NULL) {
+    if (getenv("Z_DEBUG") != NULL) {
         printf("%s\n", cmd);
     }
 
-    chdir("/mnt/c");
-    execl("/mnt/c/mine/app/wsl-terminal/bin/wrun", "wrun",
-        "--silent-breakaway", "/mnt/c/Windows/System32/cmd.exe", "/C", cmd, NULL);
-    // execl("/init", "wrun", "/mnt/c/Windows/System32/cmd.exe", "/C", cmd, NULL);
+    if (getenv("Z_USE_INIT") == NULL) {
+        execl("/mnt/c/mine/app/wsl-terminal/bin/wrun", "z", "--silent-breakaway",
+            "/mnt/c/Windows/System32/cmd.exe", "/C", cmd, NULL);
+    } else {
+        chdir("/mnt/c");
+        execl("/init", "z", "/mnt/c/Windows/System32/cmd.exe", "/C", cmd, NULL);
+    }
 
     free(cwd_win32);
     free(cwd);
