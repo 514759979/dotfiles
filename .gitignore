@@ -3,6 +3,7 @@
 .bin/z
 .bin/zz
 .bin/libmymock.so
+.bin/darkhttpd
 .cache
 .config
 .gnupg
