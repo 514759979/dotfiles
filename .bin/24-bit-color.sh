@@ -29,8 +29,8 @@ resetOutput()
 rainbowColor()
 { 
     let h=$1/43
-    let f=$1-43*$h
-    let t=$f*255/43
+    let f="$1-43*$h"
+    let t="$f*255/43"
     let q=255-t
 
     if [ $h -eq 0 ]
