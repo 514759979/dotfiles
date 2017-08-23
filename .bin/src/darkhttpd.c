@@ -313,15 +313,15 @@ static const char *default_extension_map[] = {
     "application/xml-dtd"  " dtd",
     "application/xslt+xml" " xslt",
     "application/zip"      " zip",
-    "audio/mpeg"           " mp2 mp3 mpga",
+    "audio/mpeg"           " mp2 mp3 mpga m4a",
     "image/gif"            " gif",
     "image/jpeg"           " jpeg jpe jpg",
     "image/png"            " png",
     "text/css"             " css",
     "text/html"            " html htm",
     "text/javascript"      " js",
-    "text/plain"           " txt asc",
-    "video/mpeg"           " mpeg mpe mpg",
+    "text/plain"           " txt asc c cpp sh ini conf",
+    "video/mpeg"           " mpeg mpe mpg mp4",
     "video/quicktime"      " qt mov",
     "video/x-msvideo"      " avi",
     NULL
@@ -1828,15 +1828,14 @@ static void generate_dir_listing(struct connection *conn, const char *path) {
      "a:visited {color: #48468F;}\n"
      "a:hover, a:focus {text-decoration: underline; color: red;}\n"
      "body {background-color: #F5F5F5;}\n"
-     "h2 {margin-bottom: 12px;}\n"
-     "table {margin-left: 12px;}\n"
-     "th, td { text-align: left;}\n"
-     "th { font-weight: bold; padding-right: 14px; padding-bottom: 3px;}\n"
-     "td {padding-right: 16px;}\n"
+     "table {margin-left: 20px;}\n"
+     "th, td {text-align: left;}\n"
+     "th {padding-right: 100px; padding-bottom: 10px;}\n"
+     "td {padding-right: 100px;}\n"
      "td.s, th.s {text-align: right;}\n"
-     "div.list { background-color: white; border-top: 1px solid #646464;"
-     "border-bottom: 1px solid #646464; padding-top: 10px; padding-bottom: 14px;}\n"
-     "div.foot { font: 90% monospace; color: #787878; padding-top: 4px;}\n"
+     "div.list {background-color: white; border-top: 1px solid #646464;"
+     "border-bottom: 1px solid #646464; padding-top: 10px; padding-bottom: 10px;}\n"
+     "div.foot {font: 90% monospace; color: #787878; padding-top: 5px;}\n"
      "</style>\n"
      "</head>\n<body>\n<h2>Index of ");
     append(listing, decoded_url);
