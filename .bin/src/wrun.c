@@ -79,6 +79,11 @@ int main(int argc, char *argv[])
     strcat(cmd, cwd_win32);
     strcat(cmd, " & ");
 
+    if (strncmp(cwd_win32, "c:", 2) != 0) {
+        strncat(cmd, cwd_win32, 2);
+        strcat(cmd, " & ");
+    }
+
     if (argv[1][0] != '.') {
         strcat(cmd, argv[1]);
     } else {
