@@ -104,11 +104,12 @@ int main(int argc, char *argv[])
         printf("%s\n", cmd);
     }
 
+    chdir("/mnt/c");
+
     if (getenv("Z_USE_INIT") == NULL) {
         execl("/mnt/c/mine/app/wsl-terminal/bin/wrun", "z", "--silent-breakaway",
             "/mnt/c/Windows/System32/cmd.exe", "/C", cmd, NULL);
     } else {
-        chdir("/mnt/c");
         execl("/init", "z", "/mnt/c/Windows/System32/cmd.exe", "/C", cmd, NULL);
     }
 
