@@ -84,6 +84,7 @@ alias wd='w3m -dump'
 alias fm='ranger'
 alias di='colordiff'
 alias we='wget'
+alias tn='telnet'
 
 [ -z "$TMUX" -a -n "$USE_TMUX" ] && {
     [ -n "$ATTACH_ONLY" ] && {
