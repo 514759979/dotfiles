@@ -64,8 +64,9 @@ setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 #在命令前添加空格，不将此命令添加到纪录文件中
 setopt HIST_IGNORE_SPACE
-unsetopt beep
-setopt no_nomatch
+#glob展开方式和bash一致
+setopt NO_NOMATCH
+unsetopt BEEP
 #}}}
 
 #{{{ 杂项
