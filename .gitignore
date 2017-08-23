@@ -1,6 +1,7 @@
 .android
 .bash_history
-.bin/wrun
+.bin/z
+.bin/zz
 .bin/libmymock.so
 .cache
 .config
