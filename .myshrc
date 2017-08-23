@@ -127,32 +127,32 @@ if [ -e /dev/lxss ]; then
     alias vmresume='vm controlvm archlinux resume'
     alias vmhalt='vm controlvm archlinux poweroff'
 
-    vs() {
-        local args
-        [ "$#" -ge 1 ] && {
-            args="MYSSH=1 bash -lc \"$@\""
-        }
-
-        ssh -tq $USER@127.0.0.1 -p 50247 "$args"
-
-        ret=$?
-
-        [ $ret -eq 255 -a $# -eq 0 ] && {
-            z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe \
-                startvm archlinux --type headless
-
-            while true; do
-                ssh -tq $USER@127.0.0.1 -p 50247 "$args"
-                ret=$?
-                [ $ret -eq 0 ] && {
-                    break
-                }
-                sleep 1
-            done
-        }
-
-        return $ret
-    }
+    #vs() {
+    #    local args
+    #    [ "$#" -ge 1 ] && {
+    #        args="MYSSH=1 bash -lc \"$@\""
+    #    }
+    #
+    #    ssh -tq $USER@127.0.0.1 -p 50247 "$args"
+    #
+    #    ret=$?
+    #
+    #    [ $ret -eq 255 -a $# -eq 0 ] && {
+    #        z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe \
+    #            startvm archlinux --type headless
+    #
+    #        while true; do
+    #            ssh -tq $USER@127.0.0.1 -p 50247 "$args"
+    #            ret=$?
+    #            [ $ret -eq 0 ] && {
+    #                break
+    #            }
+    #            sleep 1
+    #        done
+    #    }
+    #
+    #    return $ret
+    #}
 
     tc() {
         (z c:/mine/app/totalcmd/Totalcmd.exe "$(z -f "$1")" &)
