@@ -5,12 +5,12 @@ export LANG="en_US.UTF-8"
 [ -n "$SHELL" ] || export SHELL="/bin/zsh"
 
 alias h='history'
-alias l='ls -F --color'
-alias lsd='l -d *(-/DN)'
-alias ll='l -l --time-style=long-iso'
-alias la='l -A'
+alias j='ls -F --color'
+alias lsd='j -d *(-/DN)'
+alias ll='j -l --time-style=long-iso'
+alias la='j -A'
 alias lla='ll -A'
-alias llh='ll -h'
+alias l='ll -h'
 alias g='grep'
 alias gv='grep -v'
 alias rd='rmdir'
@@ -79,7 +79,6 @@ alias up='uptime'
 alias w='w -i'
 alias dmg='dmesg'
 alias b='date +"%Y-%m-%d %H:%M:%S (%u)"'
-alias j='llh'
 alias wd='w3m -dump'
 alias fm='ranger'
 alias di='colordiff'
@@ -375,7 +374,7 @@ rp() {
     ssh -tq $USER@192.168.31.7 "$args"
 }
 
-icm () {
+icm() {
     git cm "$*"
 }
 
@@ -391,6 +390,14 @@ sync_dir() {
 mdcd() {
     md "$1"
     cd "$1"
+}
+
+fordo() {
+    local cmd=${@[-1]}
+
+    for i in ${@:1:-1}; do
+        eval $cmd $i
+    done
 }
 
 if type pacman &>/dev/null; then
