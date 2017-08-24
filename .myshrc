@@ -84,6 +84,8 @@ alias fm='ranger'
 alias di='colordiff'
 alias we='wget'
 alias tn='telnet'
+alias pn='print -l'
+alias calc='noglob calculate'
 
 [ -z "$TMUX" -a -n "$USE_TMUX" ] && {
     [ -n "$ATTACH_ONLY" ] && {
@@ -247,9 +249,9 @@ findx() {
     find -print0 | xargs -0 "$@"
 }
 
-calc() {
+calculate() {
     zmodload zsh/mathfunc 2>/dev/null
-    echo $[$*]
+    echo $(( $* ))
 }
 
 gr() {

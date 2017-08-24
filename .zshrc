@@ -2,7 +2,7 @@
 
 #{{{ 命令提示符、标题栏、任务栏样式
 precmd() {
-    PROMPT=$(echo "$CYAN%n@$GREEN%M:$RED%(?..[%?]:)$WHITE%~\n$WHITE\$$FINISH ")
+    PROMPT=$(echo "$CYAN%n@$GREEN%M:$RED%(?..[%?]:)$WHITE%~\n$WHITE%%$FINISH ")
 
     # 清空上次显示的命令
     case $TERM in
@@ -65,7 +65,7 @@ setopt PUSHD_IGNORE_DUPS
 #在命令前添加空格，不将此命令添加到纪录文件中
 setopt HIST_IGNORE_SPACE
 #glob展开方式和bash一致
-setopt NO_NOMATCH
+#setopt NO_NOMATCH
 unsetopt BEEP
 #}}}
 
