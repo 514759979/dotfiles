@@ -370,7 +370,7 @@ loopf() {
 rp() {
     local args
     [[ "$#" -ge 1 ]] && {
-        args="MYSSH=1 bash -lc \"$@\""
+        args="zsh -lc \"$@\""
     }
 
     ssh -tq $USER@192.168.31.7 "$args"
