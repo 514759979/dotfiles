@@ -435,16 +435,16 @@ if type pacman &>/dev/null; then
     alias pfy='sudo pkgfile -uz'
     alias pl='pac -Ss'
 
-    y() {
-        pacman -Ss "$@"
-        [[ -e ~/.cache/aurlist ]] || return
-
-        cat ~/.cache/aurlist | grep -Pi --color=none "$@" | awk -F'  ' '{
-            a=" "$2" ("$3")"
-            print "\033[35;1maur/\033[36;1m" $1 "\033[32;1m" a "\033[0m"
-            print "    "$5
-        }'
-    }
+    #y() {
+    #    pacman -Ss "$@"
+    #    [[ -e ~/.cache/aurlist ]] || return
+    #
+    #    cat ~/.cache/aurlist | grep -Pi --color=none "$@" | awk -F'  ' '{
+    #        a=" "$2" ("$3")"
+    #        print "\033[35;1maur/\033[36;1m" $1 "\033[32;1m" a "\033[0m"
+    #        print "    "$5
+    #    }'
+    #}
 
     pqii() {
         cat /var/lib/pacman/local/$1-*/install
