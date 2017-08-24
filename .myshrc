@@ -200,7 +200,7 @@ elif [[ "$OSTYPE" = "linux-android" || "$OSTYPE" = "linux-androideabi" ]]; then
 
     precmd() {
         PROMPT=$(echo "${CYAN}goreliu@${GREEN}my-phone:$RED%(?..[%?]:)$WHITE%~\
-            \n$WHITE\$$FINISH ")
+            \n$WHITE%%$FINISH ")
     }
 
 else
