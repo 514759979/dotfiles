@@ -1,8 +1,8 @@
 #!/bin/sh
 
 export LANG="en_US.UTF-8"
-[ -n "$USER" ] || export USER="goreliu"
-[ -n "$SHELL" ] || export SHELL="/bin/zsh"
+[[ -n "$USER" ]] || export USER="goreliu"
+[[ -n "$SHELL" ]] || export SHELL="/bin/zsh"
 
 alias h='history'
 alias j='ls -F --color'
@@ -87,8 +87,8 @@ alias tn='telnet'
 alias pn='print -l'
 alias calc='noglob calculate'
 
-[ -z "$TMUX" -a -n "$USE_TMUX" ] && {
-    [ -n "$ATTACH_ONLY" ] && {
+[[ -z "$TMUX" && -n "$USE_TMUX" ]] && {
+    [[ -n "$ATTACH_ONLY" ]] && {
         tmux a 2>/dev/null || {
             cd && exec tmux
         }
@@ -99,7 +99,7 @@ alias calc='noglob calculate'
     exec tmux
 }
 
-if [ -e /dev/lxss ]; then
+if [[ -e /dev/lxss ]]; then
     export PATH="/usr/bin"
     export LD_PRELOAD=$HOME/.bin/libmymock.so
     alias cmd="z cmd"
@@ -130,7 +130,7 @@ if [ -e /dev/lxss ]; then
 
     #vs() {
     #    local args
-    #    [ "$#" -ge 1 ] && {
+    #    [[ "$#" -ge 1 ]] && {
     #        args="MYSSH=1 bash -lc \"$@\""
     #    }
     #
@@ -138,14 +138,14 @@ if [ -e /dev/lxss ]; then
     #
     #    ret=$?
     #
-    #    [ $ret -eq 255 -a $# -eq 0 ] && {
+    #    [[ $ret -eq 255 -a $# -eq 0 ]] && {
     #        z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe \
     #            startvm archlinux --type headless
     #
     #        while true; do
     #            ssh -tq $USER@127.0.0.1 -p 50247 "$args"
     #            ret=$?
-    #            [ $ret -eq 0 ] && {
+    #            [[ $ret -eq 0 ]] && {
     #                break
     #            }
     #            sleep 1
@@ -179,11 +179,11 @@ if [ -e /dev/lxss ]; then
         z taskkill /f /im "$1.exe"
     }
 
-    [ -e /proc/sys/fs/binfmt_misc/run_exe ] || {
+    [[ -e /proc/sys/fs/binfmt_misc/run_exe ]] || {
         sudo /usr/lib/systemd/systemd-binfmt &>/dev/null
     }
 
-elif [ "$OSTYPE" = "linux-android" -o "$OSTYPE" = "linux-androideabi" ]; then
+elif [[ "$OSTYPE" = "linux-android" || "$OSTYPE" = "linux-androideabi" ]]; then
     export SHELL="/data/data/com.termux/files/usr/bin/zsh"
     alias n="zsh ~/.bin/n"
     alias cg="zsh ~/.bin/cg"
@@ -233,7 +233,7 @@ imgresize() {
 }
 
 cry() {
-    if [ "t$1" = "t-d" ]; then
+    if [[ "t$1" = "t-d" ]]; then
         openssl enc -aes-256-cbc -d -in $2 -out $3
     else
         openssl enc -aes-256-cbc -e -in $1 -out $2
@@ -259,7 +259,7 @@ gr() {
 }
 
 k() {
-    if [ $# = 0 ]; then
+    if [[ $# = 0 ]]; then
         cd ..
     else
         go_dir='.'
@@ -281,21 +281,21 @@ cwi() {
 }
 
 vwi() {
-    type $1 && [ -e "`which $1`" ] && vim "`which $1`" 2>/dev/null
+    type $1 && [[ -e "`which $1`" ]] && vim "`which $1`" 2>/dev/null
 }
 
 ac() {
-    if [ $# = 1 ]; then
+    if [[ $# = 1 ]]; then
         awk '{print $'$1'}' $2
-    elif [ $# = 2 ]; then
+    elif [[ $# = 2 ]]; then
         awk -F$2 '{print $'$1'}' $3
-    elif [ $# = 0 ]; then
+    elif [[ $# = 0 ]]; then
         awk '{print $1}' $1
     fi
 }
 
 n2dec() {
-    echo "$[$2#$1]"
+    echo "$(($2#$1))"
 }
 
 dec2n() {
@@ -332,7 +332,7 @@ exaac() {
 
 top_history() {
     num=20
-    [ -n "$1" ] && num="$1"
+    [[ -n "$1" ]] && num="$1"
     history 1 \
         | awk '{CMD[$2]++;count++;}END \
             { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' \
@@ -369,7 +369,7 @@ loopf() {
 
 rp() {
     local args
-    [ "$#" -ge 1 ] && {
+    [[ "$#" -ge 1 ]] && {
         args="MYSSH=1 bash -lc \"$@\""
     }
 
@@ -382,7 +382,7 @@ icm() {
 
 sync_dir() {
     # sync_dir dir1/ dir2/
-    if [ "$3" = "--run" ]; then
+    if [[ "$3" = "--run" ]]; then
         rsync --delete -av "$1/" "$2/"
     else
         rsync -n --delete -av "$1/" "$2/"
@@ -437,7 +437,7 @@ if type pacman &>/dev/null; then
 
     y() {
         pacman -Ss "$@"
-        [ -e ~/.cache/aurlist ] || return
+        [[ -e ~/.cache/aurlist ]] || return
 
         cat ~/.cache/aurlist | grep -Pi --color=none "$@" | awk -F'  ' '{
             a=" "$2" ("$3")"
