@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 export LANG="en_US.UTF-8"
 [[ -n "$USER" ]] || export USER="goreliu"
@@ -370,7 +370,7 @@ loopf() {
 rp() {
     local args
     [[ "$#" -ge 1 ]] && {
-        args="zsh -lc \"$@\""
+        args="zsh -ic \"$@\""
     }
 
     ssh -tq $USER@192.168.31.7 "$args"
