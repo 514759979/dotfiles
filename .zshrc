@@ -2,45 +2,38 @@
 
 #{{{ 命令提示符、标题栏、任务栏样式
 precmd() {
-    PROMPT=$(echo "$CYAN%n@$GREEN%M:$RED%(?..[%?]:)$WHITE%~\n$WHITE%%$FINISH ")
+    # %{%F{cyan}%}
+    # %n -- username
+    # %{%F{green}%}
+    # %M -- hostname
+    # :
+    # %{%F{red}%}
+    # %(?..[%?]:) -- error code
+    # %{%F{white}%}
+    # ~ -- dir
+    # $'\n' -- new line
+    # %% -- %
+    PROMPT="%{%F{cyan}%}%n@%{%F{green}%}%M:%{%F{red}%}%(?..[%?]:)%{%F{white}%}~"$'\n'"%% "
 
     # 清空上次显示的命令
-    case $TERM in
-        (screen*)
-        print -Pn "\ek%30< ..<%~%<<\e\\"
-        ;;
-    esac
+    [[ $TERM == screen* ]] && print -Pn "\ek%30< ..<%~%<<\e\\"
 }
 
-case $TERM in
+case $TERM {
     (screen*)
     preexec() {
-        [ "${1/ */}" = "echo" -o "${1/ */}" = "printf" ] && return
+        [[ ${1/ */} == "echo" || ${1/ */} == "printf" ]] && return
         print -Pn "\ek%30>..>$1%< <\e\\"
     }
     ;;
 
     (xterm*)
     preexec() {
-        [ "${1/ */}" = "echo" -o "${1/ */}" = "printf" ] && return
+        [[ "${1/ */}" = "echo" || "${1/ */}" = "printf" ]] && return
         print -Pn "\e]0;%~$ ${1//\\/\\\\}\a"
     }
     ;;
-esac
-#}}}
-
-#{{{ color
-autoload colors zsh/terminfo
-if [[ "$terminfo[colors]" -ge 8 ]]; then
-colors
-fi
-
-for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
-eval _$color='%{$terminfo[bold]$fg[${(L)color}]%}'
-eval $color='%{$fg[${(L)color}]%}'
-(( count = $count + 1 ))
-done
-FINISH="%{$terminfo[sgr0]%}"
+}
 #}}}
 
 source $HOME/.myshrc
