@@ -1,4 +1,4 @@
-zmodload zsh/datetime && local start_time=$EPOCHREALTIME
+#zmodload zsh/datetime && local start_time=$EPOCHREALTIME
 
 #{{{ 命令提示符、标题栏、任务栏样式
 precmd() {
@@ -659,4 +659,4 @@ if (( $+commands[pacman] )) {
 }
 #}}} common
 
-echo $((EPOCHREALTIME - start_time))
+#echo $((EPOCHREALTIME - start_time))
