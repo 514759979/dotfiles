@@ -16,21 +16,26 @@ precmd() {
     PROMPT="%{%F{cyan}%}%n@%{%F{green}%}%M:%{%F{red}%}%(?..[%?]:)%{%F{white}%}%~"$'\n'"%% "
 
     # 清空上次显示的命令
-    [[ $TERM == screen* ]] && print -Pn "\ek%30< ..<%~%<<\e\\"
+    # %30<..<内容%<< 从左截断
+    # %~ 当前目录路径
+    [[ $TERM == screen* ]] && print -Pn "\ek%30<..<%~%<<\e\\"
 }
 
 case $TERM {
     (screen*)
     preexec() {
-        [[ ${1/ */} == "echo" || ${1/ */} == "printf" ]] && return
-        print -Pn "\ek%30>..>$1%< <\e\\"
+        # \ek 起始
+        # %30>..内容%<<  如果超过 30 个字符就从右截断
+        # ${1/[\\\%]*/@@@} 截断 \ 和 % 之后的内容，避免出乱码输出
+        # \e\\ 终止
+        print -Pn "\ek%30>..>${1/[\\\%]*/@@@}%<<\e\\"
     }
     ;;
 
     (xterm*)
     preexec() {
-        [[ "${1/ */}" = "echo" || "${1/ */}" = "printf" ]] && return
-        print -Pn "\e]0;%~$ ${1//\\/\\\\}\a"
+        # \e]0;内容\a
+        print -Pn "\e]0;%~$ ${1/[\\\%]*/@@@}\a"
     }
     ;;
 }
@@ -67,6 +72,16 @@ unsetopt BEEP
 # 扩展路径
 # /v/c/p/p => /var/cache/pacman/pkg
 setopt complete_in_word
+
+# 颜色
+# fg[] fg_bold[] bg[] bg_bold[] fg_no_bold[] bg_no_bold[]
+# black red green yellow blue magenta cyan white
+# bold faint standout underline blink reverse conceal
+# none normal (neither bold nor faint)
+# no-standout no-underline no-blink no-reverse no-conceal
+
+#autoload colors
+#colors
 
 # 禁用 core dumps
 #limit coredumpsize 0
