@@ -40,9 +40,9 @@ source $HOME/.myshrc
 
 #{{{ 关于历史纪录的配置
 #历史纪录条目数量
-export HISTSIZE=100000000
+export HISTSIZE=1000000
 #注销后保存的历史纪录条目数量
-export SAVEHIST=100000000
+export SAVEHIST=1000000
 #历史纪录文件
 export HISTFILE=~/.zhistory
 #分享历史纪录
@@ -170,7 +170,7 @@ zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directori
 
 # 空行(光标在行首)补全 "cd "
 user-complete() {
-    case $BUFFER in
+    case $BUFFER {
         "" )                      
             # 空行填入 "cd "
             BUFFER="cd "
@@ -187,7 +187,7 @@ user-complete() {
         * )
             zle expand-or-complete
             ;;
-    esac
+    }
 }
 
 zle -N user-complete
@@ -206,6 +206,7 @@ bindkey "\t" user-complete
 #bindkey '^[j' sudo-command-line
 #}}}
 
+#编辑命令行
 #{{{
 autoload edit-command-line
 zle -N edit-command-line
@@ -221,7 +222,6 @@ hash -d mine='/mnt/c/mine'
 compdef cwi=sudo
 compdef vwi=sudo
 compdef st=sudo
-compdef findx=sudo
 #}}}
 
 #echo $(( $(date "+%s.%N") - start_time))
