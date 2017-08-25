@@ -73,16 +73,6 @@ unsetopt BEEP
 # /v/c/p/p => /var/cache/pacman/pkg
 setopt complete_in_word
 
-# 颜色
-# fg[] fg_bold[] bg[] bg_bold[] fg_no_bold[] bg_no_bold[]
-# black red green yellow blue magenta cyan white
-# bold faint standout underline blink reverse conceal
-# none normal (neither bold nor faint)
-# no-standout no-underline no-blink no-reverse no-conceal
-
-#autoload colors
-#colors
-
 # 禁用 core dumps
 #limit coredumpsize 0
 
