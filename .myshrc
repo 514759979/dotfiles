@@ -1,8 +1,8 @@
 #!/bin/zsh
 
 export LANG="en_US.UTF-8"
-[[ -n "$USER" ]] || export USER="goreliu"
-[[ -n "$SHELL" ]] || export SHELL="/bin/zsh"
+(( ${+USER} )) || export USER="goreliu"
+(( ${+SHELL} )) || export SHELL="/bin/zsh"
 
 alias h='history'
 alias j='ls -F --color'
@@ -87,8 +87,8 @@ alias tn='telnet'
 alias pn='print -l'
 alias calc='noglob calculate'
 
-[[ -z "$TMUX" && -n "$USE_TMUX" ]] && {
-    [[ -n "$ATTACH_ONLY" ]] && {
+(( ${+TMUX} == 0 && ${+USE_TMUX} )) && {
+    (( ${+ATTACH_ONLY} )) && {
         tmux a 2>/dev/null || {
             cd && exec tmux
         }
@@ -99,7 +99,7 @@ alias calc='noglob calculate'
     exec tmux
 }
 
-if [[ -e /dev/lxss ]]; then
+if [[ -e /dev/lxss ]] {
     export PATH="/usr/bin"
     export LD_PRELOAD=$HOME/.bin/libmymock.so
     alias cmd="z cmd"
@@ -128,33 +128,6 @@ if [[ -e /dev/lxss ]]; then
     alias vmresume='vm controlvm archlinux resume'
     alias vmhalt='vm controlvm archlinux poweroff'
 
-    #vs() {
-    #    local args
-    #    [[ "$#" -ge 1 ]] && {
-    #        args="MYSSH=1 bash -lc \"$@\""
-    #    }
-    #
-    #    ssh -tq $USER@127.0.0.1 -p 50247 "$args"
-    #
-    #    ret=$?
-    #
-    #    [[ $ret -eq 255 -a $# -eq 0 ]] && {
-    #        z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe \
-    #            startvm archlinux --type headless
-    #
-    #        while true; do
-    #            ssh -tq $USER@127.0.0.1 -p 50247 "$args"
-    #            ret=$?
-    #            [[ $ret -eq 0 ]] && {
-    #                break
-    #            }
-    #            sleep 1
-    #        done
-    #    }
-    #
-    #    return $ret
-    #}
-
     tc() {
         (z c:/mine/app/totalcmd/Totalcmd.exe "$(z -f "$1")" &)
     }
@@ -182,8 +155,7 @@ if [[ -e /dev/lxss ]]; then
     #[[ -e /proc/sys/fs/binfmt_misc/run_exe ]] || {
     #    sudo /usr/lib/systemd/systemd-binfmt &>/dev/null
     #}
-
-elif [[ "$OSTYPE" = "linux-android" || "$OSTYPE" = "linux-androideabi" ]]; then
+} elif [[ "$OSTYPE" == *android* ]] {
     export SHELL="/data/data/com.termux/files/usr/bin/zsh"
     alias n="zsh ~/.bin/n"
     alias cg="zsh ~/.bin/cg"
@@ -199,15 +171,14 @@ elif [[ "$OSTYPE" = "linux-android" || "$OSTYPE" = "linux-androideabi" ]]; then
     alias 24-bit-color.sh="zsh ~/.bin/24-bit-color.sh"
 
     precmd() {
-        PROMPT=$(echo "${CYAN}goreliu@${GREEN}my-phone:$RED%(?..[%?]:)$WHITE%~\
-            \n$WHITE%%$FINISH ")
+        PROMPT="%{%F{cyan}%}goreliu@%{%F{green}%}my-phone:%{%F{red}%}%(?..[%?]:)\
+            %{%F{white}%}%~"$'\n'"%% "
     }
-
-else
+} else {
     alias smvb="sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600"
     alias se='sudo systemctl'
     alias jf='journalctl -f'
-fi
+}
 
 export PATH="$PATH:$HOME/.bin"
 export EDITOR=vim
@@ -233,11 +204,11 @@ imgresize() {
 }
 
 cry() {
-    if [[ "t$1" = "t-d" ]]; then
+    if [[ "t$1" = "t-d" ]] {
         openssl enc -aes-256-cbc -d -in $2 -out $3
-    else
+    } else {
         openssl enc -aes-256-cbc -e -in $1 -out $2
-    fi
+    }
 }
 
 c() {
@@ -245,12 +216,8 @@ c() {
     ls -F --color
 }
 
-findx() {
-    find -print0 | xargs -0 "$@"
-}
-
 calculate() {
-    zmodload zsh/mathfunc 2>/dev/null
+    zmodload zsh/mathfunc
     echo $(( $* ))
 }
 
@@ -259,15 +226,15 @@ gr() {
 }
 
 k() {
-    if [[ $# = 0 ]]; then
+    if (( $# == 0 )) {
         cd ..
-    else
+    } else {
         go_dir='.'
-        for i in {1..$1}; do
+        for i in {1..$1}; {
             go_dir=$go_dir/..
-        done
+        }
         cd $go_dir
-    fi
+    }
 
     ls -F --color
 }
@@ -277,25 +244,25 @@ t() {
 }
 
 cwi() {
-    type $1 && cat "`which $1`" 2>/dev/null
+    type $1 && cat "$(which $1)" 2>/dev/null
 }
 
 vwi() {
-    type $1 && [[ -e "`which $1`" ]] && vim "`which $1`" 2>/dev/null
+    type $1 && [[ -e "$(which $1)" ]] && vim "$(which $1)" 2>/dev/null
 }
 
 ac() {
-    if [[ $# = 1 ]]; then
+    if (( $# == 1 )) {
         awk '{print $'$1'}' $2
-    elif [[ $# = 2 ]]; then
+    } elif (( $# == 2 )) {
         awk -F$2 '{print $'$1'}' $3
-    elif [[ $# = 0 ]]; then
+    } elif (( $# == 0 )) {
         awk '{print $1}' $1
-    fi
+    }
 }
 
 n2dec() {
-    echo "$(($2#$1))"
+    echo "$(( $2#$1 ))"
 }
 
 dec2n() {
@@ -356,22 +323,14 @@ colorbar() {
 }
 
 loop() {
-    while true; do
+    while (( 1 )) {
         eval "$@"
-    done
-}
-
-loopf() {
-    for i in *; do
-        eval "$@" "$i"
-    done
+    }
 }
 
 rp() {
     local args
-    [[ "$#" -ge 1 ]] && {
-        args="zsh -ic \"$@\""
-    }
+    [[ "$#" -ge 1 ]] && args="zsh -ic \"$@\""
 
     ssh -tq $USER@192.168.31.7 "$args"
 }
@@ -382,11 +341,11 @@ icm() {
 
 sync_dir() {
     # sync_dir dir1/ dir2/
-    if [[ "$3" = "--run" ]]; then
+    if [[ "$3" = "--run" ]] {
         rsync --delete -av "$1/" "$2/"
-    else
+    } else {
         rsync -n --delete -av "$1/" "$2/"
-    fi
+    }
 }
 
 mdcd() {
@@ -397,15 +356,15 @@ mdcd() {
 fordo() {
     local cmd=${@[-1]}
 
-    for i in ${@:1:-1}; do
+    for i in ${@:1:-1}; {
         eval $cmd $i
-    done
+    }
 }
 
-if type pacman &>/dev/null; then
+if (( $+commands[pacman] )) {
     alias pac='sudo pacman --color auto'
     alias p='pacman --color auto -Ss'
-    type yaourt &>/dev/null && {
+    (( $+commands[yaourt] )) && {
         alias pac='yaourt'
         alias p='yaourt'
     }
@@ -449,8 +408,7 @@ if type pacman &>/dev/null; then
     pqii() {
         cat /var/lib/pacman/local/$1-*/install
     }
-
-elif type apt-get &>/dev/null; then
+} elif (( $+commands[apt-get] )) {
     alias p='apt-cache search'
     alias y='apt list 2>/dev/null | grep'
     alias pi='sudo apt-get install'
@@ -472,4 +430,4 @@ elif type apt-get &>/dev/null; then
     alias pae='sudo apt-get install'
     alias pad='sudo apt-get markauto'
     alias pd='sudo pi -d'
-fi
+}

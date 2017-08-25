@@ -10,10 +10,10 @@ precmd() {
     # %{%F{red}%}
     # %(?..[%?]:) -- error code
     # %{%F{white}%}
-    # ~ -- dir
+    # %~ -- dir
     # $'\n' -- new line
     # %% -- %
-    PROMPT="%{%F{cyan}%}%n@%{%F{green}%}%M:%{%F{red}%}%(?..[%?]:)%{%F{white}%}~"$'\n'"%% "
+    PROMPT="%{%F{cyan}%}%n@%{%F{green}%}%M:%{%F{red}%}%(?..[%?]:)%{%F{white}%}%~"$'\n'"%% "
 
     # 清空上次显示的命令
     [[ $TERM == screen* ]] && print -Pn "\ek%30< ..<%~%<<\e\\"
