@@ -179,9 +179,9 @@ if [[ -e /dev/lxss ]]; then
         z taskkill /f /im "$1.exe"
     }
 
-    [[ -e /proc/sys/fs/binfmt_misc/run_exe ]] || {
-        sudo /usr/lib/systemd/systemd-binfmt &>/dev/null
-    }
+    #[[ -e /proc/sys/fs/binfmt_misc/run_exe ]] || {
+    #    sudo /usr/lib/systemd/systemd-binfmt &>/dev/null
+    #}
 
 elif [[ "$OSTYPE" = "linux-android" || "$OSTYPE" = "linux-androideabi" ]]; then
     export SHELL="/data/data/com.termux/files/usr/bin/zsh"
