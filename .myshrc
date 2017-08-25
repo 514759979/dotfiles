@@ -44,7 +44,7 @@ alias ctime='time cat'
 alias wi='which'
 alias rpd='rm -r $PWD; cd ..'
 alias rpdf='rm -rf $PWD; cd ..'
-alias cpui='cat /proc/cpuinfo | grep MHz'
+alias cpui='grep MHz /proc/cpuinfo'
 alias fng='find | grep -P'
 alias e='print'
 alias en='print -l'
@@ -241,11 +241,11 @@ k() {
 }
 
 t() {
-    cat "$@" 2>/dev/null || ls -lF --color "$@" 2>/dev/null
+    <"$@" 2>/dev/null || ls -lF --color "$@" 2>/dev/null
 }
 
 cwi() {
-    type $1 && cat "$(which $1)" 2>/dev/null
+    type $1 && <"$(which $1)" 2>/dev/null
 }
 
 vwi() {
@@ -399,7 +399,7 @@ if (( $+commands[pacman] )) {
     #}
 
     pqii() {
-        cat /var/lib/pacman/local/$1-*/install
+        </var/lib/pacman/local/$1-*/install
     }
 } elif (( $+commands[apt-get] )) {
     alias p='apt-cache search'
