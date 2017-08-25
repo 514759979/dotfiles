@@ -213,7 +213,7 @@ bindkey "\t" user-complete
 
 #编辑命令行
 #{{{
-autoload edit-command-line
+autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^g' edit-command-line
 #}}}
@@ -224,7 +224,8 @@ hash -d mine='/mnt/c/mine'
 #}}}
 
 #{{{ other
-autoload zmv
+autoload -U zmv
+autoload -U zargs
 
 compdef cwi=sudo
 compdef vwi=sudo
