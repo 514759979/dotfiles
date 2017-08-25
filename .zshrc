@@ -224,6 +224,8 @@ hash -d mine='/mnt/c/mine'
 #}}}
 
 #{{{ other
+autoload zmv
+
 compdef cwi=sudo
 compdef vwi=sudo
 compdef st=sudo

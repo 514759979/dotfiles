@@ -86,6 +86,7 @@ alias di='colordiff'
 alias we='wget'
 alias tn='telnet'
 alias calc='noglob calculate'
+alias mmv='noglob zmv -W'
 
 (( ${+TMUX} == 0 && ${+USE_TMUX} )) && {
     (( ${+ATTACH_ONLY} )) && {
