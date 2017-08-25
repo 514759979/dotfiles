@@ -87,6 +87,7 @@ alias we='wget'
 alias tn='telnet'
 alias calc='noglob calculate'
 alias mmv='noglob zmv -W'
+alias fordo='zargs'
 
 (( ${+TMUX} == 0 && ${+USE_TMUX} )) && {
     (( ${+ATTACH_ONLY} )) && {
@@ -351,14 +352,6 @@ sync_dir() {
 mdcd() {
     md "$1"
     cd "$1"
-}
-
-fordo() {
-    local cmd=${@[-1]}
-
-    for i in ${@:1:-1}; {
-        eval $cmd $i
-    }
 }
 
 if (( $+commands[pacman] )) {

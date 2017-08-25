@@ -226,6 +226,7 @@ hash -d mine='/mnt/c/mine'
 #{{{ other
 autoload -U zmv
 autoload -U zargs
+autoload -U zrecompile
 
 compdef cwi=sudo
 compdef vwi=sudo
