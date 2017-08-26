@@ -658,6 +658,10 @@ if (( $+commands[pacman] )) {
     alias pad='sudo apt-get markauto'
     alias pd='sudo pi -d'
 }
+
+autoload -U cg vg chall clean_pqe download_source n o os renamex qip rmdup \
+    search_cpu update_pkgfile
+
 #}}} common
 
 #echo $((EPOCHREALTIME - start_time))

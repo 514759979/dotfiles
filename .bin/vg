@@ -1,26 +1,33 @@
-#!/bin/bash
+#!/bin/zsh
 
-IFS=
+if (( $# == 0 )) {
+    echo "$(<~/.cache/.cg)"
+} else {
+    cg_file=("${(f)$(< ~/.cache/.cg)}")
 
-print_cg() {
-  cat ~/.cache/.cg
-  exit
+    if (( $1 > $#cg_file - 2 )) {
+        echo "$(<~/.cache/.cg)"
+    } else {
+        cd $cg_file[1]
+
+        filename=$cg_file[$(( $1 + 2 ))]
+        line=${filename#*:}
+        line=$line[15,-1]
+        line=${line%%\[m*}
+        line=$line[1,-2]
+
+        if [[ "$line" == <-> ]] {
+            filename=${filename#*\[K}
+            filename=${filename%%\[m*}
+            filename=$filename[1,-2]
+        } else {
+            filename=${filename#*Binary file }
+            filename=${filename% match*}
+            line=0
+        }
+
+        echo $cg_file[1]/$filename[3,-1]
+
+echo  vim +${line} "${filename}"
+    }
 }
-
-[ $# -eq 1 ] || print_cg
-[ $1 -le $(( $(cat ~/.cache/.cg | wc -l) - 2 )) ] 2>/dev/null || print_cg
-
-cd $(head -n 1 ~/.cache/.cg)
-
-file="$(sed -n $[$1+2]p ~/.cache/.cg | perl -pe 's/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g')"
-#file="$(sed -n $[$1+2]p ~/.cache/.cg | perl -pe 's/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g' | col -b)"
-filename="$(echo $file | cut -f2 | cut -f1 -d:)"
-echo $filename
-line=$(echo $file | cut -f2 -d:)
-
-[ "${line}" -gt 0 ] 2>/dev/null || {
-    filename="$(echo $filename | cut -f3 -d" ")"
-    line=0
-}
-
-vim +${line} "${filename}"
