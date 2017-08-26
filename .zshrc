@@ -322,8 +322,10 @@ alias tn='telnet'
 alias calc='noglob calculate'
 alias mmv='noglob zmv -W'
 alias fordo='zargs'
-alias rpdf='rpd -f'
+alias rpd='rm -rv "$PWD" && cd ..'
+alias rpdf='rm -rvf "$PWD" && cd ..'
 alias keepdir='touch .keep; chmod 400 .keep'
+alias icmu='git cm update'
 
 (( ${+TMUX} == 0 && ${+USE_TMUX} )) && {
     (( ${+ATTACH_ONLY} )) && {
@@ -447,6 +449,17 @@ cry() {
 c() {
     cd $1
     ls -F --color
+}
+
+rm() {
+    for i in "$@"; {
+        [[ -e "$i/.keep" ]] && {
+            print -P "%BDon't delete $i !!!"
+            return 1
+        }
+    }
+
+    /usr/bin/rm "$@"
 }
 
 calculate() {
@@ -603,23 +616,6 @@ sync_dir() {
 mdcd() {
     md "$1"
     cd "$1"
-}
-
-rpd() {
-    echo "Deleting $PWD ..."
-
-    [[ -e "$PWD/.keep" ]] && {
-        print -P "%BDon't delete $PWD!!!"
-        return 1
-    }
-
-    if [[ "$1" == "-f" ]] {
-        rm -rf "$PWD"
-    } else {
-        rm -r "$PWD"
-    }
-
-    cd ..
 }
 
 if (( $+commands[pacman] )) {
