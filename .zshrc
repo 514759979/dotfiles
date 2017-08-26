@@ -276,8 +276,7 @@ alias pst='pstree'
 alias mt="top -u $USER"
 alias ctime='time cat'
 alias wi='which'
-alias rpd='rm -r $PWD; cd ..'
-alias rpdf='rm -rf $PWD; cd ..'
+alias redir='rmdir **/*(/^F)'
 alias cpui='grep MHz /proc/cpuinfo'
 alias fng='find | grep -P'
 alias e='print'
@@ -323,6 +322,7 @@ alias tn='telnet'
 alias calc='noglob calculate'
 alias mmv='noglob zmv -W'
 alias fordo='zargs'
+alias rpdf='rpd -f'
 
 (( ${+TMUX} == 0 && ${+USE_TMUX} )) && {
     (( ${+ATTACH_ONLY} )) && {
@@ -589,6 +589,23 @@ sync_dir() {
 mdcd() {
     md "$1"
     cd "$1"
+}
+
+rpd() {
+    echo "Deleting $PWD ..."
+
+    [[ "$PWD" == "$HOME" || "$PWD" == "$HOME/git" ]] && {
+        print -P "%BDon't delete $PWD!!!"
+        return 1
+    }
+
+    if [[ "$1" == "-f" ]] {
+        rm -rf "$PWD"
+    } else {
+        rm -r "$PWD"
+    }
+
+    cd ..
 }
 
 if (( $+commands[pacman] )) {
