@@ -411,7 +411,6 @@ if [[ -e /dev/lxss ]] {
     alias dh="df 2>/dev/null"
     alias frm="free -m | sed 's/ \+/  /g'"
     alias pkill="busybox pkill"
-    alias 24-bit-color.sh="zsh ~/.bin/24-bit-color.sh"
     alias mt="top"
 
     precmd() {
@@ -661,17 +660,6 @@ if (( $+commands[pacman] )) {
     alias pbs='pac -G'
     alias pfy='sudo pkgfile -uz'
     alias pl='pac -Ss'
-
-    #y() {
-    #    pacman -Ss "$@"
-    #    [[ -e ~/.cache/aurlist ]] || return
-    #
-    #    cat ~/.cache/aurlist | grep -Pi --color=none "$@" | awk -F'  ' '{
-    #        a=" "$2" ("$3")"
-    #        print "\033[35;1maur/\033[36;1m" $1 "\033[32;1m" a "\033[0m"
-    #        print "    "$5
-    #    }'
-    #}
 
     pqii() {
         cat /var/lib/pacman/local/$1-*/install

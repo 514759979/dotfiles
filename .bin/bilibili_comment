@@ -1,7 +1,0 @@
-#!/bin/zsh
-
-cid=$(curl $1 2>/dev/null | zcat | grep cid | \
-    sed 's/^.*cid=//g; s/&aid=.*$//g; s/&url=.*$//g')
-echo "http://comment.bilibili.com/$cid.xml"
-
-#curl --compressed "http://comment.bilibili.com/$cid.xml"
