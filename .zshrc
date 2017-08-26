@@ -477,11 +477,31 @@ t() {
 }
 
 cwi() {
-    type $1 && echo "$(<$(which $1))" 2>/dev/null
+    buffer=("${(f)$(which -a $1)}")
+    print -l $buffer
+
+    [[ -e $buffer[-1] ]] && {
+        print "\n$(<$buffer[-1])"
+    }
 }
 
 vwi() {
-    type $1 && [[ -e "$(which $1)" ]] && vim "$(which $1)" 2>/dev/null
+    buffer=("${(f)$(which -a $1)}")
+    print -l $buffer
+
+    [[ -e $buffer[-1] ]] && {
+        vim -p $buffer[-1]
+        return
+    }
+
+    buffer=$(type $1)
+    buffer=${buffer#$1*function from }
+    print $buffer
+    if [[ -e "$buffer" ]] {
+        vim +/^$1\( -p "$buffer"
+    } elif [[ "$buffer" == *"is an alias for"* ]] {
+        vim +/^alias\ "$1"= -p ~/.zshrc
+    }
 }
 
 ac() {
