@@ -355,6 +355,7 @@ if [[ -e /dev/lxss ]] {
     alias mi='z c:/mine/app/wsl-terminal/bin/mintty.exe /bin/wslbridge -t zsh'
     alias pa='z c:/mine/app/0misc/bin/paste.exe'
     alias msg="z msg $USER"
+    alias cl="z clip"
 
     alias vm='z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
@@ -661,7 +662,7 @@ if (( $+commands[pacman] )) {
 }
 
 autoload -U cg vg chall clean_pqe download_source n o os renamex qip rmdup \
-    search_cpu update_pkgfile aur_add cl
+    search_cpu update_pkgfile aur_add
 
 #}}} common
 
