@@ -474,11 +474,11 @@ k() {
 }
 
 t() {
-    <"$@" 2>/dev/null || ls -lF --color "$@" 2>/dev/null
+    echo "$(<$@)" 2>/dev/null || ls -lF --color "$@" 2>/dev/null
 }
 
 cwi() {
-    type $1 && <"$(which $1)" 2>/dev/null
+    type $1 && echo "$(<$(which $1))" 2>/dev/null
 }
 
 vwi() {
@@ -632,7 +632,7 @@ if (( $+commands[pacman] )) {
     #}
 
     pqii() {
-        </var/lib/pacman/local/$1-*/install
+        cat /var/lib/pacman/local/$1-*/install
     }
 } elif (( $+commands[apt-get] )) {
     alias p='apt-cache search'
