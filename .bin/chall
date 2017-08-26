@@ -1,13 +1,28 @@
 #!/bin/zsh
 
-#TODO
+# chall jpg 3 aa : aa[001..100].jpg
 
-#chall jpg aa: aa[1-x].jpg
+local ext=.$1
+[[ "$ext" == "." ]] && {
+    for i in **/*(.); {
+        ext=${i:t}
+        ext=.${i#*.}
+        break
+    }
+}
 
-ext=`ls|sed -n '1p'|sed -e 's/^.*\.\([^.]*\)$/\1/g'`
-for i in *; do mv "$i" "$i.tmp"; done;
-if [ "$#" = "1" ] || [ "$#" = "2" ];then
-	ext=$1
-fi
-a=1
-for i in *; do mv "$i" $2$a.$ext;a=$(($a+1)); done;
+local num_width=$2
+[[ "$num_width" != <-> ]] && num_width=2
+typeset -Z $num_width num=1
+
+local prefix=$3
+
+for i in **/*(.); {
+    [[ -e "$prefix$num$ext" ]] && {
+        echo "$prefix$num$ext exists, exit!"
+        return
+    }
+
+    mv "$i" "$prefix$num$ext"
+    (( ++num ))
+}
