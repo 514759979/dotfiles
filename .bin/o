@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 [ "${1:0:4}" = "http" -o "${1:0:4}" = "www." ] && {
     z start "" "$@"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # renamex 's/aaa/bbb/g' *
 

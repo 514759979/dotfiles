@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 num=$(curl -s https://aur.archlinux.org/ | grep '>Packages<\/td' -A 1|sed -n 2p|sed 's/<td>//g;s/<\/td>//g;s/^\t*//g')
 echo -n > /tmp/.aurlist
 for i in $(seq 0 250 $num); do

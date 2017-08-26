@@ -236,6 +236,7 @@ compdef st=sudo
 export LANG="en_US.UTF-8"
 (( ${+USER} )) || export USER="goreliu"
 (( ${+SHELL} )) || export SHELL="/bin/zsh"
+umask 022
 
 alias h='history'
 alias j='ls -F --color'
@@ -563,7 +564,7 @@ loop() {
     }
 }
 
-rp() {
+vs() {
     local args
     [[ "$#" -ge 1 ]] && args="zsh -ic \"$@\""
 
@@ -660,7 +661,7 @@ if (( $+commands[pacman] )) {
 }
 
 autoload -U cg vg chall clean_pqe download_source n o os renamex qip rmdup \
-    search_cpu update_pkgfile
+    search_cpu update_pkgfile aur_add cl
 
 #}}} common
 

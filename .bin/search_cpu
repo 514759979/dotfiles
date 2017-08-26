@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 local_file="$HOME/.cache/cpu"
 

@@ -1,10 +1,6 @@
-#!/bin/bash
+#!/bin/zsh
 
-[ -n "$1" ] || exit 1
-
-git clone ssh://aur@aur.archlinux.org/$1.git
-cd $1
-
+echo git clone ssh://aur@aur.archlinux.org/$1.git
 echo mksrcinfo
 echo git add PKGBUILD .SRCINFO
 echo git push origin master

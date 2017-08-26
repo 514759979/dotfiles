@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 sed -i 's/.#!SILK_V3/#!SILK_V3/g' $1
 silk_decoder "$1" "$1.pcm"

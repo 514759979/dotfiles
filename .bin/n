@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 if [ $# = 0 ]; then
     ls ~/.templete --color

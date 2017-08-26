@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 [ "$HOSTNAME" = "my-pc" ] && {
     if [ $# = 0 ]; then
