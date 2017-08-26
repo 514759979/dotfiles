@@ -1,31 +1,25 @@
-#!/bin/bash
+#!/bin/zsh
 
 cg=~/.cache/.cg
-touch $cg
 
-if [ $# -gt 0 ]; then
+(( $# > 0 )) && {
     echo $PWD > $cg
     name="$1"
 
-    if [ $(expr substr "$1" 1 1) = '-' ]; then
+    [[ "$name[1]" == "-" ]] && {
         name=$2
-        if [ $# = 2 ]; then
-            flag1='-r'
-            flag2='.'
-        fi
-    fi
+
+        (( $# == 2 )) && flag=(-r .)
+    }
 
     echo $name >> $cg
 
-    if [ $# = 1 ]; then
-        flag1='-r'
-        flag2='.'
-    fi
+    (( $# == 1 )) && flag=(-r .)
 
-    grep -PHn "$@" $flag1 $flag2 --color=yes \
+    grep -PHn "$@" $flag --color=yes \
         --exclude-dir='.svn' --exclude-dir='.git' --exclude-dir='.libs' \
         --exclude=tags \
         | nl -n ln >> $cg
-fi
+}
 
-cat $cg 
+echo "$(<$cg)" 2>/dev/null
