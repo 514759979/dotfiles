@@ -325,7 +325,8 @@ alias fordo='zargs'
 alias rpd='rm -rv "$PWD" && cd ..'
 alias rpdf='rm -rvf "$PWD" && cd ..'
 alias keepdir='touch .keep; chmod 400 .keep'
-alias icmu='git cm update'
+alias icmu='git commit -am update'
+alias iu='git push'
 
 (( ${+TMUX} == 0 && ${+USE_TMUX} )) && {
     (( ${+ATTACH_ONLY} )) && {
