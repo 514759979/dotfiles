@@ -1,4 +1,5 @@
-#zmodload zsh/datetime && local start_time=$EPOCHREALTIME
+zmodload zsh/datetime
+local start_time=$EPOCHREALTIME
 
 #{{{ 命令提示符、标题栏、任务栏样式
 precmd() {
@@ -41,6 +42,7 @@ case $TERM {
 }
 #}}}
 
+
 #{{{ 关于历史纪录的配置
 #历史纪录条目数量
 export HISTSIZE=1000000
@@ -60,20 +62,10 @@ setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 #在命令前添加空格，不将此命令添加到纪录文件中
 setopt HIST_IGNORE_SPACE
-#glob展开方式和bash一致
-#setopt NO_NOMATCH
 unsetopt BEEP
 #}}}
 
-#{{{ 杂项
-
-# 扩展路径
-# /v/c/p/p => /var/cache/pacman/pkg
-setopt complete_in_word
-
-# 禁用 core dumps
-#limit coredumpsize 0
-
+#{{{ 按键绑定
 bindkey -v
 bindkey "\e[1~"   beginning-of-line
 bindkey "\e[2~"   insert-last-word
@@ -97,19 +89,46 @@ bindkey "^n"      down-line-or-search
 bindkey "^r"      history-incremental-search-backward
 bindkey "^a"      beginning-of-line
 bindkey "^e"      end-of-line
-bindkey "^f"      forward-char
-bindkey "^b"      backward-char
-bindkey "^[f"     forward-word
-bindkey "^[b"     backward-word
-bindkey "^x^x"    exchange-point-and-mark
+bindkey "^f"      forward-word
+bindkey "^b"      backward-word
 bindkey "^k"      kill-line
-bindkey "^o"      accept-line-and-down-history
+
+# 用 vim 编辑命令行
+autoload -U       edit-command-line
+zle -N            edit-command-line
+bindkey '^g'      edit-command-line
+
+# 在命令前插入 sudo
+sudo-command-line() {
+    [[ -z $BUFFER ]] && zle up-history
+    [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
+    #光标移动到行末
+    zle end-of-line
+}
+
+zle -N sudo-command-line
+bindkey '^y' sudo-command-line
+
+# ctrl + h 退格
+# ctrl + i tab
+# ctrl + j 回车
+# ctrl + k 删除之后字符
+# ctrl + s 冻结
+# ctrl + q 恢复
+# ctrl + u 删除之前字符
+# ctrl + y sudo
+# 还没有用的 f m o t w x (h) (i) 
+#}}}
+
+
+#{{{ 自动补全
+# 扩展路径
+# /v/c/p/p => /var/cache/pacman/pkg
+setopt complete_in_word
 
 #以下字符视为单词的一部分
 WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
-#}}}
 
-#{{{ 自动补全功能
 setopt AUTO_LIST
 setopt AUTO_MENU
 # 开启此选项，补全时会直接选中菜单项
@@ -197,42 +216,24 @@ zle -N user-complete
 bindkey "\t" user-complete
 ##}}}
 
-#{{{ 在命令前插入 sudo
-#sudo-command-line() {
-#    [[ -z $BUFFER ]] && zle up-history
-#    [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
-#    #光标移动到行末
-#    zle end-of-line
-#}
-#
-#zle -N sudo-command-line
-#bindkey '^[j' sudo-command-line
-#}}}
 
-#编辑命令行
-#{{{
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey '^g' edit-command-line
-#}}}
-
-#{{{ 路径别名
+#{{{ 杂项
 # 进入相应的路径时只要 cd ~xxx
 hash -d mine='/mnt/c/mine'
-#}}}
 
-#{{{ other
+# 加载函数
 autoload -U zmv
 autoload -U zargs
 autoload -U zrecompile
 
+# 按照对应命令补全
 compdef cwi=sudo
 compdef vwi=sudo
 compdef st=sudo
 #}}}
 
-#{{{ common
 
+#{{{ 和 zsh 无关的配置
 export LANG="en_US.UTF-8"
 (( ${+USER} )) || export USER="goreliu"
 (( ${+SHELL} )) || export SHELL="/bin/zsh"
@@ -280,7 +281,9 @@ alias redir='rmdir **/*(/^F)'
 alias cpui='grep MHz /proc/cpuinfo'
 alias fng='find | grep -P'
 alias e='print'
-alias en='print -l'
+alias p='print'
+alias pn='print -l'
+alias pc='print -P'
 alias f='file'
 alias i='git'
 alias ic='ifconfig'
@@ -327,6 +330,9 @@ alias rpdf='rm -rvf "$PWD" && cd ..'
 alias keepdir='touch .keep; chmod 400 .keep'
 alias icmu='git commit -am update'
 alias iu='git push'
+alias uf='unfunction'
+alias ti='time'
+alias uu='. ~/.zshrc'
 
 (( ${+TMUX} == 0 && ${+USE_TMUX} )) && {
     (( ${+ATTACH_ONLY} )) && {
@@ -424,12 +430,14 @@ fpath+=($HOME/.bin)
 
 # man color
 export LESS_TERMCAP_mb=$'\E[01;31m'
-export LESS_TERMCAP_md=$'\E[01;31m'
+# 标题和命令主体
+export LESS_TERMCAP_md=$'\E[01;32m'
 export LESS_TERMCAP_me=$'\E[0m'
 export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
+# 命令参数
+export LESS_TERMCAP_us=$'\E[04;36;7m'
 
 st() {
     ($@ &)
@@ -440,15 +448,15 @@ imgresize() {
 }
 
 cry() {
-    if [[ "t$1" = "t-d" ]] {
-        openssl enc -aes-256-cbc -d -in $2 -out $3
+    if [[ "$1" = "-d" ]] {
+        openssl enc -aes-256-cbc -d -in "$2" -out "$3"
     } else {
-        openssl enc -aes-256-cbc -e -in $1 -out $2
+        openssl enc -aes-256-cbc -e -in "$1" -out "$2"
     }
 }
 
 c() {
-    cd $1
+    cd "$1"
     ls -F --color
 }
 
@@ -621,10 +629,10 @@ mdcd() {
 
 if (( $+commands[pacman] )) {
     alias pac='sudo pacman --color auto'
-    alias p='pacman --color auto -Ss'
+    alias pg='pacman --color auto -Ss'
     (( $+commands[yaourt] )) && {
         alias pac='yaourt'
-        alias p='yaourt'
+        alias pg='yaourt'
     }
     alias pi='pac -S'
     alias pia='pac -S --noconfirm'
@@ -667,7 +675,7 @@ if (( $+commands[pacman] )) {
         cat /var/lib/pacman/local/$1-*/install
     }
 } elif (( $+commands[apt-get] )) {
-    alias p='apt-cache search'
+    alias pg='apt-cache search'
     alias y='apt list 2>/dev/null | grep'
     alias pi='sudo apt-get install'
     alias pia='sudo apt-get install'
@@ -690,9 +698,21 @@ if (( $+commands[pacman] )) {
     alias pd='sudo pi -d'
 }
 
-autoload -U cg vg chall clean_pqe download_source n o os renamex qip rmdup \
-    update_pkgfile aur_add
+autoload -U \
+    cg \
+    vg \
+    n \
+    o \
+    os \
+    chall \
+    renamex \
+    rmdup \
+    clean_pqe \
+    download_source \
+    qip \
+    update_pkgfile \
+    aur_add \
 
-#}}} common
+#}}}
 
-#echo $((EPOCHREALTIME - start_time))
+#echo $(( EPOCHREALTIME - start_time ))

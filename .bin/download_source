@@ -20,7 +20,7 @@ update_source_list() {
 search_source_file() {
     [[ -e "$SOURCE_LIST_FILE" ]] || update_source_list
 
-    grep "$@" "$SOURCE_LIST_FILE"
+    grep "$*" "$SOURCE_LIST_FILE"
 }
 
 download_source_file() {
@@ -34,8 +34,9 @@ download_source_file() {
 if [[ "$1" == "update" ]] {
     update_source_list
 } elif [[ "$1" == "search" ]] {
-    shift
-    search_source_file "$@"
+    (( $+2 )) && {
+        search_source_file "$@[2,-1]"
+    }
 } elif [[ "$1" == "download" ]] {
     shift
     download_source_file "$@"
