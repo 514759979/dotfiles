@@ -44,9 +44,9 @@ case $TERM {
 
 #{{{ 关于历史纪录的配置
 #历史纪录条目数量
-export HISTSIZE=1000000
+export HISTSIZE=100000
 #注销后保存的历史纪录条目数量
-export SAVEHIST=1000000
+export SAVEHIST=100000
 #历史纪录文件
 export HISTFILE=~/.zhistory
 #分享历史纪录
@@ -318,7 +318,6 @@ alias up='uptime'
 alias w='w -i'
 alias dmg='dmesg'
 alias b='date +"%Y-%m-%d %H:%M:%S (%u)"'
-#alias b='strftime "%Y-%m-%d %H:%M:%S (%u)" $EPOCHSECONDS'
 alias wd='w3m -dump'
 alias fm='ranger'
 alias di='colordiff'
@@ -335,6 +334,7 @@ alias iu='git push'
 alias uf='unfunction'
 alias ti='time'
 alias uu='. ~/.zshrc'
+alias zc='zcompile .zshrc; zcompile .zcompdump'
 
 (( ${+TMUX} == 0 && ${+USE_TMUX} )) && {
     (( ${+ATTACH_ONLY} )) && {
