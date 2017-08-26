@@ -323,6 +323,7 @@ alias calc='noglob calculate'
 alias mmv='noglob zmv -W'
 alias fordo='zargs'
 alias rpdf='rpd -f'
+alias keepdir='touch .keep; chmod 400 .keep'
 
 (( ${+TMUX} == 0 && ${+USE_TMUX} )) && {
     (( ${+ATTACH_ONLY} )) && {
@@ -594,9 +595,7 @@ mdcd() {
 rpd() {
     echo "Deleting $PWD ..."
 
-    #TODO .keep 文件
-    [[ "$PWD" == "$HOME" 
-        || "$PWD" == "$HOME/git" ]] && {
+    [[ -e "$PWD/.keep" ]] && {
         print -P "%BDon't delete $PWD!!!"
         return 1
     }
