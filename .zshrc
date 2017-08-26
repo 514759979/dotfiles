@@ -419,6 +419,7 @@ export EDITOR=vim
 export PAGER='less -irf'
 export GREP_COLOR='40;33;01'
 eval `dircolors $HOME/.dir_colors`
+fpath+=($HOME/.bin)
 
 # man color
 export LESS_TERMCAP_mb=$'\E[01;31m'
