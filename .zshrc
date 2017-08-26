@@ -396,18 +396,12 @@ if [[ -e /dev/lxss ]] {
     #}
 } elif [[ "$OSTYPE" == *android* ]] {
     export SHELL="/data/data/com.termux/files/usr/bin/zsh"
-    alias n="zsh ~/.bin/n"
-    alias cg="zsh ~/.bin/cg"
-    alias vg="zsh ~/.bin/vg"
-    alias renamex="zsh ~/.bin/renamex"
-    alias pb="zsh ~/.bin/download_source search"
-    alias pbg="zsh ~/.bin/download_source download"
     alias search_cpu="zsh ~/.bin/search_cpu"
     alias dh="df 2>/dev/null"
     alias frm="free -m | sed 's/ \+/  /g'"
     alias pkill="busybox pkill"
-    alias qip="zsh ~/.bin/qip"
     alias 24-bit-color.sh="zsh ~/.bin/24-bit-color.sh"
+    alias mt="top"
 
     precmd() {
         PROMPT="%{%F{cyan}%}goreliu@%{%F{green}%}my-phone:%{%F{red}%}%(?..[%?]:)%{%F{white}%}%~"$'\n'"%% "
