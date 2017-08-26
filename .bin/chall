@@ -5,8 +5,7 @@
 local ext=.$1
 [[ "$ext" == "." ]] && {
     for i in **/*(.); {
-        ext=${i:t}
-        ext=.${i#*.}
+        ext=.${i:e}
         break
     }
 }
