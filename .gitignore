@@ -1,4 +1,4 @@
-*.zwc
+*.zwc*
 .android
 .bash_history
 .bin/z

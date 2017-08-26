@@ -334,7 +334,7 @@ alias iu='git push'
 alias uf='unfunction'
 alias ti='time'
 alias uu='. ~/.zshrc'
-alias zc='zcompile ~/.zshrc; zcompile ~/.zcompdump'
+alias zc='zrecompile ~/.zshrc; zrecompile ~/.zcompdump'
 
 (( ${+TMUX} == 0 && ${+USE_TMUX} )) && {
     (( ${+ATTACH_ONLY} )) && {
