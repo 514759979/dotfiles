@@ -496,7 +496,6 @@ vwi() {
 
     buffer=$(type $1)
     buffer=${buffer#$1*function from }
-    print $buffer
     if [[ -e "$buffer" ]] {
         vim +/^$1\( -p "$buffer"
     } elif [[ "$buffer" == *"is an alias for"* ]] {
