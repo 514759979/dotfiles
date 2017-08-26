@@ -1,5 +1,4 @@
-zmodload zsh/datetime
-local start_time=$EPOCHREALTIME
+#zmodload zsh/datetime && local start_time=$EPOCHREALTIME
 
 #{{{ 命令提示符、标题栏、任务栏样式
 precmd() {
@@ -317,6 +316,7 @@ alias up='uptime'
 alias w='w -i'
 alias dmg='dmesg'
 alias b='date +"%Y-%m-%d %H:%M:%S (%u)"'
+#alias b='strftime "%Y-%m-%d %H:%M:%S (%u)" $EPOCHSECONDS'
 alias wd='w3m -dump'
 alias fm='ranger'
 alias di='colordiff'
