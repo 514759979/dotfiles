@@ -594,7 +594,9 @@ mdcd() {
 rpd() {
     echo "Deleting $PWD ..."
 
-    [[ "$PWD" == "$HOME" || "$PWD" == "$HOME/git" ]] && {
+    #TODO .keep 文件
+    [[ "$PWD" == "$HOME" 
+        || "$PWD" == "$HOME/git" ]] && {
         print -P "%BDon't delete $PWD!!!"
         return 1
     }

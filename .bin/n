@@ -1,9 +1,25 @@
 #!/bin/zsh
 
-if (( $# == 0 )) {
+(( $# == 0 )) && {
     ls ~/.templete --color
-} elif (( $# == 1 )) {
-    cp ~/.templete/$1* .
-} elif (( $# == 2 )) {
-    cp ~/.templete/$1* $2
+    return
 }
+
+local filepath=(~/.templete/$1*)
+local newfilename="$2"
+
+(( $+2 )) || {
+    local ext=${filepath[1]:t}
+
+    if [[ "$ext" = *.* ]] {
+        ext=.${ext/*.}
+    } else {
+        ext=""
+    }
+
+    newfilename=test$$$ext
+}
+
+cp "$filepath[1]" "$newfilename"
+
+vim -p "$newfilename"
