@@ -8,7 +8,7 @@ local files=("${(f)$(zargs **/*(.) -- md5sum)}")
 local files_d=()
 typeset -A md5s
 
-for i in $files; {
+for i ($files) {
     local md5=$i[1,32]
 
     if (( $+md5s[$md5] )) {

@@ -438,7 +438,7 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 # 命令参数
-export LESS_TERMCAP_us=$'\E[04;36;7m'
+export LESS_TERMCAP_us=$'\E[04;36;4m'
 
 st() {
     ($@ &)
@@ -462,7 +462,7 @@ c() {
 }
 
 rm() {
-    for i in "$@"; {
+    for i ("$@") {
         [[ -e "$i/.keep" ]] && {
             print -P "%BDon't delete $i !!!"
             return 1
@@ -486,7 +486,7 @@ k() {
         cd ..
     } else {
         go_dir='.'
-        for i in {1..$1}; {
+        for i ({1..$1}) {
             go_dir=$go_dir/..
         }
         cd $go_dir

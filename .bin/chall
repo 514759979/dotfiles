@@ -4,7 +4,7 @@
 
 local ext=.$1
 [[ "$ext" == "." ]] && {
-    for i in **/*(.); {
+    for i (**/*(.)) {
         ext=.${i:e}
         break
     }
@@ -16,7 +16,7 @@ typeset -Z $num_width num=1
 
 local prefix=$3
 
-for i in **/*(.); {
+for i (**/*(.)) {
     [[ -e "$prefix$num$ext" ]] && {
         echo "$prefix$num$ext exists, exit!"
         return

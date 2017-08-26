@@ -5,7 +5,7 @@
     return
 }
 
-for i in "$@[2,-1]"; {
+for i ("$@[2,-1]") {
     local new_name="$(echo "$i" | sed "$1")"
     [[ "$i" == "$new_name" ]] && continue
     echo "Renaming $i to $new_name ..."

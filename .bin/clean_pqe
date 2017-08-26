@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-for i in $(pacman -Qeq); {
+for i ($(pacman -Qeq)) {
     if (! pacman -Qi $i | grep -q 'Required By.*None') {
         sudo pacman -D --asdeps $i
     }
