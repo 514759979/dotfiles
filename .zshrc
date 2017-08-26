@@ -312,7 +312,7 @@ alias lc='lolcat'
 alias sm='sudo mount'
 alias um='sudo umount'
 alias sf='neofetch'
-alias vrc='vim ~/.zshrc; . ~/.zshrc'
+alias vrc='vim ~/.zshrc; zc; . ~/.zshrc'
 alias u='cd -'
 alias up='uptime'
 alias w='w -i'
@@ -334,7 +334,7 @@ alias iu='git push'
 alias uf='unfunction'
 alias ti='time'
 alias uu='. ~/.zshrc'
-alias zc='zcompile .zshrc; zcompile .zcompdump'
+alias zc='zcompile ~/.zshrc; zcompile ~/.zcompdump'
 
 (( ${+TMUX} == 0 && ${+USE_TMUX} )) && {
     (( ${+ATTACH_ONLY} )) && {
