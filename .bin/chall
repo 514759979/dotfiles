@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+#TODO
+
 #chall jpg aa: aa[1-x].jpg
 
 ext=`ls|sed -n '1p'|sed -e 's/^.*\.\([^.]*\)$/\1/g'`

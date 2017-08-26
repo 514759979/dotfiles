@@ -1,4 +1,7 @@
 #!/bin/zsh
+
+#TODO
+
 # A simple tool to remove duplicate files in the current directory and its subdirectories.
 
 all=`mktemp -t XXXXX`

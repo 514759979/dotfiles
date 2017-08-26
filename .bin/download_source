@@ -1,11 +1,9 @@
 #!/bin/zsh
 
-source "$(dirname "$(readlink -f "$0")")/download_source.conf" &>/dev/null || {
-    # gentoo mirror from https://www.gentoo.org/downloads/mirrors/
-    GENTOO_MIRROR_URL="http://mirrors.ustc.edu.cn/gentoo"
+# gentoo mirror from https://www.gentoo.org/downloads/mirrors/
+GENTOO_MIRROR_URL="http://mirrors.ustc.edu.cn/gentoo"
 
-    SOURCE_LIST_FILE="$HOME/.cache/source_list"
-}
+SOURCE_LIST_FILE="$HOME/.cache/source_list"
 
 update_source_list() {
     mkdir -p "$(dirname "$SOURCE_LIST_FILE")" || return 1
@@ -20,39 +18,30 @@ update_source_list() {
 }
 
 search_source_file() {
-    [ -e "$SOURCE_LIST_FILE" ] || update_source_list
+    [[ -e "$SOURCE_LIST_FILE" ]] || update_source_list
 
-    cat "$SOURCE_LIST_FILE" | grep "$@"
+    grep "$@" "$SOURCE_LIST_FILE"
 }
 
 download_source_file() {
-    [ -e "$SOURCE_LIST_FILE" ] || update_source_list
+    [[ -e "$SOURCE_LIST_FILE" ]] || update_source_list
 
-    for i in "$@"; do
+    for i in "$@"; {
         wget "$GENTOO_MIRROR_URL/distfiles/$i"
-    done
+    }
 }
 
-[ "$1" = "update" ] && {
+if [[ "$1" == "update" ]] {
     update_source_list
-    exit $?
-}
-
-[ "$1" = "search" ] && {
+} elif [[ "$1" == "search" ]] {
     shift
     search_source_file "$@"
-    exit $?
-}
-
-[ "$1" = "download" ] && {
+} elif [[ "$1" == "download" ]] {
     shift
     download_source_file "$@"
-    exit $?
+} else {
+    echo "Usage:"
+    echo "    $0 update : update source list file"
+    echo "    $0 search source_name : search"
+    echo "    $0 download filename : download"
 }
-
-echo "Usage:"
-echo "    $0 update : update source list file"
-echo "    $0 search source_name : search"
-echo "    $0 download filename : download"
-
-exit 1

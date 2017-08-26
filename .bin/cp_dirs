@@ -1,7 +1,5 @@
 #!/bin/zsh
 
-IFS=$'\n'
-
-for i in `find "$1" -type d`; do 
+for i in $1/**/*(/); {
     mkdir -p "$2/$i"
-done
+}

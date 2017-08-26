@@ -296,6 +296,7 @@ alias jl='ll /dev | grep -E "(sd|mmcblk)"'
 alias tf='tail -f'
 alias pb='download_source search'
 alias pbg='download_source download'
+alias pbu='download_source update'
 alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
 alias ,='percol'
 alias ua='uname -a'
@@ -662,7 +663,7 @@ if (( $+commands[pacman] )) {
 }
 
 autoload -U cg vg chall clean_pqe download_source n o os renamex qip rmdup \
-    search_cpu update_pkgfile aur_add
+    update_pkgfile aur_add
 
 #}}} common
 

@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-local_file="$HOME/.cache/cpu"
+local local_file="$HOME/.cache/cpu"
 
 update() {
     url="http://itianti.sinaapp.com/index.php/cpu"
@@ -11,7 +11,7 @@ update() {
         > "$local_file"
 }
 
-[ ! -e "$local_file" -o "$1" = "update" ] && {
+[[ ! -e "$local_file" || "$1" = "update" ]] && {
     update
 }
 

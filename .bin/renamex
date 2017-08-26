@@ -1,13 +1,13 @@
 #!/bin/zsh
 
-# renamex 's/aaa/bbb/g' *
+(( $+1 )) || {
+    echo 'Usage: renamex "s/aaa/bbb/g" *.txt'
+    return
+}
 
-reg="$1"
-shift
-
-for i in "$@"; do
-    new_name="$(echo "$i" | sed "$reg")"
-    [ "$i" = "$new_name" ] && continue
+for i in "$@[2,-1]"; {
+    local new_name="$(echo "$i" | sed "$1")"
+    [[ "$i" == "$new_name" ]] && continue
     echo "Renaming $i to $new_name ..."
     mv "$i" "$new_name"
-done
+}

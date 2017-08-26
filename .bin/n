@@ -1,9 +1,9 @@
 #!/bin/zsh
 
-if [ $# = 0 ]; then
+if (( $# == 0 )) {
     ls ~/.templete --color
-elif [ $# = 1 ]; then
+} elif (( $# == 1 )) {
     cp ~/.templete/$1* .
-elif [ $# = 2 ]; then
+} elif (( $# == 2 )) {
     cp ~/.templete/$1* $2
-fi
+}
