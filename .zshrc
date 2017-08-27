@@ -297,9 +297,9 @@ alias d='tree'
 alias gmc='gm convert'
 alias jl='ll /dev | grep -E "(sd|mmcblk)"'
 alias tf='tail -f'
-alias pb='download_source search'
-alias pbg='download_source download'
-alias pbu='download_source update'
+alias pb='dlsource search'
+alias pbg='dlsource download'
+alias pbu='dlsource update'
 alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
 alias ,='percol'
 alias ua='uname -a'
@@ -572,7 +572,7 @@ exaac() {
     ffmpeg -i $1 -vn -sn -c:a copy -y -map 0:a:0 $1.aac
 }
 
-top_history() {
+tophistory() {
     num=20
     [[ -n "$1" ]] && num="$1"
     history 1 \
@@ -614,8 +614,8 @@ icm() {
     git cm "$*"
 }
 
-sync_dir() {
-    # sync_dir dir1/ dir2/
+syncdir() {
+    # syncdir dir1/ dir2/
     if [[ "$3" = "--run" ]] {
         rsync --delete -av "$1/" "$2/"
     } else {
@@ -697,11 +697,8 @@ autoload -U \
     chall \
     renamex \
     rmdup \
-    clean_pqe \
-    download_source \
+    dlsource \
     qip \
-    update_pkgfile \
-    aur_add \
 
 #}}}
 
