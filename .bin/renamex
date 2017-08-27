@@ -8,6 +8,5 @@
 for i ("$@[2,-1]") {
     local new_name="$(echo "$i" | sed "$1")"
     [[ "$i" == "$new_name" ]] && continue
-    echo "Renaming $i to $new_name ..."
-    mv "$i" "$new_name"
+    mv -v "$i" "$new_name"
 }
