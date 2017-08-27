@@ -1,8 +1,8 @@
-int setrlimit(int resource, const struct rlimit *rlp) {
+int setrlimit(int resource, const void *rlp) {
     return 0;
 }
 
-int getrlimit(int resource, struct rlimit *rlp) {
+int getrlimit(int resource, void *rlp) {
     return 0;
 }
 
