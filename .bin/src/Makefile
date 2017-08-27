@@ -1,7 +1,7 @@
 all: ../darkhttpd ../libmymock.so ../z
 
 ../darkhttpd: darkhttpd.c
-	gcc -Ofast $< -o $@
+	gcc -Ofast -DNO_IPV6 $< -o $@
 	strip $@
 
 ../libmymock.so: libmymock.c
