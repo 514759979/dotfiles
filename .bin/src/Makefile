@@ -6,6 +6,7 @@ all: ../darkhttpd ../libmymock.so ../z
 
 ../libmymock.so: libmymock.c
 	gcc -shared -fPIC $< -o $@
+	chmod -x $@
 	strip $@
 
 ../z: z.c
