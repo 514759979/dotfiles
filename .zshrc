@@ -523,9 +523,9 @@ vwi() {
     buffer=$(type $1)
     buffer=${buffer#$1*function from }
     if [[ -e "$buffer" ]] {
-        vim +/^$1\( -p "$buffer"
+        vim "+/^ *$1(" -p "$buffer"
     } elif [[ "$buffer" == *"is an alias for"* ]] {
-        vim +/^alias\ "$1"= -p ~/.zshrc
+        vim "+/^ *alias $1=" -p ~/.zshrc
     }
 }
 
