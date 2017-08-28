@@ -43,24 +43,27 @@ case $TERM {
 
 
 #{{{ 关于历史纪录的配置
-#历史纪录条目数量
+# 历史纪录条目数量
 export HISTSIZE=100000
-#注销后保存的历史纪录条目数量
+# 注销后保存的历史纪录条目数量
 export SAVEHIST=100000
-#历史纪录文件
+# 历史纪录文件
 export HISTFILE=~/.zhistory
-#分享历史纪录
+# 多个 zsh 间分享历史纪录
 setopt SHARE_HISTORY
-#如果连续输入的命令相同，历史纪录中只保留一个
+# 如果连续输入的命令相同，历史纪录中只保留一个
 setopt HIST_IGNORE_DUPS
-#为历史纪录中的命令添加时间戳
+# 为历史纪录中的命令添加时间戳
 setopt EXTENDED_HISTORY
-#启用 cd 命令的历史纪录，cd -[TAB]进入历史路径
+# 启用 cd 命令的历史纪录，cd -[TAB]进入历史路径
 setopt AUTO_PUSHD
-#相同的历史路径只保留一个
+# 相同的历史路径只保留一个
 setopt PUSHD_IGNORE_DUPS
-#在命令前添加空格，不将此命令添加到纪录文件中
+# 在命令前添加空格，不将此命令添加到纪录文件中
 setopt HIST_IGNORE_SPACE
+# 加强版通配符
+setopt EXTENDED_GLOB
+# 禁用终端响铃
 unsetopt BEEP
 #}}}
 
@@ -101,7 +104,7 @@ bindkey '^g'      edit-command-line
 sudo-command-line() {
     [[ -z $BUFFER ]] && zle up-history
     [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
-    #光标移动到行末
+    # 光标移动到行末
     zle end-of-line
 }
 
