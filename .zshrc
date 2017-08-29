@@ -472,7 +472,7 @@ rm() {
         }
     }
 
-    /usr/bin/rm -v $*
+    env rm -v $*
 }
 
 calculate() {
