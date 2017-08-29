@@ -286,7 +286,7 @@ alias cpui='grep MHz /proc/cpuinfo'
 alias fng='find | grep -P'
 alias e='print'
 alias p='print'
-alias pn='print -l'
+alias pl='print -l'
 alias pc='print -P'
 alias f='file'
 alias i='git'
@@ -662,7 +662,7 @@ if (( $+commands[pacman] )) {
     alias pcl='echo y"\n"y | pac -Scc'
     alias pbs='pac -G'
     alias pfy='sudo pkgfile -uz'
-    alias pl='pac -Ss'
+    alias pls='pac -Ss'
 
     pqii() {
         cat /var/lib/pacman/local/$1-*/install
@@ -685,7 +685,7 @@ if (( $+commands[pacman] )) {
     alias pqi='dpkg -s'
     alias pqo='dpkg -S'
     alias pli='dpkg -i'
-    alias pl='apt list'
+    alias pls='apt list'
     alias pae='sudo apt-get install'
     alias pad='sudo apt-get markauto'
     alias pd='sudo pi -d'
