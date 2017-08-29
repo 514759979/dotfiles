@@ -386,11 +386,11 @@ if [[ -e /dev/lxss ]] {
     }
 
     wsudo() {
-        z cmd /C c:/mine/app/wsl-terminal/tools/runas.js "$@"
+        z cmd /C c:/mine/app/wsl-terminal/tools/runas.js $*
     }
 
     srun() {
-        wsudo powershell -NoLogo -c "\"$@;pause\""
+        wsudo powershell -NoLogo -c "$*;pause"
     }
 
     disma() {
@@ -444,7 +444,7 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[04;36;4m'
 
 st() {
-    ($@ &)
+    ($* &)
 }
 
 imgresize() {
@@ -460,19 +460,19 @@ cry() {
 }
 
 c() {
-    cd "$1"
+    cd $1
     ls -F --color
 }
 
 rm() {
-    for i ("$@") {
+    for i ($*) {
         [[ -e "$i/.keep" ]] && {
             print -P "%BDon't delete $i !!!"
             return 1
         }
     }
 
-    /usr/bin/rm "$@"
+    /usr/bin/rm -v $*
 }
 
 calculate() {
@@ -499,7 +499,7 @@ k() {
 }
 
 t() {
-    echo "$(<$@)" 2>/dev/null || ls -lF --color "$@" 2>/dev/null
+    echo "$(<$1)" 2>/dev/null || ls -lF --color $* 2>/dev/null
 }
 
 cwi() {
@@ -602,13 +602,13 @@ colorbar() {
 
 loop() {
     while (( 1 )) {
-        eval "$@"
+        eval $*
     }
 }
 
 vs() {
     local args
-    [[ "$#" -ge 1 ]] && args="zsh -ic \"$@\""
+    [[ "$#" -ge 1 ]] && args="zsh -ic $*"
 
     ssh -tq $USER@192.168.31.7 "$args"
 }
