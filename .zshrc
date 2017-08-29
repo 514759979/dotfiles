@@ -469,7 +469,7 @@ rm() {
         }
     }
 
-    /usr/bin/rm "$@"
+    env rm "$@"
 }
 
 calculate() {
