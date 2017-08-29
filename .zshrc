@@ -43,24 +43,27 @@ case $TERM {
 
 
 #{{{ 关于历史纪录的配置
-#历史纪录条目数量
+# 历史纪录条目数量
 export HISTSIZE=100000
-#注销后保存的历史纪录条目数量
+# 注销后保存的历史纪录条目数量
 export SAVEHIST=100000
-#历史纪录文件
+# 历史纪录文件
 export HISTFILE=~/.zhistory
-#分享历史纪录
+# 多个 zsh 间分享历史纪录
 setopt SHARE_HISTORY
-#如果连续输入的命令相同，历史纪录中只保留一个
+# 如果连续输入的命令相同，历史纪录中只保留一个
 setopt HIST_IGNORE_DUPS
-#为历史纪录中的命令添加时间戳
+# 为历史纪录中的命令添加时间戳
 setopt EXTENDED_HISTORY
-#启用 cd 命令的历史纪录，cd -[TAB]进入历史路径
+# 启用 cd 命令的历史纪录，cd -[TAB]进入历史路径
 setopt AUTO_PUSHD
-#相同的历史路径只保留一个
+# 相同的历史路径只保留一个
 setopt PUSHD_IGNORE_DUPS
-#在命令前添加空格，不将此命令添加到纪录文件中
+# 在命令前添加空格，不将此命令添加到纪录文件中
 setopt HIST_IGNORE_SPACE
+# 加强版通配符
+setopt EXTENDED_GLOB
+# 禁用终端响铃
 unsetopt BEEP
 #}}}
 
@@ -101,7 +104,7 @@ bindkey '^g'      edit-command-line
 sudo-command-line() {
     [[ -z $BUFFER ]] && zle up-history
     [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
-    #光标移动到行末
+    # 光标移动到行末
     zle end-of-line
 }
 
@@ -283,7 +286,7 @@ alias cpui='grep MHz /proc/cpuinfo'
 alias fng='find | grep -P'
 alias e='print'
 alias p='print'
-alias pn='print -l'
+alias pl='print -l'
 alias pc='print -P'
 alias f='file'
 alias i='git'
@@ -383,11 +386,11 @@ if [[ -e /dev/lxss ]] {
     }
 
     wsudo() {
-        z cmd /C c:/mine/app/wsl-terminal/tools/runas.js "$@"
+        z cmd /C c:/mine/app/wsl-terminal/tools/runas.js $*
     }
 
     srun() {
-        wsudo powershell -NoLogo -c "\"$@;pause\""
+        wsudo powershell -NoLogo -c "$*;pause"
     }
 
     disma() {
@@ -441,7 +444,7 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[04;36;4m'
 
 st() {
-    ($@ &)
+    ($* &)
 }
 
 imgresize() {
@@ -457,19 +460,19 @@ cry() {
 }
 
 c() {
-    cd "$1"
+    cd $1
     ls -F --color
 }
 
 rm() {
-    for i ("$@") {
+    for i ($*) {
         [[ -e "$i/.keep" ]] && {
             print -P "%BDon't delete $i !!!"
             return 1
         }
     }
 
-    env rm "$@"
+    env rm -v $*
 }
 
 calculate() {
@@ -496,7 +499,7 @@ k() {
 }
 
 t() {
-    echo "$(<$@)" 2>/dev/null || ls -lF --color "$@" 2>/dev/null
+    echo "$(<$1)" 2>/dev/null || ls -lF --color $* 2>/dev/null
 }
 
 cwi() {
@@ -520,9 +523,9 @@ vwi() {
     buffer=$(type $1)
     buffer=${buffer#$1*function from }
     if [[ -e "$buffer" ]] {
-        vim +/^$1\( -p "$buffer"
+        vim "+/^ *$1(" -p "$buffer"
     } elif [[ "$buffer" == *"is an alias for"* ]] {
-        vim +/^alias\ "$1"= -p ~/.zshrc
+        vim "+/^ *alias $1=" -p ~/.zshrc
     }
 }
 
@@ -599,13 +602,13 @@ colorbar() {
 
 loop() {
     while (( 1 )) {
-        eval "$@"
+        eval $*
     }
 }
 
 vs() {
     local args
-    [[ "$#" -ge 1 ]] && args="zsh -ic \"$@\""
+    [[ "$#" -ge 1 ]] && args="zsh -ic $*"
 
     ssh -tq $USER@192.168.31.7 "$args"
 }
@@ -659,7 +662,7 @@ if (( $+commands[pacman] )) {
     alias pcl='echo y"\n"y | pac -Scc'
     alias pbs='pac -G'
     alias pfy='sudo pkgfile -uz'
-    alias pl='pac -Ss'
+    alias pls='pac -Ss'
 
     pqii() {
         cat /var/lib/pacman/local/$1-*/install
@@ -682,7 +685,7 @@ if (( $+commands[pacman] )) {
     alias pqi='dpkg -s'
     alias pqo='dpkg -S'
     alias pli='dpkg -i'
-    alias pl='apt list'
+    alias pls='apt list'
     alias pae='sudo apt-get install'
     alias pad='sudo apt-get markauto'
     alias pd='sudo pi -d'
