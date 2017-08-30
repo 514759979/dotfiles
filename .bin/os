@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-[[ "$HOSTNAME" == "my-pc" ]] && {
+[[ "$HOST" == "my-pc" ]] && {
     if (($# == 0)) {
         z shutdown -s -t 0
     } elif (($1 == 1)) {
