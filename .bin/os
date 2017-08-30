@@ -1,19 +1,19 @@
 #!/bin/zsh
 
-if [[ "$HOSTNAME" = "my-pc" ]] && {
-    if (( $# == 0 )) {
+[[ "$HOSTNAME" == "my-pc" ]] && {
+    if (($# == 0)) {
         z shutdown -s -t 0
-    } elif (( $1 == 1 )) {
+    } elif (($1 == 1)) {
         z shutdown -r -t 0
     }
 
     return
 }
 
-if (( $+commands[systemctl] )) {
-    if (( $# == 0 )) {
+(($+commands[systemctl])) && {
+    if (($# == 0)) {
         sudo systemctl poweroff
-    } elif (( $1 == 1 )) {
+    } elif (($1 == 1)) {
         sudo systemctl reboot
     }
 
