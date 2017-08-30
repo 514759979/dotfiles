@@ -353,7 +353,6 @@ alias zc='zrecompile ~/.zshrc ~/.zcompdump'
 
 if [[ -e /dev/lxss ]] {
     export PATH="/usr/bin"
-    export LD_PRELOAD=$HOME/.bin/libmymock.so
     alias cmd="z cmd"
     alias se='sudo /bin/systemctl.py'
     alias ahk="z c:/mine/app/AutoHotkey/AutoHotkeyU32.exe"
