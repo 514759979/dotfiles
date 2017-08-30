@@ -353,6 +353,7 @@ alias zc='zrecompile ~/.zshrc ~/.zcompdump'
 
 if [[ -e /dev/lxss ]] {
     export PATH="/usr/bin"
+    export Z_USE_INIT=1
     alias cmd="z cmd"
     alias se='sudo /bin/systemctl.py'
     alias ahk="z c:/mine/app/AutoHotkey/AutoHotkeyU32.exe"
