@@ -18,7 +18,7 @@ precmd() {
     # 清空上次显示的命令
     # %30<..<内容%<< 从左截断
     # %~ 当前目录路径
-    [[ $TERM == screen* ]] && print -Pn "\ek%30<..<%~%<<\e\\"
+    [[ "$TERM" == screen* ]] && print -Pn "\ek%30<..<%~%<<\e\\"
 }
 
 case $TERM {
@@ -102,8 +102,8 @@ bindkey '^g'      edit-command-line
 
 # 在命令前插入 sudo
 sudo-command-line() {
-    [[ -z $BUFFER ]] && zle up-history
-    [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
+    [[ -z "$BUFFER" ]] && zle up-history
+    [[ "$BUFFER" != sudo\ * ]] && BUFFER="sudo $BUFFER"
     # 光标移动到行末
     zle end-of-line
 }
@@ -139,7 +139,7 @@ autoload -U compinit
 compinit
 
 _force_rehash() {
-    (( CURRENT == 1 )) && rehash
+    ((CURRENT == 1)) && rehash
     return 1    # Because we didn't really complete anything
 }
 zstyle ':completion:::::' completer _force_rehash _complete _approximate
@@ -161,7 +161,7 @@ zstyle ':completion:*' squeeze-slashes 'yes'
 zstyle ':completion::complete:*' '\\'
 
 # 彩色补全菜单
-export ZLSCOLORS="${LS_COLORS}"
+export ZLSCOLORS="$LS_COLORS"
 zmodload zsh/complist
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
@@ -236,9 +236,9 @@ compdef st=sudo
 
 
 #{{{ 和 zsh 无关的配置
-export LANG="en_US.UTF-8"
-(( ${+USER} )) || export USER="goreliu"
-(( ${+SHELL} )) || export SHELL="/bin/zsh"
+export LANG=en_US.UTF-8
+(($+USER)) || export USER=goreliu
+(($+SHELL)) || export SHELL=/bin/zsh
 umask 022
 
 alias h='history'
@@ -339,8 +339,8 @@ alias ti='time'
 alias uu='. ~/.zshrc'
 alias zc='zrecompile ~/.zshrc ~/.zcompdump'
 
-(( ${+TMUX} == 0 && ${+USE_TMUX} )) && {
-    (( ${+ATTACH_ONLY} )) && {
+(($+TMUX == 0 && $+USE_TMUX)) && {
+    (($+ATTACH_ONLY)) && {
         tmux a 2>/dev/null || {
             cd && exec tmux
         }
@@ -352,14 +352,14 @@ alias zc='zrecompile ~/.zshrc ~/.zcompdump'
 }
 
 if [[ -e /dev/lxss ]] {
-    export PATH="/usr/bin"
+    export PATH=/usr/bin
     # export Z_USE_INIT=1
     # export Z_DEBUG=1
-    alias cmd="z cmd"
+    alias cmd='z cmd'
     alias se='sudo /bin/systemctl.py'
-    alias ahk="z c:/mine/app/AutoHotkey/AutoHotkeyU32.exe"
-    alias ahk64="z c:/mine/app/AutoHotkey/AutoHotkeyU64.exe"
-    alias np="st z c:/mine/app/notepad++/notepad++.exe"
+    alias ahk='z c:/mine/app/AutoHotkey/AutoHotkeyU32.exe'
+    alias ahk64='z c:/mine/app/AutoHotkey/AutoHotkeyU64.exe'
+    alias np='st z c:/mine/app/notepad++/notepad++.exe'
     alias di='st z c:/mine/app/WinMerge/WinMergeU.exe'
     alias mpv='st z c:/mine/app/mpv/mpv.exe'
     alias flve='z c:/mine/app/FLV_Extract/FLVExtractCL.exe'
@@ -372,7 +372,7 @@ if [[ -e /dev/lxss ]] {
     alias mi='z c:/mine/app/wsl-terminal/bin/mintty.exe /bin/wslbridge -t zsh'
     alias pa='z c:/mine/app/0misc/bin/paste.exe'
     alias msg="z msg $USER"
-    alias cl="z clip"
+    alias cl='z clip'
 
     alias vm='z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
@@ -410,18 +410,18 @@ if [[ -e /dev/lxss ]] {
     #    sudo /usr/lib/systemd/systemd-binfmt &>/dev/null
     #}
 } elif [[ "$OSTYPE" == *android* ]] {
-    export SHELL="/data/data/com.termux/files/usr/bin/zsh"
-    alias search_cpu="zsh ~/.bin/search_cpu"
-    alias dh="df 2>/dev/null"
+    export SHELL=/data/data/com.termux/files/usr/bin/zsh
+    alias search_cpu='zsh ~/.bin/search_cpu'
+    alias dh='df 2>/dev/null'
     alias frm="free -m | sed 's/ \+/  /g'"
-    alias pkill="busybox pkill"
-    alias mt="top"
+    alias pkill='busybox pkill'
+    alias mt='top'
 
     precmd() {
         PROMPT="%{%F{cyan}%}goreliu@%{%F{green}%}my-phone:%{%F{red}%}%(?..[%?]:)%{%F{white}%}%~"$'\n'"%% "
     }
 } else {
-    alias smvb="sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600"
+    alias smvb='sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600'
     alias se='sudo systemctl'
     alias jf='journalctl -f'
 }
@@ -478,7 +478,7 @@ rm() {
 
 calculate() {
     zmodload zsh/mathfunc
-    echo $(( $* ))
+    echo $(($*))
 }
 
 gr() {
@@ -486,7 +486,7 @@ gr() {
 }
 
 k() {
-    if (( $# == 0 )) {
+    if (($# == 0)) {
         cd ..
     } else {
         go_dir='.'
@@ -541,7 +541,7 @@ ac() {
 }
 
 n2dec() {
-    echo "$(( $2#$1 ))"
+    echo "$(($2#$1))"
 }
 
 dec2n() {
@@ -578,7 +578,7 @@ exaac() {
 
 tophistory() {
     num=20
-    [[ -n "$1" ]] && num="$1"
+    (($+1)) && num="$1"
     history 1 \
         | awk '{CMD[$2]++;count++;}END \
             { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' \
@@ -602,7 +602,7 @@ colorbar() {
 }
 
 loop() {
-    while (( 1 )) {
+    while ((1)) {
         eval $*
     }
 }
