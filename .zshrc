@@ -338,6 +338,7 @@ alias uf='unfunction'
 alias ti='time'
 alias uu='. ~/.zshrc'
 alias zc='zrecompile ~/.zshrc ~/.zcompdump'
+alias at='zmodload zsh/sched; sched'
 
 (($+TMUX == 0 && $+USE_TMUX)) && {
     (($+ATTACH_ONLY)) && {
