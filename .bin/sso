@@ -2,15 +2,20 @@
 
 zmodload zsh/net/tcp
 
-(($# >= 3)) || {
-    echo "Usage:\n\t$0 hostname port message"
+(($# >= 2)) || {
+    echo "Usage: ${0:t} [hostname] port message"
     exit 1
 }
 
-ztcp $1 $2
-fd=$REPLY
+if [[ $1 == <0-65535> ]] {
+    ztcp 127.0.0.1 $1
+} else {
+    ztcp $1 $2
+    shift
+}
 
+fd=$REPLY
 [[ "$fd" == <-> ]] || exit 1
 
-echo ${*[3,-1]} >&$fd
+echo ${*[2,-1]} >&$fd
 ztcp -c $fd
