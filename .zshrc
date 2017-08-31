@@ -18,7 +18,7 @@ precmd() {
     # 清空上次显示的命令
     # %30<..<内容%<< 从左截断
     # %~ 当前目录路径
-    [[ "$TERM" == screen* ]] && print -Pn "\ek%30<..<%~%<<\e\\"
+    [[ $TERM == screen* ]] && print -Pn "\ek%30<..<%~%<<\e\\"
 }
 
 case $TERM {
@@ -102,8 +102,8 @@ bindkey '^g'      edit-command-line
 
 # 在命令前插入 sudo
 sudo-command-line() {
-    [[ -z "$BUFFER" ]] && zle up-history
-    [[ "$BUFFER" != sudo\ * ]] && BUFFER="sudo $BUFFER"
+    [[ -z $BUFFER ]] && zle up-history
+    [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
     # 光标移动到行末
     zle end-of-line
 }
@@ -161,7 +161,7 @@ zstyle ':completion:*' squeeze-slashes 'yes'
 zstyle ':completion::complete:*' '\\'
 
 # 彩色补全菜单
-export ZLSCOLORS="$LS_COLORS"
+export ZLSCOLORS=$LS_COLORS
 zmodload zsh/complist
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
@@ -383,7 +383,7 @@ if [[ -e /dev/lxss ]] {
     alias vmhalt='vm controlvm archlinux poweroff'
 
     tc() {
-        (z c:/mine/app/totalcmd/Totalcmd.exe "$(z -f "$1")" &)
+        (z c:/mine/app/totalcmd/Totalcmd.exe "$(z -f $1)" &)
     }
 
     wsudo() {
@@ -409,7 +409,7 @@ if [[ -e /dev/lxss ]] {
     #[[ -e /proc/sys/fs/binfmt_misc/run_exe ]] || {
     #    sudo /usr/lib/systemd/systemd-binfmt &>/dev/null
     #}
-} elif [[ "$OSTYPE" == *android* ]] {
+} elif [[ $OSTYPE == *android* ]] {
     export SHELL=/data/data/com.termux/files/usr/bin/zsh
     alias search_cpu='zsh ~/.bin/search_cpu'
     alias dh='df 2>/dev/null'
@@ -426,7 +426,7 @@ if [[ -e /dev/lxss ]] {
     alias jf='journalctl -f'
 }
 
-export PATH="$PATH:$HOME/.bin"
+export PATH=$PATH:$HOME/.bin
 export EDITOR=vim
 export PAGER='less -irf'
 export GREP_COLOR='40;33;01'
@@ -453,7 +453,7 @@ imgresize() {
 }
 
 cry() {
-    if [[ "$1" = "-d" ]] {
+    if [[ $1 = -d ]] {
         openssl enc -aes-256-cbc -d -in "$2" -out "$3"
     } else {
         openssl enc -aes-256-cbc -e -in "$1" -out "$2"
@@ -467,7 +467,7 @@ c() {
 
 rm() {
     for i ($*) {
-        [[ -e "$i/.keep" ]] && {
+        [[ -e $i/.keep ]] && {
             print -P "%BDon't delete $i !!!"
             return 1
         }
@@ -523,7 +523,7 @@ vwi() {
 
     buffer=$(type $1)
     buffer=${buffer#$1*function from }
-    if [[ -e "$buffer" ]] {
+    if [[ -e $buffer ]] {
         vim "+/^ *$1(" -p "$buffer"
     } elif [[ "$buffer" == *"is an alias for"* ]] {
         vim "+/^ *alias $1=" -p ~/.zshrc
@@ -570,11 +570,11 @@ exaac() {
 
 tophistory() {
     num=20
-    (($+1)) && num="$1"
+    (($+1)) && num=$1
     history 1 \
         | awk '{CMD[$2]++;count++;}END \
             { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' \
-        | column -c3 -s " " -t | sort -nr | nl | head -n"$num"
+        | column -c3 -s " " -t | sort -nr | nl | head -n$num
 }
 
 colorbar() {
@@ -601,7 +601,7 @@ loop() {
 
 vs() {
     local args
-    [[ "$#" -ge 1 ]] && args="zsh -ic $*"
+    [[ $# -ge 1 ]] && args="zsh -ic $*"
 
     ssh -tq $USER@192.168.31.7 "$args"
 }
@@ -612,7 +612,7 @@ icm() {
 
 syncdir() {
     # syncdir dir1/ dir2/
-    if [[ "$3" = "--run" ]] {
+    if [[ $3 = "--run" ]] {
         rsync --delete -av "$1/" "$2/"
     } else {
         rsync -n --delete -av "$1/" "$2/"
@@ -620,8 +620,8 @@ syncdir() {
 }
 
 mdcd() {
-    md "$1"
-    cd "$1"
+    md $1
+    cd $1
 }
 
 if (($+commands[pacman])) {
