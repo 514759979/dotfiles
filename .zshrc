@@ -412,6 +412,7 @@ if [[ -e /dev/lxss ]] {
 } elif [[ "$OSTYPE" == *android* ]] {
     export SHELL=/data/data/com.termux/files/usr/bin/zsh
     alias search_cpu='zsh ~/.bin/search_cpu'
+    alias ro='zsh ~/.bin/ro'
     alias dh='df 2>/dev/null'
     alias frm="free -m | sed 's/ \+/  /g'"
     alias pkill='busybox pkill'
@@ -695,7 +696,6 @@ autoload -U \
     rmdup \
     dlsource \
     qip \
-    ro \
     so \
 
 #}}}
