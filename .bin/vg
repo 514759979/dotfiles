@@ -5,7 +5,7 @@ if (( $# == 0 )) {
     return
 }
 
-cg_file=("${(f)$(< ~/.cache/.cg)}")
+cg_file=(${(f)"$(< ~/.cache/.cg)"})
 
 if (( $1 > $#cg_file - 2 )) {
     echo "$(<~/.cache/.cg)"
@@ -18,7 +18,7 @@ if (( $1 > $#cg_file - 2 )) {
     line=${line%%\[m*}
     line=$line[1,-2]
 
-    if [[ "$line" == <-> ]] {
+    if [[ $line == <-> ]] {
         filename=${filename#*\[K}
         filename=${filename%%\[m*}
         filename=$filename[1,-2]
@@ -30,5 +30,5 @@ if (( $1 > $#cg_file - 2 )) {
 
     echo $cg_file[1]/$filename[3,-1]
 
-    vim +${line} "${filename}"
+    vim +${line} ${filename}
 }

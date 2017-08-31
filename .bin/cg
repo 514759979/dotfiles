@@ -6,7 +6,7 @@ cg=~/.cache/.cg
     echo $PWD > $cg
     name="$1"
 
-    [[ "$name[1]" == "-" ]] && {
+    [[ $name[1] == - ]] && {
         name=$2
 
         (( $# == 2 )) && flag=(-r .)
@@ -16,8 +16,10 @@ cg=~/.cache/.cg
 
     (( $# == 1 )) && flag=(-r .)
 
-    grep -PHn "$@" $flag --color=yes \
-        --exclude-dir='.svn' --exclude-dir='.git' --exclude-dir='.libs' \
+    grep -PHn $* $flag --color=yes \
+        --exclude-dir=.svn \
+        --exclude-dir=.git \
+        --exclude-dir=.libs \
         --exclude=tags \
         | nl -n ln >> $cg
 }

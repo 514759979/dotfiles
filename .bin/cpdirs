@@ -1,5 +1,5 @@
 #!/bin/zsh
 
 for i ($1/**/*(/)) {
-    mkdir -p "$2/$i"
+    mkdir -p $2/$i
 }

@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-(( $# == 0 )) && {
+(($# == 0)) && {
     ls ~/.templete --color
     return
 }
@@ -8,10 +8,10 @@
 local filepath=(~/.templete/$1*)
 local newfilename="$2"
 
-(( $+2 )) || {
+(($+2)) || {
     local ext=${filepath[1]:t}
 
-    if [[ "$ext" = *.* ]] {
+    if [[ $ext = *.* ]] {
         ext=.${ext/*.}
     } else {
         ext=""
@@ -20,6 +20,6 @@ local newfilename="$2"
     newfilename=test$$$ext
 }
 
-cp "$filepath[1]" "$newfilename"
+cp $filepath[1] $newfilename
 
-vim -p "$newfilename"
+vim -p $newfilename

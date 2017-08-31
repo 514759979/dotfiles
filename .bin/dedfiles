@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-all_files=($@)
+all_files=($*)
 aria2_files=(*.aria2)
 aria2_files+=(${aria2_files/.aria2})
 
