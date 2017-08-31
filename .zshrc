@@ -695,6 +695,8 @@ autoload -U \
     rmdup \
     dlsource \
     qip \
+    ro \
+    so \
 
 #}}}
 
