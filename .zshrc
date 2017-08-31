@@ -473,7 +473,7 @@ rm() {
         }
     }
 
-    env rm -v $*
+    =rm -v $*
 }
 
 calculate() {
@@ -531,11 +531,11 @@ vwi() {
 }
 
 ac() {
-    if (( $# == 1 )) {
+    if (($# == 1)) {
         awk '{print $'$1'}' $2
-    } elif (( $# == 2 )) {
+    } elif (($# == 2)) {
         awk -F$2 '{print $'$1'}' $3
-    } elif (( $# == 0 )) {
+    } elif (($# == 0)) {
         awk '{print $1}' $1
     }
 }
@@ -624,12 +624,12 @@ mdcd() {
     cd "$1"
 }
 
-if (( $+commands[pacman] )) {
+if (($+commands[pacman])) {
     alias pac='sudo pacman --color auto'
-    alias pg='pacman --color auto -Ss'
-    (( $+commands[yaourt] )) && {
+    alias y='pacman --color auto -Ss'
+    (($+commands[yaourt])) && {
         alias pac='yaourt'
-        alias pg='yaourt'
+        alias y='yaourt'
     }
     alias pi='pac -S'
     alias pia='pac -S --noconfirm'
@@ -660,7 +660,7 @@ if (( $+commands[pacman] )) {
     pqii() {
         cat /var/lib/pacman/local/$1-*/install
     }
-} elif (( $+commands[apt-get] )) {
+} elif (($+commands[apt-get])) {
     alias pg='apt-cache search'
     alias y='apt list 2>/dev/null | grep'
     alias pi='sudo apt-get install'
@@ -698,4 +698,4 @@ autoload -U \
 
 #}}}
 
-#echo $(( EPOCHREALTIME - start_time ))
+#echo $((EPOCHREALTIME - start_time))
