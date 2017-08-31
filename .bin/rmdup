@@ -1,8 +1,6 @@
 #!/bin/zsh
 
-autoload -U zargs
-
-local files=("${(f)$(zargs **/*(.) -- md5sum)}")
+local files=("${(f)$(md5sum **/*(.D))}")
 local files_to_delete=()
 local -A md5s
 
