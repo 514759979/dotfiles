@@ -337,6 +337,7 @@ alias iu='git push'
 alias uf='unfunction'
 alias ti='time'
 alias uu='. ~/.zshrc'
+alias uuu='exec zsh'
 alias zc='zrecompile ~/.zshrc ~/.zcompdump'
 alias at='zmodload zsh/sched; sched'
 
