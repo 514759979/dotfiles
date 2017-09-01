@@ -20,6 +20,6 @@ local newfilename="$2"
     newfilename=test$$$ext
 }
 
-cp $filepath[1] $newfilename
+cp -i $filepath[1] $newfilename
 
 vim -p $newfilename
