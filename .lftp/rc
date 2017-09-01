@@ -1,7 +1,0 @@
-set ftp:charset "UTF-8"
-set file:charset "UTF-8"
-set prompt "lftp \S\? \u\@\h:\w\n> "
-alias ll ls -F
-alias vi edit
-alias vim edit
-set ssl:verify-certificate no
