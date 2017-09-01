@@ -30,3 +30,4 @@
     encoding = utf-8
 [core]
 	pager = less -x1,5
+	quotepath = false
