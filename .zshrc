@@ -413,6 +413,14 @@ if [[ -e /dev/lxss ]] {
 } elif [[ $OSTYPE == *android* ]] {
     export SHELL=/data/data/com.termux/files/usr/bin/zsh
     alias search_cpu='zsh ~/.bin/search_cpu'
+    alias cg='zsh ~/.bin/cg'
+    alias vg='zsh ~/.bin/vg'
+    alias n='zsh ~/.bin/n'
+    alias chall='zsh ~/.bin/chall'
+    alias renamex='zsh ~/.bin/renamex'
+    alias dlsource='zsh ~/.bin/dlsource'
+    alias qip='zsh ~/.bin/qip'
+    alias rmdup='zsh ~/.bin/rmdup'
     alias dh='df 2>/dev/null'
     alias frm="free -m | sed 's/ \+/  /g'"
     alias pkill='busybox pkill'
@@ -680,19 +688,6 @@ if (($+commands[pacman])) {
     alias pad='sudo apt-get markauto'
     alias pd='sudo pi -d'
 }
-
-autoload -U \
-    cg \
-    vg \
-    n \
-    o \
-    os \
-    chall \
-    renamex \
-    rmdup \
-    dlsource \
-    qip \
-
 #}}}
 
 #echo $((EPOCHREALTIME - start_time))
