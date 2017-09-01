@@ -356,28 +356,26 @@ alias st='setsid'
 
 if [[ -e /dev/lxss ]] {
     export PATH=/usr/bin
-    # export Z_USE_INIT=1
-    # export Z_DEBUG=1
-    alias cmd='z cmd'
+    alias z='wrun cmd /c'
+    alias cmd='wrun cmd'
     alias se='sudo /bin/systemctl.py'
-    alias ahk='z c:/mine/app/AutoHotkey/AutoHotkeyU32.exe'
-    alias ahk64='z c:/mine/app/AutoHotkey/AutoHotkeyU64.exe'
-    alias np='setsid z c:/mine/app/notepad++/notepad++.exe'
-    alias di='setsid z c:/mine/app/WinMerge/WinMergeU.exe'
-    alias mpv='setsid z c:/mine/app/mpv/mpv.exe'
-    alias flve='z c:/mine/app/FLV_Extract/FLVExtractCL.exe'
+    alias ahk='wrun c:/mine/app/AutoHotkey/AutoHotkeyU32.exe'
+    alias ahk64='wrun c:/mine/app/AutoHotkey/AutoHotkeyU64.exe'
+    alias np='setsid wrun c:/mine/app/notepad++/notepad++.exe'
+    alias di='setsid wrun c:/mine/app/WinMerge/WinMergeU.exe'
+    alias mpv='setsid wrun c:/mine/app/mpv/mpv.exe'
+    alias flve='wrun c:/mine/app/FLV_Extract/FLVExtractCL.exe'
     alias fm='tc'
-    alias ipconfig='z ipconfig | ucat'
-    alias tl='z tasklist'
-    alias tlg='z tasklist | grep'
-    alias netstat='z netstat'
-    alias ps1='z powershell'
-    alias mi='z c:/mine/app/wsl-terminal/bin/mintty.exe /bin/wslbridge -t zsh'
-    alias pa='z c:/mine/app/0misc/bin/paste.exe'
-    alias msg="z msg $USER"
-    alias cl='z clip'
+    alias ipconfig='wrun ipconfig | ucat'
+    alias tl='wrun tasklist'
+    alias tlg='wrun tasklist | grep'
+    alias netstat='wrun netstat'
+    alias ps1='wrun powershell'
+    alias pa='wrun c:/mine/app/0misc/bin/paste.exe'
+    alias msg="wrun msg $USER"
+    alias cl='wrun clip'
 
-    alias vm='z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
+    alias vm='wrun c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
     alias vmup='vm startvm archlinux --type headless'
     alias vmdown='vm controlvm archlinux savestate'
@@ -386,11 +384,11 @@ if [[ -e /dev/lxss ]] {
     alias vmhalt='vm controlvm archlinux poweroff'
 
     tc() {
-        (z c:/mine/app/totalcmd/Totalcmd.exe "$(z -f $1)" &)
+        setsid wrun c:/mine/app/totalcmd/Totalcmd.exe "$(wslpath $1)"
     }
 
     wsudo() {
-        z cmd /C c:/mine/app/wsl-terminal/tools/runas.js $*
+        wrun cmd /C c:/mine/app/wsl-terminal/tools/runas.js $*
     }
 
     srun() {
@@ -406,7 +404,7 @@ if [[ -e /dev/lxss ]] {
     }
 
     tk() {
-        z taskkill /f /im "$1.exe"
+        wrun taskkill /f /im "$1.exe"
     }
 
     #[[ -e /proc/sys/fs/binfmt_misc/run_exe ]] || {

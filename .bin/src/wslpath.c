@@ -58,52 +58,11 @@ static char* convert_drive_fs_path_to_win32(const char* path)
     return result;
 }
 
-char cmd[102400] = "cd ";
-
 int main(int argc, char *argv[])
 {
-    if (argc <= 1) {
-        dprintf(STDERR_FILENO, "z called without argument\n");
-        return 1;
-    }
-
     char* cwd = agetcwd();
     char* cwd_win32 = convert_drive_fs_path_to_win32(cwd);
-    if (strcmp(argv[1], "-f") == 0) {
-        printf("%s\n", cwd_win32);
-        free(cwd_win32);
-        free(cwd);
-        return 0;
-    }
-
-    strcat(cmd, cwd_win32);
-    strcat(cmd, " & ");
-
-    if (strncmp(cwd_win32, "c:", 2) != 0) {
-        strncat(cmd, cwd_win32, 2);
-        strcat(cmd, " & ");
-    }
-
-    if (argv[1][0] != '.') {
-        strcat(cmd, argv[1]);
-    } else {
-        strcat(cmd, argv[1] + 2);
-    }
-
-    for (int i = 2; i < argc; ++i) {
-        strcat(cmd, " \"");
-        strcat(cmd, argv[i]);
-        strcat(cmd, "\"");
-    }
-
-    if (getenv("Z_DEBUG") != NULL) {
-        printf("%s\n", cmd);
-    }
-
-    chdir("/mnt/c");
-
-    execl("/init", "z", "/mnt/c/Windows/System32/cmd.exe", "/C", cmd, NULL);
-
+    printf("%s\n", cwd_win32);
     free(cwd_win32);
     free(cwd);
     return 0;

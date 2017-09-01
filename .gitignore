@@ -1,9 +1,9 @@
 *.zwc*
 .android
 .bash_history
-.bin/z
-.bin/libmymock.so
 .bin/darkhttpd
+.bin/wrun
+.bin/wslpath
 .cache
 .config
 .gnupg
