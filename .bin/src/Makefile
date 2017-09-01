@@ -9,10 +9,6 @@ all: ../darkhttpd ../wslpath
 #	chmod -x $@
 #	strip $@
 
-../z: z.c
-	gcc -Ofast $< -o $@
-	strip $@
-
 ../wslpath: wslpath.c
 	gcc -Ofast $< -o $@
 	strip $@
