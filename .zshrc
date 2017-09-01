@@ -340,6 +340,7 @@ alias uu='. ~/.zshrc'
 alias uuu='exec zsh'
 alias zc='zrecompile ~/.zshrc ~/.zcompdump'
 alias at='zmodload zsh/sched; sched'
+alias st='setsid'
 
 (($+TMUX == 0 && $+USE_TMUX)) && {
     (($+ATTACH_ONLY)) && {
@@ -361,9 +362,9 @@ if [[ -e /dev/lxss ]] {
     alias se='sudo /bin/systemctl.py'
     alias ahk='z c:/mine/app/AutoHotkey/AutoHotkeyU32.exe'
     alias ahk64='z c:/mine/app/AutoHotkey/AutoHotkeyU64.exe'
-    alias np='st z c:/mine/app/notepad++/notepad++.exe'
-    alias di='st z c:/mine/app/WinMerge/WinMergeU.exe'
-    alias mpv='st z c:/mine/app/mpv/mpv.exe'
+    alias np='setsid z c:/mine/app/notepad++/notepad++.exe'
+    alias di='setsid z c:/mine/app/WinMerge/WinMergeU.exe'
+    alias mpv='setsid z c:/mine/app/mpv/mpv.exe'
     alias flve='z c:/mine/app/FLV_Extract/FLVExtractCL.exe'
     alias fm='tc'
     alias ipconfig='z ipconfig | ucat'
@@ -445,10 +446,6 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 # 命令参数
 export LESS_TERMCAP_us=$'\E[04;36;4m'
-
-st() {
-    ($* &)
-}
 
 imgresize() {
     gm mogrify -resize $1x$2 $3
