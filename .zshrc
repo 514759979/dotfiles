@@ -240,6 +240,18 @@ export LANG=en_US.UTF-8
 (($+SHELL)) || export SHELL=/bin/zsh
 umask 022
 
+(($+TMUX == 0 && $+USE_TMUX)) && {
+    (($+ATTACH_ONLY)) && {
+        tmux a 2>/dev/null || {
+            cd && exec tmux
+        }
+        exit
+    }
+
+    tmux new-window -c "$PWD" 2>/dev/null && exec tmux a
+    exec tmux
+}
+
 alias h='history'
 alias j='ls -F --color'
 alias lsd='ls -F --color -d *(-/DN)'
@@ -341,18 +353,7 @@ alias uuu='exec zsh'
 alias zc='zrecompile ~/.zshrc ~/.zcompdump'
 alias at='zmodload zsh/sched; sched'
 alias st='setsid'
-
-(($+TMUX == 0 && $+USE_TMUX)) && {
-    (($+ATTACH_ONLY)) && {
-        tmux a 2>/dev/null || {
-            cd && exec tmux
-        }
-        exit
-    }
-
-    tmux new-window -c "$PWD" 2>/dev/null && exec tmux a
-    exec tmux
-}
+# aliasend
 
 if [[ -e /dev/lxss ]] {
     export PATH=/usr/bin
@@ -445,14 +446,14 @@ if [[ -e /dev/lxss ]] {
     alias jf='journalctl -f'
 }
 
-export PATH=$PATH:$HOME/.bin
+path+=($HOME/.bin)
+fpath+=($HOME/.bin)
 export EDITOR=vim
 export PAGER='less -irf'
 export GREP_COLOR='40;33;01'
 eval `dircolors $HOME/.dir_colors`
-fpath+=($HOME/.bin)
 
-# man color
+# man 颜色
 export LESS_TERMCAP_mb=$'\E[01;31m'
 # 标题和命令主体
 export LESS_TERMCAP_md=$'\E[01;32m'
@@ -638,6 +639,8 @@ mdcd() {
     md $1
     cd $1
 }
+
+# funcend
 
 if (($+commands[pacman])) {
     alias pac='sudo pacman --color auto'
