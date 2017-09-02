@@ -225,7 +225,6 @@ hash -d mine='/mnt/c/mine'
 
 # 加载函数
 autoload -U zmv
-autoload -U zargs
 autoload -U zrecompile
 
 # 按照对应命令补全
@@ -328,7 +327,6 @@ alias we='wget'
 alias tn='telnet'
 alias calc='noglob calculate'
 alias mmv='noglob zmv -W'
-alias fordo='zargs'
 alias rpd='rm -rv "$PWD" && cd ..'
 alias rpdf='rm -rvf "$PWD" && cd ..'
 alias keepdir='touch .keep; chmod 400 .keep'
