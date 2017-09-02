@@ -52,7 +52,7 @@ nnoremap <C-a> ggVG
 nnoremap <C-l> <C-v>
 nnoremap <C-v> :r!/init paste<cr>
 
-vnoremap <C-c> y:call system("~/.bin/z clip", getreg("\""))<cr>
+vnoremap <C-c> y:call system("~/.bin/wrun clip", getreg("\""))<cr>
 "}}}
 
 "{{{ command
