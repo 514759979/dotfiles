@@ -3,7 +3,6 @@
 .bash_history
 .bin/darkhttpd
 .bin/wrun
-.bin/wslpath
 .cache
 .config
 .gnupg

@@ -1,4 +1,4 @@
-all: ../darkhttpd ../wslpath
+all: ../darkhttpd
 
 ../darkhttpd: darkhttpd.c
 	gcc -Ofast -DNO_IPV6 -DBUILD_DATE="\"$$(date "+%Y-%m-%d %H:%M:%S")\"" $< -o $@
@@ -8,7 +8,3 @@ all: ../darkhttpd ../wslpath
 #	gcc -shared -fPIC $< -o $@
 #	chmod -x $@
 #	strip $@
-
-../wslpath: wslpath.c
-	gcc -Ofast $< -o $@
-	strip $@
