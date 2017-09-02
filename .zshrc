@@ -384,7 +384,17 @@ if [[ -e /dev/lxss ]] {
     alias vmhalt='vm controlvm archlinux poweroff'
 
     tc() {
-        setsid wrun c:/mine/app/totalcmd/Totalcmd.exe "$(wslpath $1)"
+        local filename
+
+        if [[ -d $1 ]] {
+            cd $1
+        } else {
+            cd ${1:h}
+            filename=${1:t}
+        }
+
+        setsid wrun c:/mine/app/totalcmd/Totalcmd.exe $(wrun)/$filename
+        cd - >/dev/null
     }
 
     wsudo() {
