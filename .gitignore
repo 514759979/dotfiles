@@ -3,13 +3,11 @@
 .bash_history
 .bin/darkhttpd
 .bin/wrun
-.bin/ncdu-diff
 .cache
 .config
 .gnupg
 .inputrc
 .lesshst
-.lftp
 .local
 .percol.d
 .profile
