@@ -3,6 +3,7 @@
 .bash_history
 .bin/darkhttpd
 .bin/wrun
+.bin/ncdu-diff
 .cache
 .config
 .gnupg
