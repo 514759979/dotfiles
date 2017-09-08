@@ -437,6 +437,7 @@ if [[ -e /dev/lxss ]] {
     alias frm="free -m | sed 's/ \+/  /g'"
     alias pkill='busybox pkill'
     alias mt='top'
+    alias chr='termux-chroot zsh'
 
     precmd() {
         PROMPT="%{%F{cyan}%}goreliu@%{%F{green}%}my-phone:%{%F{red}%}%(?..[%?]:)%{%F{white}%}%~"$'\n'"%% "
