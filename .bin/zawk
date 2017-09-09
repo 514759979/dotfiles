@@ -5,6 +5,8 @@
 local begin_cmd
 # 读文件后执行的语句
 local end_cmd
+# 每行执行的语句
+local cmd
 
 # 供外部使用的变量
 # 当前行内容，不含换行符
@@ -33,13 +35,25 @@ while {getopts F:f:B:b:E:e: arg} {
     }
 }
 
+cmd=$*[-1]
+
+
 eval $begin_cmd
+
+if [[ $cmd == /*/ ]] {
+    cmd="[[ \$l =~ \".*$cmd[2,-2].*\" ]] && echo \$l"
+} elif [[ $cmd == !/*/ ]] {
+    cmd="[[ \$l =~ \".*$cmd[3,-2].*\" ]] || echo \$l"
+}
+
+echo $cmd
+
 
 while {read l} {
     f=(${=l})
     nf=$#f
 
-    eval $*[-1]
+    eval $cmd
 
     ((++nr))
 }
