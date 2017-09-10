@@ -1,1 +1,1 @@
-#!/home/goreliu/.bin/z powershell
+#!/home/goreliu/.bin/wrun powershell
