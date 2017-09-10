@@ -18,18 +18,17 @@ local nr=1
 # 当前行的列数
 local nf
 
-while {getopts F:f:B:b:E:e: arg} {
+while {getopts f:b:e: arg} {
     case $arg {
-        (F|f)
-        IFS_BAK=$IFS
-        IFS=$OPTARG
+        (f)
+        local IFS=$OPTARG
         ;;
 
-        (B|b)
+        (b)
         begin_cmd=$OPTARG
         ;;
 
-        (E|e)
+        (e)
         end_cmd=$OPTARG
         ;;
     }
@@ -39,22 +38,6 @@ cmd=$*[-1]
 
 
 eval $begin_cmd
-
-# 不带 { 的，自动加 {print $l}
-# / / 和 !/ / 的，转变成 [[ =~ ]] 
-# 不支持 / /,/ /
-# 其他的判断，如果有 " 加 [[ ]] &&
-# 其他的判断，如果有 > <，加 (( )) &&
-
-if [[ $cmd == /*/ ]] {
-    cmd="if [[ \$l =~ \".*$cmd[2,-2].*\" ]]"
-} elif [[ $cmd == !/*/ ]] {
-    cmd="if ! [[ \$l =~ \".*$cmd[3,-2].*\" ]]"
-}
-
-[[ $cmd != *{*} ]] && cmd+=" {echo \$l}"
-
-#echo $cmd
 
 while {read l} {
     f=(${=l})
@@ -66,5 +49,3 @@ while {read l} {
 }
 
 eval $end_cmd
-
-[[ -n $IFS_BAK ]] && IFS=$IFS_BAK
