@@ -18,6 +18,11 @@ local nr=0
 # 当前行的列数
 local nf
 
+alias e="echo"
+alias p="print"
+alias pl="print -l"
+alias pn="print -n"
+
 while {getopts f:b:e: arg} {
     case $arg {
         (f)
