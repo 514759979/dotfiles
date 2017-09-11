@@ -698,6 +698,7 @@ if (($+commands[pacman])) {
     alias pfy='sudo pkgfile -uz'
     alias pls='pac -Ss'
     alias ped='sudo vim /etc/pacman.d/mirrorlist'
+    alias pedd='sudo vim /etc/pacman.conf'
 
     pqii() {
         cat /var/lib/pacman/local/$1-*/install
