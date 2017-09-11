@@ -357,6 +357,9 @@ alias aria='aria2c -c -s10 -k1M -x16 --enable-rpc=false'
 alias runs='~/app/server/run'
 alias dos2unix='sed -i "s/\r$//g"'
 alias unix2dos='sed -i "s/$/\r/g"'
+alias sshs='sudo /bin/sshd'
+alias sshk='sudo killall sshd'
+alias sort='LANG=C sort'
 # aliasend
 
 if [[ -e /dev/lxss ]] {
