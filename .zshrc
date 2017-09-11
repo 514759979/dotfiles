@@ -360,6 +360,7 @@ alias unix2dos='sed -i "s/$/\r/g"'
 alias sshs='sudo /bin/sshd'
 alias sshk='sudo killall sshd'
 alias sort='LANG=C sort'
+alias csc='wrun c:/Windows/Microsoft.NET/Framework64/v4.0.30319/csc.exe /utf8output /nologo'
 # aliasend
 
 if [[ -e /dev/lxss ]] {
@@ -429,9 +430,11 @@ if [[ -e /dev/lxss ]] {
         setsid $* </dev/null &>/dev/null
     }
 
-    #[[ -e /proc/sys/fs/binfmt_misc/run_exe ]] || {
-    #    sudo /usr/lib/systemd/systemd-binfmt &>/dev/null
-    #}
+    [[ -e /proc/sys/fs/binfmt_misc/WRun ]] || {
+        sudo sh -c "echo 0 > /proc/sys/fs/binfmt_misc/WSLInterop"
+        sudo sh -c "echo :WRun:M::MZ::/home/goreliu/.bin/wrun: > /proc/sys/fs/binfmt_misc/register"
+        #sudo /usr/lib/systemd/systemd-binfmt &>/dev/null
+    }
 } elif [[ $OSTYPE == *android* ]] {
     export SHELL=/data/data/com.termux/files/usr/bin/zsh
     alias search_cpu='zsh ~/.bin/search_cpu'
