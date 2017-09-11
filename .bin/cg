@@ -24,4 +24,4 @@ cg=~/.cache/.cg
         | nl -n ln >> $cg
 }
 
-echo "$(<$cg)" 2>/dev/null
+cat $cg
