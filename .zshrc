@@ -353,7 +353,6 @@ alias uu='. ~/.zshrc'
 alias uuu='exec zsh'
 alias zc='zrecompile ~/.zshrc ~/.zcompdump'
 alias at='zmodload zsh/sched; sched'
-alias st='setsid'
 alias aria='aria2c -c -s10 -k1M -x16 --enable-rpc=false'
 alias runs='~/app/server/run'
 alias dos2unix='sed -i "s/\r$//g"'
@@ -423,6 +422,10 @@ if [[ -e /dev/lxss ]] {
         wrun taskkill /f /im "$1.exe"
     }
 
+    st() {
+        setsid $* </dev/null &>/dev/null
+    }
+
     #[[ -e /proc/sys/fs/binfmt_misc/run_exe ]] || {
     #    sudo /usr/lib/systemd/systemd-binfmt &>/dev/null
     #}
@@ -446,10 +449,18 @@ if [[ -e /dev/lxss ]] {
     precmd() {
         PROMPT="%{%F{cyan}%}goreliu@%{%F{green}%}my-phone:%{%F{red}%}%(?..[%?]:)%{%F{white}%}%~"$'\n'"%% "
     }
+
+    st() {
+        ($* </dev/null &>/dev/null &)
+    }
 } else {
     alias smvb='sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600'
     alias se='sudo systemctl'
     alias jf='journalctl -f'
+
+    st() {
+        ($* </dev/null &>/dev/null &)
+    }
 }
 
 path+=($HOME/.bin)
