@@ -379,7 +379,7 @@ if [[ -e /dev/lxss ]] {
     alias tlg='wrun tasklist | grep'
     alias netstat='wrun netstat'
     alias ps1='wrun powershell'
-    alias pa='wrun c:/mine/app/0misc/bin/paste.exe'
+    alias pa='wrun c:/mine/app/0misc/bin/pclip.exe'
     alias msg="wrun msg $USER"
     alias cl='wrun clip'
 

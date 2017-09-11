@@ -48,11 +48,21 @@ nnoremap <F5> :!./%<cr>
 nnoremap <F6> :!o %<cr><cr>
 nnoremap <F7> :!./%:t:r<cr>
 nnoremap <F9> :w<cr>:make<cr>:cw<cr>
-nnoremap <C-a> ggVG
-nnoremap <C-l> <C-v>
-nnoremap <C-v> :r!/init paste<cr>
 
+nnoremap <C-a> ggVG
+inoremap <C-a> <C-O>gg<C-O>VG
 vnoremap <C-c> y:call system("~/.bin/wrun clip", getreg("\""))<cr>
+
+" CTRL-A is Select all
+"noremap <C-A> gggH<C-O>G
+"inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
+"cnoremap <C-A> <C-C>gggH<C-O>G
+"onoremap <C-A> <C-C>gggH<C-O>G
+"snoremap <C-A> <C-C>gggH<C-O>G
+"xnoremap <C-A> <C-C>ggV
+
+"nnoremap <C-l> <C-v>
+"nnoremap <C-v> :r!~/.bin/wrun pclip<cr>
 "}}}
 
 "{{{ command
