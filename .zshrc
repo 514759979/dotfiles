@@ -697,6 +697,7 @@ if (($+commands[pacman])) {
     alias pbs='pac -G'
     alias pfy='sudo pkgfile -uz'
     alias pls='pac -Ss'
+    alias ped='sudo vim /etc/pacman.d/mirrorlist'
 
     pqii() {
         cat /var/lib/pacman/local/$1-*/install
@@ -723,6 +724,7 @@ if (($+commands[pacman])) {
     alias pae='sudo apt-get install'
     alias pad='sudo apt-get markauto'
     alias pd='sudo pi -d'
+    alias ped='sudo apt edit-sources'
 }
 #}}}
 
