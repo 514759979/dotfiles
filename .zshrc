@@ -430,11 +430,11 @@ if [[ -e /dev/lxss ]] {
         setsid $* </dev/null &>/dev/null
     }
 
-    [[ -e /proc/sys/fs/binfmt_misc/WRun ]] || {
-        sudo sh -c "echo 0 > /proc/sys/fs/binfmt_misc/WSLInterop"
-        sudo sh -c "echo :WRun:M::MZ::/home/goreliu/.bin/wrun: > /proc/sys/fs/binfmt_misc/register"
-        #sudo /usr/lib/systemd/systemd-binfmt &>/dev/null
-    }
+    #[[ -e /proc/sys/fs/binfmt_misc/WRun ]] || {
+    #    sudo sh -c "echo 0 > /proc/sys/fs/binfmt_misc/WSLInterop"
+    #    sudo sh -c "echo :WRun:M::MZ::/home/goreliu/.bin/wcmd: \
+    #       > /proc/sys/fs/binfmt_misc/register"
+    #}
 } elif [[ $OSTYPE == *android* ]] {
     export SHELL=/data/data/com.termux/files/usr/bin/zsh
     alias search_cpu='zsh ~/.bin/search_cpu'
