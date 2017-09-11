@@ -370,9 +370,9 @@ if [[ -e /dev/lxss ]] {
     alias se='sudo /bin/systemctl.py'
     alias ahk='wrun c:/mine/app/AutoHotkey/AutoHotkeyU32.exe'
     alias ahk64='wrun c:/mine/app/AutoHotkey/AutoHotkeyU64.exe'
-    alias np='setsid wrun c:/mine/app/notepad++/notepad++.exe'
-    alias di='setsid wrun c:/mine/app/WinMerge/WinMergeU.exe'
-    alias mpv='setsid wrun c:/mine/app/mpv/mpv.exe'
+    alias np='st wrun c:/mine/app/notepad++/notepad++.exe'
+    alias di='st wrun c:/mine/app/WinMerge/WinMergeU.exe'
+    alias mpv='st wrun c:/mine/app/mpv/mpv.exe'
     alias flve='wrun c:/mine/app/FLV_Extract/FLVExtractCL.exe'
     alias fm='tc'
     alias ipconfig='wrun ipconfig | ucat'
@@ -402,7 +402,7 @@ if [[ -e /dev/lxss ]] {
             filename=${1:t}
         }
 
-        setsid wrun c:/mine/app/totalcmd/Totalcmd.exe $(wrun)/$filename
+        st wrun c:/mine/app/totalcmd/Totalcmd.exe $(wrun)/$filename
         cd - >/dev/null
     }
 
