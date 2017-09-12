@@ -6,7 +6,17 @@
 }
 
 for i ($*) {
-    local outdir="$(mktemp -d -p $PWD x-XXX)"
+    local outdir=${i%.*}
+
+    [[ $outdir == *.tar ]] && {
+        outdir=$outdir[1, -5]
+    }
+
+    if [[ -e $outdir ]] {
+        outdir="$(mktemp -d -p $PWD x-XXX)"
+    } else {
+        mkdir $outdir
+    }
 
     local use_file=0
 
