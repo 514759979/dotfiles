@@ -17,7 +17,6 @@ set mouse=a
 set autochdir
 set nobackup
 set laststatus=2
-set foldmethod=marker
 syntax on
 syntax enable
 colorscheme elflord
@@ -48,6 +47,7 @@ nnoremap <F4> :set mouse=a<cr>:set nu<cr>
 nnoremap <F5> :!./%<cr>
 nnoremap <F6> :!o %<cr><cr>
 nnoremap <F7> :!./%:t:r<cr>
+nnoremap <F8> :set foldmethod=marker<cr>
 nnoremap <F9> :w<cr>:make<cr>:cw<cr>
 
 nnoremap <C-a> ggVG
