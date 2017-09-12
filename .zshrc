@@ -1,5 +1,3 @@
-#zmodload zsh/datetime && local start_time=$EPOCHREALTIME
-
 #{{{ 命令提示符、标题栏、任务栏样式
 precmd() {
     # %{%F{cyan}%}
@@ -718,5 +716,3 @@ if (($+commands[pacman])) {
     alias ped='sudo apt edit-sources'
 }
 #}}}
-
-#echo $((EPOCHREALTIME - start_time))
