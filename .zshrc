@@ -436,7 +436,6 @@ if [[ -e /dev/lxss ]] {
     alias rmdup='zsh ~/.bin/rmdup'
     alias dh='df 2>/dev/null'
     alias frm="free -m | sed 's/ \+/  /g'"
-    alias pkill='busybox pkill'
     alias mt='top'
     alias chr='termux-chroot zsh'
 
