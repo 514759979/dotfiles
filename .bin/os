@@ -2,9 +2,9 @@
 
 [[ $HOST == my-pc ]] && {
     if (($# == 0)) {
-        z shutdown -s -t 0
+        ~/.bin/wrun shutdown -s -t 0
     } elif (($1 == 1)) {
-        z shutdown -r -t 0
+        ~/.bin/wrun shutdown -r -t 0
     }
 
     return
