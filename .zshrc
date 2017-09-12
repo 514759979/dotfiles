@@ -248,7 +248,7 @@ umask 022
         exit
     }
 
-    tmux new-window -c "$PWD" 2>/dev/null && exec tmux a
+    tmux new-window -c $PWD 2>/dev/null && exec tmux a
     exec tmux
 }
 
@@ -340,8 +340,8 @@ alias we='wget'
 alias tn='telnet'
 alias calc='noglob calculate'
 alias mmv='noglob zmv -W'
-alias rpd='rm -rv "$PWD" && cd ..'
-alias rpdf='rm -rvf "$PWD" && cd ..'
+alias rpd='rm -rv $PWD && cd ..'
+alias rpdf='rm -rvf $PWD && cd ..'
 alias keepdir='touch .keep; chmod 400 .keep'
 alias icmu='git commit -am update'
 alias iu='git push'
@@ -423,18 +423,12 @@ if [[ -e /dev/lxss ]] {
     }
 
     tk() {
-        wrun taskkill /f /im "$1.exe"
+        wrun taskkill /f /im $1.exe
     }
 
     st() {
         setsid $* </dev/null &>/dev/null
     }
-
-    #[[ -e /proc/sys/fs/binfmt_misc/WRun ]] || {
-    #    sudo sh -c "echo 0 > /proc/sys/fs/binfmt_misc/WSLInterop"
-    #    sudo sh -c "echo :WRun:M::MZ::/home/goreliu/.bin/wcmd: \
-    #       > /proc/sys/fs/binfmt_misc/register"
-    #}
 } elif [[ $OSTYPE == *android* ]] {
     export SHELL=/data/data/com.termux/files/usr/bin/zsh
     alias search_cpu='zsh ~/.bin/search_cpu'
@@ -493,9 +487,9 @@ imgresize() {
 
 cry() {
     if [[ $1 = -d ]] {
-        openssl enc -aes-256-cbc -d -in "$2" -out "$3"
+        openssl enc -aes-256-cbc -d -in $2 -out $3
     } else {
-        openssl enc -aes-256-cbc -e -in "$1" -out "$2"
+        openssl enc -aes-256-cbc -e -in $1 -out $2
     }
 }
 
@@ -521,7 +515,7 @@ calculate() {
 }
 
 gr() {
-    grep --color "$*" -r .
+    grep --color $* -r .
 }
 
 k() {
@@ -563,8 +557,8 @@ vwi() {
     buffer=$(type $1)
     buffer=${buffer#$1*function from }
     if [[ -e $buffer ]] {
-        vim "+/^ *$1(" -p "$buffer"
-    } elif [[ "$buffer" == *"is an alias for"* ]] {
+        vim "+/^ *$1(" -p $buffer
+    } elif [[ $buffer == *"is an alias for"* ]] {
         vim "+/^ *alias $1=" -p ~/.zshrc
     }
 }
@@ -642,7 +636,7 @@ vs() {
     local args
     [[ $# -ge 1 ]] && args="zsh -ic $*"
 
-    ssh -tq $USER@192.168.31.7 "$args"
+    ssh -tq $USER@192.168.31.7 $args
 }
 
 icm() {
@@ -652,9 +646,9 @@ icm() {
 syncdir() {
     # syncdir dir1/ dir2/
     if [[ $3 = "--run" ]] {
-        rsync --delete -av "$1/" "$2/"
+        rsync --delete -av $1/ $2/
     } else {
-        rsync -n --delete -av "$1/" "$2/"
+        rsync -n --delete -av $1/ $2/
     }
 }
 
