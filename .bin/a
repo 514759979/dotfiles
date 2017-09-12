@@ -10,7 +10,7 @@ case $1 {
     7z a $1 $*[2,-1]
     ;;
 
-    (*.tar|*.tgz|*.txz|*.tbz2|*.tlz|*.tar.*)
+    (*.tar|*.tgz|*.txz|*.tbz2|*.tar.*)
     tar -cavf $1 $*[2,-1]
     ;;
 
@@ -35,6 +35,6 @@ case $1 {
     ;;
 
     (*.ar)
-    ar r $1 $*[2,-1]
+    ar rv $1 $*[2,-1]
     ;;
 }
