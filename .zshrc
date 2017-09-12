@@ -702,7 +702,7 @@ if (($+commands[pacman])) {
     alias pcl='sudo apt-get clean'
     alias pql='dpkg -L'
     alias pq='apt list --installed'
-    alias pqe='apt list --installed 2>/dev/null | grep -Fv ",automatic"'
+    alias pqe='apt list --installed 2>/dev/null | grep -Fv ",automatic" | less'
     alias pqm='apt list --installed 2>/dev/null | grep -F ",local"'
     alias psi='apt show'
     alias pqi='dpkg -s'
