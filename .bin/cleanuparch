@@ -27,6 +27,7 @@ rm -rvf /usr/share/makepkg-template/perl*
 rmdir /usr/share/makepkg-template
 rm -rvf /usr/share/man/man*/*perl*
 rm -rvf /usr/share/perl5
+rm -rvf /usr/share/man/*/*.3pm.*
 
 # Remove other useless files
 rm -rvf /usr/lib/libgo.so*
