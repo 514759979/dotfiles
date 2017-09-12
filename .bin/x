@@ -1,0 +1,103 @@
+#!/bin/zsh
+
+(($#* >= 1)) || {
+    echo Usage: $0 files
+    return 1
+}
+
+for i ($*) {
+    local outdir="$(mktemp -d -p $PWD x-XXX)"
+
+    local use_file=0
+
+    case $i {
+        (*.zip|*.7z|*.jar|*.rar|*.iso)
+        7z x $i -o$outdir
+        ;;
+
+        (*.tar|*.tgz|*.txz|*.tbz2|*.tar.*)
+        tar -xavf $i -C $outdir
+        ;;
+
+        (*.gz)
+        zcat $i > $outdir/$i[1,-4]
+        ;;
+
+        (*.xz)
+        xzcat $i > $outdir/$i[1,-4]
+        ;;
+
+        (*.bz2)
+        bzcat $i > $outdir/$i[1,-5]
+        ;;
+
+        (*.lzma)
+        lzcat $i > $outdir/$i[1,-6]
+        ;;
+
+        (*.lz4)
+        lz4cat $i > $outdir/$i[1,-5]
+        ;;
+
+        (*.ar)
+        # TODO
+        # ar x $i
+        ;;
+
+        (*)
+        use_file=1
+        ;;
+    }
+
+    if ((use_file)) {
+        case $(file -bz $i) {
+            (Zip *|7-zip *|RAR *)
+            7z x $i -o$outdir
+            ;;
+
+            (POSIX tar *)
+            tar -xavf $i -C $outdir
+            ;;
+
+            (*gzip *)
+            zcat $i > $outdir/$i
+            ;;
+
+            (*bzip2 *)
+            bzcat $i > $outdir/$i
+            ;;
+
+            (*XZ *)
+            xzcat $i > $outdir/$i
+            ;;
+
+            (*LZMA *)
+            lzcat $i > $outdir/$i
+            ;;
+
+            (*LZ4 *)
+            lz4cat $i > $outdir/$i
+            ;;
+
+            (current ar archive)
+            # TODO
+            # ar x $i
+            ;;
+
+            (*)
+            echo $i: error
+            ;;
+        }
+    }
+
+    local files=$(ls -A $outdir)
+
+    if [[ -z $files ]] {
+        rmdir $outdir
+    } elif [[ -e $outdir/$files && ! -e $files ]] {
+        mv -v $outdir/$files . && rmdir $outdir
+        echo $i " -> " $files
+    } else {
+        echo $i " -> " $outdir
+    }
+}
