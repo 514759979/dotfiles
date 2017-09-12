@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+rm -rvf /usr/share/locale/*
+rm -rvf /usr/share/man/^man*
+rm -rvf /usr/share/info/*
+rm -rvf /usr/share/doc/*
+rm -rvf /usr/share/vim/vim80/{doc,lang,tutor,spell}
+rm -rvf /usr/share/gtk-doc
+
+rm -rvf /usr/lib/libgo.so*
+rm -rvf /usr/lib/python3.6/test
+rm -rvf /usr/lib/python3.6/**/*.a
+rm -rvf /usr/lib/python2.7/test
+rm -rvf /usr/lib/python2.7/**/*.pyo
+rm -rvf /usr/lib/python2.7/**/*.a
+rm -rvf /usr/lib/xorg/modules/dri/*
+rm -rvf /usr/lib/guile/2.2
