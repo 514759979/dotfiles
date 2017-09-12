@@ -33,3 +33,4 @@ rm -rvf /usr/share/man/*/*.3pm.*
 rm -rvf /usr/lib/libgo.so*
 rm -rvf /usr/lib/xorg/modules/dri/*
 rm -rvf /usr/lib/guile/2.2
+rm -rvf /usr/share/guile/2.2
