@@ -17,6 +17,7 @@ set mouse=a
 set autochdir
 set nobackup
 set laststatus=2
+set foldmethod=marker
 syntax on
 syntax enable
 colorscheme elflord

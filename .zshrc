@@ -41,7 +41,6 @@ case $TERM {
 }
 #}}}
 
-
 #{{{ 关于历史纪录的配置
 # 历史纪录条目数量
 export HISTSIZE=100000
@@ -121,7 +120,6 @@ bindkey '^y' sudo-command-line
 # ctrl + y sudo
 # 还没有用的 f m o t w x (h) (i) 
 #}}}
-
 
 #{{{ 自动补全
 # 扩展路径
@@ -218,7 +216,6 @@ zle -N user-complete
 bindkey "\t" user-complete
 ##}}}
 
-
 #{{{ 杂项
 # 进入相应的路径时只要 cd ~xxx
 hash -d mine='/mnt/c/mine'
@@ -232,7 +229,6 @@ compdef cwi=sudo
 compdef vwi=sudo
 compdef st=sudo
 #}}}
-
 
 #{{{ 和 zsh 无关的配置
 export LANG=en_US.UTF-8
