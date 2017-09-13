@@ -444,6 +444,7 @@ if [[ -e /dev/lxss ]] {
     alias smvb='sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600'
     alias se='sudo systemctl'
     alias jf='journalctl -f'
+    alias vcp='echo scp -r 192.168.31.7:$PWD .'
 }
 
 path+=($HOME/.bin)
