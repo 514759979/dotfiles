@@ -6,8 +6,20 @@ get_type_by_name() {
         echo 7z
         ;;
 
+        (*.rar|*.iso)
+        echo 7z_r
+        ;;
+
         (*.tar|*.tgz|*.txz|*.tbz2|*.tar.*)
         echo tar
+        ;;
+
+        (*.cpio)
+        echo cpio
+        ;;
+
+        (*.cpio.*)
+        echo cpio_r
         ;;
 
         (*.gz)
@@ -34,10 +46,6 @@ get_type_by_name() {
         echo ar
         ;;
 
-        (*.rar|*.iso)
-        echo 7z_r
-        ;;
-
         (*)
         return 1
         ;;
@@ -50,8 +58,16 @@ get_type_by_file() {
         echo 7z
         ;;
 
+        (RAR *)
+        echo 7z_r
+        ;;
+
         (POSIX tar *)
         echo tar
+        ;;
+
+        (* cpio archive *)
+        echo cpio
         ;;
 
         (*gzip *)
@@ -78,10 +94,6 @@ get_type_by_file() {
         echo ar
         ;;
 
-        (RAR *)
-        echo 7z_r
-        ;;
-
         (*)
         return 1
         ;;
@@ -104,6 +116,10 @@ case ${0:t} {
 
         (tar)
         tar -cavf $1 $*[2,-1]
+        ;;
+
+        (cpio)
+        find $*[2,-1] -print0 | bsdcpio -0ov -O $1
         ;;
 
         (gz)
@@ -145,13 +161,17 @@ case ${0:t} {
     }
 
     for i ($*) {
-        case $(get_type_by_name $i | get_type_by_file $i) {
+        case $(get_type_by_name $i || get_type_by_file $i) {
             (7z|7z_r)
             7z l $i
             ;;
 
             (tar)
             tar -tavf $i
+            ;;
+
+            (cpio|cpio_r)
+            bsdcpio -itv < $i
             ;;
 
             (gz)
@@ -205,13 +225,19 @@ case ${0:t} {
             mkdir $outdir
         }
 
-        case $(get_type_by_name $i | get_type_by_file $i) {
+        case $(get_type_by_name $i || get_type_by_file $i) {
             (7z|7z_r)
             7z x $i -o$outdir
             ;;
 
             (tar)
             tar -xavf $i -C $outdir
+            ;;
+
+            (cpio|cpio_r)
+            local file_path=$i
+            [[ $i != /* ]] && file_path=$PWD/$i
+            cd $outdir && bsdcpio -iv < $file_path && cd ..
             ;;
 
             (gz)
@@ -235,8 +261,9 @@ case ${0:t} {
             ;;
 
             (ar)
-            echo TODO
-            # ar x $i
+            local file_path=$i
+            [[ $i != /* ]] && file_path=$PWD/$i
+            cd $outdir && ar x $file_path && cd ..
             ;;
 
             (*)
