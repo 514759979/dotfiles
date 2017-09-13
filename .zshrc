@@ -646,7 +646,7 @@ st() {
 
 rr() {
     (($+max_process)) || typeset -gi max_process=10
-    (($+check_interval)) || typeset -gi check_interval=2
+    (($+check_interval)) || typeset -gF check_interval=2
     (($+running_process)) || typeset -gA running_process=()
 
     while {getopts i:j:h arg} {
