@@ -101,6 +101,9 @@ get_type_by_file() {
 }
 
 
+(($+commands[tar])) || alias tar=bsdtar
+(($+commands[cpio])) || alias cpio=bsdcpio
+
 case ${0:t} {
     (a)
 
@@ -119,7 +122,7 @@ case ${0:t} {
         ;;
 
         (cpio)
-        find $*[2,-1] -print0 | bsdcpio -0ov -O $1
+        find $*[2,-1] -print0 | cpio -0ov -O $1
         ;;
 
         (gz)
@@ -171,7 +174,7 @@ case ${0:t} {
             ;;
 
             (cpio|cpio_r)
-            bsdcpio -itv < $i
+            cpio -itv < $i
             ;;
 
             (gz)
@@ -237,7 +240,7 @@ case ${0:t} {
             (cpio|cpio_r)
             local file_path=$i
             [[ $i != /* ]] && file_path=$PWD/$i
-            cd $outdir && bsdcpio -iv < $file_path && cd ..
+            cd $outdir && cpio -iv < $file_path && cd ..
             ;;
 
             (gz)
