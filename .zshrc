@@ -652,11 +652,11 @@ rr() {
     while {getopts i:j:h arg} {
         case $arg {
             (i)
-            (($OPTARG > 1)) && check_interval=$OPTARG
+            ((OPTARG > 1)) && check_interval=$OPTARG
             ;;
 
             (j)
-            (($OPTARG > 1)) && max_process=$OPTARG
+            ((OPTARG > 1)) && max_process=$OPTARG
             ;;
 
             (h)
@@ -675,7 +675,7 @@ rr() {
 
         echo "running/max: $#running_process/$max_process"
         (($#running_process > 0)) && echo "pid: ${(k)running_process}"
-        return
+        return 0
     }
 
     while ((1)) {
