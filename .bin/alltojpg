@@ -12,7 +12,7 @@ for i (**/*.(jpg|png|PNG|jpeg|JPEG|gif|GIF)) {
 # 等所有操作结束
 wait
 
-# 删除源文件
+# 删除原文件
 rm **/*.(jpg|png|PNG|jpeg|JPEG|gif|GIF)
 
 # 避免覆盖同名文件
