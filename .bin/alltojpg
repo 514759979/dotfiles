@@ -1,0 +1,25 @@
+#!/bin/zsh
+
+. ~/.zshrc
+
+# JPG 作为中间扩展名
+rename .JPG .jpg **/*.JPG
+
+for i (**/*.(jpg|png|PNG|jpeg|JPEG|gif|GIF)) {
+    rr gm convert $i $i.JPG
+}
+
+# 等所有操作结束
+wait
+
+# 删除源文件
+rm **/*.(jpg|png|PNG|jpeg|JPEG|gif|GIF)
+
+# 避免覆盖同名文件
+rename .jpg.JPG .jpg **/*.JPG
+rename .png.JPG _p.jpg **/*.JPG
+rename .PNG.JPG _p.jpg **/*.JPG
+rename .jpeg.JPG _e.jpg **/*.JPG
+rename .JPEG.JPG _e.jpg **/*.JPG
+rename .gif.JPG _g.jpg **/*.JPG
+rename .GIF.JPG _g.jpg **/*.JPG
