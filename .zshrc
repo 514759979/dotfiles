@@ -649,14 +649,19 @@ rr() {
     (($+check_interval)) || typeset -gi check_interval=2
     (($+running_process)) || typeset -gA running_process=()
 
-    while {getopts i:j: arg} {
+    while {getopts i:j:h arg} {
         case $arg {
             (i)
-            check_interval=$OPTARG
+            (($OPTARG > 1)) && check_interval=$OPTARG
             ;;
 
             (j)
-            max_process=$OPTARG
+            (($OPTARG > 1)) && max_process=$OPTARG
+            ;;
+
+            (h)
+            echo "Usage: $0 [-i check_interval] [-j max_process] [cmd] [args]"
+            return
             ;;
         }
     }
