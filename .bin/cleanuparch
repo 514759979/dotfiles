@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+setopt EXTENDED_GLOB
+
 # Remove locale files and docs
 rm -rvf /usr/share/locale/*
 rm -rvf /usr/share/man/^man*
