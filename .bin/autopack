@@ -256,7 +256,7 @@ case ${0:t} {
             lzcat $i > $outdir/$i[1,-6]
             ;;
 
-            (*.lz4)
+            (lz4)
             lz4cat $i > $outdir/$i[1,-5]
             ;;
 
