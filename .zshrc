@@ -645,13 +645,23 @@ st() {
 }
 
 rr() {
-    (($+max_process)) || typeset -g max_process=10
+    (($+max_process)) || typeset -gi max_process=10
+    (($+check_interval)) || typeset -gi check_interval=2
     (($+running_process)) || typeset -gA running_process=()
 
-    [[ $1 == -j<1-> ]] && {
-        max_process=${1[3,-1]}
-        shift
+    while {getopts i:j: arg} {
+        case $arg {
+            (i)
+            check_interval=$OPTARG
+            ;;
+
+            (j)
+            max_process=$OPTARG
+            ;;
+        }
     }
+
+    shift $((OPTIND - 1))
 
     (($# == 0)) && {
         for i (${(k)running_process}) {
@@ -677,9 +687,9 @@ rr() {
         }
 
         (($#running_process == $running_process_num)) && {
-            echo "running/max: $running_process_num/$max_process, wait 1s ..."
+            echo "running: $running_process_num, wait ${check_interval}s ..."
             echo "pid: ${(k)running_process}"
-            sleep 1
+            sleep $check_interval
         }
     }
 }
