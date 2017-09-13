@@ -645,11 +645,11 @@ st() {
 }
 
 rr() {
-    (($+total_process)) || typeset -g total_process=10
+    (($+max_process)) || typeset -g max_process=10
     (($+running_process)) || typeset -gA running_process=()
 
     [[ $1 == -j<1-> ]] && {
-        total_process=${1[3,-1]}
+        max_process=${1[3,-1]}
         shift
     }
 
@@ -658,14 +658,15 @@ rr() {
             [[ -e /proc/$i ]] || unset "running_process[$i]"
         }
 
-        echo "running/total: $#running_process/$total_process"
+        echo "running/max: $#running_process/$max_process"
+        (($#running_process > 0)) && echo "pid: ${(k)running_process}"
         return
     }
 
     while ((1)) {
         local running_process_num=$#running_process
 
-        if (($running_process_num < total_process)) {
+        if (($running_process_num < max_process)) {
             $* &
             running_process[$!]=1
             return
@@ -676,7 +677,8 @@ rr() {
         }
 
         (($#running_process == $running_process_num)) && {
-            echo "running/total: $running_process_num/$total_process, wait 1s ..."
+            echo "running/max: $running_process_num/$max_process, wait 1s ..."
+            echo "pid: ${(k)running_process}"
             sleep 1
         }
     }
