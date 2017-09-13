@@ -118,7 +118,7 @@ bindkey '^y' sudo-command-line
 # ctrl + q 恢复
 # ctrl + u 删除之前字符
 # ctrl + y sudo
-# 还没有用的 f m o t w x (h) (i) 
+# 还没有用的 f m o t w x (h) (i)
 #}}}
 
 #{{{ 自动补全
@@ -193,7 +193,7 @@ zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directori
 # 空行(光标在行首)补全 "cd "
 user-complete() {
     case $BUFFER {
-        "" )                      
+        "" )
             # 空行填入 "cd "
             BUFFER="cd "
             zle end-of-line
@@ -644,6 +644,43 @@ st() {
     ($* &)
 }
 
+rr() {
+    (($+total_process)) || typeset -g total_process=10
+    (($+running_process)) || typeset -gA running_process=()
+
+    [[ $1 == -j<1-> ]] && {
+        total_process=${1[3,-1]}
+        shift
+    }
+
+    (($# == 0)) && {
+        for i (${(k)running_process}) {
+            [[ -e /proc/$i ]] || unset "running_process[$i]"
+        }
+
+        echo "running/total: $#running_process/$total_process"
+        return
+    }
+
+    while ((1)) {
+        local running_process_num=$#running_process
+
+        if (($running_process_num < total_process)) {
+            $* &
+            running_process[$!]=1
+            return
+        }
+
+        for i (${(k)running_process}) {
+            [[ -e /proc/$i ]] || unset "running_process[$i]"
+        }
+
+        (($#running_process == $running_process_num)) && {
+            echo "running/total: $running_process_num/$total_process, wait 1s ..."
+            sleep 1
+        }
+    }
+}
 # funcend
 
 if (($+commands[pacman])) {
