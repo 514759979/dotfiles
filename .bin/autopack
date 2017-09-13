@@ -62,11 +62,11 @@ get_type_by_file() {
         echo 7z_r
         ;;
 
-        (POSIX tar *)
+        (POSIX tar *|tar archive)
         echo tar
         ;;
 
-        (* cpio archive *)
+        (*cpio archive*)
         echo cpio
         ;;
 
@@ -122,7 +122,7 @@ case ${0:t} {
         ;;
 
         (cpio)
-        find $*[2,-1] -print0 | cpio -0ov -O $1
+        find $*[2,-1] -print0 | cpio -H newc -0ov > $1
         ;;
 
         (gz)
