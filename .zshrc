@@ -60,6 +60,8 @@ setopt PUSHD_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 # 加强版通配符
 setopt EXTENDED_GLOB
+# 在后台运行命令时不调整优先级
+setopt NO_BG_NICE
 # 禁用终端响铃
 unsetopt BEEP
 #}}}
@@ -416,10 +418,6 @@ if [[ -e /dev/lxss ]] {
     tk() {
         wrun taskkill /f /im $1.exe
     }
-
-    st() {
-        setsid $* </dev/null &>/dev/null
-    }
 } elif [[ $OSTYPE == *android* ]] {
     export SHELL=/data/data/com.termux/files/usr/bin/zsh
     alias search_cpu='zsh ~/.bin/search_cpu'
@@ -442,18 +440,10 @@ if [[ -e /dev/lxss ]] {
     precmd() {
         PROMPT="%{%F{cyan}%}goreliu@%{%F{green}%}my-phone:%{%F{red}%}%(?..[%?]:)%{%F{white}%}%~"$'\n'"%% "
     }
-
-    st() {
-        ($* </dev/null &>/dev/null &)
-    }
 } else {
     alias smvb='sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600'
     alias se='sudo systemctl'
     alias jf='journalctl -f'
-
-    st() {
-        ($* </dev/null &>/dev/null &)
-    }
 }
 
 path+=($HOME/.bin)
@@ -648,6 +638,10 @@ syncdir() {
 mdcd() {
     md $1
     cd $1
+}
+
+st() {
+    ($* &)
 }
 
 # funcend
