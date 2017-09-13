@@ -652,11 +652,11 @@ rr() {
     while {getopts i:j:h arg} {
         case $arg {
             (i)
-            ((OPTARG > 1)) && check_interval=$OPTARG
+            ((OPTARG > 0)) && check_interval=$OPTARG
             ;;
 
             (j)
-            ((OPTARG > 1)) && max_process=$OPTARG
+            ((OPTARG > 0)) && max_process=$OPTARG
             ;;
 
             (h)
