@@ -67,37 +67,26 @@ unsetopt BEEP
 #}}}
 
 #{{{ 按键绑定
-bindkey -v
-bindkey "\e[1~"   beginning-of-line
-bindkey "\e[2~"   insert-last-word
 bindkey "\e[3~"   delete-char
-bindkey "\e[4~"   end-of-line
-bindkey "\e[5~"   backward-word
-bindkey "\e[6~"   forward-word
-bindkey "\e[7~"   beginning-of-line
-bindkey "\e[8~"   end-of-line
 bindkey "\e[A"    up-line-or-search
 bindkey "\e[B"    down-line-or-search
-bindkey "\e[C"    forward-char
-bindkey "\e[D"    backward-char
-bindkey "\eOH"    beginning-of-line
-bindkey "\eOF"    end-of-line
-bindkey "\e[H"    beginning-of-line
-bindkey "\e[F"    end-of-line
 
 bindkey "^p"      up-line-or-search
 bindkey "^n"      down-line-or-search
-bindkey "^r"      history-incremental-search-backward
-bindkey "^a"      beginning-of-line
-bindkey "^e"      end-of-line
-bindkey "^f"      forward-word
-bindkey "^b"      backward-word
-bindkey "^k"      kill-line
+bindkey '^f'      forward-word
+bindkey '^b'      backward-word
+bindkey '^j'      backward-kill-word
+bindkey '^k'      kill-word
+bindkey '^u'      transpose-chars
+bindkey '^t'      quoted-insert
+bindkey '^g'      kill-line
+bindkey '^w'      backward-kill-line
+
 
 # 用 vim 编辑命令行
 autoload -U       edit-command-line
 zle -N            edit-command-line
-bindkey '^g'      edit-command-line
+bindkey '^o'      edit-command-line
 
 # 在命令前插入 sudo
 sudo-command-line() {
@@ -110,15 +99,32 @@ sudo-command-line() {
 zle -N sudo-command-line
 bindkey '^y' sudo-command-line
 
+# ctrl + a 行首
+# ctrl + b 往左移动一个词
+# ctrl + c 发送 SIGINT 信号
+# ctrl + d 结束输入
+# ctrl + e 行尾
+# ctrl + f 往右移动一个词
+# ctrl + g 删除右边所有内容
 # ctrl + h 退格
 # ctrl + i tab
-# ctrl + j 回车
-# ctrl + k 删除之后字符
-# ctrl + s 冻结
+# ctrl + j 删除左边一个词
+# ctrl + k 删除右边一个词
+# ctrl + l 清屏
+# ctrl + m 回车
+# ctrl + n 下一个历史命令
+# ctrl + o 用 vim 编辑命令行
+# ctrl + p 上一个历史命令
 # ctrl + q 恢复
-# ctrl + u 删除之前字符
-# ctrl + y sudo
-# 还没有用的 f m o t w x (h) (i)
+# ctrl + r 搜索历史命令
+# ctrl + s 冻结
+# ctrl + t 输入转义字符
+# ctrl + u 交换左边两个字符
+# ctrl + v 输入转义字符
+# ctrl + w 删除左边所有内容
+# ctrl + x 很多功能
+# ctrl + y 命令前添加 sudo
+# ctrl + z 休眠当前进程
 #}}}
 
 #{{{ 自动补全

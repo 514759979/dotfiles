@@ -54,6 +54,9 @@ nnoremap <C-a> ggVG
 inoremap <C-a> <C-O>gg<C-O>VG
 vnoremap <C-c> y:call system("~/.bin/wrun clip", getreg("\""))<cr>
 
+inoremap <C-t> <C-v>
+cnoremap <C-t> <C-v>
+
 " CTRL-A is Select all
 "noremap <C-A> gggH<C-O>G
 "inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
