@@ -68,8 +68,8 @@ vnoremap <C-c> y:call system("~/.bin/wrun clip", getreg("\""))<cr>
 
 "{{{ function
 function! Ca(from, to)
-    execute 'cnoreabbrev ' . a:from . ' <C-r>=(getcmdtype()==#'':'' && getcmdpos()==1 ? '
-        \ . string(a:to) . ' : ' . string(a:from) . ')<CR>'
+    execute 'cabbr ' . a:from . ' <c-r>=getcmdpos() == 1 && getcmdtype() == ":" ? "' 
+        \ . a:to . '" : "' . a:from . '"<CR>'
 endfunction
 "}}}
 
