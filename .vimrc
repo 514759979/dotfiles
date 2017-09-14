@@ -69,6 +69,7 @@ vnoremap <C-c> y:call system("~/.bin/wrun clip", getreg("\""))<cr>
 "{{{ command
 ca qq q!
 ca w!! w !sudo tee >/dev/null "%"
+command Icmu :!git commit -am update<cr>
 "}}}
 
 "{{{ statusline
