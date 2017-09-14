@@ -7,7 +7,7 @@ rm -rvf /usr/share/locale/*
 rm -rvf /usr/share/man/^man*
 rm -rvf /usr/share/info/*
 rm -rvf /usr/share/doc/*
-rm -rvf /usr/share/vim/vim80/{doc,lang,tutor,spell}
+rm -rvf /usr/share/vim/vim80/{lang,tutor,spell}
 rm -rvf /usr/share/gtk-doc
 
 # Remove python useless files

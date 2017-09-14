@@ -66,10 +66,26 @@ vnoremap <C-c> y:call system("~/.bin/wrun clip", getreg("\""))<cr>
 "nnoremap <C-v> :r!~/.bin/wrun pclip<cr>
 "}}}
 
+"{{{ function
+function! Ca(from, to)
+    execute 'cnoreabbrev ' . a:from . ' <C-r>=(getcmdtype()==#'':'' && getcmdpos()==1 ? '
+        \ . string(a:to) . ' : ' . string(a:from) . ')<CR>'
+endfunction
+"}}}
+
 "{{{ command
-ca qq q!
-ca w!! w !sudo tee >/dev/null "%"
-command Icmu :!git commit -am update<cr>
+" 用 / 搜索也会被替换
+"ca xx yy
+" 用 / 搜索不会被替换
+"call Ca("xx", "yy")
+" 只能大写开头
+"command XX yy
+
+call Ca("qq", "q!")
+call Ca("w!!", "w !sudo tee >/dev/null %")
+call Ca("icmu", ":!git commit -am update")
+call Ca("ist", ":!git status")
+call Ca("idi", ":!git diff")
 "}}}
 
 "{{{ statusline
@@ -90,7 +106,7 @@ set statusline +=%2*0x%04B\ %*                    "character under cursor
 "}}}
 
 "{{{ nerdtree
-ca nt NERDTreeToggle
+command NT NERDTreeToggle
 "}}}
 
 "{{{ supertab
@@ -101,11 +117,11 @@ let g:SuperTabMappingBackward = '<tab>'
 "{{{ vim-plug
 let g:plug_shallow = 1
 let g:plug_window = 'new'
-ca PlugInit !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+command PlugInit !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
 
-Plug 'L9'
+Plug 'vim-scripts/L9'
 Plug 'vim-scripts/a.vim'
 Plug 'othree/vim-autocomplpop'
 Plug 'tsaleh/vim-supertab'
