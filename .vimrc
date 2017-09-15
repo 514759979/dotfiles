@@ -55,6 +55,8 @@ inoremap <C-a> <C-O>gg<C-O>VG
 vnoremap <C-c> y:call system("~/.bin/wrun clip", getreg("\""))<cr>
 
 inoremap <C-t> <C-v>
+nnoremap <C-t> <C-v>
+vnoremap <C-t> <C-v>
 cnoremap <C-t> <C-v>
 
 " CTRL-A is Select all
