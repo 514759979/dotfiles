@@ -67,9 +67,23 @@ unsetopt BEEP
 #}}}
 
 #{{{ 按键绑定
+# 影响功能键的使用
+bindkey "\e[1~"   beginning-of-line
+bindkey "\e[2~"   insert-last-word
 bindkey "\e[3~"   delete-char
+bindkey "\e[4~"   end-of-line
+bindkey "\e[5~"   backward-word
+bindkey "\e[6~"   forward-word
+bindkey "\e[7~"   beginning-of-line
+bindkey "\e[8~"   end-of-line
 bindkey "\e[A"    up-line-or-search
 bindkey "\e[B"    down-line-or-search
+bindkey "\e[C"    forward-char
+bindkey "\e[D"    backward-char
+bindkey "\eOH"    beginning-of-line
+bindkey "\eOF"    end-of-line
+bindkey "\e[H"    beginning-of-line
+bindkey "\e[F"    end-of-line
 
 bindkey "^p"      up-line-or-search
 bindkey "^n"      down-line-or-search
