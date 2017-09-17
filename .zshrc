@@ -398,6 +398,7 @@ if [[ -e /dev/lxss ]] {
     alias pa='wrun c:/mine/app/0misc/bin/pclip.exe'
     alias msg="wrun msg $USER"
     alias cl='wrun clip'
+    alias cmdtool='/mnt/c/mine/app/wsl-terminal/cmdtool'
 
     alias vm='wrun c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
