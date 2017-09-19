@@ -378,6 +378,7 @@ alias sshk='sudo killall sshd'
 alias sort='LANG=C sort'
 alias csc='wrun c:/Windows/Microsoft.NET/Framework64/v4.0.30319/csc.exe /utf8output /nologo'
 alias ma='make'
+alias vco='vim ~/git/blog/conf.py'
 # aliasend
 
 if [[ -e /dev/lxss ]] {
