@@ -22,6 +22,8 @@
     p = pull
     c = clone --depth 1
     pullup = pull upstream master
+    pushup = push upstream
+    addup = remote add upstream
 [merge]
     tool = vimdiff
 [push]
@@ -29,5 +31,5 @@
 [gui]
     encoding = utf-8
 [core]
-	pager = less -x1,5
-	quotepath = false
+    pager = less -x1,5
+    quotepath = false
