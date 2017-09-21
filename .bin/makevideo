@@ -1,0 +1,21 @@
+#!/bin/zsh
+
+in_file=$1
+time_file=$2
+out_file=$1.out.mp4
+echo -n > input_list
+
+index=1
+while {read s_time e_time} {
+    local s_ms=$((($s_time[1,2] * 60 + $s_time[4,5]) * 1000 + $s_time[-3,-1]))
+    local e_ms=$((($e_time[1,2] * 60 + $e_time[4,5]) * 1000 + $e_time[-3,-1]))
+    local duration=$(((e_ms - s_ms) / 1000)).$(((e_ms - s_ms) % 1000))
+
+    echo "file '"$index".tmp.mp4'" >> input_list
+    ffmpeg -hide_banner -ss $s_time -t $duration -i $in_file $index.tmp.mp4 </dev/null
+    ((index++))
+} < $time_file
+
+ffmpeg -hide_banner -f concat -i input_list $out_file
+
+rm input_list *.tmp.mp4
