@@ -12,10 +12,10 @@ while {read s_time e_time} {
     local duration=$(((e_ms - s_ms) / 1000)).$(((e_ms - s_ms) % 1000))
 
     echo "file '"$index".tmp.mp4'" >> input_list
-    ffmpeg -hide_banner -ss $s_time -t $duration -i $in_file $index.tmp.mp4 </dev/null
+    ffmpeg -hide_banner -ss $s_time -t $duration -i $in_file -acodec copy -vcodec copy $index.tmp.mp4 </dev/null
     ((index++))
 } < $time_file
 
-ffmpeg -hide_banner -f concat -i input_list $out_file
+ffmpeg -hide_banner -f concat -i input_list -c copy $out_file
 
 rm input_list *.tmp.mp4
