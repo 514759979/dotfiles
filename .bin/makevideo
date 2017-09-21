@@ -3,15 +3,40 @@
 in_file=$1
 time_file=$2
 out_file=$1.out.mp4
-echo -n > input_list
 
 index=1
 while {read s_time e_time} {
-    local s_ms=$((($s_time[1,2] * 60 + $s_time[4,5]) * 1000 + $s_time[-3,-1]))
-    local e_ms=$((($e_time[1,2] * 60 + $e_time[4,5]) * 1000 + $e_time[-3,-1]))
+    integer s_ms=0
+    integer e_ms=0
+
+    if [[ $s_time != *.* ]] {
+        s_time=$s_time.000
+    }
+
+    if [[ $e_time != *.* ]] {
+        e_time=$e_time.000
+    }
+
+    if [[ $#s_time == 6 ]] {
+        s_time=00:00:$s_time
+    } elif [[ $#s_time == 9 ]] {
+        s_time=00:$s_time
+    }
+
+    if [[ $#e_time == 6 ]] {
+        e_time=00:00:$e_time
+    } elif [[ $#e_time == 9 ]] {
+        e_time=00:$e_time
+    }
+
+    s_s=$(date +%s -d$s_time[1,-5])
+    e_s=$(date +%s -d$e_time[1,-5])
+
+    ((s_ms += s_s * 1000))
+    ((e_ms += e_s * 1000))
+
     local duration=$(((e_ms - s_ms) / 1000)).$(((e_ms - s_ms) % 1000))
 
-    echo "file '"$index".tmp.mp4'" >> input_list
     ffmpeg -hide_banner -ss $s_time -t $duration -i $in_file -acodec copy -vcodec copy $index.tmp.mp4 </dev/null
     ((index++))
 } < $time_file
