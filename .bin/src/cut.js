@@ -15,9 +15,9 @@ function cut_begin() {
     start_time = mp.get_property("time-pos")
 
     var start_time_str = Math.floor(start_time / 60 / 60)
-        + ":" + Math.floor(start_time / 60)
+        + ":" + Math.floor(start_time / 60 % 60)
         + ":" + Math.floor(start_time % 60 * 1000) / 1000
-    mp.osd_message(cut_times + " cut begin " + start_time_str, 10000)
+    mp.osd_message(cut_times + " : " + start_time_str, 10000)
 }
 
 function cut_end() {
