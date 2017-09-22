@@ -12,7 +12,7 @@ function cut_end() {
 
 function cut_run() {
     var filename = mp.get_property("filename")
-	mp.utils.write_file("file://cut_run.sh", "~/.bin/makevideo " + filename + " " + filename + ".time.txt")
+	mp.utils.write_file("file://cut_run.sh", "~/.bin/makevideo \"" + filename + "\" \"" + filename + ".time.txt\"")
     mp.utils.subprocess({"args":["run-wsl-file", "cut_run.sh"]})
 }
 
