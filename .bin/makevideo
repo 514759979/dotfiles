@@ -4,9 +4,9 @@ in_file=$1
 in_file_ext=${1:e}
 time_file=$2
 out_file=$1.out.mp4
-echo -n > input_list
+echo -n > 0.input_list
 
-if [[ $3 != "-c" && $in_file_ext != rm* ]] {
+if [[ $in_file_ext != rm* ]] {
     convert_opts=(-acodec copy -vcodec copy)
 }
 
@@ -55,18 +55,17 @@ while {read s_time e_time} {
 
     local duration=$(((e_ms - s_ms) / 1000)).$(((e_ms - s_ms) % 1000))
 
-    echo "file '"$index".tmp.mp4'" >> input_list
+    echo "file '"$index".tmp.mp4'" >> 0.input_list
     ffmpeg -hide_banner -ss $s_time -t $duration -i $in_file $convert_opts $index.tmp.mp4 </dev/null
     ((index++))
 } < $time_file
 
 if ((index > 2)) {
-    ffmpeg -hide_banner -f concat -i input_list -c copy $out_file
+    ffmpeg -hide_banner -f concat -i 0.input_list -c copy $out_file
 } else {
     mv 1.tmp.mp4 $out_file
     touch 1.tmp.mp4
 }
 
-if [[ $3 != "-d" ]] {
-    rm -f input_list *.tmp.mp4 cut_run.sh
-}
+echo "Delete tmp files? (y/N)"
+read -q && rm -f 0.input_list *.tmp.mp4 0_cut_run.sh
