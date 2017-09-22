@@ -23,7 +23,11 @@ while {read s_time e_time} {
         }
 
         s_s=$(($(date +%s -d${s_time%.*}) - $(date +%s -d0)))
-        s_ms=${s_time#*.}
+        if [[ $s_time == *.* ]] {
+            s_ms=${s_time#*.}
+        } else {
+            s_ms=0
+        }
 
         ((s_ms += s_s * 1000))
     }
@@ -36,13 +40,17 @@ while {read s_time e_time} {
         }
 
         e_s=$(($(date +%s -d${e_time%.*}) - $(date +%s -d0)))
-        e_ms=${e_time#*.}
+        if [[ $e_time == *.* ]] {
+            e_ms=${e_time#*.}
+        } else {
+            e_ms=0
+        }
 
         ((e_ms += e_s * 1000))
     }
 
-    #echo $s_time $e_time
-    #echo $s_ms $e_ms
+    echo $s_time $e_time
+    echo $s_ms $e_ms
 
     local duration=$(((e_ms - s_ms) / 1000)).$(((e_ms - s_ms) % 1000))
 
