@@ -16,14 +16,13 @@ while {read s_time e_time} {
     integer e_ms
 
     if [[ $s_time != *:* ]] {
-        echo $s_time
         ((s_ms = s_time * 1000))
     } else {
         if [[ $s_time != *:*:* ]] {
             s_time=00:$s_time
         }
 
-        s_s=$(date +%s -d${s_time%.*})
+        s_s=$(($(date +%s -d${s_time%.*}) - $(date +%s -d0)))
         s_ms=${s_time#*.}
 
         ((s_ms += s_s * 1000))
@@ -36,11 +35,14 @@ while {read s_time e_time} {
             e_time=00:$e_time
         }
 
-        e_s=$(date +%s -d${e_time%.*})
+        e_s=$(($(date +%s -d${e_time%.*}) - $(date +%s -d0)))
         e_ms=${e_time#*.}
 
         ((e_ms += e_s * 1000))
     }
+
+    #echo $s_time $e_time
+    #echo $s_ms $e_ms
 
     local duration=$(((e_ms - s_ms) / 1000)).$(((e_ms - s_ms) % 1000))
 
