@@ -11,13 +11,16 @@ function load_file() {
     }
 }
 
-function cut_begin() {
-    start_time = mp.get_property("time-pos")
+function seconds_to_text(seconds) {
+    return Math.floor(seconds / 60 / 60)
+        + ":" + Math.floor(seconds / 60 % 60)
+        + ":" + Math.floor(seconds % 60 * 1000) / 1000
+}
 
-    var start_time_str = Math.floor(start_time / 60 / 60)
-        + ":" + Math.floor(start_time / 60 % 60)
-        + ":" + Math.floor(start_time % 60 * 1000) / 1000
-    mp.osd_message(cut_times + " : " + start_time_str, 10000)
+function cut_begin() {
+    start_time = seconds_to_text(mp.get_property("time-pos"))
+
+    mp.osd_message(cut_times + " : " + start_time, 10000)
 }
 
 function cut_end() {
@@ -28,7 +31,7 @@ function cut_end() {
     }
 
     load_file()
-    cut_msg += start_time + " " + mp.get_property("time-pos") + "\n"
+    cut_msg += start_time + " " + seconds_to_text(mp.get_property("time-pos")) + "\n"
 	mp.utils.write_file("file://" + filename + ".time.txt", cut_msg)
     start_time = -1
     cut_times++
