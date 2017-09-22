@@ -60,9 +60,13 @@ while {read s_time e_time} {
     ((index++))
 } < $time_file
 
-ffmpeg -hide_banner -f concat -i input_list -c copy $out_file
+if ((index > 2)) {
+    ffmpeg -hide_banner -f concat -i input_list -c copy $out_file
+} else {
+    mv 1.tmp.mp4 $out_file
+    touch 1.tmp.mp4
+}
 
 if [[ $3 != "-d" ]] {
-    rm input_list *.tmp.mp4
-    rm -f cut_run.sh
+    rm -f input_list *.tmp.mp4 cut_run.sh
 }
