@@ -14,7 +14,7 @@ if [[ ! $in_file_ext =~ "rm|flac|wmv" ]] {
     convert_opts=(-acodec copy -vcodec copy)
 }
 
-if [[ $in_file_ext == mkv ]] {
+if [[ $in_file_ext =~ "mkv|avi" ]] {
     cut_after=1
 }
 

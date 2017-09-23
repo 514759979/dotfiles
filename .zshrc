@@ -379,6 +379,8 @@ alias sort='LANG=C sort'
 alias csc='wrun c:/Windows/Microsoft.NET/Framework64/v4.0.30319/csc.exe /utf8output /nologo'
 alias ma='make'
 alias vco='vim ~/git/blog/conf.py'
+alias ffmpeg='ffmpeg -hide_banner'
+alias ffprobe='ffprobe -hide_banner'
 # aliasend
 
 if [[ -e /dev/lxss ]] {
