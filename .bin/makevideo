@@ -4,11 +4,18 @@ in_file=$1
 in_file_ext=${1:e}
 time_file=$2
 out_file=$1.out.mp4
+cut_after=0
+
+
 echo -n > 0.input_list
 echo "#EXTM3U" > 0.tmp.m3u
 
 if [[ ! $in_file_ext =~ "rm|flac|wmv" ]] {
     convert_opts=(-acodec copy -vcodec copy)
+}
+
+if [[ $in_file_ext == mkv ]] {
+    cut_after=1
 }
 
 index=1
@@ -57,7 +64,13 @@ while {read s_time e_time} {
 
     echo "file '"$index".tmp.mp4'" >> 0.input_list
     echo "$index.tmp.mp4" >> 0.tmp.m3u
-    ffmpeg -hide_banner -ss $s_time -t $duration -i $in_file $convert_opts $index.tmp.mp4 </dev/null
+
+    if ((cut_after)) {
+        ffmpeg -hide_banner -i $in_file -ss $s_time -t $duration $convert_opts $index.tmp.mp4 </dev/null
+    } else {
+        ffmpeg -hide_banner -ss $s_time -t $duration -i $in_file $convert_opts $index.tmp.mp4 </dev/null
+    }
+
     ((index++))
 } < $time_file
 
