@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+for i ($*) {
+    echo "file '"$i"'" >> 0.input_list
+}
+
+ffmpeg -hide_banner -f concat -i 0.input_list -c copy output.mp4
