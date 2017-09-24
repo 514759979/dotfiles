@@ -13,7 +13,7 @@ for i (**/*.(jpg|png|PNG|jpeg|JPEG|gif|GIF)) {
 wait
 
 # 删除原文件
-rm **/*.(jpg|png|PNG|jpeg|JPEG|gif|GIF)
+rm -f **/*.(jpg|png|PNG|jpeg|JPEG|gif|GIF)
 
 # 避免覆盖同名文件
 rename .jpg.JPG .jpg **/*.JPG
