@@ -29,6 +29,7 @@ autocmd FileType c set makeprg=gcc\ -g\ -Wall\ %\ -o\ %:t:r
 autocmd FileType cpp set makeprg=g++\ -g\ -std=c++17\ -Wall\ %\ -o\ %:t:r
 autocmd FileType js setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd FileType json setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd Filetype make setlocal noexpandtab
 "}}}
 
