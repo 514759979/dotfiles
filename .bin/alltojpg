@@ -5,6 +5,8 @@
 # JPG 作为中间扩展名
 rename .JPG .jpg **/*.JPG
 
+rr -j 15
+
 for i (**/*.(jpg|png|PNG|jpeg|JPEG|gif|GIF)) {
     rr gm convert $i $i.JPG
 }
