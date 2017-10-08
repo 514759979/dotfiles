@@ -17,6 +17,7 @@
 .ssh
 .subversion
 .termux
+.tig_history
 .vim
 .viminfo
 .vt_locations
