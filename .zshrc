@@ -446,6 +446,10 @@ if [[ -e /dev/lxss ]] {
     tk() {
         wrun taskkill /f /im $1.exe
     }
+
+    zz() {
+        wrun sh -c "$*"
+    }
 } elif [[ $OSTYPE == *android* ]] {
     export SHELL=/data/data/com.termux/files/usr/bin/zsh
     alias search_cpu='zsh ~/.bin/search_cpu'
