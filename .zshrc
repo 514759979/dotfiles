@@ -679,21 +679,16 @@ st() {
 
 rr() {
     (($+max_process)) || typeset -gi max_process=10
-    (($+check_interval)) || typeset -gF check_interval=1
     (($+running_process)) || typeset -gA running_process=()
 
-    while {getopts i:j:h arg} {
+    while {getopts j:h arg} {
         case $arg {
-            (i)
-            ((OPTARG > 0)) && check_interval=$OPTARG
-            ;;
-
             (j)
             ((OPTARG > 0)) && max_process=$OPTARG
             ;;
 
             (h)
-            echo "Usage: $0 [-i check_interval] [-j max_process] [cmd] [args]"
+            echo "Usage: $0 [-j max_process] [cmd] [args]"
             return
             ;;
         }
@@ -703,11 +698,11 @@ rr() {
 
     (($# == 0)) && {
         for i (${(k)running_process}) {
-            [[ -e /proc/$i ]] || unset "running_process[$i]"
+            [[ -e $i ]] || unset "running_process[$i]"
         }
 
         echo "running/max: $#running_process/$max_process"
-        (($#running_process > 0)) && echo "pid: ${(k)running_process}"
+        (($#running_process > 0)) && echo "pids:" ${${(k)running_process/\/proc\/}/\/exe}
         return 0
     }
 
@@ -716,18 +711,17 @@ rr() {
 
         if (($running_process_num < max_process)) {
             $* &
-            running_process[$!]=1
+            running_process[/proc/$!/exe]=1
             return
         }
 
         for i (${(k)running_process}) {
-            [[ -e /proc/$i ]] || unset "running_process[$i]"
+            [[ -e $i ]] || unset "running_process[$i]"
         }
 
         (($#running_process == $running_process_num)) && {
-            echo "running: $running_process_num, wait ${check_interval}s ..."
-            echo "pid: ${(k)running_process}"
-            sleep $check_interval
+            echo "wait $running_process_num pids:" ${${(k)running_process/\/proc\/}/\/exe}
+            inotifywait -q ${(k)running_process}
         }
     }
 }
