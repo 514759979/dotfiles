@@ -6,7 +6,7 @@ setopt EXTENDED_GLOB
 rm -rvf /usr/share/locale/*
 rm -rvf /usr/share/man/^man*
 rm -rvf /usr/share/info/*
-rm -rvf /usr/share/doc/*
+#rm -rvf /usr/share/doc/*
 rm -rvf /usr/share/vim/vim80/{lang,tutor,spell}
 rm -rvf /usr/share/gtk-doc
 
@@ -19,16 +19,16 @@ rm -rvf /usr/lib/python2.7/**/*.a
 
 # Remove perl all files
 rm -rvf /etc/profile.d/perl*
-rm -rvf /usr/bin/core_perl
-rm -rvf /usr/bin/perl
-rm -rvf /usr/bin/site_perl
-rm -rvf /usr/bin/vendor_perl
-rm -rvf /usr/lib/perl5
-rm -rvf /usr/share/fish
+#rm -rvf /usr/bin/core_perl
+#rm -rvf /usr/bin/perl
+#rm -rvf /usr/bin/site_perl
+#rm -rvf /usr/bin/vendor_perl
+#rm -rvf /usr/lib/perl5
+#rm -rvf /usr/share/fish
 rm -rvf /usr/share/makepkg-template/perl*
 rmdir /usr/share/makepkg-template
 rm -rvf /usr/share/man/man*/*perl*
-rm -rvf /usr/share/perl5
+#rm -rvf /usr/share/perl5
 rm -rvf /usr/share/man/*/*.3pm.*
 
 # Remove other useless files
