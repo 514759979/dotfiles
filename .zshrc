@@ -426,7 +426,7 @@ if [[ -e /dev/lxss ]] {
     }
 
     wsudo() {
-        z c:/mine/app/wsl-terminal/tools/runas.js $*
+        z c:/mine/app/0misc/bin/runas.js $*
     }
 
     srun() {
