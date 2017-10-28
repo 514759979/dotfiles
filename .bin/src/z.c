@@ -58,23 +58,29 @@ static char* convert_drive_fs_path_to_win32(const char* path)
     return result;
 }
 
-char *ncmd[100] = {"z", "/mnt/c/Windows/System32/cmd.exe", "/C", "cd", "/d"};
-int ncmd_index = 5;
+char* ncmd[100] = {"z", "/mnt/c/Windows/System32/cmd.exe", "/C"};
+int ncmd_index = 3;
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     char* cwd = agetcwd();
-    char* cwd_win32 = convert_drive_fs_path_to_win32(cwd);
+    char* cwd_win32 = NULL;
 
     if (argc == 1) {
+        cwd_win32 = convert_drive_fs_path_to_win32(cwd);
         printf("%s\n", cwd_win32);
         free(cwd_win32);
         free(cwd);
         return 0;
     }
 
-    ncmd[ncmd_index++] = cwd_win32;
-    ncmd[ncmd_index++] = "&";
+    if (strstr(cwd, "/AppData/Local/lxss/") != NULL) {
+        cwd_win32 = convert_drive_fs_path_to_win32(cwd);
+        ncmd[ncmd_index++] = "cd";
+        ncmd[ncmd_index++] = "/d";
+        ncmd[ncmd_index++] = cwd_win32;
+        ncmd[ncmd_index++] = "&";
+    }
 
     if (argv[1][0] == '.' && argv[1][1] == '/') {
         ncmd[ncmd_index++] = argv[1] + 2;
