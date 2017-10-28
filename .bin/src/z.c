@@ -63,14 +63,10 @@ int ncmd_index = 5;
 
 int main(int argc, char *argv[])
 {
-    if (argc <= 1) {
-        dprintf(STDERR_FILENO, "z called without argument\n");
-        return 1;
-    }
-
     char* cwd = agetcwd();
     char* cwd_win32 = convert_drive_fs_path_to_win32(cwd);
-    if (strcmp(argv[1], "-f") == 0) {
+
+    if (argc == 1) {
         printf("%s\n", cwd_win32);
         free(cwd_win32);
         free(cwd);

@@ -1,6 +1,7 @@
 #!/bin/zsh
 
-alias run='setsid wrun --silent-breakaway cmd /c start'
+#alias run='setsid wrun --silent-breakaway cmd /c start'
+alias run='setsid ~/.bin/z start'
 
 if [[ $1 == http* || $1 == www* ]] {
     run "" $*

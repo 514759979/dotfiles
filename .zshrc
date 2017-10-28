@@ -376,7 +376,7 @@ alias unix2dos='sed -i "s/$/\r/g"'
 alias sshs='sudo /bin/sshd'
 alias sshk='sudo killall sshd'
 alias sort='LANG=C sort'
-alias csc='wrun c:/Windows/Microsoft.NET/Framework64/v4.0.30319/csc.exe /utf8output /nologo'
+alias csc='z c:/Windows/Microsoft.NET/Framework64/v4.0.30319/csc.exe /utf8output /nologo'
 alias ma='make'
 alias vco='vim ~/git/blog/conf.py'
 alias ffmpeg='ffmpeg -hide_banner'
@@ -385,27 +385,26 @@ alias ffprobe='ffprobe -hide_banner'
 
 if [[ -e /dev/lxss ]] {
     export PATH=/usr/bin
-    alias z='wrun cmd /c'
-    alias cmd='wrun cmd'
+    alias cmd='z cmd'
     alias se='sudo /bin/systemctl.py'
-    alias ahk='wrun c:/mine/app/AutoHotkey/AutoHotkeyU32.exe'
-    alias ahk64='wrun c:/mine/app/AutoHotkey/AutoHotkeyU64.exe'
-    alias np='st wrun c:/mine/app/notepad++/notepad++.exe'
-    alias di='st wrun c:/mine/app/WinMerge/WinMergeU.exe'
-    alias mpv='st wrun c:/mine/app/mpv/mpv.exe'
-    alias flve='wrun c:/mine/app/FLV_Extract/FLVExtractCL.exe'
+    alias ahk='z c:/mine/app/AutoHotkey/AutoHotkeyU32.exe'
+    alias ahk64='z c:/mine/app/AutoHotkey/AutoHotkeyU64.exe'
+    alias np='st z c:/mine/app/notepad++/notepad++.exe'
+    alias di='st z c:/mine/app/WinMerge/WinMergeU.exe'
+    alias mpv='st z c:/mine/app/mpv/mpv.exe'
+    alias flve='z c:/mine/app/FLV_Extract/FLVExtractCL.exe'
     alias fm='tc'
-    alias ipconfig='wrun ipconfig | ucat'
-    alias tl='wrun tasklist'
-    alias tlg='wrun tasklist | grep'
-    alias netstat='wrun netstat'
-    alias ps1='wrun powershell'
-    alias pa='wrun c:/mine/app/0misc/bin/pclip.exe'
-    alias msg="wrun msg $USER"
-    alias cl='wrun clip'
+    alias ipconfig='z ipconfig | ucat'
+    alias tl='z tasklist'
+    alias tlg='z tasklist | grep'
+    alias netstat='z netstat'
+    alias ps1='z powershell'
+    alias pa='z c:/mine/app/0misc/bin/pclip.exe'
+    alias msg="z msg $USER"
+    alias cl='z clip'
     alias cmdtool='/mnt/c/mine/app/wsl-terminal/cmdtool'
 
-    alias vm='wrun c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
+    alias vm='z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
     alias vmup='vm startvm archlinux --type headless'
     alias vmdown='vm controlvm archlinux savestate'
@@ -423,12 +422,12 @@ if [[ -e /dev/lxss ]] {
             filename=${1:t}
         }
 
-        st wrun c:/mine/app/totalcmd/Totalcmd.exe $(wrun)/$filename
+        st z c:/mine/app/totalcmd/Totalcmd.exe $(z)/$filename
         cd - >/dev/null
     }
 
     wsudo() {
-        wrun cmd /C c:/mine/app/wsl-terminal/tools/runas.js $*
+        z c:/mine/app/wsl-terminal/tools/runas.js $*
     }
 
     srun() {
@@ -444,11 +443,11 @@ if [[ -e /dev/lxss ]] {
     }
 
     tk() {
-        wrun taskkill /f /im $1.exe
+        z taskkill /f /im $1.exe
     }
 
     zz() {
-        wrun sh -c "$*"
+        z sh -c "$*"
     }
 } elif [[ $OSTYPE == *android* ]] {
     export SHELL=/data/data/com.termux/files/usr/bin/zsh
