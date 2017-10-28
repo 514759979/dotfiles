@@ -376,7 +376,7 @@ alias unix2dos='sed -i "s/$/\r/g"'
 alias sshs='sudo /bin/sshd'
 alias sshk='sudo killall sshd'
 alias sort='LANG=C sort'
-alias csc='z c:/Windows/Microsoft.NET/Framework64/v4.0.30319/csc.exe /utf8output /nologo'
+alias csc='/init /mnt/c/Windows/Microsoft.NET/Framework64/v4.0.30319/csc.exe /utf8output /nologo'
 alias ma='make'
 alias vco='vim ~/git/blog/conf.py'
 alias ffmpeg='ffmpeg -hide_banner'
@@ -385,23 +385,22 @@ alias ffprobe='ffprobe -hide_banner'
 
 if [[ -e /dev/lxss ]] {
     export PATH=/usr/bin
-    alias cmd='z cmd'
+    alias cmd='/init /mnt/c/Windows/System32/cmd.exe cmd'
     alias se='sudo /bin/systemctl.py'
     alias ahk='z c:/mine/app/AutoHotkey/AutoHotkeyU32.exe'
-    alias ahk64='z c:/mine/app/AutoHotkey/AutoHotkeyU64.exe'
     alias np='st z c:/mine/app/notepad++/notepad++.exe'
     alias di='st z c:/mine/app/WinMerge/WinMergeU.exe'
     alias mpv='st z c:/mine/app/mpv/mpv.exe'
     alias flve='z c:/mine/app/FLV_Extract/FLVExtractCL.exe'
     alias fm='tc'
-    alias ipconfig='z ipconfig | ucat'
-    alias tl='z tasklist'
-    alias tlg='z tasklist | grep'
-    alias netstat='z netstat'
-    alias ps1='z powershell'
-    alias pa='z c:/mine/app/0misc/bin/pclip.exe'
-    alias msg="z msg $USER"
-    alias cl='z clip'
+    alias ipconfig='cmd /c ipconfig | ucat'
+    alias tl='cmd /c tasklist'
+    alias tlg='cmd /c tasklist | grep'
+    alias netstat='cmd /c netstat'
+    alias ps1='cmd /c powershell'
+    alias pa='/init /mnt/c/mine/app/0misc/bin/pclip.exe'
+    alias msg="cmd /c msg $USER"
+    alias cl='cmd /c clip'
     alias cmdtool='/mnt/c/mine/app/wsl-terminal/cmdtool'
 
     alias vm='z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
@@ -422,7 +421,7 @@ if [[ -e /dev/lxss ]] {
             filename=${1:t}
         }
 
-        st z c:/mine/app/totalcmd/Totalcmd.exe $(z)/$filename
+        st /init /mnt/c/mine/app/totalcmd/Totalcmd.exe $(z)/$filename
         cd - >/dev/null
     }
 
@@ -443,11 +442,11 @@ if [[ -e /dev/lxss ]] {
     }
 
     tk() {
-        z taskkill /f /im $1.exe
+        cmd /c taskkill /f /im $1.exe
     }
 
     zz() {
-        z sh -c "$*"
+        /init /mnt/c/mine/app/0misc/bin/sh.exe -c "$*"
     }
 } elif [[ $OSTYPE == *android* ]] {
     export SHELL=/data/data/com.termux/files/usr/bin/zsh
