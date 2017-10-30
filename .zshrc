@@ -385,7 +385,7 @@ alias ffprobe='ffprobe -hide_banner'
 
 if [[ -e /dev/lxss ]] {
     export PATH=/usr/bin
-    alias cmd='/init /mnt/c/Windows/System32/cmd.exe cmd'
+    alias cmd='/init /mnt/c/Windows/System32/cmd.exe'
     alias se='sudo /bin/systemctl.py'
     alias ahk='z c:/mine/app/AutoHotkey/AutoHotkeyU32.exe'
     alias np='st z c:/mine/app/notepad++/notepad++.exe'
