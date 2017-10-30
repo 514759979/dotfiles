@@ -381,6 +381,7 @@ alias ma='make'
 alias vco='vim ~/git/blog/conf.py'
 alias ffmpeg='ffmpeg -hide_banner'
 alias ffprobe='ffprobe -hide_banner'
+alias chrome='/init /mnt/c/Users/goreliu/AppData/Local/CentBrowser/Application/chrome.exe'
 # aliasend
 
 if [[ -e /dev/lxss ]] {
