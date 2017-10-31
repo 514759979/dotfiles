@@ -53,7 +53,7 @@ nnoremap <F9> :w<cr>:make<cr>:cw<cr>
 
 nnoremap <C-a> ggVG
 inoremap <C-a> <C-O>gg<C-O>VG
-vnoremap <C-c> y:call system("~/.bin/wrun clip", getreg("\""))<cr>
+vnoremap <C-c> y:call system("~/.bin/z clip", getreg("\""))<cr>
 
 inoremap <C-t> <C-v>
 nnoremap <C-t> <C-v>
