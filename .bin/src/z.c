@@ -25,15 +25,8 @@ static char* agetcwd()
         buf = realloc(buf, sz);
     }
 
-    if (strncmp(buf, "/home/", 6) == 0) {
-        const char* rootdir = "/mnt/c/Users/goreliu/AppData/Local/lxss";
-        char* newbuf = malloc(sz + strlen(rootdir));
-        strcpy(newbuf, rootdir);
-        strcat(newbuf, buf);
-        free(buf);
-        buf = newbuf;
-    } else if (strncmp(buf, "/mnt/", 5) != 0) {
-        const char* rootdir = "/mnt/c/Users/goreliu/AppData/Local/lxss/rootfs";
+    if (strncmp(buf, "/mnt/", 5) != 0) {
+        const char* rootdir = "/mnt/c/wsl/rootfs";
         char* newbuf = malloc(sz + strlen(rootdir));
         strcpy(newbuf, rootdir);
         strcat(newbuf, buf);
