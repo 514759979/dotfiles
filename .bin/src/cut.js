@@ -1,3 +1,5 @@
+// c:\Users\goreliu\appdata\Roaming\mpv\scripts\
+
 var cut_msg = ""
 var filename = ""
 var start_time = 0
