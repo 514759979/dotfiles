@@ -5,9 +5,9 @@
 # JPG 作为中间扩展名
 rename .JPG .jpg **/*.JPG
 
-rr -j 15
+rr -j 20
 
-for i (**/*.(jpg|png|PNG|jpeg|JPEG|gif|GIF)) {
+for i (**/*.(jpg|png|PNG|jpeg|JPEG)) {
     rr gm convert $i $i.JPG
 }
 
@@ -15,7 +15,7 @@ for i (**/*.(jpg|png|PNG|jpeg|JPEG|gif|GIF)) {
 wait
 
 # 删除原文件
-rm -f **/*.(jpg|png|PNG|jpeg|JPEG|gif|GIF)
+rm -f **/*.(jpg|png|PNG|jpeg|JPEG)
 
 # 避免覆盖同名文件
 rename .jpg.JPG .jpg **/*.JPG
@@ -23,5 +23,3 @@ rename .png.JPG _p.jpg **/*.JPG
 rename .PNG.JPG _p.jpg **/*.JPG
 rename .jpeg.JPG _e.jpg **/*.JPG
 rename .JPEG.JPG _e.jpg **/*.JPG
-rename .gif.JPG _g.jpg **/*.JPG
-rename .GIF.JPG _g.jpg **/*.JPG
