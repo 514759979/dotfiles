@@ -1,1 +1,3 @@
-#!/home/goreliu/.bin/wrun powershell
+#!/home/goreliu/.bin/z powershell
+
+echo aa
