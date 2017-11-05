@@ -423,7 +423,7 @@ if [[ -e /dev/lxss ]] {
             filename=${1:t}
         }
 
-        st /init /mnt/c/mine/app/totalcmd/Totalcmd.exe $(z)/$filename
+        st /init /mnt/c/mine/app/totalcmd/Totalcmd64.exe "$(z)/$filename"
         cd - >/dev/null
     }
 
