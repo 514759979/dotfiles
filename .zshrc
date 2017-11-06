@@ -389,6 +389,7 @@ if [[ -e /dev/lxss ]] {
     alias cmd='/init /mnt/c/Windows/System32/cmd.exe'
     alias se='sudo /bin/systemctl.py'
     alias ahk='z c:/mine/app/AutoHotkey/AutoHotkeyU32.exe'
+    alias ahk64='z c:/mine/app/AutoHotkey/AutoHotkeyU64.exe'
     alias np='st z c:/mine/app/notepad++/notepad++.exe'
     alias di='st z c:/mine/app/WinMerge/WinMergeU.exe'
     alias mpv='st z c:/mine/app/mpv/mpv.exe'
