@@ -2,7 +2,6 @@
 
 rm -rf Cache Plugins Tools User
 rm -f Hotkeys.txt
-rm -f Language/*.ini
 rm -f *.ini
 
 mv Language/* /mnt/c/mine/app/totalcmd/Language/
