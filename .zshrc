@@ -444,7 +444,7 @@ if [[ -e /dev/lxss ]] {
     }
 
     tk() {
-        cmd /c taskkill /f /im $1.exe
+        z taskkill /f /im $1.exe
     }
 
     zz() {
