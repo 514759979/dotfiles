@@ -724,6 +724,10 @@ rr() {
         }
     }
 }
+
+vmpath() {
+   echo scp -r $(hi):$(pwd)/$1 .
+}
 # funcend
 
 if (($+commands[pacman])) {
