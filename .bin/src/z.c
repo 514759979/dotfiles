@@ -67,7 +67,7 @@ int main(int argc, char* argv[])
         return 0;
     }
 
-    if (strstr(cwd, "/AppData/Local/lxss/") != NULL) {
+    if (strstr(cwd, "/wsl/rootfs/") != NULL) {
         cwd_win32 = convert_drive_fs_path_to_win32(cwd);
         ncmd[ncmd_index++] = "cd";
         ncmd[ncmd_index++] = "/d";

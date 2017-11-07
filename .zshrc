@@ -389,6 +389,7 @@ if [[ -e /dev/lxss ]] {
     alias cmd='/init /mnt/c/Windows/System32/cmd.exe'
     alias se='sudo /bin/systemctl.py'
     alias ahk='z c:/mine/app/AutoHotkey/AutoHotkeyU32.exe'
+    alias ahk64='z c:/mine/app/AutoHotkey/AutoHotkeyU64.exe'
     alias np='st z c:/mine/app/notepad++/notepad++.exe'
     alias di='st z c:/mine/app/WinMerge/WinMergeU.exe'
     alias mpv='st z c:/mine/app/mpv/mpv.exe'
@@ -403,6 +404,7 @@ if [[ -e /dev/lxss ]] {
     alias msg="cmd /c msg $USER"
     alias cl='cmd /c clip'
     alias cmdtool='/mnt/c/mine/app/wsl-terminal/cmdtool'
+    alias wtcc='z tcc'
 
     alias vm='z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
@@ -422,7 +424,7 @@ if [[ -e /dev/lxss ]] {
             filename=${1:t}
         }
 
-        st /init /mnt/c/mine/app/totalcmd/Totalcmd.exe $(z)/$filename
+        st /init /mnt/c/mine/app/totalcmd/Totalcmd64.exe "$(z)/$filename"
         cd - >/dev/null
     }
 
@@ -443,7 +445,7 @@ if [[ -e /dev/lxss ]] {
     }
 
     tk() {
-        cmd /c taskkill /f /im $1.exe
+        z taskkill /f /im $1.exe
     }
 
     zz() {
