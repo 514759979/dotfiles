@@ -408,6 +408,7 @@ if [[ -e /dev/lxss ]] {
     alias cmdtool='/mnt/c/mine/app/wsl-terminal/cmdtool'
     alias wtcc='z tcc'
     alias reg='z reg'
+    alias ded='vs /home/goreliu/app/server/ded'
 
     alias vm='z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
