@@ -412,7 +412,7 @@ if [[ -e /dev/lxss ]] {
     alias ded='vs /home/goreliu/app/server/ded'
     alias dedls='vs l /home/goreliu/data/dl'
     alias deddl='wgetall http://192.168.31.7:8080/data/dl/'
-    alias deddel='vs /home/goreliu/app/server/deddel'
+    alias dedrm='vs /home/goreliu/app/server/deddel'
 
     alias vm='z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
