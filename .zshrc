@@ -407,6 +407,7 @@ if [[ -e /dev/lxss ]] {
     alias cl='cmd /c clip'
     alias cmdtool='/mnt/c/mine/app/wsl-terminal/cmdtool'
     alias wtcc='z tcc'
+    alias reg='z reg'
 
     alias vm='z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
