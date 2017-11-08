@@ -410,6 +410,7 @@ if [[ -e /dev/lxss ]] {
     alias wtcc='z tcc'
     alias reg='z reg'
     alias ded='vs /home/goreliu/app/server/ded'
+    alias dedls='vs l /home/goreliu/data/dl'
     alias deddl='wgetall http://192.168.31.7:8080/data/dl/'
     alias deddel='vs /home/goreliu/app/server/deddel'
 
@@ -658,7 +659,7 @@ loop() {
 
 vs() {
     local args
-    [[ $# -ge 1 ]] && args="zsh -ic $*"
+    (($# >= 1)) && args="zsh -ic '$*'"
 
     ssh -tq $USER@192.168.31.7 $args
 }
