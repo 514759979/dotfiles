@@ -410,7 +410,7 @@ if [[ -e /dev/lxss ]] {
     alias wtcc='z tcc'
     alias reg='z reg'
     alias vsmv='vs /home/goreliu/app/server/ded'
-    alias vsls='vs l /home/goreliu/data/dl'
+    alias vsls='w3m -dump http://192.168.31.7:8080/data/dl'
     alias vsdl='cd ~/tmp; wgetall http://192.168.31.7:8080/data/dl/; rm index.html'
     alias vsrm='vs /home/goreliu/app/server/deddel'
     alias ktmux='pkill tmux'
