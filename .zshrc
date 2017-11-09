@@ -413,6 +413,7 @@ if [[ -e /dev/lxss ]] {
     alias vsls='vs l /home/goreliu/data/dl'
     alias vsdl='cd ~/tmp; wgetall http://192.168.31.7:8080/data/dl/; rm index.html'
     alias vsrm='vs /home/goreliu/app/server/deddel'
+    alias ktmux='pkill tmux'
 
     alias vm='z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
