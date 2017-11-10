@@ -411,7 +411,7 @@ if [[ -e /dev/lxss ]] {
     alias wtcc='z tcc'
     alias reg='z reg'
     alias vsr="ssh -tq $USER@$RPI"
-    alias vsls='w3m -dump http://$RPI:8080/data/dl'
+    alias vsls='w3m -dump http://$RPI:8080/data/dl | sed \$d'
     alias vsmv='vsr cd ~/data \; mv -v \$\(~/.bin/dedfiles\) dl/'
     alias vsdl='cd ~/tmp; wgetall http://$RPI:8080/data/dl/; rm index.html'
     alias vsrm='vsr rm -v "~/data/dl/*.*"'
