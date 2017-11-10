@@ -664,7 +664,7 @@ vs() {
     local args
     (($# >= 1)) && args="zsh -ic '$*'"
 
-    ssh -tq $USER@RPI $args
+    ssh -tq $USER@$RPI $args
 }
 
 icm() {
