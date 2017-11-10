@@ -253,6 +253,7 @@ compdef st=sudo
 #{{{ 和 zsh 无关的配置
 export LANG=en_US.UTF-8
 export PYTHONDONTWRITEBYTECODE=1
+export RPI=192.168.31.7
 (($+USER)) || export USER=goreliu
 (($+SHELL)) || export SHELL=/bin/zsh
 umask 022
@@ -409,10 +410,11 @@ if [[ -e /dev/lxss ]] {
     alias cmdtool='/mnt/c/mine/app/wsl-terminal/cmdtool'
     alias wtcc='z tcc'
     alias reg='z reg'
-    alias vsmv='vs /home/goreliu/app/server/ded'
-    alias vsls='w3m -dump http://192.168.31.7:8080/data/dl'
-    alias vsdl='cd ~/tmp; wgetall http://192.168.31.7:8080/data/dl/; rm index.html'
-    alias vsrm='vs /home/goreliu/app/server/deddel'
+    alias vsr="ssh -tq $USER@$RPI"
+    alias vsls='w3m -dump http://$RPI:8080/data/dl'
+    alias vsmv='vsr cd ~/data \; mv -v \$\(~/.bin/dedfiles\) dl/'
+    alias vsdl='cd ~/tmp; wgetall http://$RPI:8080/data/dl/; rm index.html'
+    alias vsrm='vsr rm -v "~/data/dl/*.*"'
     alias ktmux='pkill tmux'
 
     alias vm='z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
@@ -486,7 +488,7 @@ if [[ -e /dev/lxss ]] {
     alias smvb='sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600'
     alias se='sudo systemctl'
     alias jf='journalctl -f'
-    alias vcp='echo scp -r 192.168.31.7:$PWD .'
+    alias vcp='echo scp -r $RPI:$PWD .'
 }
 
 path+=($HOME/.bin)
@@ -662,7 +664,7 @@ vs() {
     local args
     (($# >= 1)) && args="zsh -ic '$*'"
 
-    ssh -tq $USER@192.168.31.7 $args
+    ssh -tq $USER@RPI $args
 }
 
 icm() {
@@ -671,7 +673,7 @@ icm() {
 
 syncdir() {
     # syncdir dir1/ dir2/
-    if [[ $3 = "--run" ]] {
+    if [[ $3 == "--run" ]] {
         rsync --delete -av $1/ $2/
     } else {
         rsync -n --delete -av $1/ $2/
