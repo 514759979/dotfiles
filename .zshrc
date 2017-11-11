@@ -390,6 +390,7 @@ alias wgetsite='wget -r -p -np -k -c'
 
 if [[ -e /dev/lxss ]] {
     export PATH=/usr/bin
+    export DISPLAY=:0
     alias cmd='/init /mnt/c/Windows/System32/cmd.exe'
     alias se='sudo /bin/systemctl.py'
     alias ahk='z c:/mine/app/AutoHotkey/AutoHotkeyU32.exe'
@@ -416,6 +417,7 @@ if [[ -e /dev/lxss ]] {
     alias vsdl='cd ~/tmp; wgetall http://$RPI/data/dl/; rm index.html'
     alias vsrm='vsr rm -v "~/data/dl/*.*"'
     alias kt='pkill tmux'
+    alias ktt='pkill sleep; pkill tmux'
 
     alias vm='z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'

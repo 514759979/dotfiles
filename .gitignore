@@ -32,3 +32,5 @@ sdcard
 tmp
 data
 app
+.fonts
+.dbus
