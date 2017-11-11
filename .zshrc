@@ -415,7 +415,7 @@ if [[ -e /dev/lxss ]] {
     alias vsmv='vsr cd ~/data \; mv -v \$\(~/.bin/dedfiles\) dl/'
     alias vsdl='cd ~/tmp; wgetall http://$RPI/data/dl/; rm index.html'
     alias vsrm='vsr rm -v "~/data/dl/*.*"'
-    alias ktmux='pkill tmux'
+    alias kt='pkill tmux'
 
     alias vm='z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
