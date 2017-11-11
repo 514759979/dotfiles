@@ -294,7 +294,7 @@ alias hd='hexdump -C'
 alias le='less -iRf'
 alias dh='df -hT'
 alias upf='droopy 8888'
-alias dof='darkhttpd $PWD --port 8888'
+alias dof="echo $(hi):8888;darkhttpd \$PWD --port 8888"
 alias ucat='iconv -f gb18030 -t utf-8 -c'
 alias gcat='iconv -f utf-8 -t gb18030 -c'
 alias u16cat='iconv -f utf-16 -t utf-8 -c'
@@ -411,7 +411,7 @@ if [[ -e /dev/lxss ]] {
     alias wtcc='z tcc'
     alias reg='z reg'
     alias vsr="ssh -tq $USER@$RPI"
-    alias vsls='w3m -dump http://$RPI/data/dl'
+    alias vsls='w3m -dump http://$RPI/data/dl | sed \$d'
     alias vsmv='vsr cd ~/data \; mv -v \$\(~/.bin/dedfiles\) dl/'
     alias vsdl='cd ~/tmp; wgetall http://$RPI/data/dl/; rm index.html'
     alias vsrm='vsr rm -v "~/data/dl/*.*"'
@@ -664,7 +664,7 @@ vs() {
     local args
     (($# >= 1)) && args="zsh -ic '$*'"
 
-    ssh -tq $USER@RPI $args
+    ssh -tq $USER@$RPI $args
 }
 
 icm() {
