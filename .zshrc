@@ -413,7 +413,7 @@ if [[ -e /dev/lxss ]] {
     alias reg='z reg'
     alias vsr="ssh -tq $USER@$RPI"
     alias vsls='w3m -dump http://$RPI/data/dl | sed \$d'
-    alias vsmv='vsr cd ~/data \; mv -v \$\(~/.bin/dedfiles\) dl/'
+    alias vsmv='vs vsmv'
     alias vsdl='cd ~/tmp; wgetall http://$RPI/data/dl/; rm index.html'
     alias vsrm='vsr rm -v "~/data/dl/*.*"'
     alias kt='pkill tmux'
@@ -491,6 +491,7 @@ if [[ -e /dev/lxss ]] {
     alias se='sudo systemctl'
     alias jf='journalctl -f'
     alias vcp='echo scp -r $RPI:$PWD .'
+    alias vsmv='cd ~/data; mv -v $(~/.bin/dedfiles) dl/'
 }
 
 path+=($HOME/.bin)
