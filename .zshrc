@@ -675,7 +675,7 @@ icm() {
 
 syncdir() {
     # syncdir dir1/ dir2/
-    if [[ $3 == "--run" ]] {
+    if [[ $3 == "-r" ]] {
         rsync --delete -av $1/ $2/
     } else {
         rsync -n --delete -av $1/ $2/
