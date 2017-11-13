@@ -1823,6 +1823,7 @@ static void generate_dir_listing(struct connection *conn, const char *path) {
     append(listing, "<!DOCTYPE html>\n<html>\n<head>\n<title>Index of ");
     append(listing, decoded_url);
     append(listing, "</title>\n"
+     "<meta charset=\"utf-8\">\n"
      "<style type=\"text/css\">\n"
      "a, a:active {text-decoration: none; color: blue;}\n"
      "a:visited {color: #48468F;}\n"
