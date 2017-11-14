@@ -491,7 +491,9 @@ if [[ -e /dev/lxss ]] {
     alias se='sudo systemctl'
     alias jf='journalctl -f'
     alias vcp='echo scp -r $RPI:$PWD .'
+    alias vsls='l ~/data/dl'
     alias vsmv='cd ~/data; mv -v $(~/.bin/dedfiles) dl/'
+    alias vsrm='rm -v "~/data/dl/*.*"'
 }
 
 path+=($HOME/.bin)
