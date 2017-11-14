@@ -411,9 +411,8 @@ if [[ -e /dev/lxss ]] {
     alias cmdtool='/mnt/c/mine/app/wsl-terminal/cmdtool'
     alias wtcc='z tcc'
     alias reg='z reg'
-    alias vsr="ssh -tq $USER@$RPI"
     alias vsls='w3m -dump http://$RPI/data/dl | sed \$d'
-    alias vsmv='vsr ~/.bin/dedfiles ~/data ~/data/dl'
+    alias vsmv='vs vsmv'
     alias vsdl='cd ~/tmp; wgetall http://$RPI/data/dl/; rm index.html'
     alias vsrm='vs vsrm'
 
@@ -664,6 +663,11 @@ loop() {
 }
 
 vs() {
+    [[ $1 == "-r" ]] && {
+        ssh -tq $USER@$RPI $*[2,-1]
+        return
+    }
+
     local args
     (($# >= 1)) && args="zsh -ic '$*'"
 
