@@ -491,7 +491,7 @@ if [[ -e /dev/lxss ]] {
     alias vcp='echo scp -r $RPI:$PWD .'
     alias vsls='l ~/data/dl'
     alias vsmv='dedfiles ~/data ~/data/dl'
-    alias vsrm='rm -v "~/data/dl/*.*"'
+    alias vsrm='rm -v ~/data/dl/*.*'
 }
 
 path+=($HOME/.bin)
