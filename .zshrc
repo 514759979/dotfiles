@@ -415,7 +415,7 @@ if [[ -e /dev/lxss ]] {
     alias vsls='w3m -dump http://$RPI/data/dl | sed \$d'
     alias vsmv='vsr ~/.bin/dedfiles ~/data ~/data/dl'
     alias vsdl='cd ~/tmp; wgetall http://$RPI/data/dl/; rm index.html'
-    alias vsrm='vsr rm -v "~/data/dl/*.*"'
+    alias vsrm='vs vsrm'
 
     alias vm='z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
