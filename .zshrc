@@ -413,11 +413,9 @@ if [[ -e /dev/lxss ]] {
     alias reg='z reg'
     alias vsr="ssh -tq $USER@$RPI"
     alias vsls='w3m -dump http://$RPI/data/dl | sed \$d'
-    alias vsmv='vs vsmv'
+    alias vsmv='vsr ~/.bin/dedfiles ~/data ~/data/dl'
     alias vsdl='cd ~/tmp; wgetall http://$RPI/data/dl/; rm index.html'
     alias vsrm='vsr rm -v "~/data/dl/*.*"'
-    alias kt='pkill tmux'
-    alias ktt='pkill sleep; pkill tmux'
 
     alias vm='z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
@@ -492,7 +490,7 @@ if [[ -e /dev/lxss ]] {
     alias jf='journalctl -f'
     alias vcp='echo scp -r $RPI:$PWD .'
     alias vsls='l ~/data/dl'
-    alias vsmv='cd ~/data; mv -v $(~/.bin/dedfiles) dl/'
+    alias vsmv='dedfiles ~/data ~/data/dl'
     alias vsrm='rm -v "~/data/dl/*.*"'
 }
 
