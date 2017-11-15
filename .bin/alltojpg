@@ -2,10 +2,27 @@
 
 . ~/.zshrc
 
+delete_old_files() {
+    # 删除原文件
+    rm -f **/*.(jpg|png|PNG|jpeg|JPEG)
+
+    # 避免覆盖同名文件
+    rename .jpg.JPG .jpg **/*.JPG
+    rename .png.JPG _p.jpg **/*.JPG
+    rename .PNG.JPG _p.jpg **/*.JPG
+    rename .jpeg.JPG _e.jpg **/*.JPG
+    rename .JPEG.JPG _e.jpg **/*.JPG
+}
+
+[[ $1 == "-r" ]] && {
+    delete_old_files
+    exit
+}
+
 # JPG 作为中间扩展名
 rename .JPG .jpg **/*.JPG
 
-rr -j 20
+rr -j 30
 
 for i (**/*.(jpg|png|PNG|jpeg|JPEG)) {
     rr gm convert $i $i.JPG
@@ -14,12 +31,6 @@ for i (**/*.(jpg|png|PNG|jpeg|JPEG)) {
 # 等所有操作结束
 wait
 
-# 删除原文件
-rm -f **/*.(jpg|png|PNG|jpeg|JPEG)
-
-# 避免覆盖同名文件
-rename .jpg.JPG .jpg **/*.JPG
-rename .png.JPG _p.jpg **/*.JPG
-rename .PNG.JPG _p.jpg **/*.JPG
-rename .jpeg.JPG _e.jpg **/*.JPG
-rename .JPEG.JPG _e.jpg **/*.JPG
+[[ $1 == "-f" ]] && {
+    delete_old_files
+}
