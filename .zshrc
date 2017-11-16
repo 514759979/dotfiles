@@ -253,7 +253,7 @@ compdef st=sudo
 #{{{ 和 zsh 无关的配置
 export LANG=en_US.UTF-8
 export PYTHONDONTWRITEBYTECODE=1
-export RPI=192.168.31.7
+export RPI=192.168.1.7
 (($+USER)) || export USER=goreliu
 (($+SHELL)) || export SHELL=/bin/zsh
 umask 022
