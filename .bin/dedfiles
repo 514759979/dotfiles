@@ -2,6 +2,8 @@
 
 (($# == 2)) || exit 1
 
+setopt NULL_GLOB
+
 all_files=($1/**/*.*)
 aria2_files=($1/**/*.aria2)
 aria2_files+=(${aria2_files/.aria2})
