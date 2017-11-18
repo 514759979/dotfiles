@@ -490,7 +490,7 @@ if [[ -e /dev/lxss ]] {
     alias jf='journalctl -f'
     alias vcp='echo scp -r $RPI:$PWD .'
     alias vsls='l ~/data/dl'
-    alais vstree='tree ~/data'
+    alias vstree='tree ~/data'
     alias vsmv='dedfiles ~/data ~/data/dl'
     alias vsrm='rm -v ~/data/dl/*.*'
 }
