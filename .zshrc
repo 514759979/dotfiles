@@ -412,6 +412,7 @@ if [[ -e /dev/lxss ]] {
     alias wtcc='z tcc'
     alias reg='z reg'
     alias vsls='w3m -dump http://$RPI/data/dl | sed \$d'
+    alias vstree='vs vstree'
     alias vsmv='vs vsmv'
     alias vsdl='cd ~/tmp; wgetall http://$RPI/data/dl/; rm index.html'
     alias vsrm='vs vsrm'
@@ -489,6 +490,7 @@ if [[ -e /dev/lxss ]] {
     alias jf='journalctl -f'
     alias vcp='echo scp -r $RPI:$PWD .'
     alias vsls='l ~/data/dl'
+    alais vstree='tree ~/data'
     alias vsmv='dedfiles ~/data ~/data/dl'
     alias vsrm='rm -v ~/data/dl/*.*'
 }
