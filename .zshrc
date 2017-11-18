@@ -563,7 +563,7 @@ k() {
 }
 
 t() {
-    echo "$(<$1)" 2>/dev/null || ls -lF --color $* 2>/dev/null
+    cat $1 2>/dev/null || ls -lF --color $* 2>/dev/null
 }
 
 cwi() {
