@@ -414,7 +414,6 @@ if [[ -e /dev/lxss ]] {
     alias vsls='w3m -dump http://$RPI[1]/data/dl | sed \$d'
     alias vsd='vs vsd'
     alias vsmv='vs vsmv'
-    #alias vsdl='cd ~/tmp; wgetall http://$RPI[1]/data/dl/; rm index.html'
     alias vsrm='vs vsrm'
 
     alias vm='z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
@@ -465,9 +464,14 @@ if [[ -e /dev/lxss ]] {
 
     vsdl() {
         cd ~/tmp
-        curl http://$RPI[1]/data/dl/ | grep > list.txt
 
-        #='cd ~/tmp; wgetall http://$RPI/data/dl/; rm index.html'
+        curl http://$RPI[1]/data/dl/ | grep -Fv ".." | awk -F'"' '/href/{print $4}' \
+            | while {read file} {
+            echo "http://"$RPI[$((RANDOM % 2 + 1))]"/data/dl/$file" >> url.txt
+        }
+
+        aria2c -c -x16 -i url.txt
+        rm url.txt
     }
 } elif [[ $OSTYPE == *android* ]] {
     export SHELL=/data/data/com.termux/files/usr/bin/zsh
@@ -498,7 +502,7 @@ if [[ -e /dev/lxss ]] {
     alias vcp='echo scp -r $RPI[1]:$PWD .'
     alias vsls='l ~/data/dl'
     alias vsd='tree ~/data'
-    alias vsmv='dedfiles ~/data ~/data/dl; ls ~/data/dl > ~/data/dl/list.txt'
+    alias vsmv='dedfiles ~/data ~/data/dl'
     alias vsrm='rm -v ~/data/dl/*.*'
 }
 
