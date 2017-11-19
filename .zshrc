@@ -253,7 +253,7 @@ compdef st=sudo
 #{{{ 和 zsh 无关的配置
 export LANG=en_US.UTF-8
 export PYTHONDONTWRITEBYTECODE=1
-RPI=(192.168.1.7 192.168.1.6)
+RPI=(192.168.1.6 192.168.1.7)
 (($+USER)) || export USER=goreliu
 (($+SHELL)) || export SHELL=/bin/zsh
 umask 022
@@ -470,7 +470,7 @@ if [[ -e /dev/lxss ]] {
             echo "http://"$RPI[$((RANDOM % 2 + 1))]"/data/dl/$file" >> url.txt
         }
 
-        aria2c -c -x16 -i url.txt
+        aria2c -c -i url.txt
         rm url.txt
     }
 } elif [[ $OSTYPE == *android* ]] {
