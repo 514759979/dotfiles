@@ -253,7 +253,7 @@ compdef st=sudo
 #{{{ 和 zsh 无关的配置
 export LANG=en_US.UTF-8
 export PYTHONDONTWRITEBYTECODE=1
-export RPI=192.168.1.7
+RPI=(192.168.1.7 192.168.1.6)
 (($+USER)) || export USER=goreliu
 (($+SHELL)) || export SHELL=/bin/zsh
 umask 022
@@ -411,10 +411,10 @@ if [[ -e /dev/lxss ]] {
     alias cmdtool='/mnt/c/mine/app/wsl-terminal/cmdtool'
     alias wtcc='z tcc'
     alias reg='z reg'
-    alias vsls='w3m -dump http://$RPI/data/dl | sed \$d'
+    alias vsls='w3m -dump http://$RPI[1]/data/dl | sed \$d'
     alias vsd='vs vsd'
     alias vsmv='vs vsmv'
-    alias vsdl='cd ~/tmp; wgetall http://$RPI/data/dl/; rm index.html'
+    #alias vsdl='cd ~/tmp; wgetall http://$RPI[1]/data/dl/; rm index.html'
     alias vsrm='vs vsrm'
 
     alias vm='z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
@@ -462,6 +462,13 @@ if [[ -e /dev/lxss ]] {
     zz() {
         /init /mnt/c/mine/app/0misc/bin/sh.exe -c "$*"
     }
+
+    vsdl() {
+        cd ~/tmp
+        curl http://$RPI[1]/data/dl/ | grep > list.txt
+
+        #='cd ~/tmp; wgetall http://$RPI/data/dl/; rm index.html'
+    }
 } elif [[ $OSTYPE == *android* ]] {
     export SHELL=/data/data/com.termux/files/usr/bin/zsh
     alias search_cpu='zsh ~/.bin/search_cpu'
@@ -488,10 +495,10 @@ if [[ -e /dev/lxss ]] {
     alias smvb='sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600'
     alias se='sudo systemctl'
     alias jf='journalctl -f'
-    alias vcp='echo scp -r $RPI:$PWD .'
+    alias vcp='echo scp -r $RPI[1]:$PWD .'
     alias vsls='l ~/data/dl'
     alias vsd='tree ~/data'
-    alias vsmv='dedfiles ~/data ~/data/dl'
+    alias vsmv='dedfiles ~/data ~/data/dl; ls ~/data/dl > ~/data/dl/list.txt'
     alias vsrm='rm -v ~/data/dl/*.*'
 }
 
@@ -666,14 +673,14 @@ loop() {
 
 vs() {
     [[ $1 == "-r" ]] && {
-        ssh -tq $USER@$RPI $*[2,-1]
+        ssh -tq $USER@$RPI[1] $*[2,-1]
         return
     }
 
     local args
     (($# >= 1)) && args="zsh -ic '$*'"
 
-    ssh -tq $USER@$RPI $args
+    ssh -tq $USER@$RPI[1] $args
 }
 
 icm() {
