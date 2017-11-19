@@ -465,9 +465,11 @@ if [[ -e /dev/lxss ]] {
     vsdl() {
         cd ~/tmp
 
+        local index=0
+
         curl http://$RPI[1]/data/dl/ | grep -Fv ".." | awk -F'"' '/href/{print $4}' \
             | while {read file} {
-            echo "http://"$RPI[$((RANDOM % 2 + 1))]"/data/dl/$file" >> url.txt
+            echo "http://"$RPI[$((++index % 2 + 1))]"/data/dl/$file" >> url.txt
         }
 
         aria2c -c -i url.txt
