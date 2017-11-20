@@ -704,9 +704,9 @@ syncdir() {
 
 syncmine() {
     if [[ $3 == "-r" ]] {
-        rsync --exclude "TCMark.ini" --delete -av $1/ $2/
+        rsync --exclude "TCMark.ini" --exclude "foobar2000/*" --delete -av $1/ $2/
     } else {
-        rsync --exclude "TCMark.ini" -n --delete -av $1/ $2/
+        rsync --exclude "TCMark.ini" --exclude "foobar2000/*" -n --delete -av $1/ $2/
     }
 }
 
