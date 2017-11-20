@@ -702,6 +702,14 @@ syncdir() {
     }
 }
 
+syncmine() {
+    if [[ $3 == "-r" ]] {
+        rsync --exclude "TCMark.ini" --delete -av $1/ $2/
+    } else {
+        rsync --exclude "TCMark.ini" -n --delete -av $1/ $2/
+    }
+}
+
 mdcd() {
     md $1
     cd $1
