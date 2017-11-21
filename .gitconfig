@@ -11,6 +11,7 @@
     cm = commit -am
     co = checkout
     rmc = rm --cached
+    af = add -f
     d = diff
     dd = diff --cached
     l = log
@@ -34,4 +35,4 @@
     pager = less -x1,5
     quotepath = false
 [http]
-	proxy = socks5://192.168.1.2:1080
+    #proxy = socks5://192.168.1.2:1080
