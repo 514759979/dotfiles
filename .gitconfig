@@ -11,6 +11,7 @@
     cm = commit -am
     co = checkout
     rmc = rm --cached
+    af = add -f
     d = diff
     dd = diff --cached
     l = log
