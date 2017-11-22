@@ -1,6 +1,7 @@
 color diff-index        yellow    default
 color date   yellow    default
 color graph-commit cyan default
+color diff-stat cyan default
 
 bind generic l enter
 bind generic <Ctrl-f> move-page-down
