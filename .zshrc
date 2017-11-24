@@ -392,7 +392,7 @@ if [[ -e /dev/lxss ]] {
     export PATH=/usr/bin
     export DISPLAY=:0
     alias cmd='/init /mnt/c/Windows/System32/cmd.exe'
-    alias se='sudo /bin/systemctl.py'
+    alias se='sudo /bin/systemctl3.py'
     alias ahk='z c:/mine/app/AutoHotkey/AutoHotkeyU32.exe'
     alias ahk64='z c:/mine/app/AutoHotkey/AutoHotkeyU64.exe'
     alias np='st z c:/mine/app/notepad++/notepad++.exe'
