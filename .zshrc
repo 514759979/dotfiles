@@ -472,7 +472,7 @@ if [[ -e /dev/lxss ]] {
             echo "http://"$RPI[$((++index % 2 + 1))]"/data/dl/$file" >> url.txt
         }
 
-        aria2c -j2 -c -i url.txt
+        aria2c -c -i url.txt
         rm url.txt
     }
 } elif [[ $OSTYPE == *android* ]] {
