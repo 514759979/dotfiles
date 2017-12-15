@@ -477,18 +477,6 @@ if [[ -e /dev/lxss ]] {
     }
 } elif [[ $OSTYPE == *android* ]] {
     export SHELL=/data/data/com.termux/files/usr/bin/zsh
-    alias search_cpu='zsh ~/.bin/search_cpu'
-    alias cg='zsh ~/.bin/cg'
-    alias vg='zsh ~/.bin/vg'
-    alias n='zsh ~/.bin/n'
-    alias a='zsh ~/.bin/a'
-    alias al='zsh ~/.bin/al'
-    alias x='zsh ~/.bin/x'
-    alias chall='zsh ~/.bin/chall'
-    alias renamex='zsh ~/.bin/renamex'
-    alias dlsource='zsh ~/.bin/dlsource'
-    alias qip='zsh ~/.bin/qip'
-    alias rmdup='zsh ~/.bin/rmdup'
     alias dh='df 2>/dev/null'
     alias frm="free -m | sed 's/ \+/  /g'"
     alias mt='top'
