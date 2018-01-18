@@ -631,7 +631,13 @@ p2() {
 }
 
 exaac() {
-    ffmpeg -i $1 -vn -sn -c:a copy -y -map 0:a:0 $1.aac
+    # ffmpeg -i $1 -vn -sn -c:a copy -y -map 0:a:0 $1.aac
+    ffmpeg -i $1 -acodec copy -vn $1.aac
+}
+
+exmp4() {
+    ffmpeg -i $1 -acodec copy -vn $1.aac
+    ffmpeg -i $1 -vcodec copy -an $1.mp4
 }
 
 tophistory() {
