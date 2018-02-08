@@ -75,7 +75,8 @@ TERM xterm-debian
 NORMAL 00                    # no color code at all
 FILE 00                      # regular file: use no color at all
 RESET 0                      # reset to "normal" color
-DIR 01;32                    # directory
+DIR 00;36                    # directory
+#DIR 01;32                   # directory
 LINK 01;36                   # symbolic link.  (If you set this to 'target' instead of a
                              # numerical value, the color is as for the file pointed to.)
 MULTIHARDLINK 00             # regular file with more than one link
@@ -92,7 +93,7 @@ CAPABILITY 30;41             # file with capability
 STICKY_OTHER_WRITABLE 30;42  # dir that is sticky and other-writable (+t,o+w)
 OTHER_WRITABLE 00;36         # dir that is other-writable (o+w) and not sticky
 STICKY 37;44                 # dir with the sticky bit set (+t) and not other-writable
-EXEC 00                      # This is for files with execute permission:
+EXEC 01;32                   # This is for files with execute permission:
 
 # List any file extensions like '.gz' or '.tar' that you would like ls
 # to colorize below. Put the extension, a space, and the color init string.
