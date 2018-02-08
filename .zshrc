@@ -469,11 +469,15 @@ if [[ -e /dev/lxss ]] {
 
         curl http://$RPI[1]/data/dl/ | grep -Fv ".." | awk -F'"' '/href/{print $4}' \
             | while {read file} {
-            echo "http://"$RPI[$((++index % 2 + 1))]"/data/dl/$file" >> url.txt
+            #echo "http://"$RPI[$((++index % 2 + 1))]"/data/dl/$file" >> url.txt
+            echo "http://"$RPI[$((++index % 2 + 1))]"/data/dl/$file" >> url$((index % 2)).txt
         }
 
-        aria2c -c -i url.txt
-        rm url.txt
+        #aria2c -c -i url.txt
+        #rm url.txt
+
+        wget -b -i url0.txt -o url0.log
+        wget -b -i url1.txt -o url1.log
     }
 } elif [[ $OSTYPE == *android* ]] {
     export SHELL=/data/data/com.termux/files/usr/bin/zsh
