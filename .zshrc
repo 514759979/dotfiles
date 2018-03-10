@@ -348,7 +348,6 @@ alias w='w -i'
 alias dmg='dmesg'
 alias b='date +"%Y-%m-%d %H:%M:%S (%u)"'
 alias wd='w3m -dump'
-alias fm='ranger'
 alias di='colordiff'
 alias we='wget'
 alias tn='telnet'
@@ -399,7 +398,6 @@ if [[ -e /dev/lxss ]] {
     alias di='st z c:/mine/app/WinMerge/WinMergeU.exe'
     alias mpv='st z c:/mine/app/mpv/mpv.exe'
     alias flve='z c:/mine/app/FLV_Extract/FLVExtractCL.exe'
-    alias fm='tc'
     alias ipconfig='cmd /c ipconfig | ucat'
     alias tl='cmd /c tasklist'
     alias tlg='cmd /c tasklist | grep'
@@ -424,7 +422,7 @@ if [[ -e /dev/lxss ]] {
     alias vmresume='vm controlvm archlinux resume'
     alias vmhalt='vm controlvm archlinux poweroff'
 
-    tc() {
+    fm() {
         local filename
 
         if [[ -d $1 ]] {
