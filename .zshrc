@@ -385,6 +385,7 @@ alias ffprobe='ffprobe -hide_banner'
 alias chrome='/init /mnt/c/Users/goreliu/AppData/Local/CentBrowser/Application/chrome.exe'
 alias wgetall='wget -r -nd -np -c'
 alias wgetsite='wget -r -p -np -k -c'
+alias mksrcinfo='makepkg --printsrcinfo > .SRCINFO'
 # aliasend
 
 if [[ -e /dev/lxss ]] {
