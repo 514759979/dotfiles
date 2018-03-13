@@ -406,6 +406,8 @@ if [[ -e /dev/lxss ]] {
     alias cl='cmd /c clip'
     alias cmdtool='/mnt/c/mine/app/wsl-terminal/cmdtool'
     alias wtcc='z tcc'
+    alias wgcc='z gcc.exe'
+    alias wp='/init /mnt/c/mine/app/wsl-terminal/bin/mintty.exe /bin/winpty.exe'
     alias reg='z reg'
     alias vsls='w3m -dump http://$RPI[1]/data/dl | sed \$d'
     alias vsd='vs vsd'
