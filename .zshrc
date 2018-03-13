@@ -407,6 +407,8 @@ if [[ -e /dev/lxss ]] {
     alias cmdtool='/mnt/c/mine/app/wsl-terminal/cmdtool'
     alias wtcc='z tcc'
     alias wgcc='z gcc.exe'
+    alias wg++='z g++.exe'
+    alias wstrip='z strip.exe'
     alias wp='/init /mnt/c/mine/app/wsl-terminal/bin/mintty.exe /bin/winpty.exe'
     alias reg='z reg'
     alias vsls='w3m -dump http://$RPI[1]/data/dl | sed \$d'
@@ -790,6 +792,7 @@ if (($+commands[pacman])) {
     }
     alias pi='pac -S'
     alias pia='pac -S --noconfirm'
+    alias pid='pac -S -d -d'
     alias pli='pac -U'
     alias pud="pac -Syu"
     alias pudd="pac -Syu --aur"
