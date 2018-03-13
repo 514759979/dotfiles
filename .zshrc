@@ -367,8 +367,6 @@ alias uf='unfunction'
 alias ti='time'
 alias uu='. ~/.zshrc'
 alias uuu='exec zsh'
-alias zc='zrecompile ~/.zshrc ~/.zcompdump'
-alias zcc='zcompile ~/.zshrc; zcompile ~/.zcompdump'
 alias at='zmodload zsh/sched; sched'
 alias aria='aria2c -c -s10 -k1M -x16 --enable-rpc=false'
 alias runs='~/app/server/run'
@@ -767,6 +765,18 @@ rr() {
 
 vmpath() {
    echo scp -r $(hi):$(pwd)/$1 .
+}
+
+zc() {
+    [[ ~/.zshrc.zwc -nt ~/.zshrc ]] || {
+        echo update .zshrc.zwc
+        zcompile ~/.zshrc
+    }
+
+    [[ ~/.zcompdump.zwc -nt ~/.zcompdump ]] || {
+        echo update .zcompdump.zwc
+        zcompile ~/.zcompdump
+    }
 }
 # funcend
 
