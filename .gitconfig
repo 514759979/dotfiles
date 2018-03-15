@@ -34,5 +34,5 @@
 [core]
     pager = less -x1,5
     quotepath = false
-[http]
-    proxy = socks5://127.0.0.1:1080
+#[http]
+#    proxy = socks5://127.0.0.1:1080
