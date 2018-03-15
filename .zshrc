@@ -781,6 +781,14 @@ zc() {
         zcompile ~/.zcompdump
     }
 }
+
+mm() {
+    # /etc/mail/exim.conf
+    # begin rewrite
+    # goreliu@my-laptop goreliu@my.laptop.com Ffrs
+
+    mail -s "$*" ly50247@126.com
+}
 # funcend
 
 if (($+commands[pacman])) {
