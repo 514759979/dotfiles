@@ -33,3 +33,4 @@ data
 app
 .fonts
 .dbus
+.rnd
