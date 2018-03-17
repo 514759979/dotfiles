@@ -1,6 +1,6 @@
 #!/bin/bash
 
-~/app/site/apps/rpi/run
+~/site/apps/rpi/run
 
 sleep 10
 
