@@ -411,7 +411,7 @@ if [[ -e /dev/lxss ]] {
     alias wstrip='z strip.exe'
     alias wp='/init /mnt/c/mine/app/wsl-terminal/bin/mintty.exe /bin/winpty.exe'
     alias reg='z reg'
-    alias vsls='w3m -dump http://$RPI[1]/apps/data/dl | grep page_white'
+    alias vsls='w3m -dump http://$RPI[1]/apps/aria2c/data/dl | grep page_white'
     alias vsd='vs vsd'
     alias vsmv='vs vsmv'
     alias vsrm='vs vsrm'
@@ -467,7 +467,8 @@ if [[ -e /dev/lxss ]] {
 
         local index=0
 
-        curl http://$RPI[1]/apps/data/dl/ | grep -Fv ".." | grep -o '/apps/data/dl/[^"]\+' \
+        curl http://$RPI[1]/apps/aria2c/data/dl/ | grep -Fv ".." \
+            | grep -o '/apps/aria2c/data/dl/[^"]\+' \
             | while {read file} {
             echo "http://"$RPI[$((++index % 2 + 1))]"$file" >> ~/url$((index % 2)).txt
         }
