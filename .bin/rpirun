@@ -1,6 +1,8 @@
 #!/bin/bash
 
-~/site/apps/rpi/run
+cd /home/goreliu/site
+make start
+./apps/aria2c/start
 
 sleep 10
 
