@@ -15,9 +15,14 @@ delete_old_files() {
 }
 
 [[ $1 == "-r" ]] && {
+    [[ -e .running ]] || exit 1
+
     delete_old_files
+    rm .running
     exit
 }
+
+touch .running
 
 # JPG 作为中间扩展名
 rename .JPG .jpg **/*.JPG
