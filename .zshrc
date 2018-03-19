@@ -480,11 +480,13 @@ if [[ -e /dev/lxss ]] {
     }
 
     backupconf() {
-        z reg export HKEY_CURRENT_USER\\Software\\Honeyview "Honeyview_${HOST}_$(date +"%Y-%m-%d.%H_%M_%S").reg"
-        z reg export HKEY_CURRENT_USER\\Software\\Bandizip "Bandizip_${HOST}_$(date +"%Y-%m-%d.%H_%M_%S").reg"
+        z reg export HKEY_CURRENT_USER\\Software\\Honeyview \
+            "Honeyview_${HOST}_$(date +"%Y-%m-%d.%H_%M_%S").geg"
+        z reg export HKEY_CURRENT_USER\\Software\\Bandizip \
+            "randizip_${HOST}_$(date +"%Y-%m-%d.%H_%M_%S").reg"
     }
 } elif [[ $OSTYPE == *android* ]] {
-    export SHELL=/data/data/com.termux/files/usr/bin/zsh
+    export SHELL=/bin/zsh
     alias dh='df 2>/dev/null'
     alias frm="free -m | sed 's/ \+/  /g'"
     alias mt='top'
