@@ -388,6 +388,8 @@ alias mksrcinfo='makepkg --printsrcinfo > .SRCINFO'
 if [[ -e /dev/lxss ]] {
     export PATH=/usr/bin
     export DISPLAY=:0
+    /init /mnt/c/Windows/System32/chcp.com 65001 >/dev/null
+
     alias cmd='/init /mnt/c/Windows/System32/cmd.exe'
     alias se='sudo /bin/systemctl3.py'
     alias ahk='z c:/mine/app/AutoHotkey/AutoHotkeyU64.exe'
@@ -396,14 +398,14 @@ if [[ -e /dev/lxss ]] {
     alias di='st z c:/mine/app/WinMerge/WinMergeU.exe'
     alias mpv='st z c:/mine/app/mpv/mpv.exe'
     alias flve='z c:/mine/app/FLV_Extract/FLVExtractCL.exe'
-    alias ipconfig='cmd /c ipconfig | ucat'
-    alias tl='cmd /c tasklist'
-    alias tlg='cmd /c tasklist | grep'
-    alias netstat='cmd /c netstat'
-    alias ps1='cmd /c powershell'
+    alias ipconfig='/init /mnt/c/Windows/System32/ipconfig.exe | ucat'
+    alias tl='/init /mnt/c/Windows/System32/tasklist.exe'
+    alias tlg='/init /mnt/c/Windows/System32/tasklist.exe | grep'
+    alias netstat='/init /mnt/c/Windows/System32/netstat.exe'
+    alias ps1='/init /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe'
     alias pa='/init /mnt/c/mine/app/0misc/bin/pclip.exe'
-    alias msg="cmd /c msg $USER"
-    alias cl='cmd /c clip'
+    alias msg="/init /mnt/c/Windows/System32/msg.exe $USER"
+    alias cl='/init /mnt/c/Windows/System32/clip.exe'
     alias cmdtool='/mnt/c/mine/app/wsl-terminal/cmdtool'
     alias wtcc='z tcc'
     alias wgcc='z gcc.exe'
@@ -475,6 +477,11 @@ if [[ -e /dev/lxss ]] {
 
         wget -b -i ~/url0.txt -o ~/url0.log
         wget -b -i ~/url1.txt -o ~/url1.log
+    }
+
+    backupconf() {
+        z reg export HKEY_CURRENT_USER\\Software\\Honeyview "Honeyview_${HOST}_$(date +"%Y-%m-%d.%H_%M_%S").reg"
+        z reg export HKEY_CURRENT_USER\\Software\\Bandizip "Bandizip_${HOST}_$(date +"%Y-%m-%d.%H_%M_%S").reg"
     }
 } elif [[ $OSTYPE == *android* ]] {
     export SHELL=/data/data/com.termux/files/usr/bin/zsh
