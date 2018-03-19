@@ -388,7 +388,6 @@ alias mksrcinfo='makepkg --printsrcinfo > .SRCINFO'
 if [[ -e /dev/lxss ]] {
     export PATH=/usr/bin
     export DISPLAY=:0
-    #/init /mnt/c/Windows/System32/chcp.com 65001 >/dev/null
 
     alias cmd='/init /mnt/c/Windows/System32/cmd.exe'
     alias se='sudo /bin/systemctl3.py'
