@@ -480,7 +480,7 @@ if [[ -e /dev/lxss ]] {
 
     backupconf() {
         z reg export HKEY_CURRENT_USER\\Software\\Honeyview \
-            "Honeyview_${HOST}_$(date +"%Y-%m-%d.%H_%M_%S").geg"
+            "Honeyview_${HOST}_$(date +"%Y-%m-%d.%H_%M_%S").reg"
         z reg export HKEY_CURRENT_USER\\Software\\Bandizip \
             "randizip_${HOST}_$(date +"%Y-%m-%d.%H_%M_%S").reg"
     }
