@@ -402,7 +402,7 @@ if [[ -e /dev/lxss ]] {
     alias tlg='/init /mnt/c/Windows/System32/tasklist.exe | grep'
     alias netstat='/init /mnt/c/Windows/System32/netstat.exe'
     alias ps1='/init /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe'
-    alias pa='/init /mnt/c/mine/app/0misc/bin/pclip.exe'
+    alias pa='/init /mnt/c/mine/app/0misc/bin/pclip.exe | ucat'
     alias msg="/init /mnt/c/Windows/System32/msg.exe $USER"
     alias cl='/init /mnt/c/Windows/System32/clip.exe'
     alias cmdtool='/mnt/c/mine/app/wsl-terminal/cmdtool'
