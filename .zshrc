@@ -716,6 +716,18 @@ vs() {
     ssh -tq $USER@$RPI[1] $args
 }
 
+vs1() {
+    [[ $1 == "-r" ]] && {
+        ssh -tq -p 8022 $USER@192.168.1.3 $*[2,-1]
+        return
+    }
+
+    local args
+    (($# >= 1)) && args="zsh -ic '$*'"
+
+    ssh -tq -p 8022 $USER@192.168.1.3 $args
+}
+
 icm() {
     git cm "$*"
 }
