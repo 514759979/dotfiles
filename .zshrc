@@ -479,10 +479,34 @@ if [[ -e /dev/lxss ]] {
     }
 
     backupconf() {
-        z reg export HKEY_CURRENT_USER\\Software\\Honeyview \
-            "Honeyview_${HOST}_$(date +"%Y-%m-%d.%H_%M_%S").reg"
-        z reg export HKEY_CURRENT_USER\\Software\\Bandizip \
-            "randizip_${HOST}_$(date +"%Y-%m-%d.%H_%M_%S").reg"
+        cd /mnt/c/mine/app/0misc/conf || return 1
+
+        rm -r ${HOST}_*
+        mdcd ${HOST}_$(date +"%Y-%m-%d.%H_%M_%S")
+
+        z reg export HKEY_CURRENT_USER\\Software\\Honeyview Honeyview.reg
+        z reg export HKEY_CURRENT_USER\\Software\\Bandizip Bandizip.reg
+
+        cp "/mnt/c/Users/goreliu/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/mine.js" .
+
+        mdcd tc
+        cp /mnt/c/mine/app/totalcmd/{Wincmd.ini,TCMark.ini} .
+        cd $OLDPWD
+
+        mdcd vimd
+        cat /mnt/c/mine/app/VimDesktop/custom.ahk | grep -v RunAs > custom.ahk
+        cp /mnt/c/mine/app/VimDesktop/conf/vimd.ini .
+        cd $OLDPWD
+
+        mdcd runz
+        cp /mnt/c/mine/app/RunZ/conf/{RunZ.ini,RunZ.auto.ini} .
+        cd $OLDPWD
+
+        mdcd notepad++
+        cp /mnt/c/mine/app/notepad++/config.xml .
+        cd $OLDPWD
+
+        git add -f *
     }
 } elif [[ $OSTYPE == *android* ]] {
     export SHELL=/bin/zsh
