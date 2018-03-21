@@ -514,6 +514,8 @@ if [[ -e /dev/lxss ]] {
     alias frm="free -m | sed 's/ \+/  /g'"
     alias mt='top'
     alias chr='termux-chroot zsh'
+    alias lock='termux-wake-lock'
+    alias unlock='termux-wake-unlock'
 
     precmd() {
         PROMPT="%{%F{cyan}%}goreliu@%{%F{green}%}my-phone:%{%F{red}%}%(?..[%?]:)%{%F{white}%}%~"$'\n'"%% "
