@@ -383,6 +383,7 @@ alias chrome='/init /mnt/c/Users/goreliu/AppData/Local/CentBrowser/Application/c
 alias wgetall='wget -r -nd -np -c'
 alias wgetsite='wget -r -p -np -k -c'
 alias mksrcinfo='makepkg --printsrcinfo > .SRCINFO'
+alias rf='readlink -f'
 # aliasend
 
 if [[ -e /dev/lxss ]] {
@@ -417,13 +418,31 @@ if [[ -e /dev/lxss ]] {
     alias vsmv='vs vsmv'
     alias vsrm='vs vsrm'
 
-    alias vm='z c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
-    alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
-    alias vmup='vm startvm archlinux --type headless'
-    alias vmdown='vm controlvm archlinux savestate'
-    alias vmpause='vm controlvm archlinux pasue'
-    alias vmresume='vm controlvm archlinux resume'
-    alias vmhalt='vm controlvm archlinux poweroff'
+    #alias vm='z runas /env /savecred /user:administrator c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
+    #alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
+    #alias vmup='vm startvm archlinux --type headless'
+    #alias vmdown='vm controlvm archlinux savestate'
+    #alias vmpause='vm controlvm archlinux pause'
+    #alias vmresume='vm controlvm archlinux resume'
+    #alias vmhalt='vm controlvm archlinux poweroff'
+    alias vmup='o /mnt/c/mine/app/0misc/bin/vmup.js'
+    alias vmdown='o /mnt/c/mine/app/0misc/bin/vmdown.js'
+    alias vmpause='o /mnt/c/mine/app/0misc/bin/vmpause.js'
+    alias vmresume='o /mnt/c/mine/app/0misc/bin/vmresume.js'
+    alias vmhalt='o /mnt/c/mine/app/0misc/bin/vmhalt.js'
+
+
+    vv() {
+        [[ $1 == "-r" ]] && {
+            ssh -tq -p 2222 127.0.0.1 $*[2,-1]
+            return
+        }
+
+        local args
+        (($# >= 1)) && args="zsh -ic '$*'"
+
+        ssh -tq -p 2222 127.0.0.1 $args
+    }
 
     fm() {
         local filename
