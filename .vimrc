@@ -17,6 +17,7 @@ set hlsearch
 set autochdir
 set nobackup
 set laststatus=2
+set ignorecase
 syntax on
 syntax enable
 colorscheme elflord
