@@ -425,6 +425,7 @@ if [[ -e /dev/lxss ]] {
     #alias vmpause='vm controlvm archlinux pause'
     #alias vmresume='vm controlvm archlinux resume'
     #alias vmhalt='vm controlvm archlinux poweroff'
+    alias vm='o /mnt/c/mine/app/0misc/bin/vm.js'
     alias vmup='o /mnt/c/mine/app/0misc/bin/vmup.js'
     alias vmdown='o /mnt/c/mine/app/0misc/bin/vmdown.js'
     alias vmpause='o /mnt/c/mine/app/0misc/bin/vmpause.js'
