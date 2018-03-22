@@ -418,7 +418,7 @@ if [[ -e /dev/lxss ]] {
     alias vsmv='vs vsmv'
     alias vsrm='vs vsrm'
 
-    #alias vm='z runas /env /savecred /user:administrator c:/Progra~1/Oracle/VirtualBox/VBoxManage.exe'
+    #alias vm='z "c:/Program Files/Oracle/VirtualBox/VBoxManage.exe"'
     #alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
     #alias vmup='vm startvm archlinux --type headless'
     #alias vmdown='vm controlvm archlinux savestate'
