@@ -885,6 +885,8 @@ if (($+commands[pacman])) {
     alias pqo='pac -Qo'
     alias pqd='pac -Qdt'
     alias pqm='pac -Qqm'
+    alias pqt='pactree'
+    alias pqn='whoneeds'
     alias prd='pac -Rdd'
     alias pae='pac -D --asexplicit'
     alias pad='pac -D --asdeps'
