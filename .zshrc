@@ -421,6 +421,7 @@ if [[ -e /dev/lxss ]] {
     alias vsd='vs vsd'
     alias vsmv='vs vsmv'
     alias vsrm='vs vsrm'
+    alias uh='unset http_proxy; unset https_proxy'
 
     #alias vm='z "c:/Program Files/Oracle/VirtualBox/VBoxManage.exe"'
     #alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
