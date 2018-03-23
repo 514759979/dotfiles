@@ -129,9 +129,9 @@ bindkey '^y' sudo-command-line
 # ctrl + n 下一个历史命令
 # ctrl + o 用 vim 编辑命令行
 # ctrl + p 上一个历史命令
-# ctrl + q 恢复
-# ctrl + r 搜索历史命令
-# ctrl + s 冻结
+# ctrl + q 清空当前行并暂存，自动填到下一行
+# ctrl + r 向后搜索历史命令
+# ctrl + s 向前搜索历史命令
 # ctrl + t 输入转义字符
 # ctrl + u 交换左边两个字符
 # ctrl + v 输入转义字符
@@ -562,6 +562,8 @@ export EDITOR=vim
 export PAGER='less -irf'
 export GREP_COLOR='40;33;01'
 eval `dircolors ~/.dir_colors`
+# 禁用 ctrl + s
+stty -ixon
 
 # man 颜色
 export LESS_TERMCAP_mb=$'\E[01;31m'
