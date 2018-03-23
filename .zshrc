@@ -153,6 +153,8 @@ setopt AUTO_LIST
 setopt AUTO_MENU
 # 开启此选项，补全时会直接选中菜单项
 # setopt MENU_COMPLETE
+#
+fpath+=(~/.bin/comp)
 autoload -U compinit
 compinit
 
@@ -242,12 +244,12 @@ hash -d mine='/mnt/c/mine'
 
 # 加载函数
 autoload -U zmv
-autoload -U zrecompile
 
 # 按照对应命令补全
 compdef cwi=sudo
 compdef vwi=sudo
 compdef st=sudo
+compdef whoneeds=pactree
 #}}}
 
 #{{{ 和 zsh 无关的配置
@@ -389,6 +391,8 @@ alias rf='readlink -f'
 if [[ -e /dev/lxss ]] {
     export PATH=/usr/bin
     export DISPLAY=:0
+    export http_proxy=127.0.0.1:1080
+    export https_proxy=127.0.0.1:1080
 
     alias cmd='/init /mnt/c/Windows/System32/cmd.exe'
     alias se='sudo /bin/systemctl3.py'
@@ -551,12 +555,12 @@ if [[ -e /dev/lxss ]] {
     alias vsrm='rm -v ~/data/dl/*.*'
 }
 
-path+=($HOME/.bin)
-fpath+=($HOME/.bin)
+path+=(~/.bin)
+fpath+=(~/.bin ~/.zsh/Completion)
 export EDITOR=vim
 export PAGER='less -irf'
 export GREP_COLOR='40;33;01'
-eval `dircolors $HOME/.dir_colors`
+eval `dircolors ~/.dir_colors`
 
 # man 颜色
 export LESS_TERMCAP_mb=$'\E[01;31m'
