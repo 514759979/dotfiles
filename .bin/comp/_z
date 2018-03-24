@@ -1,0 +1,8 @@
+#compdef z
+
+_z() {
+    local -a commands=(notepad cmd echo reg chcp )
+    compadd $@ -a commands
+}
+
+_z $@
