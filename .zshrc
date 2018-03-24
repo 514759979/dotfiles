@@ -250,6 +250,9 @@ compdef cwi=sudo
 compdef vwi=sudo
 compdef st=sudo
 compdef whoneeds=pactree
+
+zstyle ':completion:*:ping:*' hosts www.baidu.com www.google.com
+zstyle ':completion:*:my-accounts' users-hosts goreliu@192.168.1.{2,3,6,7,9}
 #}}}
 
 #{{{ 和 zsh 无关的配置
