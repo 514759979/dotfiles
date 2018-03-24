@@ -25,7 +25,7 @@ delete_old_files() {
 touch .running
 
 # JPG 作为中间扩展名
-rename .JPG .jpg **/*.JPG
+rename .JPG _j.jpg **/*.JPG
 
 rr -j 30
 
