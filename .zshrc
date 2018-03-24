@@ -246,8 +246,8 @@ hash -d mine='/mnt/c/mine'
 autoload -U zmv
 
 # 按照对应命令补全
-compdef cwi=sudo
-compdef vwi=sudo
+compdef cwi=time
+compdef vwi=time
 compdef st=sudo
 compdef whoneeds=pactree
 
@@ -515,7 +515,9 @@ if [[ -e /dev/lxss ]] {
         z reg export HKEY_CURRENT_USER\\Software\\Honeyview Honeyview.reg
         z reg export HKEY_CURRENT_USER\\Software\\Bandizip Bandizip.reg
 
-        cp "/mnt/c/Users/goreliu/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/mine.js" .
+        cp -r "/mnt/c/Users/goreliu/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup" .
+        cp -r "/mnt/c/Users/goreliu/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/mine" .
+
 
         mdcd tc
         cp /mnt/c/mine/app/totalcmd/{Wincmd.ini,TCMark.ini} .
