@@ -524,7 +524,7 @@ if [[ -e /dev/lxss ]] {
         cd $OLDPWD
 
         mdcd vimd
-        cat /mnt/c/mine/app/VimDesktop/custom.ahk | grep -Ev "RunAs|Send" > custom.ahk
+        cat /mnt/c/mine/app/VimDesktop/custom.ahk | grep -Ev NONONO > custom.ahk
         cp /mnt/c/mine/app/VimDesktop/conf/vimd.ini .
         cd $OLDPWD
 
