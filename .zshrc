@@ -563,7 +563,6 @@ if [[ -e /dev/lxss ]] {
 }
 
 path+=(~/.bin)
-fpath+=(~/.bin ~/.zsh/Completion)
 export EDITOR=vim
 export PAGER='less -irf'
 export GREP_COLOR='40;33;01'
