@@ -15,7 +15,7 @@ while ((++index)) {
 
     ztcp $1 ${2:-80}
 
-    result=$(((EPOCHREALTIME - begin) * 1000 - 3.1))
+    result=$(((EPOCHREALTIME - begin) * 1000))
 
     fd=$REPLY
     [[ $fd == <-> ]] || exit 1
