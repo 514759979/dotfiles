@@ -127,8 +127,8 @@ command PlugInit !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
 
-Plug 'vim-scripts/L9'
-Plug 'vim-scripts/a.vim'
+"Plug 'vim-scripts/L9'
+"Plug 'vim-scripts/a.vim'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdtree'
 
