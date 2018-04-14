@@ -129,8 +129,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-scripts/L9'
 Plug 'vim-scripts/a.vim'
-Plug 'othree/vim-autocomplpop'
-Plug 'tsaleh/vim-supertab'
+Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdtree'
 
 call plug#end()
