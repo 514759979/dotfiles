@@ -389,13 +389,12 @@ alias wgetall='wget -r -nd -np -c'
 alias wgetsite='wget -r -p -np -k -c'
 alias mksrcinfo='makepkg --printsrcinfo > .SRCINFO'
 alias rf='readlink -f'
+alias ydl='youtube-dl'
 # aliasend
 
 if [[ -e /dev/lxss ]] {
     export PATH=/usr/bin
     export DISPLAY=:0
-    export http_proxy=127.0.0.1:1080
-    export https_proxy=127.0.0.1:1080
 
     alias cmd='/init /mnt/c/Windows/System32/cmd.exe'
     alias se='sudo /bin/systemctl3.py'
@@ -424,6 +423,7 @@ if [[ -e /dev/lxss ]] {
     alias vsd='vs vsd'
     alias vsmv='vs vsmv'
     alias vsrm='vs vsrm'
+    alias eh='export http_proxy=127.0.0.1:1080; export https_proxy=127.0.0.1:1080'
     alias uh='unset http_proxy; unset https_proxy'
     alias handle='/init /mnt/c/mine/app/Handle/handle64.exe'
 
