@@ -1,0 +1,21 @@
+#!/bin/zsh
+
+# https://item.taobao.com/item.htm?spm=a230r.1.14.20.43f3484cIuiCfE&id=554433335913&ns=1&abbucket=8#detail
+# https://item.taobao.com/item.htm?spm=a230r.1.14.40.43f3484cIuiCfE&id=540783236730&ns=1&abbucket=8#detail
+# https://item.taobao.com/item.htm?spm=a230r.1.14.16.396427bdkyYwKq&id=526973604640&ns=1&abbucket=8#detail
+
+# 180417
+table="4430 740 6294
+4440 740 6481
+4460 780 6695
+4570 780 7093
+4590 815 7271
+4670 795 7418
+4690 845 7628
+1230v3 1055 9328
+1231v3 1155 9640
+4770 1360 9796
+4790 1465 9997
+4790k 1730 11189"
+
+echo $table | awk '{printf("%6s  %6.2f  %6.2f\n", $1, $3 / $2, ($3 - 7271) * 100 / 7271)}'
