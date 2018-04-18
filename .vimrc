@@ -89,7 +89,6 @@ endfunction
 
 call Ca("qq", "q!")
 call Ca("w!!", "w !sudo tee >/dev/null %")
-call Ca("icmu", ":!git commit -am update")
 call Ca("ist", ":!git status")
 call Ca("idi", ":!git diff")
 "}}}
