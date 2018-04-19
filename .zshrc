@@ -47,7 +47,7 @@ export SAVEHIST=100000
 # 历史纪录文件
 export HISTFILE=~/.zhistory
 # 多个 zsh 间分享历史纪录
-setopt SHARE_HISTORY
+#setopt SHARE_HISTORY
 # 如果连续输入的命令相同，历史纪录中只保留一个
 setopt HIST_IGNORE_DUPS
 # 为历史纪录中的命令添加时间戳
