@@ -391,6 +391,7 @@ alias mksrcinfo='makepkg --printsrcinfo > .SRCINFO'
 alias rf='readlink -f'
 alias ydl='youtube-dl'
 alias bp='baidupcs'
+alias uselog='cat mine/app/0misc/log/run.log | grep '
 # aliasend
 
 if [[ -e /dev/lxss ]] {
