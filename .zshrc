@@ -390,6 +390,7 @@ alias wgetsite='wget -r -p -np -k -c'
 alias mksrcinfo='makepkg --printsrcinfo > .SRCINFO'
 alias rf='readlink -f'
 alias ydl='youtube-dl'
+alias bp='baidupcs'
 # aliasend
 
 if [[ -e /dev/lxss ]] {
