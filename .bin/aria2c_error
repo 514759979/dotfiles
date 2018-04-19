@@ -1,0 +1,14 @@
+#!/usr/bin/python
+# -*- coding:utf-8 -*-
+
+import xmlrpc.client
+from pprint import pprint
+
+server = xmlrpc.client.ServerProxy('http://192.168.1.6:6800/rpc')
+result = server.aria2.tellStopped(0, 10000)
+
+for i in result:
+    if i['errorCode'] != '0':
+        # pprint(i)
+        print(i['errorCode'] + ':' + i['errorMessage'])
+        print(i['gid'] + ' ' + i['files'][0]['path'])
