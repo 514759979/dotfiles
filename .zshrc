@@ -842,7 +842,7 @@ rr() {
 }
 
 vmpath() {
-   echo scp -r $(hi):$(pwd)/$1 .
+   echo scp -r $(hi | head -n 1):$(pwd)/$1
 }
 
 zc() {
