@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+z mklink /D 'c:\Users\goreliu\appdata\Local\Temp\' 'f:\system_temp\'
+z mklink /D 'c:\Users\goreliu\appdata\Local\CentBrowser\User Data\Default\Cache\' 'f:\chrome_cache\'
+z mklink /D 'c:\Users\goreliu\appdata\Local\CentBrowser\User Data\Default\Media Cache\' 'chrome_media_cache\'
+z mklink /D 'c:\Users\goreliu\appdata\Local\Steam\htmlcache\Cache\' 'f:\steam_cache\'
+z mklink /D 'c:\Users\goreliu\appdata\Local\Packages\36699Atelier39.forWin10_pke1vz55rvc1r\AC\INetHistory\' 'f:\system_temp\'
