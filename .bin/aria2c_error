@@ -9,7 +9,7 @@ result = server.aria2.tellStopped(0, 10000)
 for i in result:
     if i['errorCode'] == '0':
         print('Remove ' + i['gid'] + ' ' + i['files'][0]['path'])
-        server.aria2.remove(i['gid'])
+        print(server.aria2.removeDownloadResult(i['gid']))
     else:
         # from pprint import pprint
         # pprint(i)
