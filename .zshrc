@@ -393,6 +393,8 @@ alias rf='readlink -f'
 alias ydl='youtube-dl'
 alias bp='baidupcs'
 alias uselog='cat mine/app/0misc/log/run.log | grep '
+alias fa='fc -IA'
+alias fr='fc -IR'
 # aliasend
 
 if [[ -e /dev/lxss ]] {
