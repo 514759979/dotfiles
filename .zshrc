@@ -498,19 +498,19 @@ if [[ -e /dev/lxss ]] {
     }
 
     vsdl() {
-        cd ~/tmp
-
-        curl http://$RPI[1]/apps/aria2c/data/dl/$tmp | grep -Fv ".." \
+        curl http://$RPI[1]/apps/aria2c/data/dl/$1 | grep -Fv ".." \
             | grep -o '/apps/aria2c/data/dl/[^"]\+' \
             | while {read file} {
-            aria "http://"$RPI[1]"$file" "http://"$RPI[2]"$file"
+            [[ "/apps/aria2c/data/dl/$1" != $file* ]] && {
+                aria "http://$RPI[1]$file" "http://$RPI[2]$file"
+            }
         }
 
-        #for i (*(.N)) {
-        #    [[ "$(hexdump -n 10 $i | head -c 32)" == "0000000 0a0a 213c 4f44 5443 5059" ]] && {
-        #        rm $i && mkdir $i && (cd $i && vsdl $i)
-        #    }
-        #}
+        for i (*(.N)) {
+            [[ "$(hexdump -n 10 $i | head -c 32)" == "0000000 0a0a 213c 4f44 5443 5059" ]] && {
+                rm $i && mkdir $i && (cd $i && vsdl $1/$i)
+            }
+        }
     }
 
     backupconf() {
