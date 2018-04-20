@@ -30,6 +30,7 @@ rename .JPG _j.jpg **/*.JPG
 rr -j 30
 
 for i (**/*.(jpg|png|PNG|jpeg|JPEG)) {
+    # rr gm convert -quality 100 $i $i.JPG
     rr gm convert $i $i.JPG
 }
 
