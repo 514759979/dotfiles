@@ -498,12 +498,14 @@ if [[ -e /dev/lxss ]] {
     }
 
     vsdl() {
-        curl http://$RPI[1]/apps/aria2c/data/dl/$1 | grep -Fv ".." \
-            | grep -o '/apps/aria2c/data/dl/[^"]\+' \
+        (($# == 0)) && {
+            1=http://192.168.1.6/apps/aria2c/data/dl
+        }
+
+        wget $1 -O - 2>/dev/null \
+            | sed '1,/Parent folder/d' | grep -o 'href="[^"]\+' | sed 's/href="//g' \
             | while {read file} {
-            [[ "/apps/aria2c/data/dl/$1" != $file* ]] && {
-                aria "http://$RPI[1]$file" "http://$RPI[2]$file"
-            }
+            aria http://$RPI[1]$file http://$RPI[2]$file
         }
 
         for i (*(.N)) {
