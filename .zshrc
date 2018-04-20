@@ -500,16 +500,17 @@ if [[ -e /dev/lxss ]] {
     vsdl() {
         cd ~/tmp
 
-        local index=0
-
-        curl http://$RPI[1]/apps/aria2c/data/dl/ | grep -Fv ".." \
+        curl http://$RPI[1]/apps/aria2c/data/dl/$tmp | grep -Fv ".." \
             | grep -o '/apps/aria2c/data/dl/[^"]\+' \
             | while {read file} {
-            echo "http://"$RPI[$((++index % 2 + 1))]"$file" >> ~/url$((index % 2)).txt
+            aria "http://"$RPI[1]"$file" "http://"$RPI[2]"$file"
         }
 
-        wget -b -i ~/url0.txt -o ~/url0.log
-        wget -b -i ~/url1.txt -o ~/url1.log
+        #for i (*(.N)) {
+        #    [[ "$(hexdump -n 10 $i | head -c 32)" == "0000000 0a0a 213c 4f44 5443 5059" ]] && {
+        #        rm $i && mkdir $i && (cd $i && vsdl $i)
+        #    }
+        #}
     }
 
     backupconf() {

@@ -16,4 +16,4 @@ for i in s.tellStopped(0, 10000):
         print(i['gid'] + ' ' + i['files'][0]['path'])
         print('Retry ...')
         s.addUri([i['files'][0]['uris'][0]['uri']] * 5, s.getOption(i['gid']))
-        # print(s.removeDownloadResult(i['gid']))
+        print(s.removeDownloadResult(i['gid']))
