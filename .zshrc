@@ -395,6 +395,7 @@ alias bp='baidupcs'
 alias uselog='cat mine/app/0misc/log/run.log | grep '
 alias fa='fc -IA'
 alias fr='fc -IR'
+alias dlc='DIANA_HOST=192.168.1.6 diana'
 # aliasend
 
 if [[ -e /dev/lxss ]] {
