@@ -391,7 +391,7 @@ alias dlrpi='wgetsite 192.168.1.7:8888; mv 192.168.1.7:8888/* .; rm index.html; 
 alias mksrcinfo='makepkg --printsrcinfo > .SRCINFO'
 alias rf='readlink -f'
 alias ydl='youtube-dl'
-alias uselog='cat mine/app/0misc/log/run.log | grep '
+alias uselog='cat ~/mine/app/0misc/log/run.log | grep '
 alias fa='fc -IA'
 alias fr='fc -IR'
 alias dlc='DIANA_HOST=192.168.1.6 diana'
