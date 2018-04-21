@@ -874,14 +874,14 @@ mm() {
 }
 
 b() {
-    dir=/
+    local_dir=$(readlink -f $PWD)
 
-    [[ $PWD == /mnt/* ]] && {
-        dir=/store/$PWD[8,-1]
-    }
+    [[ $local_dir == /mnt/* ]] && {
+        remote_dir=/store/$local_dir[8,-1]
 
-    [[ "$(baidupcs pwd)" == $dir ]] || {
-        baidupcs cd $dir
+        [[ "$(baidupcs pwd)" == $remote_dir ]] || {
+            baidupcs cd $remote_dir
+        }
     }
 
     baidupcs $*
