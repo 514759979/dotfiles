@@ -3,6 +3,7 @@
 .bash_history
 .bin/darkhttpd
 .bin/tailf
+.bin/vi
 .bin/z
 .bypy
 .cache

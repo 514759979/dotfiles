@@ -67,35 +67,33 @@ unsetopt BEEP
 #}}}
 
 #{{{ 按键绑定
-# 影响功能键的使用
-bindkey "\e[1~"   beginning-of-line
-bindkey "\e[2~"   insert-last-word
-bindkey "\e[3~"   delete-char
-bindkey "\e[4~"   end-of-line
-bindkey "\e[5~"   backward-word
-bindkey "\e[6~"   forward-word
-bindkey "\e[7~"   beginning-of-line
-bindkey "\e[8~"   end-of-line
-bindkey "\e[A"    up-line-or-search
-bindkey "\e[B"    down-line-or-search
-bindkey "\e[C"    forward-char
-bindkey "\e[D"    backward-char
-bindkey "\eOH"    beginning-of-line
-bindkey "\eOF"    end-of-line
-bindkey "\e[H"    beginning-of-line
-bindkey "\e[F"    end-of-line
+# 影响功能键的使用，和 export EDITOR=vim 有关
+#bindkey "\e[1~"   beginning-of-line
+#bindkey "\e[2~"   insert-last-word
+#bindkey "\e[3~"   delete-char
+#bindkey "\e[4~"   end-of-line
+#bindkey "\e[5~"   backward-word
+#bindkey "\e[6~"   forward-word
+#bindkey "\e[7~"   beginning-of-line
+#bindkey "\e[8~"   end-of-line
+#bindkey "\e[A"    up-line-or-search
+#bindkey "\e[B"    down-line-or-search
+#bindkey "\e[C"    forward-char
+#bindkey "\e[D"    backward-char
+#bindkey "\eOH"    beginning-of-line
+#bindkey "\eOF"    end-of-line
+#bindkey "\e[H"    beginning-of-line
+#bindkey "\e[F"    end-of-line
 
 bindkey "^p"      up-line-or-search
 bindkey "^n"      down-line-or-search
 bindkey '^f'      forward-word
 bindkey '^b'      backward-word
-bindkey '^j'      backward-kill-word
-bindkey '^k'      kill-word
+bindkey '^k'      backward-kill-word
 bindkey '^u'      transpose-chars
 bindkey '^t'      quoted-insert
 bindkey '^g'      kill-line
 bindkey '^w'      backward-kill-line
-
 
 # 用 vim 编辑命令行
 autoload -U       edit-command-line
@@ -345,7 +343,7 @@ alias lc='lolcat'
 alias sm='sudo mount'
 alias um='sudo umount'
 alias sf='neofetch'
-alias vrc='vim ~/.zshrc; zc; . ~/.zshrc'
+alias vrc='vim ~/.zshrc; zc; exec zsh'
 alias u='cd -'
 alias up='uptime'
 alias w='w -i'
@@ -369,8 +367,7 @@ alias idi='git diff'
 alias idig='git diff | ucat | le'
 alias uf='unfunction'
 alias ti='time'
-alias uu='. ~/.zshrc'
-alias uuu='exec zsh'
+alias uu='exec zsh'
 alias at='zmodload zsh/sched; sched'
 alias aria='aria2c -c -s10 -k1M -x16 --enable-rpc=false'
 alias runs='~/app/server/run'
@@ -580,7 +577,8 @@ if [[ -e /dev/lxss ]] {
 }
 
 path+=(~/.bin)
-export EDITOR=vim
+# 开启后 exec zsh 后 ctrl + a 异常
+# export EDITOR=vim
 export PAGER='less -irf'
 export GREP_COLOR='40;33;01'
 eval `dircolors ~/.dir_colors`
