@@ -785,9 +785,9 @@ icm() {
 syncdir() {
     # syncdir dir1/ dir2/
     if [[ $3 == "-r" ]] {
-        rsync --delete -av $1/ $2/
+        rsync --exclude foobar2000/running --delete -av $1/ $2/
     } else {
-        rsync -n --delete -av $1/ $2/
+        rsync --exclude foobar2000/running -n --delete -av $1/ $2/
     }
 }
 
