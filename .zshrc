@@ -335,7 +335,6 @@ alias frm='free -m'
 alias d='tree'
 alias gmc='gm convert'
 alias jl='ll /dev | grep -E "(sd|mmcblk)"'
-alias tf='tail -f'
 alias pb='dlsource search'
 alias pbg='dlsource download'
 alias pbu='dlsource update'
@@ -928,6 +927,14 @@ b() {
     }
 
     baidupcs $*
+}
+
+tf() {
+    if [[ -e /dev/lxss && "$(readlink -f $PWD)" == /mnt/* ]] {
+        tailf $*
+    } else {
+        tail -f $*
+    }
 }
 # funcend
 

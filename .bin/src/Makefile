@@ -1,4 +1,4 @@
-all: ../darkhttpd ../z
+all: ../darkhttpd ../z ../tailf
 
 ../darkhttpd: darkhttpd.c
 	gcc -Ofast -DNO_IPV6 -DBUILD_DATE="\"$$(date "+%Y-%m-%d %H:%M:%S")\"" $< -o $@
@@ -9,7 +9,6 @@ all: ../darkhttpd ../z
 	gcc -Ofast $< -o $@
 	strip $@
 
-#../libmymock.so: libmymock.c
-#	gcc -shared -fPIC $< -o $@
-#	chmod -x $@
-#	strip $@
+../tailf: tailf.c
+	gcc -Ofast $< -o $@
+	strip $@
