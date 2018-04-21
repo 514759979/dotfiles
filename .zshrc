@@ -67,33 +67,33 @@ unsetopt BEEP
 #}}}
 
 #{{{ 按键绑定
-# 影响功能键的使用，和 export EDITOR=vim 有关
-#bindkey "\e[1~"   beginning-of-line
-#bindkey "\e[2~"   insert-last-word
-#bindkey "\e[3~"   delete-char
-#bindkey "\e[4~"   end-of-line
-#bindkey "\e[5~"   backward-word
-#bindkey "\e[6~"   forward-word
-#bindkey "\e[7~"   beginning-of-line
-#bindkey "\e[8~"   end-of-line
-#bindkey "\e[A"    up-line-or-search
-#bindkey "\e[B"    down-line-or-search
-#bindkey "\e[C"    forward-char
-#bindkey "\e[D"    backward-char
-#bindkey "\eOH"    beginning-of-line
-#bindkey "\eOF"    end-of-line
-#bindkey "\e[H"    beginning-of-line
-#bindkey "\e[F"    end-of-line
+# 影响功能键的使用
+bindkey "\e[1~"   beginning-of-line
+bindkey "\e[2~"   insert-last-word
+bindkey "\e[3~"   delete-char
+bindkey "\e[4~"   end-of-line
+bindkey "\e[5~"   backward-word
+bindkey "\e[6~"   forward-word
+bindkey "\e[7~"   beginning-of-line
+bindkey "\e[8~"   end-of-line
+bindkey "\e[A"    up-line-or-search
+bindkey "\e[B"    down-line-or-search
+bindkey "\e[C"    forward-char
+bindkey "\e[D"    backward-char
+bindkey "\eOH"    beginning-of-line
+bindkey "\eOF"    end-of-line
+bindkey "\e[H"    beginning-of-line
+bindkey "\e[F"    end-of-line
 
 bindkey "^p"      up-line-or-search
 bindkey "^n"      down-line-or-search
-bindkey '^f'      forward-word
-bindkey '^b'      backward-word
-bindkey '^k'      backward-kill-word
-bindkey '^u'      transpose-chars
 bindkey '^t'      quoted-insert
+bindkey '^w'      forward-word
+bindkey '^u'      backward-word
+bindkey '^f'      kill-word
+bindkey '^k'      backward-kill-word
 bindkey '^g'      kill-line
-bindkey '^w'      backward-kill-line
+bindkey '^b'      backward-kill-line
 
 # 用 vim 编辑命令行
 autoload -U       edit-command-line
@@ -112,16 +112,16 @@ zle -N sudo-command-line
 bindkey '^y' sudo-command-line
 
 # ctrl + a 行首
-# ctrl + b 往左移动一个词
+# ctrl + b 删除左边所有内容
 # ctrl + c 发送 SIGINT 信号
 # ctrl + d 结束输入
 # ctrl + e 行尾
-# ctrl + f 往右移动一个词
+# ctrl + f 删除右边一个词
 # ctrl + g 删除右边所有内容
 # ctrl + h 退格
 # ctrl + i tab
-# ctrl + j 删除左边一个词
-# ctrl + k 删除右边一个词
+# ctrl + j 回车（不能修改，不然影响 shift + 回车）
+# ctrl + k 删除左边一个词
 # ctrl + l 清屏
 # ctrl + m 回车
 # ctrl + n 下一个历史命令
@@ -130,10 +130,10 @@ bindkey '^y' sudo-command-line
 # ctrl + q 清空当前行并暂存，自动填到下一行
 # ctrl + r 向后搜索历史命令
 # ctrl + s 向前搜索历史命令
-# ctrl + t 输入转义字符
-# ctrl + u 交换左边两个字符
+# ctrl + t 输入转义字符（代替 ctrl + v）
+# ctrl + u 向左移动一个词
 # ctrl + v 输入转义字符
-# ctrl + w 删除左边所有内容
+# ctrl + w 向右移动一个词
 # ctrl + x 很多功能
 # ctrl + y 命令前添加 sudo
 # ctrl + z 休眠当前进程
