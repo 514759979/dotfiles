@@ -216,7 +216,7 @@ case ${0:t} {
     }
 
     for i ($*) {
-        local outdir=${i%.*}
+        local outdir=${${i:t}%.*}
 
         [[ $outdir == *.tar ]] && {
             outdir=$outdir[1, -5]
