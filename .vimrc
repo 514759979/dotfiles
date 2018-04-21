@@ -59,17 +59,6 @@ inoremap <C-t> <C-v>
 nnoremap <C-t> <C-v>
 vnoremap <C-t> <C-v>
 cnoremap <C-t> <C-v>
-
-" CTRL-A is Select all
-"noremap <C-A> gggH<C-O>G
-"inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
-"cnoremap <C-A> <C-C>gggH<C-O>G
-"onoremap <C-A> <C-C>gggH<C-O>G
-"snoremap <C-A> <C-C>gggH<C-O>G
-"xnoremap <C-A> <C-C>ggV
-
-"nnoremap <C-l> <C-v>
-"nnoremap <C-v> :r!~/.bin/wrun pclip<cr>
 "}}}
 
 "{{{ function
@@ -115,8 +104,8 @@ command NT NERDTreeToggle
 "}}}
 
 "{{{ supertab
-let g:SuperTabMappingForward = '<s-tab>'
-let g:SuperTabMappingBackward = '<tab>'
+let g:SuperTabMappingForward = '<c-p>'
+let g:SuperTabMappingBackward = '<c-n>'
 "}}}
 
 "{{{ vim-plug
