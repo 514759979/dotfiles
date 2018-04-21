@@ -391,6 +391,7 @@ alias fa='fc -IA'
 alias fr='fc -IR'
 alias dlc='DIANA_HOST=192.168.1.6 diana'
 alias to='touch'
+alias syncmine='syncdir /mnt/c/mine /mnt/e/mine'
 # aliasend
 
 if [[ -e /dev/lxss ]] {
@@ -787,14 +788,6 @@ syncdir() {
         rsync --delete -av $1/ $2/
     } else {
         rsync -n --delete -av $1/ $2/
-    }
-}
-
-syncmine() {
-    if [[ $3 == "-r" ]] {
-        rsync --exclude "TCMark.ini" --exclude "foobar2000/*" --delete -av $1/ $2/
-    } else {
-        rsync --exclude "TCMark.ini" --exclude "foobar2000/*" -n --delete -av $1/ $2/
     }
 }
 
