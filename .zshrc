@@ -391,7 +391,6 @@ alias dlrpi='wgetsite 192.168.1.7:8888; mv 192.168.1.7:8888/* .; rm index.html; 
 alias mksrcinfo='makepkg --printsrcinfo > .SRCINFO'
 alias rf='readlink -f'
 alias ydl='youtube-dl'
-alias uselog='cat ~/mine/app/0misc/log/run.log | grep '
 alias fa='fc -IA'
 alias fr='fc -IR'
 alias dlc='DIANA_HOST=192.168.1.6 diana'
@@ -546,6 +545,15 @@ if [[ -e /dev/lxss ]] {
         cd $OLDPWD
 
         git add -f *
+    }
+
+    uselog() {
+        local query="$*"
+        [[ -n $query ]] || {
+            query="^$(date +%Y%m%d)"
+        }
+
+        cat ~/mine/app/0misc/log/run.log | grep $query
     }
 } elif [[ $OSTYPE == *android* ]] {
     export SHELL=/bin/zsh
