@@ -351,7 +351,7 @@ alias u='cd -'
 alias up='uptime'
 alias w='w -i'
 alias dmg='dmesg'
-alias b='date +"%Y-%m-%d %H:%M:%S (%u)"'
+alias da='date +"%Y-%m-%d %H:%M:%S (%u)"'
 alias wd='w3m -dump'
 alias di='colordiff'
 alias we='wget'
@@ -391,7 +391,6 @@ alias dlrpi='wgetsite 192.168.1.7:8888; mv 192.168.1.7:8888/* .; rm index.html; 
 alias mksrcinfo='makepkg --printsrcinfo > .SRCINFO'
 alias rf='readlink -f'
 alias ydl='youtube-dl'
-alias bp='baidupcs'
 alias uselog='cat mine/app/0misc/log/run.log | grep '
 alias fa='fc -IA'
 alias fr='fc -IR'
@@ -872,6 +871,20 @@ mm() {
     # goreliu@my-laptop goreliu@my.laptop.com Ffrs
 
     mail -s "$*" ly50247@126.com
+}
+
+b() {
+    dir=/
+
+    [[ $PWD == /mnt/* ]] && {
+        dir=/store/$PWD[8,-1]
+    }
+
+    [[ "$(baidupcs pwd)" == $dir ]] || {
+        baidupcs cd $dir
+    }
+
+    baidupcs $*
 }
 # funcend
 
