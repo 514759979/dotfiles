@@ -507,7 +507,7 @@ if [[ -e /dev/lxss ]] {
         }
 
         for i (*(.N)) {
-            [[ "$(hexdump -n 10 $i | head -c 32)" == "0000000 0a0a 213c 4f44 5443 5059" ]] && {
+            [[ $(hexdump -n 10 $i | head -c 32) == "0000000 0a0a 213c 4f44 5443 5059" ]] && {
                 rm $i && mkdir $i && (cd $i && vsdl $1/$i)
             }
         }
@@ -930,7 +930,7 @@ b() {
 }
 
 tf() {
-    if [[ -e /dev/lxss && "$(readlink -f $PWD)" == /mnt/* ]] {
+    if [[ -e /dev/lxss && $(readlink -f $PWD) == /mnt/* ]] {
         tailf $*
     } else {
         tail -f $*
