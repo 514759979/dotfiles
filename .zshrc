@@ -51,7 +51,7 @@ export HISTFILE=~/.zhistory
 # 如果连续输入的命令相同，历史纪录中只保留一个
 setopt HIST_IGNORE_DUPS
 # 为历史纪录中的命令添加时间戳
-setopt EXTENDED_HISTORY
+#setopt EXTENDED_HISTORY
 # 启用 cd 命令的历史纪录，cd -[TAB]进入历史路径
 setopt AUTO_PUSHD
 # 相同的历史路径只保留一个
