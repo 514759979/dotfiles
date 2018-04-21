@@ -430,6 +430,7 @@ if [[ -e /dev/lxss ]] {
     alias eh='export http_proxy=127.0.0.1:1080; export https_proxy=127.0.0.1:1080'
     alias uh='unset http_proxy; unset https_proxy'
     alias handle='/init /mnt/c/mine/app/Handle/handle64.exe'
+    alias sslog='tailf /mnt/c/mine/app/shadowsocks/ss_win_temp/shadowsocks.log'
 
     #alias vm='z "c:/Program Files/Oracle/VirtualBox/VBoxManage.exe"'
     #alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
