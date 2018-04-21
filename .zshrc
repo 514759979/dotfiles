@@ -875,6 +875,7 @@ mm() {
 
 b() {
     local_dir=$(readlink -f $PWD)
+    remote_dir=/
 
     [[ $local_dir == /mnt/* ]] && {
         remote_dir=/store/$local_dir[8,-1]
@@ -882,6 +883,40 @@ b() {
         [[ "$(baidupcs pwd)" == $remote_dir ]] || {
             baidupcs cd $remote_dir
         }
+    }
+
+    [[ $1 == push ]] && {
+        baidupcs synch -cru $local_dir $remote_dir
+        return
+    }
+
+    [[ $1 == cmp ]] && {
+        baidupcs compare -cru $local_dir $remote_dir
+        return
+    }
+
+    [[ $1 == diffc ]] && {
+        vimdiff <(ls | sed "s|^|$remote_dir/|g" | sort) \
+            <(baidupcs ls | grep /store/ | sed 's|^.*  /store/|/store/|g' | sort)
+        return
+    }
+
+    [[ $1 == diff ]] && {
+        find | sed "1d; s|^./|$remote_dir/|g" | sort > /tmp/local.txt
+
+        echo -n > /tmp/remote.tmp.txt
+        for i (. **/(N)) {
+            echo List $i ...
+            baidupcs ls $i | grep /store/ >> /tmp/remote.tmp.txt
+        }
+
+        cat /tmp/remote.tmp.txt | sed 's|^.*  /store/|/store/|g' | sort > /tmp/remote.txt
+
+        vimdiff /tmp/local.txt /tmp/remote.txt
+
+        =rm /tmp/{local.txt,remote.txt,remote.tmp.txt}
+
+        return
     }
 
     baidupcs $*
