@@ -41,9 +41,9 @@ case $TERM {
 
 #{{{ 关于历史纪录的配置
 # 历史纪录条目数量
-export HISTSIZE=100000
+export HISTSIZE=10000
 # 注销后保存的历史纪录条目数量
-export SAVEHIST=100000
+export SAVEHIST=10000
 # 历史纪录文件
 export HISTFILE=~/.zhistory
 # 多个 zsh 间分享历史纪录
