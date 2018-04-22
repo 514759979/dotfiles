@@ -20,7 +20,11 @@ set laststatus=2
 set ignorecase
 syntax on
 syntax enable
+"colorscheme industry
 colorscheme elflord
+if &diff
+    colorscheme blue
+endif
 filetype plugin indent on
 "}}}
 
