@@ -46,6 +46,8 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 # 历史纪录文件
 export HISTFILE=~/.zhistory
+# 修改 esc 超时时间为 0.01s
+export KEYTIMEOUT=1
 # 多个 zsh 间分享历史纪录
 #setopt SHARE_HISTORY
 # 如果连续输入的命令相同，历史纪录中只保留一个
@@ -72,6 +74,8 @@ bindkey "^a"      beginning-of-line
 bindkey "^e"      end-of-line
 bindkey "^r"      history-incremental-search-backward
 bindkey "^s"      history-incremental-search-forward
+# 避免从普通模式转换成插入模式后退格键无法删除内容
+bindkey "^?"      backward-delete-char
 
 # 影响功能键的使用
 bindkey "\e[1~"   beginning-of-line
