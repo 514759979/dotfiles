@@ -290,7 +290,6 @@ alias v='vim -p'
 alias sv='sudo vim -p'
 alias py='python3'
 alias py2='python2'
-alias py3='python3'
 alias info='info --vi-keys'
 alias s='sudo'
 alias hd='hexdump -C'
@@ -298,7 +297,7 @@ alias le='less -iRf'
 alias dh='df -hT'
 alias hi='ifconfig 2>/dev/null | grep broadcast | cut -d" " -f10'
 alias upf='droopy 8888'
-alias dof="echo $(hi | head -n 1):8888; darkhttpd \$PWD --port 8888"
+alias dof="echo $(hi | tail -n 1):8888; darkhttpd \$PWD --port 8888"
 alias ucat='iconv -f gb18030 -t utf-8 -c'
 alias gcat='iconv -f utf-8 -t gb18030 -c'
 alias u16cat='iconv -f utf-16 -t utf-8 -c'
@@ -342,18 +341,17 @@ alias utf8_add_bom='sed -i "1s/^/\xEF\xBB\xBF/g"'
 alias lc='lolcat'
 alias sm='sudo mount'
 alias um='sudo umount'
-alias sf='neofetch'
 alias vrc='vim ~/.zshrc; zc; exec zsh'
 alias u='cd -'
-alias up='uptime'
 alias w='w -i'
 alias dmg='dmesg'
 alias da='date +"%Y-%m-%d %H:%M:%S (%u)"'
 alias wd='w3m -dump'
 alias di='colordiff'
 alias we='wget'
+alias cu='curl -L'
 alias tn='telnet'
-alias calc='noglob calculate'
+alias ca='noglob calc'
 alias mmv='noglob zmv -W'
 alias rpd='rm -rv $PWD && cd ..'
 alias rpdf='rm -rvf $PWD && cd ..'
@@ -370,17 +368,14 @@ alias ti='time'
 alias uu='exec zsh'
 alias at='zmodload zsh/sched; sched'
 alias aria='aria2c -c -s10 -k1M -x16 --enable-rpc=false'
-alias runs='~/app/server/run'
 alias dos2unix='sed -i "s/\r$//g"'
 alias unix2dos='sed -i "s/$/\r/g"'
 alias sshs='sudo /bin/sshd'
 alias sshk='sudo killall sshd'
 alias sort='LANG=C sort'
-alias csc='/init /mnt/c/Windows/Microsoft.NET/Framework64/v4.0.30319/csc.exe /utf8output /nologo'
 alias ma='make'
 alias ffmpeg='ffmpeg -hide_banner'
 alias ffprobe='ffprobe -hide_banner'
-alias chrome='/init /mnt/c/Users/goreliu/AppData/Local/CentBrowser/Application/chrome.exe'
 alias wgetall='wget -r -nd -np -c'
 alias wgetsite='wget -r -p -np -k -c'
 alias dlrpi='wgetsite 192.168.1.7:8888; mv 192.168.1.7:8888/* .; rm index.html; rd 192.168.1.7:8888'
@@ -391,7 +386,6 @@ alias fa='fc -IA'
 alias fr='fc -IR'
 alias dlc='DIANA_HOST=192.168.1.6 diana'
 alias to='touch'
-alias syncmine='syncdir /mnt/c/mine /mnt/e/mine'
 # aliasend
 
 if [[ -e /dev/lxss ]] {
@@ -399,7 +393,6 @@ if [[ -e /dev/lxss ]] {
     export DISPLAY=:0
 
     alias cmd='/init /mnt/c/Windows/System32/cmd.exe'
-    alias se='sudo /bin/systemctl3.py'
     alias ahk='z c:/mine/app/AutoHotkey/AutoHotkeyU64.exe'
     alias ahk32='z c:/mine/app/AutoHotkey/AutoHotkeyU32.exe'
     alias np='st z c:/mine/app/notepad++/notepad++.exe'
@@ -414,7 +407,10 @@ if [[ -e /dev/lxss ]] {
     alias pa='/init /mnt/c/mine/app/0misc/bin/pclip.exe | ucat'
     alias msg="/init /mnt/c/Windows/System32/msg.exe $USER"
     alias cl='/init /mnt/c/Windows/System32/clip.exe'
+    alias csc='/init /mnt/c/Windows/Microsoft.NET/Framework64/v4.0.30319/csc.exe /utf8output /nologo'
+    alias chrome='/init /mnt/c/Users/goreliu/AppData/Local/CentBrowser/Application/chrome.exe'
     alias cmdtool='/mnt/c/mine/app/wsl-terminal/cmdtool'
+    alias se='sudo /bin/systemctl3.py'
     alias wtcc='z tcc'
     alias wgcc='z gcc.exe'
     alias wg++='z g++.exe'
@@ -429,21 +425,13 @@ if [[ -e /dev/lxss ]] {
     alias uh='unset http_proxy; unset https_proxy'
     alias handle='/init /mnt/c/mine/app/Handle/handle64.exe'
     alias sslog='tailf /mnt/c/mine/app/shadowsocks/ss_win_temp/shadowsocks.log'
-
-    #alias vm='z "c:/Program Files/Oracle/VirtualBox/VBoxManage.exe"'
-    #alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
-    #alias vmup='vm startvm archlinux --type headless'
-    #alias vmdown='vm controlvm archlinux savestate'
-    #alias vmpause='vm controlvm archlinux pause'
-    #alias vmresume='vm controlvm archlinux resume'
-    #alias vmhalt='vm controlvm archlinux poweroff'
+    alias syncmine='syncdir /mnt/c/mine /mnt/e/mine'
     alias vm='o /mnt/c/mine/app/0misc/bin/vm.js'
     alias vmup='o /mnt/c/mine/app/0misc/bin/vmup.js'
     alias vmdown='o /mnt/c/mine/app/0misc/bin/vmdown.js'
     alias vmpause='o /mnt/c/mine/app/0misc/bin/vmpause.js'
     alias vmresume='o /mnt/c/mine/app/0misc/bin/vmresume.js'
     alias vmhalt='o /mnt/c/mine/app/0misc/bin/vmhalt.js'
-
 
     vv() {
         [[ $1 == "-r" ]] && {
@@ -525,7 +513,6 @@ if [[ -e /dev/lxss ]] {
         cp -r "/mnt/c/Users/goreliu/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup" .
         cp -r "/mnt/c/Users/goreliu/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/mine" .
 
-
         mdcd tc
         cp /mnt/c/mine/app/totalcmd/{Wincmd.ini,TCMark.ini} .
         cd $OLDPWD
@@ -567,10 +554,8 @@ if [[ -e /dev/lxss ]] {
         PROMPT="%{%F{cyan}%}goreliu@%{%F{green}%}my-phone:%{%F{red}%}%(?..[%?]:)%{%F{white}%}%~"$'\n'"%% "
     }
 } else {
-    alias smvb='sudo mount.vboxsf -o uid=1000,gid=1000,rw,dmode=700,fmode=600'
     alias se='sudo systemctl'
     alias jf='journalctl -f'
-    alias vcp='echo scp -r $RPI[1]:$PWD .'
     alias vsls='l ~/data/dl'
     alias vsd='tree ~/data'
     alias vsmv='dedfiles ~/data ~/data/dl'
@@ -601,14 +586,6 @@ imgresize() {
     gm mogrify -resize $1x$2 $3
 }
 
-cry() {
-    if [[ $1 = -d ]] {
-        openssl enc -aes-256-cbc -d -in $2 -out $3
-    } else {
-        openssl enc -aes-256-cbc -e -in $1 -out $2
-    }
-}
-
 c() {
     cd $1
     ls -F --color
@@ -625,7 +602,7 @@ rm() {
     =rm -v $*
 }
 
-calculate() {
+calc() {
     zmodload zsh/mathfunc
     echo $(($*))
 }
@@ -850,7 +827,7 @@ rr() {
 }
 
 vmpath() {
-   echo scp -r $(hi | head -n 1):$(pwd)/$1 .
+   echo scp -r $(hi | head -n 1):$PWD/$1 .
 }
 
 zc() {
