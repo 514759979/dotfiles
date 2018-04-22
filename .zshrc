@@ -67,6 +67,12 @@ unsetopt BEEP
 #}}}
 
 #{{{ 按键绑定
+bindkey -v
+bindkey "^a"      beginning-of-line
+bindkey "^e"      end-of-line
+bindkey "^r"      history-incremental-search-backward
+bindkey "^s"      history-incremental-search-forward
+
 # 影响功能键的使用
 bindkey "\e[1~"   beginning-of-line
 bindkey "\e[2~"   insert-last-word
