@@ -437,12 +437,35 @@ if [[ -e /dev/lxss ]] {
     alias handle='/init /mnt/c/mine/app/Handle/handle64.exe'
     alias sslog='tailf /mnt/c/mine/app/shadowsocks/ss_win_temp/shadowsocks.log'
     alias syncmine='syncdir /mnt/c/mine /mnt/e/mine'
+
     alias vm='o /mnt/c/mine/app/0misc/bin/vm.js'
     alias vmup='o /mnt/c/mine/app/0misc/bin/vmup.js'
     alias vmdown='o /mnt/c/mine/app/0misc/bin/vmdown.js'
     alias vmpause='o /mnt/c/mine/app/0misc/bin/vmpause.js'
     alias vmresume='o /mnt/c/mine/app/0misc/bin/vmresume.js'
     alias vmhalt='o /mnt/c/mine/app/0misc/bin/vmhalt.js'
+
+    alias cyg='/init /mnt/c/cygwin64/setup-x86_64.exe -BOqnM'
+    alias cygpi='/init /mnt/c/cygwin64/setup-x86_64.exe -BOqnP'
+    alias cygpp='/init /mnt/c/cygwin64/setup-x86_64.exe -BOqnx'
+    alias cygpud='/init /mnt/c/cygwin64/setup-x86_64.exe -BOqng'
+    alias cygpq='sed 1d /mnt/c/cygwin64/etc/setup/installed.db'
+    alias cygpqm='grep " 1$" /mnt/c/cygwin64/etc/setup/installed.db'
+    alias cygpqi='cygpsi'
+
+    cygy() {
+        cat /mnt/c/cygwin64/tmp/http%3a%2f%2fmirrors.ustc.edu.cn%2fcygwin%2f/x86_64/setup.ini | \
+            sed -n "/@ $1.*/,/^version/p"
+    }
+
+    cygpsi() {
+        cat /mnt/c/cygwin64/tmp/http%3a%2f%2fmirrors.ustc.edu.cn%2fcygwin%2f/x86_64/setup.ini | \
+            sed -n "/@ $1$/,/^$/p" | sed '$d'
+    }
+
+    cygpql() {
+        zcat /mnt/c/cygwin64/etc/setup/$1.lst
+    }
 
     vv() {
         [[ $1 == "-r" ]] && {
