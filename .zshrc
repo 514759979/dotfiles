@@ -266,6 +266,7 @@ zstyle ':completion:*:my-accounts' users-hosts goreliu@192.168.1.{2,3,6,7,9}
 #{{{ 和 zsh 无关的配置
 export LANG=en_US.UTF-8
 export PYTHONDONTWRITEBYTECODE=1
+export M=192.168.1
 RPI=(192.168.1.6 192.168.1.7)
 (($+USER)) || export USER=goreliu
 (($+SHELL)) || export SHELL=/bin/zsh
