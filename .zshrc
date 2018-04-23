@@ -668,7 +668,8 @@ cwi() {
     print -l $buffer
 
     [[ -e $buffer[-1] ]] && {
-        print "\n$(<$buffer[-1])"
+        echo
+        cat $buffer[-1]
     }
 }
 
