@@ -537,11 +537,11 @@ if [[ -e /dev/lxss ]] {
     }
 
     backupconf() {
-        cd /mnt/c/mine/app/0misc/conf || return 1
+        cd /mnt/c/mine/app/0misc/conf/$HOST || return 1
 
-        rm -r ${HOST}_*
-        mdcd ${HOST}_$(date +"%Y-%m-%d.%H_%M_%S")
+        date +"%Y-%m-%d %H:%M:%S" > version
 
+        rm *.reg
         z reg export HKEY_CURRENT_USER\\Software\\Honeyview Honeyview.reg
         z reg export HKEY_CURRENT_USER\\Software\\Bandizip Bandizip.reg
 
