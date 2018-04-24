@@ -595,6 +595,8 @@ if [[ -e /dev/lxss ]] {
     alias vsd='tree ~/data'
     alias vsmv='dedfiles ~/data ~/data/dl'
     alias vsrm='rm -v ~/data/dl/*.*'
+    alias remove_useless_pkg='sudo pacman -Rcn jfsutils lvm2 logrotate mdadm nano \
+        pcmciautils reiserfsprogs texinfo vi xfsprogs'
 }
 
 path+=(~/.bin)
