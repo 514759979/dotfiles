@@ -17,7 +17,7 @@ local newfilename="$2"
         ext=""
     }
 
-    newfilename=test$$$ext
+    newfilename=$1$$$ext
 }
 
 cp -i $filepath[1] $newfilename
