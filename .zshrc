@@ -498,19 +498,15 @@ if [[ -e /dev/lxss ]] {
     }
 
     wsudo() {
-        z c:/mine/app/0misc/bin/runas.js $*
-    }
-
-    srun() {
-        wsudo powershell -NoLogo -c "$*;pause"
+        z c:/mine/app/0misc/bin/sudo.js $*
     }
 
     disma() {
-        srun Dism.exe /Online /Cleanup-Image /AnalyzeComponentStore
+        wsudo -k Dism.exe /Online /Cleanup-Image /AnalyzeComponentStore
     }
 
     dismc() {
-        srun Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
+        wsudo -k Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
     }
 
     tk() {
