@@ -479,6 +479,10 @@ if [[ -e /dev/lxss ]] {
         ssh -tq -p 2222 127.0.0.1 $args
     }
 
+    say() {
+        o ~/.bin/src/say.js "$*"
+    }
+
     fm() {
         local filename
 
