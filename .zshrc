@@ -1,4 +1,4 @@
-#{{{ 命令提示符、标题栏、任务栏样式
+#{{{ 命令提示符、标题栏、任务栏样式、颜色
 precmd() {
     # %{%F{cyan}%}
     # %n -- username
@@ -37,6 +37,9 @@ case $TERM {
     }
     ;;
 }
+
+# eval `dircolors ~/.dir_colors`
+source ~/.file_colors
 #}}}
 
 #{{{ 关于历史纪录的配置
@@ -397,6 +400,7 @@ alias fa='fc -IA'
 alias fr='fc -IR'
 alias dlc='DIANA_HOST=192.168.1.6 diana'
 alias to='touch'
+alias gen_file_colors='dircolors ~/.dir_colors > .file_colors'
 # aliasend
 
 if [[ -e /dev/lxss ]] {
@@ -605,7 +609,6 @@ path+=(~/.bin)
 # export EDITOR=vim
 export PAGER='less -irf'
 export GREP_COLOR='40;33;01'
-eval `dircolors ~/.dir_colors`
 # 禁用 ctrl + s
 stty -ixon
 
