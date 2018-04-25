@@ -953,6 +953,8 @@ note() {
         cat ~/.cache/note
     } elif [[ $1 == -v ]] {
         vim ~/.cache/note
+    } elif [[ $1 == -g ]] {
+        cat ~/.cache/note | grep $*[2,-1]
     } else {
         echo $* >> ~/.cache/note
     }
