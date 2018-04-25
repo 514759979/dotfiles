@@ -437,6 +437,7 @@ if [[ -e /dev/lxss ]] {
     alias handle='/init /mnt/c/mine/app/Handle/handle64.exe'
     alias sslog='tailf /mnt/c/mine/app/shadowsocks/ss_win_temp/shadowsocks.log'
     alias syncmine='syncdir /mnt/c/mine /mnt/e/mine'
+    alias dmg='w'
 
     alias vm='/init /mnt/c/Program\ Files/Oracle/VirtualBox/VBoxManage.exe'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
