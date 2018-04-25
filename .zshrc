@@ -400,7 +400,6 @@ alias fa='fc -IA'
 alias fr='fc -IR'
 alias dlc='DIANA_HOST=192.168.1.6 diana'
 alias to='touch'
-alias gen_file_colors='dircolors ~/.dir_colors > .file_colors'
 # aliasend
 
 if [[ -e /dev/lxss ]] {
@@ -881,6 +880,11 @@ zc() {
     [[ ~/.zcompdump.zwc -nt ~/.zcompdump ]] || {
         echo update .zcompdump.zwc
         zcompile ~/.zcompdump
+    }
+
+    [[ ~/.file_colors -nt ~/.dir_colors ]] || {
+        echo update .file_colors
+        dircolors ~/.dir_colors > ~/.file_colors
     }
 }
 
