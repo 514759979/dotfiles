@@ -945,6 +945,18 @@ tf() {
         tail -f $*
     }
 }
+
+note() {
+    if [[ $1 == "" ]] {
+        cat >> ~/.cache/note
+    } elif [[ $1 == -r ]] {
+        cat ~/.cache/note
+    } elif [[ $1 == -v ]] {
+        vim ~/.cache/note
+    } else {
+        echo $* >> ~/.cache/note
+    }
+}
 # funcend
 
 if (($+commands[pacman])) {
