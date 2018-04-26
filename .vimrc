@@ -53,7 +53,6 @@ nnoremap <F5> :!./%<cr>
 nnoremap <F6> :!o %<cr><cr>
 nnoremap <F7> :!./%:t:r<cr>
 nnoremap <F8> :set foldmethod=marker<cr>
-nnoremap <F9> :w<cr>:make<cr>:cw<cr>
 
 nnoremap <C-a> ggVG
 inoremap <C-a> <C-O>gg<C-O>VG
