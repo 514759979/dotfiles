@@ -417,7 +417,7 @@ if [[ -e /dev/lxss ]] {
     alias flve='z c:/mine/app/FLV_Extract/FLVExtractCL.exe'
     alias ipconfig='/init /mnt/c/Windows/System32/ipconfig.exe | ucat'
     alias tl='/init /mnt/c/Windows/System32/tasklist.exe'
-    alias tlg='/init /mnt/c/Windows/System32/tasklist.exe | grep'
+    alias tlg='/init /mnt/c/Windows/System32/tasklist.exe | grep -i'
     alias netstat='/init /mnt/c/Windows/System32/netstat.exe'
     alias ps1='/init /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe'
     alias pa='/init /mnt/c/mine/app/0misc/bin/pclip.exe | ucat'
