@@ -402,6 +402,7 @@ alias fa='fc -IA'
 alias fr='fc -IR'
 alias dlc='DIANA_HOST=192.168.1.6 diana'
 alias to='touch'
+alias hig='history 1 | grep -i'
 # aliasend
 
 if [[ -e /dev/lxss ]] {
