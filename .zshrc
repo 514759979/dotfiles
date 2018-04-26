@@ -551,7 +551,10 @@ if [[ -e /dev/lxss ]] {
         z reg export HKEY_CURRENT_USER\\Software\\Honeyview Honeyview.reg
         z reg export HKEY_CURRENT_USER\\Software\\Bandizip Bandizip.reg
 
+        =rm -r Startup
         cp -r "/mnt/c/Users/goreliu/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup" .
+
+        =rm -r mine
         cp -r "/mnt/c/Users/goreliu/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/mine" .
 
         mdcd tc
