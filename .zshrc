@@ -259,6 +259,8 @@ autoload -U zmv
 # 按照对应命令补全
 compdef cwi=time
 compdef vwi=time
+compdef fwi=time
+compdef lwi=time
 compdef st=sudo
 compdef whoneeds=pactree
 
@@ -695,6 +697,14 @@ vwi() {
     } elif [[ $buffer == *"is an alias for"* ]] {
         vim "+/^ *alias $1=" -p ~/.zshrc
     }
+}
+
+lwi() {
+    l $(which $*)
+}
+
+fwi() {
+    file $(which $*)
 }
 
 ac() {
