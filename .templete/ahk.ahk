@@ -1,6 +1,5 @@
 ﻿#NoEnv
-#NoTrayicon
-; #Warn
+#NoTrayIcon
 SendMode Input
 SetWorkingDir %A_ScriptDir%
 
