@@ -488,7 +488,7 @@ if [[ -e /dev/lxss ]] {
     }
 
     say() {
-        o ~/.bin/src/say.js "$*"
+        o ~/.bin/src/say.ahk "$*"
     }
 
     fm() {
