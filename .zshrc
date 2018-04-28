@@ -488,7 +488,7 @@ if [[ -e /dev/lxss ]] {
     }
 
     say() {
-        o ~/.bin/src/say.ahk "$*"
+        (cd; z c:/mine/app/AutoHotkey/AutoHotkeyU64.exe .bin/src/say.ahk "$*" &)
     }
 
     fm() {
