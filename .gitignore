@@ -4,7 +4,6 @@
 .bin/darkhttpd
 .bin/tailf
 .bin/z
-.bypy
 .cache
 .config
 .dbus
@@ -14,14 +13,12 @@
 .lesshst
 .local
 .pcs
-.percol.d
 .profile
 .python_history
 .pythonhist
 .rnd
 .sqlite_history
 .ssh
-.subversion
 .termux
 .tig_history
 .vim
