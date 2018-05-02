@@ -575,6 +575,8 @@ if [[ -e /dev/lxss ]] {
         cp /mnt/c/mine/app/notepad++/config.xml .
         cd $OLDPWD
 
+        cp /home/goreliu/git/python-tuya/mybulb .
+
         git add -f *
     }
 
