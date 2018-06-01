@@ -995,7 +995,7 @@ if (($+commands[pacman])) {
     alias pia='pac -S --noconfirm'
     alias pid='pac -S -d -d'
     alias pli='pac -U'
-    alias pud="pac -Syu"
+    alias pud="sudo pacman --color auto -Syu"
     alias pudd="pac -Syu --aur"
     alias psu="pac -Su"
     alias pd='pac -Sw'
