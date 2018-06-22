@@ -757,6 +757,10 @@ exmp4() {
     ffmpeg -i $1 -vcodec copy -an $1.mp4
 }
 
+aac2m4a() {
+    MP4Box -add $1 -new ${1/aac/m4a}
+}
+
 tophistory() {
     num=20
     (($+1)) && num=$1
