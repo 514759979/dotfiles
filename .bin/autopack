@@ -2,7 +2,7 @@
 
 get_type_by_name() {
     case $1 {
-        (*.zip|*.7z|*.jar)
+        (*.zip|*.7z|*.jar|*.epub)
         echo 7z
         ;;
 
