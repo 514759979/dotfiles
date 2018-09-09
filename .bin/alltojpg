@@ -29,9 +29,12 @@ rename .JPG _j.jpg **/*.JPG
 
 rr -j 30
 
+[[ $1 == <-> ]] && {
+    quality=(-quality $1)
+}
+
 for i (**/*.(jpg|png|PNG|jpeg|JPEG)) {
-    # rr gm convert -quality 100 $i $i.JPG
-    rr gm convert $i $i.JPG
+    rr gm convert $quality $i $i.JPG
 }
 
 # 等所有操作结束
