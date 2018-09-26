@@ -445,6 +445,9 @@ if [[ -e /dev/lxss ]] {
     alias sslog='tailf /mnt/c/mine/app/shadowsocks/ss_win_temp/shadowsocks.log'
     alias syncmine='syncdir /mnt/c/mine /mnt/e/mine'
     alias dmg='w'
+    alias apktool='/init /mnt/c/mine/app/apktool/apktool.bat'
+    alias signapk='/init /mnt/c/mine/app/APKSign/signapk.bat'
+    alias zipalign='/init /mnt/c/mine/app/APKSign/zipalign.exe -p 4'
 
     alias vm='/init /mnt/c/Program\ Files/Oracle/VirtualBox/VBoxManage.exe'
     alias vmlist='vm list vms; echo --RUNNING--; vm list runningvms'
@@ -588,6 +591,12 @@ if [[ -e /dev/lxss ]] {
         }
 
         cat ~/mine/app/0misc/log/run.log | grep $query
+    }
+
+    apksign() {
+        /init /mnt/c/mine/app/APKSign/zipalign.exe -p 4 $1 $1.align.apk
+        /init /mnt/c/mine/app/APKSign/signapk.bat $1.align.apk $1.out.apk
+        rm $1.align.apk
     }
 } elif [[ $OSTYPE == *android* ]] {
     export SHELL=/bin/zsh
