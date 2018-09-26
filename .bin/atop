@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+su -c "export LD_LIBRARY_PATH=/data/data/com.termux/files/usr/lib; export PATH=/data/data/com.termux/files/usr/bin; export HOME=/data/data/com.termux/files/home; export TERM=xterm; export LANG=en_US.UTF-8; stty columns 55; stty rows 23; /data/data/com.termux/files/usr/bin/top"
+
+reset
