@@ -602,7 +602,7 @@ if [[ -e /dev/lxss ]] {
     export SHELL=/bin/zsh
     alias dh='df 2>/dev/null'
     alias frm="free -m | sed 's/ \+/  /g'"
-    alias mt='top'
+    alias mt='atop'
     alias chr='termux-chroot zsh'
     alias lock='termux-wake-lock'
     alias unlock='termux-wake-unlock'
