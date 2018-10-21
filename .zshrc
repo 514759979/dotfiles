@@ -444,7 +444,6 @@ if [[ -e /dev/lxss ]] {
     alias handle='/init /mnt/c/mine/app/Handle/handle64.exe'
     alias sslog='tailf /mnt/c/mine/app/shadowsocks/ss_win_temp/shadowsocks.log'
     alias syncmine='syncdir /mnt/c/mine /mnt/e/mine'
-    alias dmg='w'
     alias apktool='/init /mnt/c/mine/app/apktool/apktool.bat'
     alias signapk='/init /mnt/c/mine/app/APKSign/signapk.bat'
     alias zipalign='/init /mnt/c/mine/app/APKSign/zipalign.exe -p 4'
