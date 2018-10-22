@@ -925,6 +925,11 @@ mm() {
     mail -s "$*" ly50247@126.com
 }
 
+ww() {
+    local key="SCU34549Tb55ef71d00f362509116d94a14407f835bcdaa414979d"
+    curl "http://sc.ftqq.com/$key.send?text=$1&desp=$2"
+}
+
 b() {
     local_dir=$(readlink -f $PWD)
     remote_dir=/
