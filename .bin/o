@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-alias run='setsid ~/.bin/z start'
+alias run='~/.bin/z start'
 
 if [[ $1 == http* || $1 == www* ]] {
     run "" $*
