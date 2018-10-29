@@ -2,7 +2,8 @@
 
 zmodload zsh/datetime
 
-all="~!@#$%^&*()_+\`1234567890-={}[]:\";'<>?,./"
+all="1234567890"
+#all="~!@#$%^&*()_+\`1234567890-={}[]:\";'<>?,./"
 
 while ((1)) {
     text=""
@@ -31,5 +32,6 @@ while ((1)) {
 
     print -- $judge
 
-    printf "耗时：%.2lfs  准确率：%.2lf%%\n\n" $((end_time - begin_time)) $((100.0 * right / COLUMNS))
+    printf "字数：%d  耗时：%.2lfs  准确率：%.2lf%%\n\n" \
+        $COLUMNS $((end_time - begin_time)) $((100.0 * right / COLUMNS))
 }
